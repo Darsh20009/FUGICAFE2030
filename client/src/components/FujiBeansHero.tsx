@@ -53,39 +53,33 @@ export function FujiBeansHero() {
       className="fuji-hero relative w-full overflow-hidden flex items-center justify-center"
       style={{ height: "100svh", minHeight: 560 }}
     >
-      {/* Deep dark background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse at 50% 40%, #2a1208 0%, #0f0604 60%, #000 100%)",
-        }}
+      {/* Original background image */}
+      <img
+        src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=80"
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+        fetchpriority="high"
+        className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
-      {/* Ambient glow rings */}
+      {/* Dark overlay for legibility */}
+      <div className="absolute inset-0 bg-black/58 pointer-events-none" />
+
+      {/* Warm amber vignette center */}
       <div
         className="absolute pointer-events-none"
         style={{
-          width: "70vw", height: "70vw", maxWidth: 800, maxHeight: 800,
+          width: "60vw", height: "60vw", maxWidth: 700, maxHeight: 700,
           borderRadius: "50%",
           top: "50%", left: "50%",
           transform: "translate(-50%, -55%)",
-          background: "radial-gradient(circle, rgba(139,69,30,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: "40vw", height: "40vw", maxWidth: 400, maxHeight: 400,
-          borderRadius: "50%",
-          top: "40%", left: "50%",
-          transform: "translate(-50%, -50%)",
-          background: "radial-gradient(circle, rgba(232,99,122,0.10) 0%, transparent 70%)",
-          filter: "blur(30px)",
+          background: "radial-gradient(circle, rgba(139,69,30,0.25) 0%, transparent 70%)",
+          filter: "blur(50px)",
         }}
       />
 
-      {/* Bottom fade */}
+      {/* Bottom fade to cream */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FAF6F0] to-transparent pointer-events-none z-10" />
 
       {/* Floating real bean images */}

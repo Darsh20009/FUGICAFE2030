@@ -369,7 +369,14 @@ export default function ProductDetails() {
           availability: stockCount > 0 ? "InStock" : "OutOfStock",
         }}
       />
-      <div className="container py-12 sm:py-16 md:py-20 lg:py-24">
+      {/* Real bean background decorations */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <img src="/beans/bean1.png" alt="" style={{ position:"absolute", width:200, top:"8%", left:"-55px", opacity:0.05, transform:"rotate(-15deg)", filter:"blur(1px)" }} />
+        <img src="/beans/bean3.png" alt="" style={{ position:"absolute", width:170, top:"30%", right:"-45px", opacity:0.045, transform:"rotate(40deg)", filter:"blur(1px)" }} />
+        <img src="/beans/bean5.png" alt="" style={{ position:"absolute", width:220, bottom:"20%", left:"-60px", opacity:0.05, transform:"rotate(20deg)", filter:"blur(1.5px)" }} />
+        <img src="/beans/bean6.png" alt="" style={{ position:"absolute", width:185, bottom:"5%", right:"-50px", opacity:0.045, transform:"rotate(-30deg)", filter:"blur(1px)" }} />
+      </div>
+      <div className="container py-12 sm:py-16 md:py-20 lg:py-24 relative z-10">
         <div className={`grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-24 items-start ${language === 'ar' ? '' : 'lg:flex-row-reverse'}`}>
           {/* Image Gallery */}
           <motion.div 

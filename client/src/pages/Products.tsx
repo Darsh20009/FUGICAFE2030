@@ -246,7 +246,17 @@ export default function Products() {
         canonical="/products"
         ogType="website"
       />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+
+        {/* ── Real bean background decorations ───────────────────────── */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+          <img src="/beans/bean2.png" alt="" style={{ position:"absolute", width:220, top:"5%", left:"-60px", opacity:0.055, transform:"rotate(-20deg)", filter:"blur(1px)" }} />
+          <img src="/beans/bean4.png" alt="" style={{ position:"absolute", width:180, top:"20%", right:"-50px", opacity:0.045, transform:"rotate(35deg)", filter:"blur(1px)" }} />
+          <img src="/beans/bean1.png" alt="" style={{ position:"absolute", width:260, top:"42%", left:"-80px", opacity:0.05, transform:"rotate(10deg)", filter:"blur(1.5px)" }} />
+          <img src="/beans/bean6.png" alt="" style={{ position:"absolute", width:200, top:"58%", right:"-55px", opacity:0.05, transform:"rotate(-40deg)", filter:"blur(1px)" }} />
+          <img src="/beans/bean3.png" alt="" style={{ position:"absolute", width:240, bottom:"15%", left:"-65px", opacity:0.055, transform:"rotate(25deg)", filter:"blur(1px)" }} />
+          <img src="/beans/bean5.png" alt="" style={{ position:"absolute", width:190, bottom:"8%", right:"-45px", opacity:0.045, transform:"rotate(-15deg)", filter:"blur(1px)" }} />
+        </div>
 
         {/* ── TOP BAR ─────────────────────────────────────────────────── */}
         <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-sm border-b border-border/50">
