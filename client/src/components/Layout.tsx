@@ -721,7 +721,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
               {/* Commercial Registration */}
               <a
-                href="https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=et1BNw5nU2a6R1GygbnoPA=="
+                href="https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA=="
                 target="_blank"
                 rel="noreferrer"
                 className="flex flex-row items-center gap-3 group transition-transform"
@@ -736,7 +736,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   <div className="text-[9px] sm:text-[10px] text-gray-700 font-bold uppercase tracking-widest">
                     {t('commercialReg')}
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#E8637A] font-black group-hover:underline">1010978041</div>
+                  <div className="text-[11px] sm:text-xs text-[#E8637A] font-black group-hover:underline">7042488606</div>
                 </div>
               </a>
               {/* VAT */}
@@ -751,7 +751,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   <div className="text-[9px] sm:text-[10px] text-gray-700 font-bold uppercase tracking-widest">
                     {t('taxNumber')}
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#E8637A] font-black">312037024200003</div>
+                  <div className="text-[11px] sm:text-xs text-[#E8637A] font-black">312650651100003</div>
                 </div>
               </div>
               {/* Business Center Accreditation */}

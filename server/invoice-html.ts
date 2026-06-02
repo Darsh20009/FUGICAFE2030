@@ -58,7 +58,9 @@ export async function buildInvoiceHtml({ order, customer }: InvoiceData): Promis
   const sellerName = settings.storeNameAr || "فوجي كافيه";
   const sellerNameEn = settings.storeNameEn || "Fuji Cafe";
   const vatNumber = settings.vatNumber || "";
-  const crNumber = settings.crNumber || "0000203202";
+  const crNumber = settings.crNumber || "7042488606";
+  const nationalUnifiedNumber = settings.nationalUnifiedNumber || settings.crNumber || "7042488606";
+  const crLink = settings.crLink || "https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==";
   const sellerAddress = settings.companyAddress || settings.address || "المملكة العربية السعودية";
   const storeLogo = settings.logo || "";
 
@@ -357,7 +359,8 @@ export async function buildInvoiceHtml({ order, customer }: InvoiceData): Promis
         </div>
         <div class="brand-address">${esc(sellerAddress)}</div>
         ${vatNumber ? `<div class="brand-vat">الرقم الضريبي: ${esc(vatNumber)}</div>` : ""}
-        ${crNumber ? `<div class="brand-vat" style="color:rgba(255,255,255,0.4)">السجل التجاري: ${esc(crNumber)}</div>` : ""}
+        ${nationalUnifiedNumber ? `<div class="brand-vat" style="color:rgba(255,255,255,0.5)">الرقم الوطني الموحد: ${esc(nationalUnifiedNumber)}</div>` : ""}
+        ${crNumber ? `<div class="brand-vat" style="color:rgba(255,255,255,0.4)">السجل التجاري: <a href="${esc(crLink)}" style="color:rgba(255,255,255,0.4);text-decoration:none">${esc(crNumber)}</a></div>` : ""}
       </div>
       <div class="inv-header-right">
         <div class="inv-title">Tax Invoice</div>
