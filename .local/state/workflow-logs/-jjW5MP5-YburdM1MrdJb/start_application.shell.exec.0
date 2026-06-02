@@ -1,0 +1,42 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+Seeding فوجي كافيه admin user...
+Admin user created with phone 567891011 and password 123456
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 14h (2026-06-03T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+12:33:36 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+12:33:40 PM [express] GET /api/marketing/active 200 in 3ms :: []
+12:33:40 PM [express] GET /api/user 401 in 2ms
+12:33:40 PM [express] GET /api/pixels 200 in 35ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+12:33:40 PM [express] GET /api/stats 200 in 27ms :: []
+12:33:40 PM [express] GET /api/reviews/featured 200 in 26ms :: []
+12:33:40 PM [express] GET /api/store/settings 200 in 23ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+12:33:40 PM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+12:33:40 PM [express] GET /api/auth/apple/init 200 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+12:33:40 PM [express] GET /api/pages 200 in 21ms :: []
+12:33:40 PM [express] GET /api/categories 200 in 24ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+12:33:40 PM [express] GET /api/products 200 in 24ms :: [{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-06-02T07:56:05.229Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+12:33:40 PM [express] GET /api/flash-deals 200 in 22ms :: []
+12:33:41 PM [express] GET /api/user 401 in 1ms
+12:33:41 PM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://6650b636-aa1b-4f0f-9b6f-991d737dad7f-00-2swkewoucofol.janeway.replit.dev/api/auth/google/callback","enabled":false}
+12:33:41 PM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://6650b636-aa1b-4f0f-9b6f-991d737dad7f-00-2swkewoucofol.janeway.replit.dev/api/auth/apple/callback","enabled":false}
+12:33:41 PM [express] GET /api/stats 304 in 24ms :: []
+12:33:41 PM [express] GET /api/flash-deals 304 in 22ms :: []
+12:33:43 PM [express] GET /api/user 401 in 1ms
+12:33:43 PM [express] GET /api/user 401 in 1ms
+[Kimi] customer used ~987 tokens (total today: 987)
+12:33:50 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 200 in 7196ms :: {"tagline_ar":"ماتشا لاتيه فوجي، العطر الفخم الذي ينقلك إلى عالم الفخامة والفخامة. يجمع بين الروائح التقليدية والحديثة لتعطيك تجربة فريدة.","tagline_en":"Matsha Lateyh Fuji, the luxurious perfume that transports you to a world of opulence and grandeur. It blends traditional and modern scents to provide you with a unique experience.","highlights_ar":["الفخامة التقليدية","الروائح المميزة","التجربة الفريدة"],"highlights_en":["Traditional opulence","Distinctive scents","Unique experience"]}
+[Kimi] customer used ~989 tokens (total today: 1,976)
+12:33:58 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 7756ms :: {"tagline_ar":"استرخش برائحة حبوب القهوة الفوجي — أثيوبيا، تجمع بين الفخامة العربية والفخامة الأوروبية في عطورك الشخصية.","tagline_en":"Indulge in the rich aroma of Fuji Cafe Coffee — Ethiopia, a blend of Arabian luxury and European grandeur in your personal fragrance.","highlights_ar":["عطور فخمة","نكهة قهوة حصرية","سعر مميز"],"highlights_en":["Luxurious fragrance","Exclusive coffee scent","Exceptional value"]}
+[1G[0K⠙[1G[0K
