@@ -72,7 +72,7 @@ export function SplashScreen({ onFinish }: { onFinish: () => void }) {
             src="/videos/splash.mp4"
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
             style={{ background: "#FAF6F0" }}
           />

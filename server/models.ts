@@ -439,7 +439,9 @@ const storeSettingsSchema = new Schema(
     storeEmail: { type: String, default: "fugi2030@outlook.com" },
     storeAddress: { type: String, default: "" },
     vatNumber: { type: String, default: "" },
-    crNumber: { type: String, default: "0000203202" },
+    crNumber: { type: String, default: "" },
+    nationalUnifiedNumber: { type: String, default: "" },
+    crLink: { type: String, default: "" },
     // Bank transfer details
     bankName: { type: String, default: "مصرف الراجحي" },
     bankAccountHolder: { type: String, default: "فوجي كافيه" },

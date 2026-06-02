@@ -4806,6 +4806,8 @@ const StoreSettingsPanel = () => {
   const [storeEmail, setStoreEmail] = useState("");
   const [storeAddress, setStoreAddress] = useState("");
   const [crNumber, setCrNumber] = useState("");
+  const [nationalUnifiedNumber, setNationalUnifiedNumber] = useState("");
+  const [crLink, setCrLink] = useState("");
   const [vatNumber, setVatNumber] = useState("");
   const [vatRate, setVatRate] = useState<number>(15);
   const [maroofUrl, setMaroofUrl] = useState("");
@@ -4839,6 +4841,8 @@ const StoreSettingsPanel = () => {
       setStoreEmail(settings.storeEmail ?? "");
       setStoreAddress(settings.storeAddress ?? "");
       setCrNumber(settings.crNumber ?? "");
+      setNationalUnifiedNumber(settings.nationalUnifiedNumber ?? "");
+      setCrLink(settings.crLink ?? "");
       setVatNumber(settings.vatNumber ?? "");
       setVatRate(Number(settings.vatRate ?? 15));
       setMaroofUrl(settings.maroofUrl ?? "");
@@ -4929,7 +4933,7 @@ const StoreSettingsPanel = () => {
       socialAccounts: socials.map((s, i) => ({ ...s, sortOrder: s.sortOrder ?? i })),
       pickupEnabled, pickupInstructionsAr, pickupInstructionsEn,
       // identity / legal
-      storeName, storePhone, storeEmail, storeAddress, crNumber, vatNumber,
+      storeName, storePhone, storeEmail, storeAddress, crNumber, nationalUnifiedNumber, crLink, vatNumber,
       vatRate: Number(vatRate) || 0, maroofUrl,
       // contact
       whatsappNumber, supportPhone, supportEmail, supportHours,
@@ -4985,12 +4989,20 @@ const StoreSettingsPanel = () => {
             <Input value={storeAddress} onChange={e => setStoreAddress(e.target.value)} className="font-bold" placeholder="الرياض، حي..." data-testid="input-store-address" />
           </div>
           <div className="space-y-2">
-            <Label className="text-xs font-black uppercase">السجل التجاري (CR)</Label>
-            <Input value={crNumber} onChange={e => setCrNumber(e.target.value)} className="font-mono font-bold" dir="ltr" data-testid="input-cr-number" />
+            <Label className="text-xs font-black uppercase">السجل التجاري / الرقم الوطني الموحد (CR)</Label>
+            <Input value={crNumber} onChange={e => setCrNumber(e.target.value)} className="font-mono font-bold" dir="ltr" placeholder="7042488606" data-testid="input-cr-number" />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-xs font-black uppercase">الرقم الوطني الموحد (National ID)</Label>
+            <Input value={nationalUnifiedNumber} onChange={e => setNationalUnifiedNumber(e.target.value)} className="font-mono font-bold" dir="ltr" placeholder="7042488606" data-testid="input-national-unified-number" />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-xs font-black uppercase">رابط التحقق من السجل التجاري</Label>
+            <Input value={crLink} onChange={e => setCrLink(e.target.value)} className="font-mono font-bold text-xs" dir="ltr" placeholder="https://qr.saudibusiness.gov.sa/..." data-testid="input-cr-link" />
           </div>
           <div className="space-y-2">
             <Label className="text-xs font-black uppercase">الرقم الضريبي (VAT)</Label>
-            <Input value={vatNumber} onChange={e => setVatNumber(e.target.value)} className="font-mono font-bold" dir="ltr" placeholder="3xxxxxxxxx00003" data-testid="input-vat-number" />
+            <Input value={vatNumber} onChange={e => setVatNumber(e.target.value)} className="font-mono font-bold" dir="ltr" placeholder="312650651100003" data-testid="input-vat-number" />
           </div>
           <div className="space-y-2">
             <Label className="text-xs font-black uppercase">نسبة ضريبة القيمة المضافة %</Label>

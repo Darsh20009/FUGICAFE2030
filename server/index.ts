@@ -127,6 +127,28 @@ process.on('uncaughtException', (err: any) => {
 
 (async () => {
   await connectDB();
+
+  // ─── One-time migration: set correct legal / VAT data ─────────────────────
+  try {
+    const { StoreSettingsModel } = await import("./models");
+    await StoreSettingsModel.updateOne(
+      { key: "main" },
+      {
+        $set: {
+          crNumber: "7042488606",
+          nationalUnifiedNumber: "7042488606",
+          crLink: "https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==",
+          vatNumber: "312650651100003",
+        },
+        $setOnInsert: { key: "main" },
+      },
+      { upsert: true }
+    );
+    console.log("[Migration] Store legal data updated");
+  } catch (e: any) {
+    console.warn("[Migration] Could not update store legal data:", e?.message);
+  }
+
   await registerRoutes(httpServer, app);
 
   // ─── WebSocket Server ──────────────────────────────────────────────────────
