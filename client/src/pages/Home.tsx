@@ -211,7 +211,7 @@ export default function Home() {
             className={`mb-10 ${isRtl ? "text-right" : "text-left"}`}
           >
             <div className={`flex items-center gap-3 mb-3 ${isRtl ? "flex-row-reverse" : ""}`}>
-              <img src={logoImg} alt="Fuji" className="h-6 w-auto opacity-60" />
+              <img src={logoImg} alt="Fuji" className="h-6 w-auto opacity-70 logo-transparent" />
               <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#E8637A]">
                 {isRtl ? "من أجود المصادر" : "From the Finest Origins"}
               </span>
@@ -239,7 +239,7 @@ export default function Home() {
             <div className={`flex items-center justify-between mb-6 ${isRtl ? "flex-row-reverse" : ""}`}>
               <div>
                 <div className={`flex items-center gap-2 mb-1 ${isRtl ? "flex-row-reverse" : ""}`}>
-                  <img src={logoImg} alt="" className="h-4 w-auto opacity-50" />
+                  <img src={logoImg} alt="" className="h-4 w-auto opacity-60 logo-transparent" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E8637A]">
                     {language === "ar" ? "وصل حديثًا" : "Just In"}
                   </span>
@@ -416,7 +416,7 @@ export default function Home() {
         <LogoWatermark opacity={0.04} />
         <div className="container px-4 relative z-10">
           <div className="text-center mb-12">
-            <img src={logoImg} alt="Fuji" className="h-10 w-auto mx-auto mb-4 opacity-70" />
+            <img src={logoImg} alt="Fuji" className="h-10 w-auto mx-auto mb-4 opacity-80 logo-transparent" />
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] block mb-3">
               {isRtl ? "التزامنا" : "Our Commitment"}
             </span>
@@ -496,7 +496,7 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative">
             <div className="flex items-center justify-center gap-4 mb-10">
               <div className="h-px w-16 bg-[#E8637A]" />
-              <img src={logoImg} alt="Fuji Cafe" className="h-10 w-auto opacity-85" />
+              <img src={logoImg} alt="Fuji Cafe" className="h-10 w-auto opacity-85 logo-transparent" />
               <div className="h-px w-16 bg-[#E8637A]" />
             </div>
             <p className="text-center text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-4">

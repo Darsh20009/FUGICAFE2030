@@ -110,7 +110,7 @@ export function Layout({ children }: { children: ReactNode }) {
             href="/"
             className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center hover:opacity-80 active:scale-95 transition-all"
           >
-            <img src={logoImg} alt="فوجي كافيه" className="h-10 w-auto object-contain" />
+            <img src={logoImg} alt="فوجي كافيه" className="h-10 w-auto object-contain logo-transparent" />
           </Link>
 
           <div className="flex items-center gap-2 md:gap-4">
@@ -125,7 +125,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
                   {/* ── Header ─────────────────────────────────── */}
                   <div className="flex items-center justify-between px-5 pt-5 pb-4">
-                    <img src={logoImg} alt="فوجي كافيه" className="h-9 w-auto object-contain" />
+                    <img src={logoImg} alt="فوجي كافيه" className="h-9 w-auto object-contain logo-transparent" />
                     <button
                       onClick={closeSidebar}
                       className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors active:scale-95"
@@ -340,7 +340,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </Sheet>
 
             <Link href="/" className="hidden md:flex items-center py-1 hover:opacity-80 transition-opacity active:scale-95 transition-transform">
-              <img src={logoImg} alt="فوجي كافيه" className="h-11 md:h-14 w-auto object-contain rounded-sm" />
+              <img src={logoImg} alt="فوجي كافيه" className="h-11 md:h-14 w-auto object-contain logo-transparent" />
             </Link>
           </div>
 
@@ -553,7 +553,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 px-4">
           <div className="col-span-2 md:col-span-1 space-y-3 sm:space-y-4">
             <Link href="/" className="flex items-center">
-              <img src={logoImg} alt="فوجي كافيه" className="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+              <img src={logoImg} alt="فوجي كافيه" className="h-10 sm:h-12 md:h-14 w-auto object-contain logo-transparent" />
             </Link>
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               {t('footerTagline')}

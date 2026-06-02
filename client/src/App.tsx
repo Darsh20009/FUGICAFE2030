@@ -6,8 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useLanguage } from "@/hooks/use-language";
 import { AuthProvider } from "@/components/auth-provider";
-import { SplashScreen } from "@/components/SplashScreen";
-import { useState, Component, ReactNode, lazy, Suspense } from "react";
+import { Component, ReactNode, lazy, Suspense } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Products from "@/pages/Products";
@@ -271,27 +270,13 @@ function AppContent() {
 }
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(() => {
-    const seen = sessionStorage.getItem("rf_splash_seen");
-    return !seen;
-  });
-
-  const handleSplashFinish = () => {
-    sessionStorage.setItem("rf_splash_seen", "1");
-    setShowSplash(false);
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light" storageKey="fuji-cafe-theme">
         <TooltipProvider>
           <AuthProvider>
             <Toaster />
-            {showSplash ? (
-              <SplashScreen onFinish={handleSplashFinish} />
-            ) : (
-              <AppContent />
-            )}
+            <AppContent />
           </AuthProvider>
         </TooltipProvider>
       </ThemeProvider>
