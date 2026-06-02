@@ -4781,17 +4781,17 @@ ${allUrls.map(u => `  <url>
       if (!product) return res.status(404).json({ message: "Product not found" });
 
       // Always-safe defaults (used if AI fails or returns nothing usable)
-      const defaultHighlightsAr = ["تركيبة فاخرة وثابتة", "حضور آسر طوال اليوم", "مناسب لجميع المناسبات"];
-      const defaultHighlightsEn = ["Luxurious long-lasting blend", "Captivating all-day presence", "Perfect for every occasion"];
-      const defaultTaglineAr = product.description || `عطر ${product.name} — لمسة فاخرة من فوجي كافيه`;
-      const defaultTaglineEn = product.descriptionEn || `${product.nameEn || product.name} — a signature scent by Fuji Cafe`;
+      const defaultHighlightsAr = ["حبوب مختارة بعناية", "تحميص متقن لأقصى نكهة", "تجربة قهوة استثنائية"];
+      const defaultHighlightsEn = ["Carefully selected beans", "Expertly roasted for peak flavour", "Exceptional coffee experience"];
+      const defaultTaglineAr = product.description || `${product.name} — قهوة متخصصة فاخرة من فوجي كافيه`;
+      const defaultTaglineEn = product.descriptionEn || `${product.nameEn || product.name} — specialty coffee by Fuji Cafe`;
 
       try {
         const { generateProductDescription } = await import("./ai");
         const ai: any = await generateProductDescription({
           name: product.name,
           nameEn: product.nameEn || "",
-          category: "perfume",
+          category: product.categoryId || "specialty coffee",
           price: Number(product.price) || 0,
         }) || {};
         const aiHighlightsAr = Array.isArray(ai.highlights_ar) ? ai.highlights_ar.filter((s: any) => typeof s === "string" && s.trim()).slice(0, 3) : [];

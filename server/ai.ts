@@ -146,24 +146,27 @@ export async function generateProductDescription(product: {
   targetAudience?: string;
   lang?: "ar" | "en" | "both";
 }) {
-  const prompt = `You are a professional copywriter for a Saudi luxury perfume brand called Fuji Cafe (فوجي كافيه).
-STRICT RULE: Write Arabic text ONLY in Arabic script. Write English text ONLY in English. NEVER mix languages or use Chinese, Japanese, or any other script.
+  const prompt = `You are a professional Arabic copywriter for Fuji Cafe (فوجي كافيه), a Saudi specialty coffee brand.
+STRICT RULES:
+1. Write Arabic text ONLY in Arabic script — no Chinese, Japanese, Korean or any other language.
+2. Write English text ONLY in the Latin alphabet.
+3. This is a COFFEE brand — write about coffee flavours, aroma, brewing, origin. Never mention perfume or fragrance.
 
-Product name: ${product.name}${product.nameEn ? ` / ${product.nameEn}` : ""}
+Product: ${product.name}${product.nameEn ? ` / ${product.nameEn}` : ""}
 Category: ${product.category}
 Price: ${product.price} SAR
 ${product.targetAudience ? `Target audience: ${product.targetAudience}` : ""}
 
-Reply ONLY with valid JSON — no extra text, no markdown:
+Reply ONLY with valid JSON — no markdown, no extra text:
 {
-  "description_ar": "وصف عربي جذاب 2-3 جمل يبرز الفخامة والرائحة",
-  "description_en": "Engaging English description 2-3 sentences highlighting luxury",
-  "highlights_ar": ["ميزة رئيسية 1", "ميزة رئيسية 2", "ميزة رئيسية 3"],
-  "highlights_en": ["Key benefit 1", "Key benefit 2", "Key benefit 3"],
-  "seo_tags_ar": ["كلمة مفتاحية", "كلمة أخرى"],
-  "seo_tags_en": ["keyword", "another keyword"],
-  "care_instructions_ar": "تعليمات العناية بالمنتج",
-  "care_instructions_en": "Product care instructions"
+  "description_ar": "وصف عربي جذاب 2-3 جمل يبرز مذاق القهوة وأصلها ونكهتها",
+  "description_en": "Engaging English description 2-3 sentences about coffee flavour and origin",
+  "highlights_ar": ["ميزة قهوة 1", "ميزة قهوة 2", "ميزة قهوة 3"],
+  "highlights_en": ["Coffee feature 1", "Coffee feature 2", "Coffee feature 3"],
+  "seo_tags_ar": ["كلمة مفتاحية قهوة", "كلمة أخرى"],
+  "seo_tags_en": ["coffee keyword", "another keyword"],
+  "care_instructions_ar": "طريقة التخزين والتحضير المثلى",
+  "care_instructions_en": "Best storage and brewing instructions"
 }`;
 
   return kimiJSON(prompt, 700);
@@ -178,33 +181,33 @@ export async function getOutfitSuggestions(params: {
 }) {
   const lang = pickLang(params.lang, params.productName, params.occasion);
   const prompt = lang === "ar"
-    ? `أنت مستشار عطور خبير. اقترح كيفية استخدام هذا العطر:
+    ? `أنت مستشار قهوة متخصصة خبير في فوجي كافيه. اقترح كيفية الاستمتاع بهذا المنتج:
 المنتج: ${params.productName} (${params.productCategory})
 ${params.occasion ? `المناسبة: ${params.occasion}` : ""}
 ${params.gender ? `للـ: ${params.gender === "male" ? "رجال" : "نساء"}` : ""}
 
-أجب بصيغة JSON فقط بالعربية:
+أجب بصيغة JSON فقط بالعربية — لا حروف صينية أو يابانية:
 {
   "occasions": ["مناسبة 1", "مناسبة 2", "مناسبة 3"],
   "combinations": [
-    {"item": "عطر أو بخور يناسبه", "why": "سبب قصير"}
+    {"item": "طعام أو مشروب يناسبه", "why": "سبب قصير"}
   ],
-  "style_tip": "نصيحة استخدام واحدة قيّمة",
-  "avoid": "ما يجب تجنبه"
+  "style_tip": "نصيحة تحضير أو استمتاع قيّمة",
+  "avoid": "ما يجب تجنبه عند التحضير"
 }`
-    : `You are an expert perfume advisor. Suggest how to use this scent:
+    : `You are an expert specialty coffee advisor at Fuji Cafe. Suggest how to enjoy this product:
 Product: ${params.productName} (${params.productCategory})
 ${params.occasion ? `Occasion: ${params.occasion}` : ""}
 ${params.gender ? `For: ${params.gender === "male" ? "men" : "women"}` : ""}
 
-Reply in JSON only, in English:
+Reply in JSON only, in English — no Chinese or Japanese characters:
 {
   "occasions": ["occasion 1", "occasion 2", "occasion 3"],
   "combinations": [
-    {"item": "matching scent or incense", "why": "short reason"}
+    {"item": "food or drink pairing", "why": "short reason"}
   ],
-  "style_tip": "one valuable usage tip",
-  "avoid": "what to avoid"
+  "style_tip": "one valuable brewing or enjoyment tip",
+  "avoid": "what to avoid when brewing"
 }`;
 
   return kimiJSON(prompt, 400);
