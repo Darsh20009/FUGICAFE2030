@@ -22,29 +22,44 @@ import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
 import { RiyalSign } from "@/components/RiyalSign";
 
-/* ── Decorative floating bean ─────────────────────────────────── */
-function BeanSvg({ className = "", style = {} }: { className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} style={style}>
-      <ellipse cx="30" cy="20" rx="28" ry="18" fill="currentColor" opacity="0.9" />
-      <ellipse cx="30" cy="20" rx="22" ry="13" fill="currentColor" opacity="0.7" />
-      <path d="M30 7 Q34 20 30 33" stroke="rgba(0,0,0,0.3)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
+/* ── Real bean images ──────────────────────────────────────────── */
+const BEAN_IMGS = [
+  "/beans/bean1.png",
+  "/beans/bean2.png",
+  "/beans/bean3.png",
+  "/beans/bean4.png",
+  "/beans/bean5.png",
+  "/beans/bean6.png",
+];
 
-/* ── Section beans decoration ─────────────────────────────────── */
+/* ── Section beans decoration with real photos ─────────────────── */
 function BeansDecor({ side = "left", count = 3 }: { side?: "left" | "right"; count?: number }) {
   const positions = [
-    { top: "10%", rotate: -20, size: 48, opacity: 0.07 },
-    { top: "40%", rotate: 15, size: 64, opacity: 0.05 },
-    { top: "70%", rotate: -35, size: 36, opacity: 0.08 },
+    { top: "8%",  rotate: -20, size: 56, opacity: 0.10, img: 0 },
+    { top: "38%", rotate: 25,  size: 72, opacity: 0.08, img: 2 },
+    { top: "68%", rotate: -40, size: 44, opacity: 0.11, img: 4 },
   ].slice(0, count);
   return (
-    <div className={`absolute top-0 bottom-0 ${side === "left" ? "left-0 pl-3" : "right-0 pr-3"} w-20 pointer-events-none overflow-hidden`}>
+    <div className={`absolute top-0 bottom-0 ${side === "left" ? "left-0" : "right-0"} w-24 pointer-events-none overflow-hidden`}>
       {positions.map((p, i) => (
-        <div key={i} className="absolute text-[#6B3F2A]" style={{ top: p.top, [side]: 8, transform: `rotate(${p.rotate}deg)`, opacity: p.opacity }}>
-          <BeanSvg style={{ width: p.size, height: p.size * 0.65 }} />
+        <div
+          key={i}
+          className="absolute"
+          style={{
+            top: p.top,
+            [side]: -10,
+            transform: `rotate(${p.rotate}deg)`,
+            opacity: p.opacity,
+            width: p.size,
+            height: p.size,
+          }}
+        >
+          <img
+            src={BEAN_IMGS[p.img]}
+            alt=""
+            draggable={false}
+            style={{ width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))" }}
+          />
         </div>
       ))}
     </div>
@@ -519,11 +534,11 @@ export default function Home() {
             </blockquote>
             <div className="flex items-center justify-center gap-3 mt-10">
               <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-[#E8637A]/40" />
-              <BeanSvg className="w-6 h-4 text-[#6B3F2A] opacity-40" />
+              <img src="/beans/bean1.png" alt="" style={{ width: 28, height: 28, objectFit: "contain", opacity: 0.45 }} />
               <div className="w-1.5 h-1.5 rounded-full bg-[#E8637A]" />
               <img src={logoImg} alt="" className="h-5 w-auto opacity-30" />
               <div className="w-1.5 h-1.5 rounded-full bg-[#E8637A]" />
-              <BeanSvg className="w-6 h-4 text-[#6B3F2A] opacity-40" />
+              <img src="/beans/bean3.png" alt="" style={{ width: 28, height: 28, objectFit: "contain", opacity: 0.45 }} />
               <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-[#E8637A]/40" />
             </div>
           </motion.div>
@@ -540,17 +555,17 @@ export default function Home() {
           className="absolute inset-0 opacity-5"
           style={{ backgroundImage: `url("${logoImg}")`, backgroundRepeat: "repeat", backgroundSize: "100px" }}
         />
-        {/* Scattered bean SVGs as decorative drop art */}
+        {/* Scattered real bean photos as decorative drop art */}
         {[
-          { x: "8%", y: "15%", r: 25, s: 50 },
-          { x: "90%", y: "20%", r: -15, s: 38 },
-          { x: "5%", y: "75%", r: 40, s: 44 },
-          { x: "85%", y: "70%", r: -30, s: 56 },
-          { x: "50%", y: "5%", r: 10, s: 32 },
-          { x: "45%", y: "90%", r: -20, s: 40 },
+          { x: "8%",  y: "15%", r: 25,  s: 60, img: 0 },
+          { x: "90%", y: "20%", r: -15, s: 46, img: 2 },
+          { x: "5%",  y: "75%", r: 40,  s: 52, img: 4 },
+          { x: "85%", y: "70%", r: -30, s: 64, img: 1 },
+          { x: "50%", y: "5%",  r: 10,  s: 38, img: 3 },
+          { x: "45%", y: "90%", r: -20, s: 48, img: 5 },
         ].map((b, i) => (
-          <div key={i} className="absolute pointer-events-none text-white/5" style={{ left: b.x, top: b.y, transform: `rotate(${b.r}deg)` }}>
-            <BeanSvg style={{ width: b.s, height: b.s * 0.65 }} />
+          <div key={i} className="absolute pointer-events-none" style={{ left: b.x, top: b.y, transform: `rotate(${b.r}deg)`, opacity: 0.08, width: b.s, height: b.s }}>
+            <img src={BEAN_IMGS[b.img]} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         ))}
 

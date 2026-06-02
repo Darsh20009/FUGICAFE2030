@@ -1,7 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 
-const BEANS_IMAGE = "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=80";
+const BEAN_IMGS = [
+  "/beans/bean1.png",
+  "/beans/bean2.png",
+  "/beans/bean3.png",
+  "/beans/bean4.png",
+  "/beans/bean5.png",
+  "/beans/bean6.png",
+];
+
+const CSS_BEANS = [
+  { id: 0,  x: 3,   size: 52,  dur: 14, delay: 0,    opacity: 0.75, rotate: 0,    img: 0 },
+  { id: 1,  x: 11,  size: 34,  dur: 10, delay: 1.8,  opacity: 0.60, rotate: 45,   img: 2 },
+  { id: 2,  x: 21,  size: 68,  dur: 17, delay: 0.5,  opacity: 0.80, rotate: -20,  img: 4 },
+  { id: 3,  x: 31,  size: 40,  dur: 12, delay: 3.2,  opacity: 0.65, rotate: 90,   img: 1 },
+  { id: 4,  x: 42,  size: 56,  dur: 15, delay: 0.9,  opacity: 0.70, rotate: 135,  img: 5 },
+  { id: 5,  x: 52,  size: 30,  dur: 11, delay: 4.5,  opacity: 0.55, rotate: -60,  img: 3 },
+  { id: 6,  x: 62,  size: 72,  dur: 18, delay: 2.1,  opacity: 0.78, rotate: 30,   img: 0 },
+  { id: 7,  x: 71,  size: 44,  dur: 13, delay: 0.2,  opacity: 0.62, rotate: -45,  img: 2 },
+  { id: 8,  x: 80,  size: 36,  dur: 10, delay: 3.8,  opacity: 0.60, rotate: 75,   img: 4 },
+  { id: 9,  x: 88,  size: 58,  dur: 16, delay: 1.4,  opacity: 0.72, rotate: -15,  img: 1 },
+  { id: 10, x: 94,  size: 28,  dur: 9,  delay: 5.2,  opacity: 0.50, rotate: 120,  img: 5 },
+  { id: 11, x: 7,   size: 46,  dur: 14, delay: 6.0,  opacity: 0.65, rotate: -80,  img: 3 },
+];
 
 export function FujiBeansHero() {
   const { language } = useLanguage();
@@ -12,11 +34,10 @@ export function FujiBeansHero() {
   useEffect(() => {
     const t = setTimeout(() => {
       if (!scrolled) {
-        const el = document.getElementById("main-content");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("main-content")?.scrollIntoView({ behavior: "smooth" });
         setScrolled(true);
       }
-    }, 4000);
+    }, 4500);
     timerRef.current = t;
     return () => clearTimeout(t);
   }, []);
@@ -32,22 +53,42 @@ export function FujiBeansHero() {
       className="fuji-hero relative w-full overflow-hidden flex items-center justify-center"
       style={{ height: "100svh", minHeight: 560 }}
     >
-      {/* Background image */}
-      <img
-        src={BEANS_IMAGE}
-        alt=""
-        aria-hidden="true"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+      {/* Deep dark background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse at 50% 40%, #2a1208 0%, #0f0604 60%, #000 100%)",
+        }}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      {/* Ambient glow rings */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: "70vw", height: "70vw", maxWidth: 800, maxHeight: 800,
+          borderRadius: "50%",
+          top: "50%", left: "50%",
+          transform: "translate(-50%, -55%)",
+          background: "radial-gradient(circle, rgba(139,69,30,0.18) 0%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: "40vw", height: "40vw", maxWidth: 400, maxHeight: 400,
+          borderRadius: "50%",
+          top: "40%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          background: "radial-gradient(circle, rgba(232,99,122,0.10) 0%, transparent 70%)",
+          filter: "blur(30px)",
+        }}
+      />
 
-      {/* Bottom fade to cream */}
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#FAF6F0] to-transparent pointer-events-none z-10" />
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FAF6F0] to-transparent pointer-events-none z-10" />
 
-      {/* Floating beans — pure CSS */}
+      {/* Floating real bean images */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {CSS_BEANS.map(b => (
           <div
@@ -55,58 +96,107 @@ export function FujiBeansHero() {
             className="fuji-bean absolute"
             style={{
               left: `${b.x}%`,
-              bottom: "-50px",
+              bottom: "-80px",
               width: b.size,
-              height: b.size * 0.67,
+              height: b.size,
               opacity: b.opacity,
               animationDuration: `${b.dur}s`,
               animationDelay: `${b.delay}s`,
             }}
           >
-            <BeanSVG />
+            <img
+              src={BEAN_IMGS[b.img]}
+              alt=""
+              draggable={false}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                transform: `rotate(${b.rotate}deg)`,
+                filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.6))",
+              }}
+            />
           </div>
         ))}
       </div>
 
-      {/* Main content — visible immediately, animates in via CSS */}
+      {/* Large decorative bean — bottom left, partially cropped */}
+      <img
+        src="/beans/bean3.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute pointer-events-none select-none"
+        style={{
+          width: "clamp(200px,35vw,480px)",
+          opacity: 0.12,
+          bottom: "-60px",
+          left: "-60px",
+          transform: "rotate(-25deg)",
+          filter: "drop-shadow(0 8px 40px rgba(0,0,0,0.8))",
+        }}
+      />
+
+      {/* Large decorative bean — top right */}
+      <img
+        src="/beans/bean5.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute pointer-events-none select-none"
+        style={{
+          width: "clamp(160px,28vw,380px)",
+          opacity: 0.09,
+          top: "-40px",
+          right: "-50px",
+          transform: "rotate(40deg)",
+          filter: "drop-shadow(0 8px 40px rgba(0,0,0,0.8))",
+        }}
+      />
+
+      {/* Main content */}
       <div className="fuji-hero-content relative z-10 flex flex-col items-center text-center px-4 select-none">
 
         {/* Logo */}
-        <div className="mb-5 flex items-center justify-center">
+        <div className="mb-6 flex items-center justify-center fuji-hero-logo">
           <div
             className="rounded-2xl flex items-center justify-center"
             style={{
-              background: "rgba(255,255,255,0.12)",
-              backdropFilter: "blur(8px)",
-              padding: "10px 14px",
-              border: "1px solid rgba(255,255,255,0.15)",
+              background: "rgba(255,255,255,0.22)",
+              backdropFilter: "blur(14px)",
+              padding: "12px 18px",
+              border: "1px solid rgba(255,255,255,0.18)",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
             <img
               src="/fuji-logo.png"
               alt="Fuji Cafe"
-              className="h-10 md:h-12 w-auto"
-              style={{ mixBlendMode: "multiply", filter: "brightness(0.85)" }}
+              className="h-10 md:h-14 w-auto"
+              style={{ mixBlendMode: "multiply", filter: "brightness(0.9) contrast(1.1)" }}
             />
           </div>
         </div>
 
-        {/* ── FUJI — English, large ── */}
+        {/* FUJI title */}
         <div>
           <h1 className="fuji-hero-title">FUJI</h1>
-          <div className="fuji-hero-subtitle">CAFE</div>
+          <div className="fuji-hero-subtitle">C A F E</div>
         </div>
 
         {/* Arabic name */}
-        <div className="mt-3 mb-5" dir="rtl">
+        <div className="mt-4 mb-5" dir="rtl">
           <span className="fuji-hero-arabic">فوجي كافيه</span>
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center gap-4 mb-5 w-[260px]">
-          <div className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(232,99,122,0.7))" }} />
-          <BeanIcon />
-          <div className="flex-1 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(232,99,122,0.7))" }} />
+        {/* Divider with real bean */}
+        <div className="flex items-center gap-3 mb-5 w-[260px]">
+          <div className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(232,99,122,0.6))" }} />
+          <img
+            src="/beans/bean1.png"
+            alt=""
+            aria-hidden="true"
+            style={{ width: 28, height: 28, objectFit: "contain", filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.7))", opacity: 0.9 }}
+          />
+          <div className="flex-1 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(232,99,122,0.6))" }} />
         </div>
 
         {/* Tagline */}
@@ -117,8 +207,8 @@ export function FujiBeansHero() {
             style={{
               fontFamily: "'Alexandria', sans-serif",
               fontSize: "clamp(14px, 2.8vw, 22px)",
-              color: "rgba(255,255,255,0.9)",
-              textShadow: "0 2px 16px rgba(0,0,0,0.9)",
+              color: "rgba(255,255,255,0.92)",
+              textShadow: "0 2px 20px rgba(0,0,0,1)",
             }}
           >
             كل القهوة كيف —{" "}
@@ -128,13 +218,13 @@ export function FujiBeansHero() {
             style={{
               fontFamily: "'Noto Serif JP', serif",
               fontSize: "clamp(11px, 1.6vw, 14px)",
-              color: "rgba(255,255,255,0.45)",
-              letterSpacing: "0.05em",
+              color: "rgba(255,255,255,0.40)",
+              letterSpacing: "0.06em",
               fontStyle: "italic",
             }}
           >
             All coffee is joy —{" "}
-            <span style={{ color: "rgba(232,99,122,0.75)" }}>Fuji is the origin of joy</span>
+            <span style={{ color: "rgba(232,99,122,0.70)" }}>Fuji is the origin of joy</span>
           </p>
         </div>
       </div>
@@ -144,7 +234,6 @@ export function FujiBeansHero() {
         onClick={scrollToContent}
         className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 group cursor-pointer"
         aria-label={isRtl ? "اكتشف" : "Discover"}
-        style={{ opacity: 1 }}
       >
         <span
           className="group-hover:text-[#E8637A] transition-colors"
@@ -153,52 +242,21 @@ export function FujiBeansHero() {
             fontWeight: 700,
             letterSpacing: "0.35em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(255,255,255,0.45)",
           }}
         >
           {isRtl ? "اكتشف" : "Discover"}
         </span>
         <div className="fuji-bounce">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="rgba(255,255,255,0.45)" strokeWidth="2" strokeLinecap="round"
+            stroke="rgba(255,255,255,0.40)" strokeWidth="2" strokeLinecap="round"
             className="group-hover:stroke-[#E8637A] transition-all"
           >
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </div>
-        <div className="w-px h-5 bg-gradient-to-b from-white/20 to-transparent" />
+        <div className="w-px h-5 bg-gradient-to-b from-white/15 to-transparent" />
       </button>
     </section>
   );
 }
-
-function BeanSVG() {
-  return (
-    <svg viewBox="0 0 60 40" fill="none" style={{ width: "100%", height: "100%" }}>
-      <ellipse cx="30" cy="20" rx="28" ry="18" fill="#6B3F2A" />
-      <ellipse cx="30" cy="20" rx="22" ry="13" fill="#8B5A3C" />
-      <path d="M30 7 Q34 20 30 33" stroke="#4f2e1e" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
-
-function BeanIcon() {
-  return (
-    <svg viewBox="0 0 24 16" width="26" height="17" fill="none" style={{ opacity: 0.65 }}>
-      <ellipse cx="12" cy="8" rx="11" ry="7" fill="#C8956C" />
-      <ellipse cx="12" cy="8" rx="8" ry="5" fill="#8B5A3C" />
-      <path d="M12 3 Q14 8 12 13" stroke="#4f2e1e" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-const CSS_BEANS = [
-  { id: 0, x: 4,  size: 26, dur: 12, delay: 0,   opacity: 0.2  },
-  { id: 1, x: 17, size: 16, dur: 9,  delay: 1.5,  opacity: 0.13 },
-  { id: 2, x: 29, size: 36, dur: 14, delay: 2.9,  opacity: 0.22 },
-  { id: 3, x: 43, size: 20, dur: 11, delay: 0.8,  opacity: 0.16 },
-  { id: 4, x: 57, size: 30, dur: 13, delay: 3.6,  opacity: 0.19 },
-  { id: 5, x: 69, size: 42, dur: 16, delay: 4.3,  opacity: 0.20 },
-  { id: 6, x: 81, size: 24, dur: 12, delay: 2.2,  opacity: 0.17 },
-  { id: 7, x: 92, size: 32, dur: 13, delay: 0.4,  opacity: 0.20 },
-];
