@@ -1,0 +1,1056 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+Seeding فوجي كافيه admin user...
+Admin user created with phone 567891011 and password 123456
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 21h (2026-06-03T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+5:53:57 AM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+5:54:05 AM [express] GET /api/user 401 in 2ms
+5:54:05 AM [express] GET /api/auth/google/init 200 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+5:54:05 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+5:54:05 AM [express] GET /api/marketing/active 200 in 1ms :: []
+5:54:05 AM [express] GET /api/pixels 200 in 72ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+5:54:05 AM [express] GET /api/stats 200 in 71ms :: []
+5:54:05 AM [express] GET /api/flash-deals 200 in 67ms :: []
+5:54:05 AM [express] GET /api/reviews/featured 200 in 70ms :: []
+5:54:05 AM [express] GET /api/store/settings 200 in 69ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+5:54:05 AM [express] GET /api/pages 200 in 70ms :: []
+5:54:05 AM [express] GET /api/categories 200 in 68ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:54:05 AM [express] GET /api/products 200 in 69ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:54:05 AM [express] GET /api/user 401 in 2ms
+5:54:05 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 200 in 82ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+5:54:05 AM [express] GET /api/user 401 in 1ms
+5:54:29 AM [express] GET /api/pixels 200 in 69ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+5:54:29 AM [express] GET /api/stats 200 in 68ms :: []
+5:54:29 AM [express] GET /api/user 401 in 0ms
+5:54:29 AM [express] GET /api/auth/google/init 200 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+5:54:29 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+5:54:30 AM [express] GET /api/marketing/active 200 in 0ms :: []
+5:54:30 AM [express] GET /api/flash-deals 200 in 69ms :: []
+5:54:30 AM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:54:30 AM [express] GET /api/reviews/featured 200 in 68ms :: []
+5:54:30 AM [express] GET /api/store/settings 200 in 69ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+5:54:30 AM [express] GET /api/pages 200 in 70ms :: []
+5:54:30 AM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:54:30 AM [express] GET /api/user 401 in 0ms
+5:54:30 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 200 in 0ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+5:54:37 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccf/highlights 200 in 70ms :: {"tagline_ar":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","tagline_en":"كابتشينو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+5:54:45 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 200 in 69ms :: {"tagline_ar":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","tagline_en":"ماتشا لاتيه فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+5:54:53 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd8/highlights 200 in 69ms :: {"tagline_ar":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","tagline_en":"كولد برو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:08:46 AM [express] GET /api/user 401 in 1ms
+6:08:46 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:08:46 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:08:46 AM [express] GET /api/flash-deals 304 in 69ms :: []
+6:08:46 AM [express] GET /api/stats 304 in 69ms :: []
+6:08:47 AM [express] GET /api/categories 304 in 69ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:08:47 AM [express] GET /api/products 304 in 70ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:08:47 AM [express] GET /api/marketing/active 304 in 0ms :: []
+6:08:47 AM [express] GET /api/store/settings 304 in 72ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:08:47 AM [express] GET /api/pages 304 in 68ms :: []
+6:08:47 AM [express] GET /api/reviews/featured 304 in 70ms :: []
+6:18:17 AM [express] GET /api/user 401 in 1ms
+6:18:17 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:18:17 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:18:17 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:18:17 AM [express] GET /api/stats 304 in 68ms :: []
+6:18:17 AM [express] GET /api/pixels 304 in 67ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:18:18 AM [express] GET /api/products 304 in 67ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:18:18 AM [express] GET /api/categories 304 in 68ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:18:18 AM [express] GET /api/marketing/active 304 in 0ms :: []
+6:18:18 AM [express] GET /api/pages 304 in 67ms :: []
+6:18:18 AM [express] GET /api/reviews/featured 304 in 68ms :: []
+6:27:13 AM [express] GET /api/user 401 in 1ms
+6:27:13 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:27:13 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:27:13 AM [express] GET /api/flash-deals 304 in 67ms :: []
+6:27:13 AM [express] GET /api/stats 304 in 69ms :: []
+6:27:13 AM [express] GET /api/products 304 in 67ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:27:13 AM [express] GET /api/categories 304 in 67ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:27:13 AM [express] GET /api/pages 304 in 67ms :: []
+6:27:13 AM [express] GET /api/marketing/active 304 in 0ms :: []
+6:27:13 AM [express] GET /api/reviews/featured 304 in 69ms :: []
+6:27:14 AM [express] GET /api/store/settings 304 in 502ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:28:40 AM [express] GET /api/user 401 in 1ms
+6:28:40 AM [express] GET /api/flash-deals 304 in 68ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:29:32 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+6:29:48 AM [express] GET /api/marketing/active 200 in 0ms :: []
+6:29:48 AM [express] GET /api/user 401 in 1ms
+6:29:48 AM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:29:48 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:29:48 AM [express] GET /api/pixels 200 in 69ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:29:48 AM [express] GET /api/stats 200 in 69ms :: []
+6:29:48 AM [express] GET /api/categories 200 in 2ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:29:48 AM [express] GET /api/products 200 in 2ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:29:48 AM [express] GET /api/flash-deals 200 in 67ms :: []
+6:29:48 AM [express] GET /api/reviews/featured 200 in 68ms :: []
+6:29:48 AM [express] GET /api/store/settings 200 in 70ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:29:49 AM [express] GET /api/user 401 in 1ms
+6:29:49 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 200 in 2ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:29:49 AM [express] GET /api/pages 200 in 499ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:29:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:30:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+6:30:26 AM [express] GET /api/user 401 in 1ms
+6:30:27 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:30:27 AM [express] GET /api/auth/apple/init 304 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:30:27 AM [express] GET /api/stats 304 in 68ms :: []
+6:30:27 AM [express] GET /api/flash-deals 304 in 66ms :: []
+6:30:27 AM [express] GET /api/user 401 in 1ms
+6:30:27 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:30:27 AM [express] GET /api/user 401 in 1ms
+6:30:41 AM [express] GET /api/user 401 in 1ms
+6:30:41 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:30:41 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:30:41 AM [express] GET /api/stats 304 in 69ms :: []
+6:30:41 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:30:42 AM [express] GET /api/user 401 in 2ms
+6:30:42 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:30:55 AM [express] GET /api/user 401 in 1ms
+6:30:55 AM [express] GET /api/user 401 in 1ms
+6:30:55 AM [express] GET /api/user 401 in 0ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:31:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m
+6:31:28 AM [express] GET /api/user 401 in 1ms
+6:31:28 AM [express] GET /api/flash-deals 304 in 69ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:31:31 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x2)[39m
+6:31:34 AM [express] GET /api/user 401 in 1ms
+6:31:35 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:31:38 AM [express] GET /api/user 401 in 0ms
+6:31:38 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:31:38 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:31:38 AM [express] GET /api/stats 304 in 69ms :: []
+6:31:38 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:31:39 AM [express] GET /api/user 401 in 1ms
+6:31:39 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 2ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:31:51 AM [express] GET /api/user 401 in 0ms
+6:31:51 AM [express] GET /api/user 401 in 1ms
+6:31:51 AM [express] GET /api/user 401 in 1ms
+6:32:40 AM [express] GET /api/user 401 in 1ms
+6:32:40 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:32:41 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:32:41 AM [express] GET /api/stats 304 in 68ms :: []
+6:32:41 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:32:41 AM [express] GET /api/products 304 in 69ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:32:41 AM [express] GET /api/marketing/active 304 in 1ms :: []
+6:32:41 AM [express] GET /api/categories 304 in 68ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:32:41 AM [express] GET /api/pages 304 in 68ms :: []
+6:32:41 AM [express] GET /api/reviews/featured 304 in 68ms :: []
+6:32:51 AM [express] GET /api/user 401 in 0ms
+6:33:04 AM [express] GET /api/user 401 in 1ms
+6:33:04 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:33:17 AM [express] GET /api/marketing/active 200 in 0ms :: []
+6:33:17 AM [express] GET /api/user 401 in 1ms
+6:33:17 AM [express] GET /api/pixels 200 in 69ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:33:17 AM [express] GET /api/stats 200 in 69ms :: []
+6:33:17 AM [express] GET /api/reviews/featured 200 in 67ms :: []
+6:33:17 AM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:33:17 AM [express] GET /api/store/settings 200 in 68ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:33:17 AM [express] GET /api/products 200 in 2ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:33:18 AM [express] GET /api/pages 200 in 68ms :: []
+6:33:18 AM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:33:18 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:33:18 AM [express] GET /api/user 401 in 1ms
+6:33:18 AM [express] GET /api/flash-deals 200 in 68ms :: []
+6:33:18 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 200 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:33:25 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccf/highlights 200 in 1ms :: {"tagline_ar":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","tagline_en":"كابتشينو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:33:32 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 200 in 1ms :: {"tagline_ar":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","tagline_en":"ماتشا لاتيه فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:33:39 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd8/highlights 200 in 1ms :: {"tagline_ar":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","tagline_en":"كولد برو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:33:49 AM [express] GET /api/user 401 in 1ms
+6:33:49 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:33:49 AM [express] GET /api/pixels 304 in 69ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:38:02 AM [express] GET /api/user 401 in 1ms
+6:38:03 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+6:38:03 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+6:38:03 AM [express] GET /api/flash-deals 304 in 67ms :: []
+6:38:03 AM [express] GET /api/stats 304 in 68ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:38:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+6:38:03 AM [express] GET /api/products 304 in 68ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:38:03 AM [express] GET /api/categories 304 in 67ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:38:03 AM [express] GET /api/marketing/active 304 in 1ms :: []
+6:38:03 AM [express] GET /api/store/settings 304 in 69ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:38:03 AM [express] GET /api/pages 304 in 68ms :: []
+6:38:03 AM [express] GET /api/reviews/featured 304 in 68ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:38:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:02 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:46 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Layout.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:54 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Layout.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:39:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Layout.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:40:09 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Layout.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:40:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:40:37 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:40:46 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:40:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m [33m(x4)[39m
+6:40:53 AM [express] GET /api/user 401 in 1ms
+6:40:53 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:40:53 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:40:53 AM [express] GET /api/marketing/active 304 in 0ms :: []
+6:40:53 AM [express] GET /api/categories 304 in 2ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:40:53 AM [express] GET /api/products 304 in 0ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:40:53 AM [express] GET /api/stats 304 in 70ms :: []
+6:40:53 AM [express] GET /api/flash-deals 304 in 70ms :: []
+6:40:53 AM [express] GET /api/reviews/featured 304 in 67ms :: []
+6:40:53 AM [express] GET /api/store/settings 304 in 67ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+6:40:53 AM [express] GET /api/pages 304 in 68ms :: []
+6:40:54 AM [express] GET /api/user 401 in 1ms
+6:40:54 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:40:55 AM [express] GET /api/user 401 in 0ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:41:11 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:41:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:41:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x3)[39m
+6:41:19 AM [express] GET /api/user 401 in 1ms
+6:41:19 AM [express] GET /api/auth/google/init 304 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:41:19 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:41:19 AM [express] GET /api/stats 304 in 67ms :: []
+6:41:19 AM [express] GET /api/flash-deals 304 in 67ms :: []
+6:41:20 AM [express] GET /api/user 401 in 0ms
+6:41:20 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 3ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:42:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:42:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+6:42:31 AM [express] GET /api/user 401 in 1ms
+6:42:31 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:42:31 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:42:31 AM [express] GET /api/stats 304 in 75ms :: []
+6:42:31 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:42:32 AM [express] GET /api/user 401 in 0ms
+6:42:32 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:43:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:43:19 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x3)[39m
+6:43:31 AM [express] GET /api/user 401 in 1ms
+6:43:31 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:43:31 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:43:31 AM [express] GET /api/stats 304 in 69ms :: []
+6:43:31 AM [express] GET /api/flash-deals 304 in 67ms :: []
+6:43:33 AM [express] GET /api/user 401 in 1ms
+6:43:33 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+6:43:33 AM [express] GET /api/user 401 in 0ms
+6:43:48 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 304 in 1ms :: {"tagline_ar":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","tagline_en":"ماتشا لاتيه فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:44:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:44:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:44:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x2)[39m
+6:44:22 AM [express] GET /api/user 401 in 1ms
+6:44:22 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:44:22 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:44:23 AM [express] GET /api/stats 304 in 68ms :: []
+6:44:23 AM [express] GET /api/flash-deals 304 in 67ms :: []
+6:44:24 AM [express] GET /api/user 401 in 0ms
+6:44:24 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 2ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:44:51 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/FujiBeansHero.tsx[22m [33m(x3)[39m
+6:44:59 AM [express] GET /api/user 401 in 0ms
+6:44:59 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+6:44:59 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+6:44:59 AM [express] GET /api/stats 304 in 68ms :: []
+6:44:59 AM [express] GET /api/pixels 304 in 68ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:44:59 AM [express] GET /api/flash-deals 304 in 68ms :: []
+6:45:00 AM [express] GET /api/user 401 in 1ms
+6:45:00 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 1ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:04:37 AM [express] GET /api/user 401 in 0ms
+7:04:37 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:04:37 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:04:37 AM [express] GET /api/flash-deals 304 in 68ms :: []
+7:04:37 AM [express] GET /api/stats 304 in 68ms :: []
+7:04:37 AM [express] GET /api/products 304 in 68ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:04:37 AM [express] GET /api/marketing/active 304 in 0ms :: []
+7:04:37 AM [express] GET /api/pages 304 in 67ms :: []
+7:04:37 AM [express] GET /api/reviews/featured 304 in 69ms :: []
+7:04:38 AM [express] GET /api/pixels 304 in 69ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+7:04:38 AM [express] GET /api/categories 304 in 68ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:04:38 AM [express] GET /api/store/settings 304 in 67ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+7:04:53 AM [express] GET /api/user 401 in 1ms
+7:04:53 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:04:53 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:04:53 AM [express] GET /api/stats 304 in 68ms :: []
+7:04:53 AM [express] GET /api/flash-deals 304 in 67ms :: []
+7:04:53 AM [express] GET /api/marketing/active 304 in 1ms :: []
+7:04:53 AM [express] GET /api/pages 304 in 67ms :: []
+7:04:53 AM [express] GET /api/store/settings 304 in 68ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"","crNumber":"0000203202","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-05-28T18:41:45.693Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","id":"6a188c69f4afb08382461b19"}
+7:04:53 AM [express] GET /api/reviews/featured 304 in 68ms :: []
+7:04:53 AM [express] GET /api/pixels 304 in 67ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+7:04:53 AM [express] GET /api/products 304 in 0ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:04:53 AM [express] GET /api/categories 304 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:04:53 AM [express] GET /api/user 401 in 0ms
+7:04:53 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 68ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:05:00 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccf/highlights 304 in 69ms :: {"tagline_ar":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","tagline_en":"كابتشينو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:05:07 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 304 in 68ms :: {"tagline_ar":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","tagline_en":"ماتشا لاتيه فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:05:14 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd8/highlights 304 in 69ms :: {"tagline_ar":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","tagline_en":"كولد برو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:05:57 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:05:57 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:06:05 AM [express] GET /api/auth/check-role/567891011 200 in 71ms :: {"isStaff":true,"role":"admin"}
+7:06:09 AM [express] POST /api/auth/login 200 in 352ms :: {"_id":"6a1e6ff4dc345053ab392001","username":"567891011","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"fugi2030@outlook.com","phone":"567891011","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T05:53:56.308Z","updatedAt":"2026-06-02T05:53:56.308Z","__v":0,"id":"6a1e6ff4dc345053ab392001","redirectTo":"/admin"}
+7:06:09 AM [express] GET /api/cart 200 in 205ms :: {"items":[]}
+7:06:14 AM [express] GET /api/user 200 in 135ms :: {"_id":"6a1e6ff4dc345053ab392001","username":"567891011","password":"2a4db5856519fa8f259fef6a9d471874499b2e6dfe962709afdffc2428c6bc61ebf295f12574d236a6240bc5c60ad333b44679a1d6cc0bd42d737344d38350a7.9b42eb9585295ec51937bde48e5cab09","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"fugi2030@outlook.com","phone":"567891011","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T05:53:56.308Z","updatedAt":"2026-06-02T05:53:56.308Z","__v":0,"id":"6a1e6ff4dc345053ab392001"}
+7:06:14 AM [express] GET /api/notifications 200 in 274ms :: {"notifications":[],"unreadCount":0}
+7:06:15 AM [express] GET /api/orders 200 in 202ms :: []
+7:06:15 AM [express] GET /api/admin/stats 200 in 927ms :: {"totalSales":0,"netProfit":0,"dailySales":0,"monthlySales":0,"totalOrders":0,"totalProducts":5,"totalCustomers":0,"topProducts":[],"chartData":[{"month":"يناير","sales":0,"orders":0},{"month":"فبراير","sales":0,"orders":0},{"month":"مارس","sales":0,"orders":0},{"month":"أبريل","sales":0,"orders":0},{"month":"مايو","sales":0,"orders":0},{"month":"يونيو","sales":0,"orders":0}],"dailyRevenue30":[{"date":"٤ مايو","revenue":0,"orders":0},{"date":"٥ مايو","revenue":0,"orders":0},{"date":"٦ مايو","revenue":0,"orders":0},{"date":"٧ مايو","revenue":0,"orders":0},{"date":"٨ مايو","revenue":0,"orders":0},{"date":"٩ مايو","revenue":0,"orders":0},{"date":"١٠ مايو","revenue":0,"orders":0},{"date":"١١ مايو","revenue":0,"orders":0},{"date":"١٢ مايو","revenue":0,"orders":0},{"date":"١٣ مايو","revenue":0,"orders":0},{"date":"١٤ مايو","revenue":0,"orders":0},{"date":"١٥ مايو","revenue":0,"orders":0},{"date":"١٦ مايو","revenue":0,"orders":0},{"date":"١٧ مايو","revenue":0,"orders":0},{"date":"١٨ مايو","revenue":0,"orders":0},{"date":"١٩ مايو","revenue":0,"orders":0},{"date":"٢٠ مايو","revenue":0,"orders":0},{"date":"٢١ مايو","revenue":0,"orders":0},{"date":"٢٢ مايو","revenue":0,"orders":0},{"date":"٢٣ مايو","revenue":0,"orders":0},{"date":"٢٤ مايو","revenue":0,"orders":0},{"date":"٢٥ مايو","revenue":0,"orders":0},{"date":"٢٦ مايو","revenue":0,"orders":0},{"date":"٢٧ مايو","revenue":0,"orders":0},{"date":"٢٨ مايو","revenue":0,"orders":0},{"date":"٢٩ مايو","revenue":0,"orders":0},{"date":"٣٠ مايو","revenue":0,"orders":0},{"date":"٣١ مايو","revenue":0,"orders":0},{"date":"١ يونيو","revenue":0,"orders":0},{"date":"٢ يونيو","revenue":0,"orders":0}],"orderStatusCounts":{},"paymentBreakdown":{},"newCustomers30":0,"revenueGrowth":"0","recentOrders":[],"pendingReturns":0,"activeVendors":0,"pendingVendors":0,"allTime":{"totalRevenue":0,"netProfit":0},"today":{"totalRevenue":0},"thisWeek":{"totalRevenue":0,"netProfit":0,"orders":0},"thisMonth":{"totalRevenue":0,"netProfit":0,"orders":0},"dailyOrders":0,"weeklySales":0,"weeklyNetProfit":0,"monthlyNetProfit":0}
+7:06:16 AM [express] GET /api/admin/low-stock 200 in 201ms :: []
+7:06:18 AM [express] GET /api/notifications/vapid-public-key 200 in 135ms :: {"publicKey":"BMuRKYfA848bkr9LPDIi0BiXwbgcisqOp2NPzDDDsbc2aVpx1FtvUWxQj8YsP7stW5sdIRgh45NWvLNzu7gqRnE"}
+7:06:22 AM [express] POST /api/notifications/subscribe 200 in 218ms :: {"ok":true}
+7:06:26 AM [express] GET /api/categories 304 in 136ms :: [{"_id":"6a1c76d802dac5fbab6e9cbe","name":"Hot Coffee","nameAr":"قهوة ساخنة","slug":"hot_coffee","image":"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbe"},{"_id":"6a1c76d802dac5fbab6e9cbf","name":"Cold Drinks","nameAr":"مشروبات باردة","slug":"cold_coffee","image":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cbf"},{"_id":"6a1c76d802dac5fbab6e9cc0","name":"Specialty","nameAr":"قهوة مختصة","slug":"specialty","image":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc0"},{"_id":"6a1c76d802dac5fbab6e9cc1","name":"Tea & Infusion","nameAr":"شاي وإنفيوجن","slug":"tea","image":"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc1"},{"_id":"6a1c76d802dac5fbab6e9cc2","name":"Food & Pastry","nameAr":"مأكولات وحلويات","slug":"food","image":"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc2"},{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:06:30 AM [express] DELETE /api/categories/6a1c76d802dac5fbab6e9cc2 200 in 220ms
+7:06:32 AM [express] DELETE /api/categories/6a1c76d802dac5fbab6e9cc1 200 in 205ms
+7:06:33 AM [express] DELETE /api/categories/6a1c76d802dac5fbab6e9cc0 200 in 204ms
+7:06:35 AM [express] DELETE /api/categories/6a1c76d802dac5fbab6e9cbf 200 in 204ms
+7:06:37 AM [express] DELETE /api/categories/6a1c76d802dac5fbab6e9cbe 200 in 205ms
+7:06:41 AM [express] GET /api/products 304 in 134ms :: [{"_id":"6a1c76d902dac5fbab6e9ccb","name":"إسبريسو فوجي","nameEn":"","description":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","descriptionEn":"","price":"18","cost":"5","images":["https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Solo","size":"Solo 30ml","sku":"ESP-SOLO","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccc"},{"color":"Doppio","size":"Doppio 60ml","sku":"ESP-DOP","stock":999,"price":0,"cost":5,"_id":"6a1c76d902dac5fbab6e9ccd"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.006Z","updatedAt":"2026-05-31T17:58:49.006Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccb"},{"_id":"6a1c76d902dac5fbab6e9ccf","name":"كابتشينو فوجي","nameEn":"","description":"كابتشينو كلاسيكي بالحليب المحروق بتقنية ياپانية، مع رغوة ناعمة وتوازن مثالي","descriptionEn":"","price":"22","cost":"7","images":["https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbe"],"vendorId":null,"variants":[{"color":"Medium","size":"Medium 250ml","sku":"CAP-M","stock":999,"price":0,"cost":7,"_id":"6a1c76d902dac5fbab6e9cd0"},{"color":"Large","size":"Large 350ml","sku":"CAP-L","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd1"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.042Z","updatedAt":"2026-05-31T17:58:49.042Z","__v":0,"id":"6a1c76d902dac5fbab6e9ccf"},{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cd8","name":"كولد برو فوجي","nameEn":"","description":"قهوة مستخلصة بالماء البارد لـ 24 ساعة، نكهة ناعمة وحموضة منخفضة وقوام غني","descriptionEn":"","price":"25","cost":"8","images":["https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cbf","6a1c76d802dac5fbab6e9cc0"],"vendorId":null,"variants":[{"color":"Regular","size":"Regular 300ml","sku":"CB-R","stock":999,"price":0,"cost":8,"_id":"6a1c76d902dac5fbab6e9cd9"},{"color":"Large","size":"Large 500ml","sku":"CB-L","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cda"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.113Z","updatedAt":"2026-05-31T17:58:49.113Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd8"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:06:51 AM [express] DELETE /api/products/6a1c76d902dac5fbab6e9ccb 200 in 225ms
+7:06:52 AM [express] DELETE /api/products/6a1c76d902dac5fbab6e9ccf 200 in 215ms
+7:06:53 AM [express] DELETE /api/products/6a1c76d902dac5fbab6e9ccf 200 in 201ms
+7:06:53 AM [express] GET /api/orders 304 in 201ms :: []
+7:06:53 AM [express] GET /api/notifications 304 in 268ms :: {"notifications":[],"unreadCount":0}
+7:06:59 AM [express] DELETE /api/products/6a1c76d902dac5fbab6e9cd8 200 in 216ms
+7:07:02 AM [express] POST /api/auth/logout 200 in 356ms
+7:07:02 AM [express] GET /api/user 401 in 66ms
+7:07:02 AM [express] GET /api/auth/google/init 304 in 67ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:07:02 AM [express] GET /api/stats 304 in 134ms :: []
+7:07:02 AM [express] GET /api/flash-deals 304 in 134ms :: []
+7:07:03 AM [express] GET /api/categories 200 in 135ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:07:03 AM [express] GET /api/auth/apple/init 304 in 499ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:07:03 AM [express] GET /api/products 200 in 570ms :: [{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:07:03 AM [express] GET /api/products/6a1c76d902dac5fbab6e9ccb/highlights 304 in 68ms :: {"tagline_ar":"إسبريسو مستخلص بدقة من حبوب أرابيكا مختصة، بنكهة غنية وكريمة ذهبية ناعمة","tagline_en":"إسبريسو فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:07:08 AM [express] GET /api/user 401 in 67ms
+7:07:08 AM [express] GET /api/auth/google/init 304 in 67ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:07:08 AM [express] GET /api/auth/apple/init 304 in 68ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:07:08 AM [express] GET /api/stats 304 in 133ms :: []
+7:07:08 AM [express] GET /api/flash-deals 304 in 136ms :: []
+7:07:09 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cd3/highlights 304 in 68ms :: {"tagline_ar":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","tagline_en":"ماتشا لاتيه فوجي — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:07:09 AM [express] GET /api/user 401 in 66ms
+7:07:16 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 136ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — a signature scent by Fuji Cafe","highlights_ar":["تركيبة فاخرة وثابتة","حضور آسر طوال اليوم","مناسب لجميع المناسبات"],"highlights_en":["Luxurious long-lasting blend","Captivating all-day presence","Perfect for every occasion"]}
+7:07:32 AM [express] POST /api/cart/sync 200 in 213ms :: {"ok":true,"cartId":"6a1e8134a525688123fd97e4"}
+7:07:33 AM [express] GET /api/auth/google/init 304 in 68ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/google/callback","enabled":false}
+7:07:33 AM [express] GET /api/auth/apple/init 304 in 68ms :: {"clientId":"","redirectURI":"https://b3b389fd-b7c9-4318-b05e-218c942d5abb-00-2u9sq0zwirhwe.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+7:07:37 AM [express] GET /api/auth/check-role/532441566 200 in 69ms :: {"isStaff":false,"role":"customer"}
+7:07:38 AM [express] POST /api/auth/login 401 in 136ms
+[EMAIL] Welcome email failed: [Email] SMTP2GO_API_KEY env var is not set
+7:08:00 AM [express] POST /api/auth/register 201 in 463ms :: {"username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"_id":"6a1e8150dc345053ab3921b3","createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:00.298Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:02 AM [express] POST /api/auth/login 200 in 418ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:00.298Z","__v":0,"id":"6a1e8150dc345053ab3921b3","redirectTo":"/"}
+7:08:02 AM [express] GET /api/cart 304 in 204ms :: {"items":[]}
+7:08:02 AM [express] GET /api/user 200 in 134ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:00.298Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:02 AM [express] GET /api/wishlist/ids 200 in 213ms :: []
+7:08:02 AM [express] GET /api/notifications 304 in 266ms :: {"notifications":[],"unreadCount":0}
+7:08:05 AM [express] GET /api/user 304 in 135ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:00.298Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:05 AM [express] GET /api/products 304 in 133ms :: [{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:08:05 AM [express] POST /api/bundle-offers/calculate 200 in 202ms :: {"originalTotal":28,"bundleTotal":28,"savings":0,"applications":[]}
+7:08:05 AM [express] GET /api/notifications 304 in 268ms :: {"notifications":[],"unreadCount":0}
+7:08:10 AM [express] GET /api/user 304 in 133ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:00.298Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:10 AM [express] GET /api/user/loyalty 200 in 200ms :: {"points":0,"tier":"bronze","tierInfo":{"min":0,"max":1000,"discount":1,"icon":"🥉","nameAr":"برونزي","name":"bronze"},"totalSpent":0,"nextTier":"silver","nextTierThreshold":1000,"progressToNext":0,"pointsValue":"0.00"}
+7:08:10 AM [express] GET /api/branches 200 in 337ms :: [{"_id":"6a188c60f4afb08382461b05","name":"فرع الملقا","nameEn":"Al-Malqa Branch","address":"حي الملقا، الرياض","addressEn":"","city":"الرياض","email":"","hours":"","pickupHours":"","image":"","latitude":null,"longitude":null,"mapUrl":"https://maps.app.goo.gl/o7EzqwwuqXLWwQLD9?g_st=ic","isPickupEnabled":true,"sortOrder":1,"isActive":true,"createdAt":"2026-05-28T18:41:36.320Z","updatedAt":"2026-05-28T18:41:36.320Z","__v":0,"id":"6a188c60f4afb08382461b05","inventory":[{"sku":"MAT-H","stock":999,"branchSpecific":false},{"sku":"MAT-I","stock":999,"branchSpecific":false},{"sku":"BEAN-ETH-250","stock":50,"branchSpecific":false},{"sku":"BEAN-ETH-500","stock":30,"branchSpecific":false}]},{"_id":"6a1c7705438e7ae50633d695","name":"فرع فوجي الرئيسي","nameEn":"Fuji Cafe Main Branch","address":"الرياض، المملكة العربية السعودية","addressEn":"","city":"الرياض","email":"fugi2030@outlook.com","hours":"","pickupHours":"","image":"","latitude":null,"longitude":null,"mapUrl":"https://maps.google.com","isPickupEnabled":true,"sortOrder":1,"isActive":true,"createdAt":"2026-05-31T17:59:33.465Z","updatedAt":"2026-05-31T17:59:33.465Z","__v":0,"id":"6a1c7705438e7ae50633d695","inventory":[{"sku":"MAT-H","stock":999,"branchSpecific":false},{"sku":"MAT-I","stock":999,"branchSpecific":false},{"sku":"BEAN-ETH-250","stock":50,"branchSpecific":false},{"sku":"BEAN-ETH-500","stock":30,"branchSpecific":false}]}]
+[API] orders.create error: E11000 duplicate key error collection: test.auditlogs index: id_1 dup key: { id: null }
+7:08:29 AM [express] POST /api/orders 500 in 778ms :: {"message":"خطأ في إنشاء الطلب"}
+[API] orders.create error: E11000 duplicate key error collection: test.auditlogs index: id_1 dup key: { id: null }
+7:08:33 AM [express] POST /api/orders 500 in 697ms :: {"message":"خطأ في إنشاء الطلب"}
+[API] orders.create error: E11000 duplicate key error collection: test.auditlogs index: id_1 dup key: { id: null }
+7:08:37 AM [express] POST /api/orders 500 in 700ms :: {"message":"خطأ في إنشاء الطلب"}
+7:08:41 AM [express] GET /api/user 200 in 136ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:41 AM [express] GET /api/categories 304 in 134ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:08:41 AM [express] GET /api/wishlist/ids 304 in 202ms :: []
+7:08:41 AM [express] GET /api/flash-deals 304 in 203ms :: []
+7:08:41 AM [express] GET /api/notifications 304 in 270ms :: {"notifications":[],"unreadCount":0}
+7:08:48 AM [express] GET /api/user 200 in 141ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:48 AM [express] GET /api/products 200 in 135ms :: [{"_id":"6a1c76d902dac5fbab6e9cd3","name":"ماتشا لاتيه فوجي","nameEn":"","description":"ماتشا يابانية من أرقى مزارع أوجي مع الحليب الطازج، تجربة فريدة من نوعها","descriptionEn":"","price":"28","cost":"10","images":["https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc0","6a1c76d802dac5fbab6e9cbf"],"vendorId":null,"variants":[{"color":"Hot","size":"Hot 300ml","sku":"MAT-H","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd4"},{"color":"Iced","size":"Iced 400ml","sku":"MAT-I","stock":999,"price":0,"cost":10,"_id":"6a1c76d902dac5fbab6e9cd5"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.078Z","updatedAt":"2026-05-31T17:58:49.078Z","__v":0,"id":"6a1c76d902dac5fbab6e9cd3"},{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":30,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-05-31T17:58:49.146Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+7:08:48 AM [express] GET /api/categories 200 in 135ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+7:08:48 AM [express] GET /api/flash-deals 304 in 207ms :: []
+7:08:48 AM [express] GET /api/user 304 in 135ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+7:08:48 AM [express] GET /api/wishlist/ids 200 in 199ms :: []
+7:08:48 AM [express] GET /api/notifications 200 in 269ms :: {"notifications":[],"unreadCount":0}
+7:08:48 AM [express] GET /api/notifications/vapid-public-key 200 in 134ms :: {"publicKey":"BMuRKYfA848bkr9LPDIi0BiXwbgcisqOp2NPzDDDsbc2aVpx1FtvUWxQj8YsP7stW5sdIRgh45NWvLNzu7gqRnE"}
