@@ -149,25 +149,16 @@ export function FujiBeansHero() {
       {/* Main content */}
       <div className="fuji-hero-content relative z-10 flex flex-col items-center text-center px-4 select-none">
 
-        {/* Logo */}
+        {/* Logo — fully transparent PNG, no container */}
         <div className="mb-6 flex items-center justify-center fuji-hero-logo">
-          <div
-            className="rounded-2xl flex items-center justify-center"
+          <img
+            src="/fuji-logo-transparent.png"
+            alt="Fuji Cafe"
+            className="h-16 md:h-24 w-auto"
             style={{
-              background: "rgba(255,255,255,0.22)",
-              backdropFilter: "blur(14px)",
-              padding: "12px 18px",
-              border: "1px solid rgba(255,255,255,0.18)",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15)",
+              filter: "drop-shadow(0 4px 28px rgba(0,0,0,0.95)) brightness(1.1)",
             }}
-          >
-            <img
-              src="/fuji-logo.png"
-              alt="Fuji Cafe"
-              className="h-10 md:h-14 w-auto"
-              style={{ mixBlendMode: "multiply", filter: "brightness(0.9) contrast(1.1)" }}
-            />
-          </div>
+          />
         </div>
 
         {/* FUJI title */}

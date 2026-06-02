@@ -1,6 +1,7 @@
-const logoImg = "/fuji-logo.png";
-const logoDarkImg = "/fuji-logo.png";
+const logoImg = "/fuji-logo-transparent.png";
+const logoDarkImg = "/fuji-logo-transparent.png";
 import { ReactNode, useEffect, useState, lazy, Suspense } from "react";
+import { GlobalFloatingBeans } from "@/components/GlobalFloatingBeans";
 import { Link, useLocation } from "wouter";
 import { ShoppingBag, User, Menu, LogOut, Phone, Mail, Instagram, Download, Globe, Wallet, Home, Package, LayoutDashboard, ChevronRight, X, Shield, Tag, Heart, Store } from "lucide-react";
 import { SiTiktok, SiSnapchat, SiWhatsapp, SiX } from "react-icons/si";
@@ -538,7 +539,10 @@ export function Layout({ children }: { children: ReactNode }) {
         </div>
       </nav>
 
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 relative z-10">{children}</main>
+
+      {/* Global floating coffee beans — appear on all pages */}
+      <GlobalFloatingBeans />
 
       {/* Unified luxury floating widget (AI + Support + WhatsApp) — lazy-loaded after first paint */}
       <Suspense fallback={null}>

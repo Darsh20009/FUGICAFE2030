@@ -16,7 +16,7 @@ import { useAuthProviders } from "@/hooks/use-auth-providers";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { MarketingBanners } from "@/components/marketing-banners";
 import { FujiBeansHero } from "@/components/FujiBeansHero";
-const logoImg = "/fuji-logo.png";
+const logoImg = "/fuji-logo-transparent.png";
 import { useQuery } from "@tanstack/react-query";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
@@ -146,6 +146,183 @@ function BeansMockupStrip({ isRtl }: { isRtl: boolean }) {
   );
 }
 
+/* ── Coffee Journey Section — creative immersive explanation ─── */
+const JOURNEY_STEPS = [
+  {
+    step: "01",
+    arTitle: "الزراعة والحصاد",
+    enTitle: "Farm & Harvest",
+    arDesc: "تُزرع حبوب القهوة الفاخرة على ارتفاعات شاهقة في إثيوبيا والبرازيل وكولومبيا، حيث يمنحها الطقس البارد والمطر الوفير كثافة نكهة استثنائية.",
+    enDesc: "Premium coffee cherries grow at high altitudes in Ethiopia, Brazil & Colombia — cool climate and rich rain give them exceptional flavour density.",
+    icon: "🌱",
+    img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=70",
+    accent: "#4A7C59",
+  },
+  {
+    step: "02",
+    arTitle: "المعالجة والتجفيف",
+    enTitle: "Process & Dry",
+    arDesc: "تُعالج الثمار إما بطريقة الغسيل (الرطبة) للحصول على نكهة نظيفة حيّة، أو بالطريقة الطبيعية (الجافة) لنكهات مركّزة فاكهية غنية.",
+    enDesc: "Cherries are washed for clean brightness or naturally dried for rich, fruity depth — the process is where character is born.",
+    icon: "☀️",
+    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=70",
+    accent: "#C8842A",
+  },
+  {
+    step: "03",
+    arTitle: "التحميص الدقيق",
+    enTitle: "Precision Roast",
+    arDesc: "يُحمّص الخبراء الحبوب بدقة متناهية ليُطلقوا ألف نكهة مخفية داخلها — من الحموضة الخفيفة إلى الحلاوة الداكنة والمرارة الفاخرة.",
+    enDesc: "Master roasters unlock a thousand hidden flavours — from bright acidity to dark sweetness and noble bitterness — through precise heat control.",
+    icon: "🔥",
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=70",
+    accent: "#8B2A1A",
+  },
+  {
+    step: "04",
+    arTitle: "كوبك المثالي",
+    enTitle: "Your Perfect Cup",
+    arDesc: "في النهاية، كل هذه الرحلة المذهلة تصل إليك في كوب واحد — دافئ، عطر، ومُعدّ بحبّ. هذا هو وعد فوجي كافيه.",
+    enDesc: "All this remarkable journey arrives in your hands — warm, fragrant, crafted with love. That is the Fuji Cafe promise.",
+    icon: "☕",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=70",
+    accent: "#E8637A",
+  },
+];
+
+function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
+  const [active, setActive] = useState(0);
+  const current = JOURNEY_STEPS[active];
+
+  return (
+    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #1A0D06 0%, #2D1A0A 40%, #1E0E05 100%)" }}>
+      {/* Bean texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-10"
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=40)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          mixBlendMode: "overlay",
+        }}
+      />
+      {/* Radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${current.accent}22 0%, transparent 70%)`, transition: "background 0.7s ease" }}
+      />
+      {/* Decorative bean side images */}
+      <img src="/beans/bean4.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none opacity-10"
+        style={{ width: 220, bottom: -40, left: -60, transform: "rotate(20deg)", filter: "blur(2px)" }} />
+      <img src="/beans/bean2.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none opacity-10"
+        style={{ width: 180, top: -30, right: -50, transform: "rotate(-25deg)", filter: "blur(2px)" }} />
+
+      <div className="container px-4 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`mb-12 ${isRtl ? "text-right" : "text-left"}`}
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-3 block">
+            {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+            {isRtl ? "من المزرعة إلى كوبك" : "From Farm to Your Cup"}
+          </h2>
+          <p className="text-white/50 text-sm md:text-base mt-3 max-w-xl">
+            {isRtl
+              ? "أربع محطات تحوّل حبة صغيرة إلى تجربة لا تُنسى — اكتشف سحر القهوة المتخصصة."
+              : "Four stations transform a tiny seed into an unforgettable experience — discover the magic of specialty coffee."}
+          </p>
+        </motion.div>
+
+        <div className={`grid md:grid-cols-2 gap-8 lg:gap-16 items-center ${isRtl ? "md:grid-flow-col-dense" : ""}`}>
+          {/* Left: image */}
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, scale: 0.96, x: isRtl ? 30 : -30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative rounded-3xl overflow-hidden shadow-2xl"
+            style={{ aspectRatio: "4/3" }}
+          >
+            <img src={current.img} alt={isRtl ? current.arTitle : current.enTitle}
+              className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${current.accent}88 0%, transparent 60%)` }} />
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="text-5xl mb-2">{current.icon}</div>
+              <span className="text-white/40 text-xs font-bold uppercase tracking-widest">
+                {isRtl ? `خطوة ${current.step}` : `Step ${current.step}`}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Right: steps list */}
+          <div className="space-y-2">
+            {JOURNEY_STEPS.map((step, i) => (
+              <button
+                key={step.step}
+                onClick={() => setActive(i)}
+                className={`w-full rounded-2xl p-5 transition-all duration-400 text-${isRtl ? "right" : "left"} border ${
+                  active === i
+                    ? "border-[#E8637A]/50 bg-white/10 shadow-lg"
+                    : "border-white/8 bg-white/4 hover:bg-white/7"
+                }`}
+              >
+                <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 transition-all duration-400"
+                    style={{ background: active === i ? step.accent : "rgba(255,255,255,0.08)" }}
+                  >
+                    {step.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className={`flex items-center gap-2 mb-1 ${isRtl ? "flex-row-reverse" : ""}`}>
+                      <span className="text-[10px] font-bold tracking-widest" style={{ color: active === i ? step.accent : "rgba(255,255,255,0.3)" }}>
+                        {step.step}
+                      </span>
+                      <h3 className={`font-black text-sm md:text-base ${active === i ? "text-white" : "text-white/60"} transition-colors`}>
+                        {isRtl ? step.arTitle : step.enTitle}
+                      </h3>
+                    </div>
+                    <AnimatePresence>
+                      {active === i && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="text-white/55 text-xs md:text-sm leading-relaxed overflow-hidden"
+                        >
+                          {isRtl ? step.arDesc : step.enDesc}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </button>
+            ))}
+
+            {/* CTA */}
+            <div className={`mt-6 flex ${isRtl ? "flex-row-reverse" : ""}`}>
+              <Link href="/products">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <button className="px-6 py-3 rounded-full font-black text-sm text-white transition-all"
+                    style={{ background: `linear-gradient(135deg, #E8637A, #C8842A)`, boxShadow: "0 8px 24px rgba(232,99,122,0.35)" }}>
+                    {isRtl ? "تسوّق الآن" : "Shop Now"}
+                    <span className={`inline-block ${isRtl ? "mr-2 rotate-180" : "ml-2"}`}>→</span>
+                  </button>
+                </motion.div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Main Home Page ───────────────────────────────────────────── */
 export default function Home() {
   const { user } = useAuth();
@@ -243,6 +420,11 @@ export default function Home() {
           <BeansMockupStrip isRtl={isRtl} />
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════
+          COFFEE JOURNEY — immersive creative explanation section
+      ══════════════════════════════════════════════════════════════ */}
+      <CoffeeJourneySection isRtl={isRtl} />
 
       {/* ══════════════════════════════════════════════════════════════
           NEWEST PRODUCTS — marquee strip

@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { RiyalSign } from "@/components/RiyalSign";
 
 const SPECIAL_CATEGORIES = [
-  { slug: "all",         label_ar: "الكل",         label_en: "All",          img: "/fuji-logo.png", special: null },
+  { slug: "all",         label_ar: "الكل",         label_en: "All",          img: "/fuji-logo-transparent.png", special: null },
 ];
 
 const SORT_OPTIONS = [
@@ -349,11 +349,11 @@ export default function Products() {
                   }}
                   className={`flex-shrink-0 flex flex-col items-center gap-1.5 transition-all duration-200 ${isActive ? "opacity-100" : "opacity-50 hover:opacity-80"}`}
                 >
-                  <div className={`relative w-14 h-14 rounded-2xl overflow-hidden transition-all duration-300 ${cat.slug === "all" ? "bg-[#FFFFFF] flex items-center justify-center border border-[#E8E5E0]" : ""} ${isActive ? "ring-2 ring-foreground ring-offset-2 scale-110" : ""}`}>
+                  <div className={`relative w-14 h-14 rounded-2xl overflow-hidden transition-all duration-300 ${cat.slug === "all" ? "bg-[#2D1A0A] flex items-center justify-center" : ""} ${isActive ? "ring-2 ring-foreground ring-offset-2 scale-110" : ""}`}>
                     <img
                       src={cat.img}
                       alt={isRtl ? cat.label_ar : cat.label_en}
-                      className={cat.slug === "all" ? "w-[78%] h-[78%] object-contain" : "w-full h-full object-cover"}
+                      className={cat.slug === "all" ? "w-[72%] h-[72%] object-contain" : "w-full h-full object-cover"}
                     />
                     {isActive && cat.slug !== "all" && <div className="absolute inset-0 bg-foreground/20" />}
                   </div>
