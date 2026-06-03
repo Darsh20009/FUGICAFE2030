@@ -190,11 +190,6 @@ export function Layout({ children }: { children: ReactNode }) {
                       {[
                         { href: "/", icon: Home, label: t('home') },
                         { href: "/products", icon: Tag, label: t('shop') },
-                        ...navCategories.map((c: any) => ({
-                          href: `/products?category=${c.slug}`,
-                          icon: Tag,
-                          label: language === 'ar' ? (c.nameAr || c.name) : c.name,
-                        })),
                         ...navPages.map((p: any) => ({
                           href: `/pages/${p.slug}`,
                           icon: Tag,
@@ -348,21 +343,6 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className={`hidden md:flex items-center gap-8 text-[11px] font-black uppercase ${language === 'en' ? 'tracking-widest' : ''}`}>
             <Link href="/" className={`transition-colors hover:text-primary ${location === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>{t('home')}</Link>
             <Link href="/products" className={`transition-colors hover:text-primary ${location === '/products' ? 'text-foreground' : 'text-muted-foreground'}`}>{t('shop')}</Link>
-            {(Array.isArray(navCategories) ? navCategories : []).map((c: any) => {
-              const href = `/products?category=${c.slug}`;
-              const label = language === 'ar' ? (c.nameAr || c.name) : c.name;
-              const activeCat = typeof window !== 'undefined' && window.location.pathname === '/products' && new URLSearchParams(window.location.search).get('category') === c.slug;
-              return (
-                <Link
-                  key={c.id || c._id || c.slug}
-                  href={href}
-                  className={`transition-colors hover:text-primary ${activeCat ? 'text-foreground' : 'text-muted-foreground'}`}
-                  data-testid={`link-nav-cat-${c.slug}`}
-                >
-                  {label}
-                </Link>
-              );
-            })}
             {navPages.map((p: any) => {
               const href = `/pages/${p.slug}`;
               const label = language === 'ar' ? (p.titleAr || p.titleEn || p.slug) : (p.titleEn || p.titleAr || p.slug);
