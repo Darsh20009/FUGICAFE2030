@@ -14,7 +14,6 @@ import { useLanguage } from "@/hooks/use-language";
 import { useAuth } from "@/hooks/use-auth";
 import { useAuthProviders } from "@/hooks/use-auth-providers";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
-import { MarketingBanners } from "@/components/marketing-banners";
 import { FujiBeansHero } from "@/components/FujiBeansHero";
 const logoImg = "/fuji-logo-transparent.png";
 import { useQuery } from "@tanstack/react-query";
@@ -378,8 +377,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <MarketingBanners />
-
       {/* ══════════════════════════════════════════════════════════════
           CINEMATIC HERO — Coffee beans with carved فوجي
       ══════════════════════════════════════════════════════════════ */}

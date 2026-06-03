@@ -22,7 +22,6 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthModal } from "@/components/AuthModal";
 import {
   CardBrandsLogo, ApplePayLogo,
-  TabbyLogo, TamaraLogo,
 } from "@/components/payment/PaymentBrands";
 import { RiyalSign } from "@/components/RiyalSign";
 import { Badge } from "@/components/ui/badge";
@@ -44,9 +43,8 @@ export default function Checkout() {
   const { toast } = useToast();
 
   const [paymentMethod, setPaymentMethod] = useState<
-    "wallet" | "tap" | "apple_pay" | "tabby" | "tamara"
+    "wallet" | "tap" | "apple_pay"
   >("wallet");
-  const [tamaraInstallments, setTamaraInstallments] = useState<2 | 3 | 4>(3);
 
   const isAppleDevice = useMemo(() => {
     if (typeof window === "undefined" || typeof navigator === "undefined") return false;
@@ -61,7 +59,7 @@ export default function Checkout() {
   const [paymobSheetOpen, setPaymobSheetOpen] = useState(false);
   const [paymobIframeUrl, setPaymobIframeUrl] = useState<string>("");
   const [paymobOrderIdState, setPaymobOrderIdState] = useState<string>("");
-  const [redirectingTo, setRedirectingTo] = useState<null | "tamara" | "tabby">(null);
+  const [redirectingTo, setRedirectingTo] = useState<null | "gateway">(null);
 
   const [shippingMode, setShippingMode] = useState<"pickup" | "delivery">("pickup");
   const [pickupBranchId, setPickupBranchId] = useState<string>("");
@@ -209,7 +207,6 @@ export default function Checkout() {
 
   const enabledMethods = storeSettings?.paymentMethods || {
     wallet: true, tap: true, apple_pay: true,
-    tamara: true, tabby: true,
   };
 
   // ── Shipping rate from Storage Station ──────────────────────────────────────
@@ -351,7 +348,7 @@ export default function Checkout() {
         });
       } catch {}
 
-      const NEEDS_GATEWAY = ["tap", "apple_pay", "tabby", "tamara"];
+      const NEEDS_GATEWAY = ["tap", "apple_pay"];
       const requiresGateway = NEEDS_GATEWAY.includes(paymentMethod);
 
       const isDelivery = shippingMode === "delivery";
@@ -447,66 +444,6 @@ export default function Checkout() {
         }
       }
 
-      if (paymentMethod === "tamara") {
-        const tamaraRes = await apiRequest("POST", "/api/payments/tamara/checkout", {
-          orderId: order.id, amount: finalTotal,
-          customer: { name: user?.name || "", phone: (user as any)?.phone || "", email: user?.email || "" },
-          installments: tamaraInstallments,
-        });
-        const tamaraData = await tamaraRes.json();
-        if (tamaraData.checkoutUrl) {
-          clearCart();
-          setRedirectingTo("tamara");
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              if (/^https?:\/\//i.test(tamaraData.checkoutUrl)) {
-                window.location.href = tamaraData.checkoutUrl;
-              } else {
-                setLocation(tamaraData.checkoutUrl + `&orderId=${order.id}`);
-              }
-            });
-          });
-          return;
-        }
-        await cancelPendingOrder(tamaraData.error || "tamara_no_url");
-        toast({ title: "تمارا", description: tamaraData.error || "تمارا لم تستجب", variant: "destructive", duration: 8000 });
-        setIsSubmitting(false);
-        return;
-      }
-
-      if (paymentMethod === "tabby") {
-        const tabbyRes = await apiRequest("POST", "/api/payments/tabby/checkout", {
-          orderId: order.id,
-          amount: finalTotal,
-          customer: { name: user?.name || "", phone: (user as any)?.phone || "", email: user?.email || "" },
-          items: items.map((it: any) => ({
-            title: it.title || "Perfume",
-            quantity: it.quantity || 1,
-            price: Number(it.price) || 0,
-            sku: it.variantSku || it.productId,
-          })),
-          shipping: { city: isDelivery ? deliveryCity : (selectedBranch?.city || "الرياض"), address: isDelivery ? deliveryAddrStr : (selectedBranch?.name || ""), zip: "" },
-        });
-        const tabbyData = await tabbyRes.json();
-        if (tabbyData.checkoutUrl) {
-          clearCart();
-          setRedirectingTo("tabby");
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              if (/^https?:\/\//i.test(tabbyData.checkoutUrl)) {
-                window.location.href = tabbyData.checkoutUrl;
-              } else {
-                setLocation(tabbyData.checkoutUrl + `&orderId=${order.id}`);
-              }
-            });
-          });
-          return;
-        }
-        await cancelPendingOrder(tabbyData.error || tabbyData.rejectionReason || "tabby_no_url");
-        toast({ title: "تابي", description: tabbyData.error || "تابي لم تستجب", variant: "destructive", duration: 8000 });
-        setIsSubmitting(false);
-        return;
-      }
 
       queryClient.invalidateQueries({ queryKey: ["/api/orders"] });
       queryClient.invalidateQueries({ queryKey: ["/api/user"] });
@@ -1114,95 +1051,48 @@ export default function Checkout() {
                 )}
 
 
-                {/* Apple Pay */}
+                {/* Apple Pay — Creative premium card */}
                 {enabledMethods.apple_pay !== false && isAppleDevice && (
-                  <label htmlFor="pay-apple" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "apple_pay" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
-                    <RadioGroupItem value="apple_pay" id="pay-apple" className="shrink-0" />
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "apple_pay" ? "bg-black" : "bg-gray-900"}`}>
-                      <Apple className="h-5 w-5 text-white" />
+                  <label
+                    htmlFor="pay-apple"
+                    className={`relative flex items-center gap-4 p-4 rounded-2xl cursor-pointer overflow-hidden transition-all duration-300 ${
+                      paymentMethod === "apple_pay"
+                        ? "ring-2 ring-black shadow-xl scale-[1.01]"
+                        : "border border-gray-200 hover:border-gray-400 hover:shadow-md"
+                    }`}
+                    style={paymentMethod === "apple_pay" ? { background: "linear-gradient(135deg, #0a0a0a 0%, #1c1c1e 40%, #2c2c2e 100%)" } : { background: "#fff" }}
+                  >
+                    {/* Sheen effect when selected */}
+                    {paymentMethod === "apple_pay" && (
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10" />
+                    )}
+                    <RadioGroupItem value="apple_pay" id="pay-apple" className="shrink-0 border-gray-400 data-[state=checked]:border-white data-[state=checked]:text-white" />
+                    {/* Apple logo badge */}
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-lg ${
+                      paymentMethod === "apple_pay" ? "bg-white/10 ring-1 ring-white/20" : "bg-gray-900"
+                    }`}>
+                      <Apple className={`h-6 w-6 ${paymentMethod === "apple_pay" ? "text-white" : "text-white"}`} />
                     </div>
-                    <div className="flex-1">
-                      <p className="font-black text-sm">توجيه (Apple Pay)</p>
-                      <p className="text-[11px] text-gray-500 mt-0.5">دفع سريع وآمن</p>
+                    <div className="flex-1 min-w-0">
+                      <p className={`font-black text-base leading-tight ${paymentMethod === "apple_pay" ? "text-white" : "text-gray-900"}`}>
+                        Apple Pay
+                      </p>
+                      <p className={`text-[11px] font-semibold mt-0.5 ${paymentMethod === "apple_pay" ? "text-white/60" : "text-gray-400"}`}>
+                        دفع لمسي سريع وآمن · Touch ID / Face ID
+                      </p>
+                    </div>
+                    {/* Chip/security visual */}
+                    <div className={`shrink-0 flex flex-col items-end gap-1 ${paymentMethod === "apple_pay" ? "opacity-70" : "opacity-30"}`}>
+                      <div className={`w-8 h-6 rounded-md border-2 ${paymentMethod === "apple_pay" ? "border-white/40" : "border-gray-400"} flex items-center justify-center`}>
+                        <div className={`w-4 h-3 rounded-sm ${paymentMethod === "apple_pay" ? "bg-white/30" : "bg-gray-300"}`} />
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[...Array(3)].map((_,i) => (
+                          <div key={i} className={`w-1.5 h-1.5 rounded-full ${paymentMethod === "apple_pay" ? "bg-white/40" : "bg-gray-300"}`} />
+                        ))}
+                      </div>
                     </div>
                   </label>
-                )}
-
-
-                {/* Tabby */}
-                {enabledMethods.tabby !== false && (
-                  <div className={`border-2 rounded-xl transition-all ${paymentMethod === "tabby" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
-                    <label htmlFor="pay-tabby" className="flex items-center gap-3 p-3.5 cursor-pointer">
-                      <RadioGroupItem value="tabby" id="pay-tabby" className="shrink-0" />
-                      <TabbyLogo className="h-7 shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-black text-sm">Tabby — قسّمها على 4</p>
-                        <p className="text-[11px] text-gray-500 mt-0.5">بدون فوائد · بدون رسوم</p>
-                      </div>
-                      <Badge className="text-[10px] bg-[#3eb489] text-white border-0 font-black shrink-0">٤ أقساط</Badge>
-                    </label>
-                    {paymentMethod === "tabby" && finalTotal > 0 && (
-                      <div className="px-4 pb-4 -mt-1">
-                        <div className="bg-white rounded-xl border border-[#3eb489]/20 p-3">
-                          <p className="text-[10px] font-black text-[#3eb489] mb-2">خطة السداد</p>
-                          <div className="grid grid-cols-4 gap-1.5">
-                            {[0,1,2,3].map((i) => (
-                              <div key={i} className={`rounded-lg p-2 text-center ${i===0 ? "bg-[#3eb489] text-white" : "bg-[#3eb489]/8 text-gray-700 border border-gray-100"}`}>
-                                <p className={`text-[9px] font-black ${i===0 ? "opacity-90" : "opacity-50"}`}>{i===0 ? "الآن" : `الشهر ${i+1}`}</p>
-                                <p className="font-black text-xs mt-0.5">{(finalTotal/4).toFixed(0)}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Tamara */}
-                {enabledMethods.tamara !== false && (
-                  <div className={`border-2 rounded-xl transition-all ${paymentMethod === "tamara" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
-                    <label htmlFor="pay-tamara" className="flex items-center gap-3 p-3.5 cursor-pointer">
-                      <RadioGroupItem value="tamara" id="pay-tamara" className="shrink-0" />
-                      <div className="h-10 overflow-hidden flex items-center justify-center shrink-0">
-                        <TamaraLogo className="h-20" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-black text-sm">Tamara — قسّمها على {tamaraInstallments}</p>
-                        <p className="text-[11px] text-gray-500 mt-0.5">بدون فوائد · موافقة فورية</p>
-                      </div>
-                      <Badge className="text-[10px] bg-[#fff6e5] text-[#b76e00] border-0 font-black shrink-0">{tamaraInstallments} أقساط</Badge>
-                    </label>
-                    {paymentMethod === "tamara" && finalTotal > 0 && (
-                      <div className="px-4 pb-4 -mt-1 space-y-2">
-                        <div className="grid grid-cols-3 gap-1.5">
-                          {([2, 3, 4] as const).map((n) => (
-                            <button
-                              key={n}
-                              type="button"
-                              onClick={() => setTamaraInstallments(n)}
-                              data-testid={`button-tamara-${n}`}
-                              className={`rounded-xl py-2 text-center border-2 transition-all ${tamaraInstallments === n ? "border-[#b76e00] bg-[#fff6e5] text-[#b76e00]" : "border-gray-200 bg-white text-gray-500"}`}
-                            >
-                              <p className="font-black text-base">{n}</p>
-                              <p className="text-[9px] font-black uppercase opacity-80">دفعات</p>
-                            </button>
-                          ))}
-                        </div>
-                        <div className="bg-white rounded-xl border border-[#b76e00]/15 p-3">
-                          <p className="text-[10px] font-black text-[#b76e00] mb-2">خطة السداد</p>
-                          <div className={`grid gap-1.5 ${tamaraInstallments === 2 ? "grid-cols-2" : tamaraInstallments === 3 ? "grid-cols-3" : "grid-cols-4"}`}>
-                            {Array.from({ length: tamaraInstallments }).map((_, i) => (
-                              <div key={i} className={`rounded-lg p-2 text-center ${i===0 ? "bg-[#b76e00] text-white" : "bg-[#fff6e5] text-gray-700"}`}>
-                                <p className={`text-[9px] font-black ${i===0 ? "opacity-90" : "opacity-50"}`}>{i===0 ? "الآن" : `الشهر ${i+1}`}</p>
-                                <p className="font-black text-xs mt-0.5">{(finalTotal/tamaraInstallments).toFixed(0)}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                 )}
 
               </RadioGroup>
@@ -1389,18 +1279,12 @@ export default function Checkout() {
               <div className="absolute inset-0 rounded-full border-4 border-gray-100" />
               <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary animate-spin" />
               <div className="absolute inset-0 flex items-center justify-center">
-                {redirectingTo === "tamara" ? (
-                  <span className="text-base font-black text-[#b76e00]">tamara</span>
-                ) : redirectingTo === "tabby" ? (
-                  <span className="text-base font-black text-[#3eb489]">tabby</span>
-                ) : (
-                  <Lock className="h-6 w-6 text-primary" />
-                )}
+                <Lock className="h-6 w-6 text-primary" />
               </div>
             </div>
             <div>
               <h3 className="text-lg font-black text-gray-900">
-                {redirectingTo === "tamara" ? "جاري التحويل إلى تمارا" : redirectingTo === "tabby" ? "جاري التحويل إلى تابي" : "جاري فتح بوابة الدفع"}
+                جاري فتح بوابة الدفع
               </h3>
               <p className="text-sm text-gray-500 font-bold mt-1">لحظات قليلة...</p>
             </div>
