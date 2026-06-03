@@ -42,9 +42,7 @@ export default function Checkout() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
-  const [paymentMethod, setPaymentMethod] = useState<
-    "wallet" | "tap" | "apple_pay"
-  >("wallet");
+  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "tap">("wallet");
 
   const isAppleDevice = useMemo(() => {
     if (typeof window === "undefined" || typeof navigator === "undefined") return false;
@@ -180,6 +178,16 @@ export default function Checkout() {
 
   const activeBranches = (branches || []).filter((b: any) => b.isActive !== false && b.isPickupEnabled !== false);
   const selectedBranch = activeBranches.find((b: any) => (b.id || b._id) === pickupBranchId);
+
+  // Auto-select Al-Suwaidi branch (or first available) when branches load
+  useEffect(() => {
+    if (!pickupBranchId && activeBranches.length > 0) {
+      const suwaidi = activeBranches.find((b: any) =>
+        (b.slug === "suwaidi") || (b.name || "").includes("السويدي")
+      );
+      setPickupBranchId((suwaidi || activeBranches[0]).id || (suwaidi || activeBranches[0])._id);
+    }
+  }, [activeBranches.length]);
 
   const { data: storeSettings } = useQuery({
     queryKey: ["/api/store/settings"],
@@ -348,7 +356,7 @@ export default function Checkout() {
         });
       } catch {}
 
-      const NEEDS_GATEWAY = ["tap", "apple_pay"];
+      const NEEDS_GATEWAY = ["tap"];
       const requiresGateway = NEEDS_GATEWAY.includes(paymentMethod);
 
       const isDelivery = shippingMode === "delivery";
@@ -404,7 +412,7 @@ export default function Checkout() {
         } catch (err) { console.warn("[Checkout] cancel pending order failed:", err); }
       };
 
-      if (paymentMethod === "tap" || paymentMethod === "apple_pay") {
+      if (paymentMethod === "tap") {
         try {
           const paymobRes = await fetch("/api/paymob/initiate", {
             method: "POST",
@@ -648,7 +656,7 @@ export default function Checkout() {
               </div>
             )}
 
-            {/* ── Shipping mode toggle ── */}
+            {/* ── Pickup only ── */}
             <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100">
               <h2 className="font-black text-sm mb-3">
                 <span className="inline-flex items-center gap-2">
@@ -656,33 +664,10 @@ export default function Checkout() {
                   طريقة الاستلام
                 </span>
               </h2>
-              <div className="grid grid-cols-2 gap-2 mb-4">
-                <button
-                  type="button"
-                  data-testid="option-shipping-pickup"
-                  onClick={() => setShippingMode("pickup")}
-                  className={`flex items-center gap-2 justify-center p-3 rounded-xl border-2 font-black text-sm transition-all ${
-                    shippingMode === "pickup"
-                      ? "border-primary bg-primary/5 text-primary"
-                      : "border-gray-200 text-gray-500 hover:border-gray-300"
-                  }`}
-                >
-                  <Store className="h-4 w-4 shrink-0" />
-                  <span>استلام من فرع</span>
-                </button>
-                <button
-                  type="button"
-                  data-testid="option-shipping-delivery"
-                  onClick={() => setShippingMode("delivery")}
-                  className={`flex items-center gap-2 justify-center p-3 rounded-xl border-2 font-black text-sm transition-all ${
-                    shippingMode === "delivery"
-                      ? "border-primary bg-primary/5 text-primary"
-                      : "border-gray-200 text-gray-500 hover:border-gray-300"
-                  }`}
-                >
-                  <Truck className="h-4 w-4 shrink-0" />
-                  <span>توصيل للمنزل</span>
-                </button>
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-primary/5 border-2 border-primary mb-4">
+                <Store className="h-4 w-4 shrink-0 text-primary" />
+                <span className="font-black text-sm text-primary">استلام من الفرع</span>
+                <span className="mr-auto text-[11px] font-bold text-primary/70 bg-primary/10 px-2 py-0.5 rounded-full">مجاني</span>
               </div>
 
               {/* ── Pickup: branch list ── */}
@@ -1051,48 +1036,31 @@ export default function Checkout() {
                 )}
 
 
-                {/* Apple Pay — Creative premium card */}
-                {enabledMethods.apple_pay !== false && isAppleDevice && (
-                  <label
-                    htmlFor="pay-apple"
-                    className={`relative flex items-center gap-4 p-4 rounded-2xl cursor-pointer overflow-hidden transition-all duration-300 ${
-                      paymentMethod === "apple_pay"
-                        ? "ring-2 ring-black shadow-xl scale-[1.01]"
-                        : "border border-gray-200 hover:border-gray-400 hover:shadow-md"
-                    }`}
-                    style={paymentMethod === "apple_pay" ? { background: "linear-gradient(135deg, #0a0a0a 0%, #1c1c1e 40%, #2c2c2e 100%)" } : { background: "#fff" }}
+                {/* Apple Pay — Coming Soon (display only, not selectable) */}
+                {isAppleDevice && (
+                  <div
+                    className="relative flex items-center gap-4 p-4 rounded-2xl overflow-hidden opacity-60 cursor-not-allowed select-none"
+                    style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1c1c1e 40%, #2c2c2e 100%)", border: "2px solid transparent" }}
                   >
-                    {/* Sheen effect when selected */}
-                    {paymentMethod === "apple_pay" && (
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10" />
-                    )}
-                    <RadioGroupItem value="apple_pay" id="pay-apple" className="shrink-0 border-gray-400 data-[state=checked]:border-white data-[state=checked]:text-white" />
-                    {/* Apple logo badge */}
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-lg ${
-                      paymentMethod === "apple_pay" ? "bg-white/10 ring-1 ring-white/20" : "bg-gray-900"
-                    }`}>
-                      <Apple className={`h-6 w-6 ${paymentMethod === "apple_pay" ? "text-white" : "text-white"}`} />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10" />
+                    {/* Lock icon instead of radio */}
+                    <div className="w-5 h-5 rounded-full border-2 border-white/30 shrink-0 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-white/20" />
+                    </div>
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 ring-1 ring-white/20 flex items-center justify-center shrink-0 shadow-lg">
+                      <Apple className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`font-black text-base leading-tight ${paymentMethod === "apple_pay" ? "text-white" : "text-gray-900"}`}>
-                        Apple Pay
-                      </p>
-                      <p className={`text-[11px] font-semibold mt-0.5 ${paymentMethod === "apple_pay" ? "text-white/60" : "text-gray-400"}`}>
-                        دفع لمسي سريع وآمن · Touch ID / Face ID
+                      <p className="font-black text-base leading-tight text-white">Apple Pay</p>
+                      <p className="text-[11px] font-semibold mt-0.5 text-white/50">
+                        Touch ID / Face ID · قريباً
                       </p>
                     </div>
-                    {/* Chip/security visual */}
-                    <div className={`shrink-0 flex flex-col items-end gap-1 ${paymentMethod === "apple_pay" ? "opacity-70" : "opacity-30"}`}>
-                      <div className={`w-8 h-6 rounded-md border-2 ${paymentMethod === "apple_pay" ? "border-white/40" : "border-gray-400"} flex items-center justify-center`}>
-                        <div className={`w-4 h-3 rounded-sm ${paymentMethod === "apple_pay" ? "bg-white/30" : "bg-gray-300"}`} />
-                      </div>
-                      <div className="flex gap-0.5">
-                        {[...Array(3)].map((_,i) => (
-                          <div key={i} className={`w-1.5 h-1.5 rounded-full ${paymentMethod === "apple_pay" ? "bg-white/40" : "bg-gray-300"}`} />
-                        ))}
-                      </div>
-                    </div>
-                  </label>
+                    {/* Coming Soon badge */}
+                    <span className="shrink-0 text-[10px] font-black px-2.5 py-1 rounded-full bg-white/15 text-white/80 border border-white/20">
+                      قريباً
+                    </span>
+                  </div>
                 )}
 
               </RadioGroup>

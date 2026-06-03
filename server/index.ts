@@ -149,6 +149,34 @@ process.on('uncaughtException', (err: any) => {
     console.warn("[Migration] Could not update store legal data:", e?.message);
   }
 
+  // ─── Seed: Fuji Al-Suwaidi pickup branch ──────────────────────────────────
+  try {
+    const { BranchModel } = await import("./models");
+    const exists = await BranchModel.findOne({ slug: "suwaidi" });
+    if (!exists) {
+      await BranchModel.create({
+        name: "فوجي السويدي",
+        nameEn: "Fuji Al-Suwaidi",
+        slug: "suwaidi",
+        city: "الرياض",
+        address: "حي السويدي، الرياض",
+        phone: "",
+        hours: "السبت – الخميس: ٧ص – ١١م  |  الجمعة: ٢م – ١١م",
+        pickupHours: "السبت – الخميس: ٧ص – ١١م  |  الجمعة: ٢م – ١١م",
+        lat: 24.6270,
+        lng: 46.6741,
+        mapUrl: "https://maps.app.goo.gl/YfhBJyFh6PN6aEQH6",
+        isActive: true,
+        pickupEnabled: true,
+        image: "",
+        sortOrder: 0,
+      });
+      console.log("[Seed] Fuji Al-Suwaidi branch created");
+    }
+  } catch (e: any) {
+    console.warn("[Seed] Could not create Al-Suwaidi branch:", e?.message);
+  }
+
   await registerRoutes(httpServer, app);
 
   // ─── WebSocket Server ──────────────────────────────────────────────────────
