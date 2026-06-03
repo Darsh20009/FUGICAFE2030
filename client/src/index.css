@@ -237,15 +237,7 @@ html { scroll-behavior: smooth; }
   text-shadow: 0 2px 12px rgba(0,0,0,0.7);
 }
 
-/* ── Fuji Global: gently bobbing beans (no scroll artifact) ── */
-@keyframes fuji-bob {
-  0%   { transform: translateY(0px)    rotate(0deg)   scale(1);    opacity: var(--bean-op, 0.15); }
-  25%  { transform: translateY(-14px)  rotate(5deg)   scale(1.04); opacity: var(--bean-op, 0.15); }
-  50%  { transform: translateY(-22px)  rotate(-4deg)  scale(1.06); opacity: var(--bean-op, 0.15); }
-  75%  { transform: translateY(-10px)  rotate(6deg)   scale(1.02); opacity: var(--bean-op, 0.15); }
-  100% { transform: translateY(0px)    rotate(0deg)   scale(1);    opacity: var(--bean-op, 0.15); }
-}
-/* ── Fuji Hero sections: flying beans (used in Home hero only) ── */
+/* ── Fuji Hero: floating beans ── */
 @keyframes fuji-float {
   0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
   6%   { opacity: 1; }
@@ -254,10 +246,6 @@ html { scroll-behavior: smooth; }
 }
 .fuji-bean {
   animation: fuji-float ease-in-out infinite;
-  will-change: transform, opacity;
-}
-.fuji-bean-bob {
-  animation: fuji-bob ease-in-out infinite;
   will-change: transform, opacity;
 }
 
