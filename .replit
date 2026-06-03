@@ -44,3 +44,5 @@ run = ["node", "./dist/index.cjs"]
 
 [userenv.shared]
 MONGODB_URI = "mongodb+srv://fugi_2030:ASDfgh123@fugi.kdwe7xy.mongodb.net/?appName=fugi"
+EMAIL_SENDER = "noreply@fuji.cafe"
+EMAIL_SENDER_NAME = "فوجي كافيه | Fuji Cafe"
