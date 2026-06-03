@@ -12,23 +12,23 @@ const BEAN_IMGS = [
 
 const GLOBAL_BEANS = [
   // ── Edges (more visible) ─────────────────────────────────────
-  { id: "g0",  x: 2,   size: 60,  dur: 22, delay: 0,    opacity: 0.12, rotate: -15,  img: 0 },
-  { id: "g1",  x: 96,  size: 48,  dur: 18, delay: 3,    opacity: 0.11, rotate: 40,   img: 2 },
-  { id: "g2",  x: 5,   size: 36,  dur: 26, delay: 7,    opacity: 0.10, rotate: 20,   img: 4 },
-  { id: "g3",  x: 93,  size: 54,  dur: 20, delay: 11,   opacity: 0.12, rotate: -55,  img: 1 },
-  { id: "g4",  x: 1,   size: 42,  dur: 24, delay: 15,   opacity: 0.09, rotate: 70,   img: 3 },
-  { id: "g5",  x: 97,  size: 38,  dur: 19, delay: 5,    opacity: 0.11, rotate: -30,  img: 5 },
-  { id: "g6",  x: 8,   size: 28,  dur: 16, delay: 19,   opacity: 0.08, rotate: 90,   img: 2 },
-  { id: "g7",  x: 91,  size: 44,  dur: 23, delay: 9,    opacity: 0.10, rotate: 10,   img: 0 },
+  { id: "g0",  x: 2,   size: 58,  dur: 22, delay: 0,    opacity: 0.22, rotate: -15,  img: 0 },
+  { id: "g1",  x: 96,  size: 46,  dur: 18, delay: 3,    opacity: 0.20, rotate: 40,   img: 2 },
+  { id: "g2",  x: 5,   size: 34,  dur: 26, delay: 7,    opacity: 0.18, rotate: 20,   img: 4 },
+  { id: "g3",  x: 93,  size: 52,  dur: 20, delay: 11,   opacity: 0.22, rotate: -55,  img: 1 },
+  { id: "g4",  x: 1,   size: 40,  dur: 24, delay: 15,   opacity: 0.16, rotate: 70,   img: 3 },
+  { id: "g5",  x: 97,  size: 36,  dur: 19, delay: 5,    opacity: 0.20, rotate: -30,  img: 5 },
+  { id: "g6",  x: 8,   size: 26,  dur: 16, delay: 19,   opacity: 0.15, rotate: 90,   img: 2 },
+  { id: "g7",  x: 91,  size: 42,  dur: 23, delay: 9,    opacity: 0.18, rotate: 10,   img: 0 },
   // ── Quarter zones (medium) ──────────────────────────────────
-  { id: "g8",  x: 18,  size: 30,  dur: 28, delay: 4,    opacity: 0.06, rotate: 25,   img: 3 },
-  { id: "g9",  x: 78,  size: 34,  dur: 21, delay: 13,   opacity: 0.06, rotate: -40,  img: 5 },
-  { id: "g10", x: 22,  size: 26,  dur: 30, delay: 17,   opacity: 0.05, rotate: 60,   img: 1 },
-  { id: "g11", x: 75,  size: 32,  dur: 25, delay: 8,    opacity: 0.05, rotate: -20,  img: 4 },
+  { id: "g8",  x: 18,  size: 28,  dur: 28, delay: 4,    opacity: 0.10, rotate: 25,   img: 3 },
+  { id: "g9",  x: 78,  size: 32,  dur: 21, delay: 13,   opacity: 0.10, rotate: -40,  img: 5 },
+  { id: "g10", x: 22,  size: 24,  dur: 30, delay: 17,   opacity: 0.08, rotate: 60,   img: 1 },
+  { id: "g11", x: 75,  size: 30,  dur: 25, delay: 8,    opacity: 0.08, rotate: -20,  img: 4 },
   // ── Middle (fewer, lighter) ──────────────────────────────────
-  { id: "g12", x: 38,  size: 22,  dur: 32, delay: 6,    opacity: 0.04, rotate: 45,   img: 2 },
-  { id: "g13", x: 62,  size: 20,  dur: 29, delay: 21,   opacity: 0.04, rotate: -10,  img: 0 },
-  { id: "g14", x: 50,  size: 18,  dur: 35, delay: 14,   opacity: 0.03, rotate: 80,   img: 3 },
+  { id: "g12", x: 38,  size: 20,  dur: 32, delay: 6,    opacity: 0.06, rotate: 45,   img: 2 },
+  { id: "g13", x: 62,  size: 18,  dur: 29, delay: 21,   opacity: 0.06, rotate: -10,  img: 0 },
+  { id: "g14", x: 50,  size: 16,  dur: 35, delay: 14,   opacity: 0.05, rotate: 80,   img: 3 },
 ];
 
 export function GlobalFloatingBeans() {
@@ -72,7 +72,7 @@ export function GlobalFloatingBeans() {
               height: "100%",
               objectFit: "contain",
               transform: `rotate(${b.rotate}deg)`,
-              filter: "drop-shadow(0 2px 8px rgba(107,63,42,0.35))",
+              mixBlendMode: "multiply",
             }}
           />
         </div>
