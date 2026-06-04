@@ -639,7 +639,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
               className="relative overflow-hidden rounded-2xl h-44 md:h-56 group cursor-pointer bg-[#0F0F0F]"
             >
-              <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=70" alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <img src="/fuji-product-photo.png" alt="فوجي كافيه" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/70 via-black/25 to-transparent" />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_2px_18px_rgba(0,0,0,0.55)]" />

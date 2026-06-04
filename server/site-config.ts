@@ -17,20 +17,20 @@ export const SITE = {
   /** Brand name (English) */
   BRAND_EN: "Fuji Cafe",
   /** Support email shown to customers */
-  SUPPORT_EMAIL: process.env.SUPPORT_EMAIL || "fugi2030@outlook.com",
+  SUPPORT_EMAIL: process.env.SUPPORT_EMAIL || "info@fuji.cafe",
   /** No-reply sender used by SMTP2GO */
-  NOREPLY_EMAIL: process.env.EMAIL_SENDER || "fugi2030@outlook.com",
+  NOREPLY_EMAIL: process.env.EMAIL_SENDER || "noreply@fuji.cafe",
   /** Internal-only emails (auto-generated for phone-only signups) */
   PHONE_EMAIL_DOMAIN: "fuji.cafe",
 } as const;
 
 export const ASSETS = {
-  LOGO_SQUARE: `${SITE.URL}/fuji-logo.png`,
-  LOGO_LIGHT:  `${SITE.URL}/fuji-logo.png`,
-  LOGO_DARK:   `${SITE.URL}/fuji-logo.png`,
-  BRAND_LOGO:  `${SITE.URL}/fuji-logo.png`,
-  EMAIL_BANNER:`${SITE.URL}/icons/email-banner.gif`,
-  OG_COVER:    `${SITE.URL}/fuji-logo.png`,
+  LOGO_SQUARE:  `${SITE.URL}/fuji-logo-transparent.png`,
+  LOGO_LIGHT:   `${SITE.URL}/fuji-logo-transparent.png`,
+  LOGO_DARK:    `${SITE.URL}/fuji-logo-transparent.png`,
+  BRAND_LOGO:   `${SITE.URL}/fuji-logo-transparent.png`,
+  EMAIL_BANNER: `${SITE.URL}/fuji-interior.png`,
+  OG_COVER:     `${SITE.URL}/fuji-logo.png`,
 } as const;
 
 export const ROUTES = {

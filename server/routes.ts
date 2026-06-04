@@ -2539,6 +2539,44 @@ ${allUrls.map(u => `  <url>
     }
   });
 
+  // ─── Prep Screen (PIN-protected, no session required) ─────────────────────
+  const PREP_PIN = process.env.PREP_SCREEN_PIN || "123456";
+
+  // Middleware — verifies X-Prep-Pin header
+  const prepAccess = (req: any, res: any, next: any) => {
+    const pin = req.headers["x-prep-pin"] as string;
+    if (pin !== PREP_PIN) return res.status(401).json({ message: "رمز غير صحيح" });
+    next();
+  };
+
+  // GET /api/prep/orders  — active orders (new + processing + ready)
+  app.get("/api/prep/orders", prepAccess, async (req, res) => {
+    try {
+      const allOrders = await storage.getOrders();
+      const active = allOrders
+        .filter((o: any) => ["new", "processing", "ready"].includes(o.status))
+        .sort((a: any, b: any) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      res.json({ orders: active });
+    } catch (err: any) {
+      console.error("[Prep] getOrders error:", err?.message);
+      res.json({ orders: [] });
+    }
+  });
+
+  // PATCH /api/prep/orders/:id/status  — update order status from prep screen
+  app.patch("/api/prep/orders/:id/status", prepAccess, async (req, res) => {
+    try {
+      const { status } = req.body;
+      const allowed = ["processing", "ready", "delivered"];
+      if (!allowed.includes(status)) return res.status(400).json({ message: "حالة غير مسموحة" });
+      const order = await storage.updateOrderStatus(req.params.id, status, {});
+      res.json(order);
+    } catch (err: any) {
+      console.error("[Prep] updateStatus error:", err?.message);
+      res.status(500).json({ message: "خطأ في تحديث الحالة" });
+    }
+  });
+
   // ─── Branch Dashboard API ─────────────────────────────────────────────────
   // Each employee sees their assigned branch only. Admins may pass ?branchId=
   app.get("/api/branch/me", branchAccess, async (req: any, res) => {

@@ -116,31 +116,36 @@ function baseTemplate(title: string, content: string): string {
           <!-- Animated Banner (GIF) — wrapped in a styled <td> so that, if the image
                is blocked by the client (Gmail/Outlook default-disable images), the
                branded gold-on-navy background + alt text still appear beautifully. -->
+          <!-- HERO BANNER — brand photo full bleed with overlay and logo -->
           <tr>
-            <td align="center" bgcolor="#1A1A1A" style="background:#1A1A1A;background-image:linear-gradient(135deg,#1A1A1A 0%,#2d1a14 35%,#3d261e 65%,#2d1a14 100%);padding:28px 20px;line-height:1;font-size:0;border-bottom:1px solid rgba(232,99,122,0.25);">
-              <!--[if mso]><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center"><tr><td align="center"><![endif]-->
-              <img src="${BANNER_URL}" alt="فوجي كافيه — Fuji Cafe Specialty Coffee" width="560" style="display:block;width:100%;max-width:560px;height:auto;border:0;outline:none;margin:0 auto;" />
-              <!-- CSS-only fallback that always shows (becomes visible if image fails / is blocked) -->
-              <div style="color:#E8637A;font-size:11px;font-weight:900;letter-spacing:0.4em;text-transform:uppercase;margin-top:14px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;line-height:1.2;">Fuji Cafe · Specialty Coffee</div>
-              <!--[if mso]></td></tr></table><![endif]-->
-            </td>
-          </tr>
-          <!-- Header -->
-          <tr>
-            <td align="center" style="background:#2d1a14;background-image:linear-gradient(135deg,#2d1a14 0%,#3d261e 50%,#2d1a14 100%);padding:28px 40px 24px;border-bottom:3px solid #E8637A;">
-              <!-- Brand logo (Fuji Cafe — white on brand color). Sits naturally on the
-                   dark navy header; no white circle so the black logo background
-                   blends. Gold border keeps it framed if the image is blocked. -->
-              <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" style="margin:0 auto 10px;">
+            <td align="center" bgcolor="#1a0f0a" style="background-color:#1a0f0a;padding:0;font-size:0;line-height:0;position:relative;">
+              <!-- Hero image -->
+              <div style="position:relative;font-size:0;line-height:0;">
+                <img src="${BANNER_URL}" alt="فوجي كافيه" width="600" style="display:block;width:100%;max-width:600px;height:220px;object-fit:cover;border:0;outline:none;" />
+                <!-- Dark overlay via a 1×1 stretched image technique — use a table overlay instead -->
+              </div>
+              <!-- Overlay bar at bottom of hero -->
+              <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="600" style="max-width:600px;margin:-80px auto 0;position:relative;z-index:2;">
                 <tr>
-                  <td align="center" valign="middle" bgcolor="#FAF6F0" style="background-color:#FAF6F0;border:1px solid #E8637A;border-radius:10px;padding:6px 14px;">
-                    <img src="${LOGO_URL}" alt="Fuji Cafe" width="120" height="90" style="display:block;width:120px;height:90px;border:0;outline:none;" />
+                  <td align="center" style="background:linear-gradient(to top,#1a0f0a 0%,rgba(26,15,10,0.85) 60%,transparent 100%);padding:24px 32px 20px;">
+                    <!-- Logo pill -->
+                    <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" style="margin:0 auto 8px;">
+                      <tr>
+                        <td align="center" valign="middle" style="background:rgba(250,246,240,0.12);border:1px solid rgba(232,99,122,0.5);border-radius:12px;padding:6px 18px;">
+                          <img src="${LOGO_URL}" alt="Fuji Cafe" width="90" height="68" style="display:block;width:90px;height:68px;border:0;outline:none;object-fit:contain;" />
+                        </td>
+                      </tr>
+                    </table>
+                    <div style="color:#ffffff;font-size:22px;font-weight:900;letter-spacing:0.12em;line-height:1.2;font-family:'Segoe UI',Tahoma,Arial,sans-serif;">فوجي كافيه</div>
+                    <div style="color:#E8637A;font-size:9px;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;margin-top:5px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;">SPECIALTY COFFEE · ${SITE.DOMAIN}</div>
                   </td>
                 </tr>
               </table>
-              <div style="color:#ffffff;font-size:20px;font-weight:900;letter-spacing:0.18em;line-height:1.2;margin-top:14px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;">فوجي كافيه</div>
-              <div style="color:#E8637A;font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;margin-top:6px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;">${SITE.DOMAIN}</div>
             </td>
+          </tr>
+          <!-- Thin accent line -->
+          <tr>
+            <td style="background:linear-gradient(90deg,#E8637A,#a08a52,#E8637A);height:3px;font-size:0;line-height:0;">&nbsp;</td>
           </tr>
           <!-- Body -->
           <tr>
@@ -163,7 +168,7 @@ function baseTemplate(title: string, content: string): string {
                   <td style="padding:0 10px;color:rgba(255,255,255,0.2);">|</td>
                   <td style="padding:0 10px;"><a href="${SITE.URL}/orders" style="color:rgba(255,255,255,0.6);font-size:11px;font-weight:700;letter-spacing:0.15em;text-decoration:none;">طلباتي</a></td>
                   <td style="padding:0 10px;color:rgba(255,255,255,0.2);">|</td>
-                  <td style="padding:0 10px;"><a href="mailto:fugi2030@outlook.com" style="color:rgba(255,255,255,0.6);font-size:11px;font-weight:700;letter-spacing:0.15em;text-decoration:none;">الدعم</a></td>
+                  <td style="padding:0 10px;"><a href="mailto:info@fuji.cafe" style="color:rgba(255,255,255,0.6);font-size:11px;font-weight:700;letter-spacing:0.15em;text-decoration:none;">الدعم</a></td>
                 </tr>
               </table>
               <p style="margin:16px 0 0;color:rgba(255,255,255,0.3);font-size:10px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;">
