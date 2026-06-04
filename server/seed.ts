@@ -14,21 +14,22 @@ async function hashPassword(password: string) {
 export async function seed() {
   // Remove old phone numbers if exist
   await UserModel.deleteMany({ phone: "0532441566" });
-  await UserModel.deleteMany({ phone: "0552469643" });
   await UserModel.deleteMany({ phone: "0567326086" });
   await UserModel.deleteMany({ phone: "567326086" });
   await UserModel.deleteMany({ phone: "567891011" });
+  // Clean up stale admin accounts with old phone/username before re-seeding
+  await UserModel.deleteMany({ phone: "0552469643", role: "admin" });
 
   // Create فوجي كافيه admin user
   console.log("Seeding فوجي كافيه admin user...");
-  const password = await hashPassword("123456");
+  const password = await hashPassword("1234567890");
   await storage.createUser({
-    phone: "567891011",
+    phone: "0552469643",
     password,
     role: "admin",
     name: "فوجي كافيه",
-    username: "567891011",
-    email: "fugi2030@outlook.com",
+    username: "0552469643",
+    email: "info@fuji.cafe",
     walletBalance: "0",
     addresses: [],
     permissions: [
@@ -46,7 +47,7 @@ export async function seed() {
     totalSpent: 0,
     phoneDiscountEligible: false
   });
-  console.log("Admin user created with phone 567891011 and password 123456");
+  console.log("Admin user created with phone 0552469643 and password 1234567890");
 
   const defaultCategoryData: Record<string, { nameAr: string; image: string }> = {
     ethiopian:   { nameAr: "قهوة إثيوبية",   image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=500&fit=crop&auto=format" },

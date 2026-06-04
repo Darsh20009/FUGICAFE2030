@@ -65,6 +65,7 @@ const Branches = lazy(() => import("@/pages/Branches"));
 const BranchDashboard = lazy(() => import("@/pages/BranchDashboard"));
 const BranchLogin = lazy(() => import("@/pages/BranchLogin"));
 const Invoice = lazy(() => import("@/pages/Invoice"));
+const KitchenScreen = lazy(() => import("@/pages/KitchenScreen"));
 
 function LazyFallback() {
   return (
@@ -235,6 +236,8 @@ function Router() {
       <Route path="/branch-dashboard">
         <ProtectedRoute component={BranchDashboard} permission="branch.orders" />
       </Route>
+      {/* Kitchen screen — standalone PIN-protected, no auth required */}
+      <Route path="/0" component={KitchenScreen} />
       <Route path="/admin/stores">
         <ProtectedRoute component={VendorsList} permission="staff.manage" />
       </Route>

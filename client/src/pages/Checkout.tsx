@@ -42,7 +42,7 @@ export default function Checkout() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
-  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "tap">("wallet");
+  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "tap" | "cash_on_delivery">("cash_on_delivery");
 
   const isAppleDevice = useMemo(() => {
     if (typeof window === "undefined" || typeof navigator === "undefined") return false;
@@ -333,7 +333,7 @@ export default function Checkout() {
         return;
       }
     }
-    if (paymentMethod === "wallet" && Number(user.walletBalance) < finalTotal) {
+    if (paymentMethod === "wallet" && Number(user?.walletBalance || 0) < finalTotal) {
       toast({
         title: "رصيد المحفظة غير كافٍ",
         description: `رصيدك: ${user.walletBalance} ر.س، المطلوب: ${finalTotal.toFixed(2)} ر.س`,
@@ -356,7 +356,7 @@ export default function Checkout() {
         });
       } catch {}
 
-      const NEEDS_GATEWAY = ["tap"];
+      const NEEDS_GATEWAY = ["tap", "apple_pay"];
       const requiresGateway = NEEDS_GATEWAY.includes(paymentMethod);
 
       const isDelivery = shippingMode === "delivery";
@@ -1006,9 +1006,24 @@ export default function Checkout() {
                 onValueChange={(v) => { setPaymentMethod(v as any); }}
                 className="space-y-2.5"
               >
-                {/* Wallet */}
-                {enabledMethods.wallet !== false && (
-                  <label htmlFor="pay-wallet" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "wallet" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
+                {/* ── Cash on Delivery (primary method) ── */}
+                <label htmlFor="pay-cod" data-testid="option-payment-cod" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "cash_on_delivery" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
+                  <RadioGroupItem value="cash_on_delivery" id="pay-cod" className="shrink-0" />
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "cash_on_delivery" ? "bg-primary/10" : "bg-gray-100"}`}>
+                    <Package className={`h-5 w-5 ${paymentMethod === "cash_on_delivery" ? "text-primary" : "text-gray-500"}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-black text-sm">الدفع عند الاستلام</p>
+                    <p className="text-[11px] text-gray-500 mt-0.5">ادفع نقداً عند استلام طلبك من الفرع</p>
+                  </div>
+                  {paymentMethod === "cash_on_delivery" && (
+                    <span className="shrink-0 text-[10px] font-black px-2 py-0.5 rounded-full bg-primary text-white">متاح</span>
+                  )}
+                </label>
+
+                {/* ── Wallet ── */}
+                {enabledMethods.wallet !== false && user && Number(user.walletBalance || 0) > 0 && (
+                  <label htmlFor="pay-wallet" data-testid="option-payment-wallet" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "wallet" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
                     <RadioGroupItem value="wallet" id="pay-wallet" className="shrink-0" />
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "wallet" ? "bg-primary/10" : "bg-gray-100"}`}>
                       <Wallet className={`h-5 w-5 ${paymentMethod === "wallet" ? "text-primary" : "text-gray-500"}`} />
@@ -1020,48 +1035,31 @@ export default function Checkout() {
                   </label>
                 )}
 
-                {/* Card (Paymob) */}
-                {enabledMethods.tap !== false && (
-                  <label htmlFor="pay-tap" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "tap" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
-                    <RadioGroupItem value="tap" id="pay-tap" className="shrink-0" />
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "tap" ? "bg-primary/10" : "bg-gray-100"}`}>
-                      <CreditCard className={`h-5 w-5 ${paymentMethod === "tap" ? "text-primary" : "text-gray-500"}`} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-black text-sm">بطاقة بنكية</p>
-                      <p className="text-[11px] text-gray-500 mt-0.5">مدى · فيزا · ماستركارد · Paymob</p>
-                    </div>
-                    <CardBrandsLogo className="h-5 shrink-0 opacity-70" />
-                  </label>
-                )}
-
-
-                {/* Apple Pay — Coming Soon (display only, not selectable) */}
-                {isAppleDevice && (
-                  <div
-                    className="relative flex items-center gap-4 p-4 rounded-2xl overflow-hidden opacity-60 cursor-not-allowed select-none"
-                    style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1c1c1e 40%, #2c2c2e 100%)", border: "2px solid transparent" }}
-                  >
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10" />
-                    {/* Lock icon instead of radio */}
-                    <div className="w-5 h-5 rounded-full border-2 border-white/30 shrink-0 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-white/20" />
-                    </div>
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 ring-1 ring-white/20 flex items-center justify-center shrink-0 shadow-lg">
-                      <Apple className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-black text-base leading-tight text-white">Apple Pay</p>
-                      <p className="text-[11px] font-semibold mt-0.5 text-white/50">
-                        Touch ID / Face ID · قريباً
-                      </p>
-                    </div>
-                    {/* Coming Soon badge */}
-                    <span className="shrink-0 text-[10px] font-black px-2.5 py-1 rounded-full bg-white/15 text-white/80 border border-white/20">
-                      قريباً
-                    </span>
+                {/* ── Card (coming soon) ── */}
+                <div data-testid="option-payment-card-soon" className="relative flex items-center gap-3 p-3.5 border-2 border-dashed border-gray-200 rounded-xl opacity-50 cursor-not-allowed select-none">
+                  <div className="w-5 h-5 rounded-full border-2 border-gray-300 shrink-0" />
+                  <div className="w-9 h-9 rounded-xl bg-gray-100 flex items-center justify-center shrink-0">
+                    <CreditCard className="h-5 w-5 text-gray-400" />
                   </div>
-                )}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-black text-sm text-gray-500">بطاقة بنكية</p>
+                    <p className="text-[11px] text-gray-400 mt-0.5">مدى · فيزا · ماستركارد</p>
+                  </div>
+                  <span className="shrink-0 text-[10px] font-black px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 border border-gray-200">قريباً</span>
+                </div>
+
+                {/* ── Apple Pay (coming soon, always visible) ── */}
+                <div data-testid="option-payment-apple-soon" className="relative flex items-center gap-3 p-3.5 rounded-2xl overflow-hidden opacity-50 cursor-not-allowed select-none border-2 border-dashed border-gray-700/30" style={{ background: "linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%)" }}>
+                  <div className="w-5 h-5 rounded-full border-2 border-white/30 shrink-0" />
+                  <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                    <Apple className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-black text-sm text-white">Apple Pay</p>
+                    <p className="text-[11px] text-white/50 mt-0.5">Touch ID / Face ID</p>
+                  </div>
+                  <span className="shrink-0 text-[10px] font-black px-2.5 py-1 rounded-full bg-white/10 text-white/70 border border-white/20">قريباً</span>
+                </div>
 
               </RadioGroup>
 
