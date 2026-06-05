@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { RiyalSign } from "@/components/RiyalSign";
 
 const SPECIAL_CATEGORIES = [
-  { slug: "all",         label_ar: "الكل",         label_en: "All",          img: "/fuji-logo-transparent.png", special: null },
+  { slug: "all",         label_ar: "الكل",         label_en: "All",          img: "/fuji-logo.png", special: null },
 ];
 
 const SORT_OPTIONS = [

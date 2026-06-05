@@ -1,5 +1,5 @@
-const logoImg = "/fuji-logo-transparent.png";
-const logoDarkImg = "/fuji-logo-transparent.png";
+const logoImg = "/fuji-logo.png";
+const logoDarkImg = "/fuji-logo.png";
 import { ReactNode, useEffect, useState, lazy, Suspense } from "react";
 import { GlobalFloatingBeans } from "@/components/GlobalFloatingBeans";
 import { Link, useLocation } from "wouter";

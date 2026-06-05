@@ -346,7 +346,7 @@ export function setupAuth(app: Express) {
         const isPosAccess = ["pos", "both"].includes(userObj.loginType);
 
         let redirectTo = "/";
-        if (["admin", "employee", "support", "cashier", "accountant"].includes(userObj.role)) {
+        if (["admin", "assistant_manager", "tech_support", "legal_consultant", "employee", "support", "cashier", "accountant"].includes(userObj.role)) {
           if (isDashboardAccess) {
             redirectTo = "/admin";
           } else if (isPosAccess) {
