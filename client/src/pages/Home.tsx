@@ -580,22 +580,73 @@ export default function Home() {
                 {i % 2 === 0 ? <BeansDecor side="left" count={2} /> : <BeansDecor side="right" count={2} />}
                 <LogoWatermark opacity={0.025} />
                 <div className="container px-4 relative z-10">
-                  {cat.image && (
-                    <Link href={`/products?category=${cat.slug}`}>
-                      <div className="relative w-full mb-4 cursor-pointer group flex items-center justify-center">
+                  <Link href={`/products?category=${cat.slug}`}>
+                    <div className="relative w-full mb-6 cursor-pointer group overflow-hidden rounded-3xl" style={{ height: "clamp(180px, 28vw, 320px)" }}>
+                      {/* Coffee photo background */}
+                      <img
+                        src="/fuji-interior-opt.jpg"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      {/* Dark rich gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a0c06]/90 via-[#2d1508]/75 to-[#0d0603]/85" />
+                      {/* Warm gold vignette edges */}
+                      <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(160,138,82,0.18)]" />
+                      {/* Decorative horizontal gold lines */}
+                      <div className="absolute top-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#a08a52]/60 to-transparent" />
+                      <div className="absolute bottom-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#a08a52]/60 to-transparent" />
+                      {/* Scattered bean decorations */}
+                      {[
+                        { x: "4%",  y: "20%", r: 20,  s: 52, img: 0 },
+                        { x: "92%", y: "15%", r: -25, s: 44, img: 2 },
+                        { x: "6%",  y: "65%", r: 40,  s: 40, img: 4 },
+                        { x: "88%", y: "60%", r: -35, s: 48, img: 1 },
+                        { x: "48%", y: "4%",  r: 10,  s: 32, img: 3 },
+                        { x: "15%", y: "75%", r: -10, s: 30, img: 5 },
+                        { x: "80%", y: "75%", r: 15,  s: 34, img: 0 },
+                      ].map((b, bi) => (
+                        <div key={bi} className="absolute pointer-events-none transition-transform duration-700 group-hover:scale-110"
+                          style={{ left: b.x, top: b.y, transform: `rotate(${b.r}deg)`, opacity: 0.12, width: b.s, height: b.s }}>
+                          <img src={BEAN_IMGS[b.img % BEAN_IMGS.length]} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                        </div>
+                      ))}
+                      {/* CENTER content */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6">
+                        {/* Top label */}
+                        <div className="flex items-center gap-3">
+                          <div className="h-px w-10 bg-[#a08a52]/70" />
+                          <span className="text-[9px] font-black uppercase tracking-[0.45em] text-[#a08a52]">
+                            {isRtl ? "تشكيلة فوجي" : "Fuji Collection"}
+                          </span>
+                          <div className="h-px w-10 bg-[#a08a52]/70" />
+                        </div>
+                        {/* Fuji logo — prominent center */}
                         <img
-                          src={cat.image}
-                          alt={catName}
-                          className="w-full h-auto max-h-72 sm:max-h-80 md:max-h-96 object-contain rounded-3xl mx-auto transition-transform duration-700 group-hover:scale-[1.02]"
-                          loading="lazy"
+                          src={logoImg}
+                          alt="Fuji Cafe"
+                          className="h-12 md:h-16 w-auto drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                          style={{ filter: "brightness(1.1) drop-shadow(0 0 20px rgba(232,99,122,0.5))" }}
                         />
-                        {/* Fuji logo badge over image */}
-                        <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm rounded-xl p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <img src={logoImg} alt="Fuji" className="h-5 w-auto" />
+                        {/* Category name */}
+                        <h3 className="text-white text-2xl md:text-4xl font-black text-center leading-tight tracking-wide drop-shadow-2xl"
+                          style={{ textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>
+                          {catName}
+                        </h3>
+                        {/* CTA pill */}
+                        <div className="flex items-center gap-2 mt-1 bg-[#E8637A]/20 backdrop-blur-sm border border-[#E8637A]/40 px-4 py-1.5 rounded-full group-hover:bg-[#E8637A]/40 transition-all duration-500">
+                          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E8637A]">
+                            {isRtl ? "تسوق الآن" : "Shop Now"}
+                          </span>
+                          {isRtl ? <ChevronLeft className="w-3 h-3 text-[#E8637A]" /> : <ChevronRight className="w-3 h-3 text-[#E8637A]" />}
                         </div>
                       </div>
-                    </Link>
-                  )}
+                      {/* Corner Fuji mark */}
+                      <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-sm rounded-xl px-2.5 py-1.5 border border-white/10">
+                        <span className="text-[9px] font-black uppercase tracking-[0.35em] text-white/70">FUJI CAFE</span>
+                      </div>
+                    </div>
+                  </Link>
                   <div className={`flex items-end justify-between gap-3 mb-6 ${isRtl ? "flex-row-reverse text-right" : "text-left"}`}>
                     <div>
                       <div className={`flex items-center gap-2 mb-1 ${isRtl ? "flex-row-reverse" : ""}`}>
