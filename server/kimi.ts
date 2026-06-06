@@ -7,7 +7,7 @@
  *   - Employee pool:  30% of daily budget  (staff assistant, lower volume)
  *
  * Model: moonshot-v1-8k  (cheapest, fast, good Arabic)
- * API:   https://api.moonshot.cn/v1  (OpenAI-compatible)
+ * API:   https://api.moonshot.ai/v1  (OpenAI-compatible)
  */
 
 interface ChatMessage {
@@ -16,7 +16,7 @@ interface ChatMessage {
 }
 
 const KIMI_API_KEY = (process.env.KIMI_API_KEY || "").trim();
-const KIMI_BASE    = "https://api.moonshot.cn/v1/chat/completions";
+const KIMI_BASE    = "https://api.moonshot.ai/v1/chat/completions";
 const KIMI_MODEL   = "moonshot-v1-8k";
 
 // ─── Daily token budget tracking ───────────────────────────────────────────
