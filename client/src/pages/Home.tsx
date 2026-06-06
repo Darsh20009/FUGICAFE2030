@@ -184,13 +184,13 @@ const JOURNEY_STEPS = [
     arDesc: "في النهاية، كل هذه الرحلة المذهلة تصل إليك في كوب واحد — دافئ، عطر، ومُعدّ بحبّ. هذا هو وعد فوجي كافيه.",
     enDesc: "All this remarkable journey arrives in your hands — warm, fragrant, crafted with love. That is the Fuji Cafe promise.",
     icon: "☕",
-    img: "/fuji-interior.png",
+    img: "/fuji-interior-opt.jpg",
     accent: "#E8637A",
   },
 ];
 
 function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(3);
   const current = JOURNEY_STEPS[active];
 
   return (
@@ -436,10 +436,9 @@ export default function Home() {
               <div className="absolute -inset-1 bg-gradient-to-br from-[#E8637A]/40 to-[#a08a52]/40 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/60">
                 <img
-                  src="/fuji-interior.png"
+                  src="/fuji-interior-opt.jpg"
                   alt="فوجي كافيه — أجواء المكان"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">

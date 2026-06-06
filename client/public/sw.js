@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v8';
 const STATIC_CACHE  = `rf-perfume-static-${CACHE_VERSION}`;
 const API_CACHE     = `rf-perfume-api-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `rf-perfume-images-${CACHE_VERSION}`;
