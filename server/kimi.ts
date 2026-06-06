@@ -87,8 +87,17 @@ export function kimiBudgetStatus() {
 // Language guard injected before every call to prevent Chinese leaking into Arabic/English replies.
 const LANG_GUARD: ChatMessage = {
   role: "system",
-  content: "CRITICAL RULE: You MUST reply ONLY in Arabic or English as instructed. NEVER use Chinese, Japanese, Korean, or any other language. If the prompt is in Arabic, reply in Arabic only. If in English, reply in English only. No Chinese characters under any circumstances.",
+  content: "ABSOLUTE RULE — HIGHEST PRIORITY: You MUST reply ONLY in Arabic or English. NEVER output Chinese, Japanese, Korean, or any CJK characters (Unicode range U+4E00–U+9FFF, U+3040–U+30FF, etc.). If you cannot find a product, say so in Arabic or English only. No Chinese under ANY circumstances. Violation of this rule is a critical failure.",
 };
+
+/**
+ * Strip CJK (Chinese/Japanese/Korean) characters from a string.
+ * Kimi occasionally leaks Chinese even with a system prompt — this is the safety net.
+ */
+function stripCJK(text: string): string {
+  // Remove CJK Unified Ideographs, Hiragana, Katakana, CJK Extensions, etc.
+  return text.replace(/[\u3000-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF\u3040-\u30FF\u31F0-\u31FF]/g, "").replace(/\s{2,}/g, " ").trim();
+}
 
 export async function kimiChat(
   messages: ChatMessage[],
@@ -126,7 +135,8 @@ export async function kimiChat(
   }
 
   const data = await res.json();
-  const text: string = data?.choices?.[0]?.message?.content || "";
+  const raw: string = data?.choices?.[0]?.message?.content || "";
+  const text = stripCJK(raw);
 
   // Debit estimated tokens from pool
   usedTokens[audience] += estimated;

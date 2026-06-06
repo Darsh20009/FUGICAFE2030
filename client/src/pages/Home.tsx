@@ -184,7 +184,7 @@ const JOURNEY_STEPS = [
     arDesc: "في النهاية، كل هذه الرحلة المذهلة تصل إليك في كوب واحد — دافئ، عطر، ومُعدّ بحبّ. هذا هو وعد فوجي كافيه.",
     enDesc: "All this remarkable journey arrives in your hands — warm, fragrant, crafted with love. That is the Fuji Cafe promise.",
     icon: "☕",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=70",
+    img: "/fuji-interior.png",
     accent: "#E8637A",
   },
 ];
