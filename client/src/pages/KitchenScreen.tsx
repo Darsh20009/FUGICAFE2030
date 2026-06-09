@@ -2,18 +2,21 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
 import {
-  Coffee, RefreshCw, Bell, LogOut, Eye, EyeOff, Printer,
-  Settings, X, CheckCircle, Clock, AlertTriangle, Maximize2,
-  Package, ChefHat, Zap, BarChart3, Sun, Link2, Link2Off, Usb,
+  RefreshCw, Bell, LogOut, Eye, EyeOff, Printer,
+  X, CheckCircle, Clock, AlertTriangle, Maximize2,
+  Package, ChefHat, Zap,
 } from "lucide-react";
+import {
+  thermalPrint,
+  buildEscPosKitchenTicketBitmap,
+  loadPrinterSettings,
+} from "@/lib/thermal-printer";
+import PrinterSettingsPanel from "@/components/PrinterSettingsPanel";
 
 const PREP_PIN    = "123456";
 const STORAGE_KEY = "fuji_prep_auth";
-const PAPER_KEY   = "fuji_printer_width";
 const AUTO_PRINT_KEY = "fuji_auto_print";
 const SOUND_KEY   = "fuji_prep_sound";
-const SERIAL_BAUD_KEY = "fuji_printer_baud";
-const PRINT_MODE_KEY  = "fuji_print_mode"; // "thermal" | "browser"
 
 /** Fetch helper that injects the X-Prep-Pin header */
 function prepFetch(url: string, opts: RequestInit = {}) {
@@ -53,143 +56,35 @@ function isVeryOld(d: string, mins = 30) {
   return (Date.now() - new Date(d).getTime()) > mins * 60_000;
 }
 
-/* ── ESC/POS builder (thermal direct) ───────────────────────────── */
-function buildEscPos(order: any, paperMm: 58 | 80): Uint8Array {
-  const bytes: number[] = [];
-  const enc = new TextEncoder();
-  const push = (...b: number[]) => bytes.push(...b);
-  const text = (s: string) => enc.encode(s).forEach(b => bytes.push(b));
-  const lf = () => push(0x0A);
-  const cols = paperMm === 58 ? 32 : 42;
-  const sep = (ch = "-") => { text(ch.repeat(cols)); lf(); };
-
-  push(0x1B, 0x40);               // init
-  push(0x1C, 0x26);               // UTF-8 / CJK mode (many printers)
-  push(0x1B, 0x74, 0x16);         // code page Windows-1256 (Arabic)
-  push(0x1B, 0x61, 0x01);         // center
-
-  // Store name
-  push(0x1D, 0x21, 0x11, 0x1B, 0x45, 0x01);
-  text("FUJI CAFE"); lf();
-  push(0x1D, 0x21, 0x00, 0x1B, 0x45, 0x00);
-  text("فوجي كافيه"); lf();
-  sep();
-
-  // Order ref
-  push(0x1D, 0x21, 0x01, 0x1B, 0x45, 0x01);
-  const ref = order.orderRef || String(order._id || order.id || "").slice(-6);
-  text(`#${ref}`); lf();
-  push(0x1D, 0x21, 0x00, 0x1B, 0x45, 0x00);
-
-  // Date/time
-  const d = new Date(order.createdAt || Date.now());
-  const pad = (n: number) => String(n).padStart(2, "0");
-  text(`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`);
-  lf(); sep();
-
-  // Items — left aligned
-  push(0x1B, 0x61, 0x00);
-  (order.items || []).forEach((it: any) => {
-    const qty = String(it.quantity || 1).padEnd(2);
-    const name = (it.title || "").substring(0, cols - 6);
-    const size = it.size ? ` (${it.size})` : "";
-    text(`${qty}× ${name}${size}`); lf();
-  });
-  sep("=");
-
-  // Customer
-  if (order.customerName) { push(0x1B, 0x45, 0x01); text(order.customerName); push(0x1B, 0x45, 0x00); lf(); }
-  if (order.customerPhone) { text(order.customerPhone); lf(); }
-
-  // Notes
-  if (order.notes) {
-    sep();
-    push(0x1B, 0x45, 0x01); text("ملاحظة: "); push(0x1B, 0x45, 0x00);
-    text(order.notes); lf();
-  }
-  sep();
-
-  // Footer
-  push(0x1B, 0x61, 0x01);
-  text("شكراً لزيارتكم · fuji.cafe"); lf();
-  lf(); lf(); lf();
-  push(0x1D, 0x56, 0x42, 0x05);  // partial cut + 5mm feed
-
-  return new Uint8Array(bytes);
-}
-
-/* ── Browser window receipt (fallback) ──────────────────────────── */
-function printReceipt(order: any, paperMm: 58 | 80) {
+/* ── Browser fallback receipt ────────────────────────────────────── */
+function printBrowserFallback(order: any) {
+  const paperMm = (Number(localStorage.getItem("fuji-printer-paper-width")?.replace("mm","")) || 80) as 58 | 80;
   const w = window.open("", "_blank", `width=${paperMm === 58 ? 260 : 350},height=700`);
-  if (!w) { alert("السماح بالنوافذ المنبثقة لتشغيل الطابعة"); return; }
-
+  if (!w) return;
   const items = (order.items || [])
-    .map((it: any) => `<tr><td style="padding:1px 0">${it.quantity}×</td><td style="padding:1px 0 1px 4px;width:100%">${it.title}${it.size ? ` (${it.size})` : ""}</td></tr>`)
+    .map((it: any) => `<tr><td>${it.quantity}×</td><td style="padding:0 0 0 4px;width:100%">${it.title}${it.size ? ` (${it.size})` : ""}</td></tr>`)
     .join("");
-
-  const html = `<!DOCTYPE html>
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>فوجي كافيه — #${order.orderRef || String(order._id || order.id).slice(-5)}</title>
-<style>
-  @page { margin:0; size:${paperMm}mm auto; }
-  *  { box-sizing:border-box; margin:0; padding:0; }
-  body {
-    font-family:"Courier New",Courier,monospace;
-    font-size:${paperMm === 58 ? "11px" : "13px"};
-    width:${paperMm}mm;
-    padding:4mm 3mm;
-    direction:rtl;
-    color:#000;
-    background:#fff;
-  }
-  .center { text-align:center; }
-  .bold   { font-weight:700; }
-  .big    { font-size:${paperMm === 58 ? "16px" : "20px"}; }
-  .huge   { font-size:${paperMm === 58 ? "22px" : "28px"}; letter-spacing:.06em; }
-  .line   { border-top:1px dashed #555; margin:4px 0; }
-  .double { border-top:3px double #000; margin:4px 0; }
-  table   { width:100%; border-collapse:collapse; }
-  td      { vertical-align:top; font-size:inherit; }
-  .tag    { display:inline-block; border:1px solid #000; padding:1px 5px; font-size:9px; font-weight:700; letter-spacing:.1em; }
-  .noprint{ display:none; }
-  @media screen { .noprint{ display:block; margin-top:8px; text-align:center; } }
-  @media print  { .noprint{ display:none !important; } }
-</style>
-</head>
-<body>
-<div class="center bold huge">فوجي كافيه</div>
-<div class="center" style="font-size:9px;letter-spacing:.3em;margin-bottom:3px">FUJI CAFE</div>
-<div class="line"></div>
-
-<div class="center bold big">#${order.orderRef || String(order._id || order.id).slice(-5)}</div>
-<div class="center" style="font-size:10px">${new Date(order.createdAt).toLocaleString("ar-SA", { hour: "2-digit", minute: "2-digit", day: "numeric", month: "short" })}</div>
-
-<div class="line"></div>
-
-<table>${items}</table>
-
-<div class="double"></div>
-
-${order.customerName ? `<div class="bold">${order.customerName}</div>` : ""}
-${order.customerPhone ? `<div style="direction:ltr;text-align:right">${order.customerPhone}</div>` : ""}
-${order.notes ? `<div class="line"></div><div><span class="tag">ملاحظة</span> ${order.notes}</div>` : ""}
-
-<div class="line"></div>
-<div class="center" style="font-size:9px;letter-spacing:.08em">شكراً لزيارتكم · fuji.cafe</div>
-<div class="center" style="font-size:9px">${new Date().toLocaleTimeString("ar-SA", { hour: "2-digit", minute: "2-digit" })}</div>
-
-<div class="noprint">
-  <button onclick="window.print()" style="padding:8px 24px;background:#1a0f0a;color:#fff;border:0;font-size:13px;cursor:pointer;border-radius:6px;">🖨 طباعة</button>
-</div>
-</body>
-</html>`;
-
-  w.document.write(html);
+  w.document.write(`<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="UTF-8"><style>
+    @page{margin:0;size:${paperMm}mm auto;}body{font-family:"Courier New",monospace;font-size:${paperMm===58?"11px":"13px"};width:${paperMm}mm;padding:4mm 3mm;direction:rtl;color:#000;}
+    .c{text-align:center;}.b{font-weight:700;}.hr{border-top:1px dashed #555;margin:4px 0;}table{width:100%;border-collapse:collapse;}
+    @media print{.np{display:none!important;}}
+  </style></head><body>
+  <div class="c b" style="font-size:${paperMm===58?"20px":"26px"}">فوجي كافيه</div>
+  <div class="c" style="font-size:9px;letter-spacing:.3em">FUJI CAFE</div>
+  <div class="hr"></div>
+  <div class="c b" style="font-size:${paperMm===58?"15px":"18px"}">#${order.orderRef || String(order._id||order.id||"").slice(-5)}</div>
+  <div class="c" style="font-size:9px">${new Date(order.createdAt||Date.now()).toLocaleString("ar-SA",{hour:"2-digit",minute:"2-digit",day:"numeric",month:"short"})}</div>
+  <div class="hr"></div>
+  <table>${items}</table>
+  <div class="hr"></div>
+  ${order.customerName?`<div class="b">${order.customerName}</div>`:""}
+  ${order.notes?`<div>📝 ${order.notes}</div>`:""}
+  <div class="hr"></div>
+  <div class="c np" style="margin-top:8px"><button onclick="window.print()" style="padding:8px 20px;background:#1a0f0a;color:#fff;border:0;font-size:12px;cursor:pointer;border-radius:6px;">🖨 طباعة</button></div>
+  </body></html>`);
   w.document.close();
   w.focus();
-  setTimeout(() => { w.print(); }, 350);
+  setTimeout(() => w.print(), 350);
 }
 
 /* ── Audio beep ─────────────────────────────────────────────────── */
@@ -285,27 +180,19 @@ function PinLock({ onSuccess }: { onSuccess: () => void }) {
    PRINTER SETTINGS MODAL
 ══════════════════════════════════════════════════════════════════ */
 function PrinterModal({
-  onClose, paperMm, setPaperMm, autoPrint, setAutoPrint, soundOn, setSoundOn,
-  connected, baudRate, setBaudRate, onConnect, onDisconnect, onTestPrint,
+  onClose, soundOn, setSoundOn,
 }: {
   onClose: () => void;
-  paperMm: 58 | 80; setPaperMm: (v: 58 | 80) => void;
-  autoPrint: boolean; setAutoPrint: (v: boolean) => void;
   soundOn: boolean; setSoundOn: (v: boolean) => void;
-  connected: boolean; baudRate: number; setBaudRate: (v: number) => void;
-  onConnect: () => void; onDisconnect: () => void;
-  onTestPrint: () => void;
 }) {
-  const BAUD_RATES = [9600, 19200, 38400, 115200];
-  const hasSerial = !!(navigator as any).serial;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 backdrop-blur-sm pt-4 pb-4 overflow-y-auto" onClick={onClose}>
       <div
-        className="relative w-full max-w-sm mx-4 bg-[#1a0f0a] border border-[#E8637A]/20 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-md mx-4 bg-[#0d0805] border border-[#E8637A]/20 rounded-3xl overflow-hidden shadow-2xl"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 sticky top-0 bg-[#1a0f0a] z-10">
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 sticky top-0 bg-[#0d0805] z-10">
           <div className="flex items-center gap-2">
             <Printer className="h-4 w-4 text-[#E8637A]" />
             <span className="font-black text-white text-sm">إعدادات الطابعة</span>
@@ -315,128 +202,8 @@ function PrinterModal({
           </button>
         </div>
 
-        <div className="p-5 space-y-5">
-
-          {/* ── THERMAL PRINTER CONNECTION ── */}
-          <div className="rounded-2xl overflow-hidden border border-white/8">
-            {/* Header */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-white/4 border-b border-white/5">
-              <Usb className="h-4 w-4 text-[#E8637A]" />
-              <span className="font-black text-sm text-white">طابعة حرارية — اتصال مباشر</span>
-              {/* Status badge */}
-              <div className={`mr-auto flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black ${
-                connected
-                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-                  : "bg-white/8 text-white/30 border border-white/10"
-              }`}>
-                <div className={`w-1.5 h-1.5 rounded-full ${connected ? "bg-emerald-400 animate-pulse" : "bg-white/20"}`} />
-                {connected ? "متصلة" : "غير متصلة"}
-              </div>
-            </div>
-
-            <div className="p-4 space-y-3">
-              {!hasSerial && (
-                <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-3 py-2.5">
-                  <p className="text-amber-400 text-[11px] font-bold leading-snug">
-                    ⚠️ متصفحك لا يدعم Web Serial API. استخدم Chrome أو Edge للاتصال المباشر بالطابعة.
-                  </p>
-                </div>
-              )}
-
-              {/* Baud rate */}
-              {hasSerial && (
-                <div>
-                  <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1.5">سرعة الاتصال (Baud Rate)</p>
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {BAUD_RATES.map(b => (
-                      <button
-                        key={b}
-                        onClick={() => { setBaudRate(b); localStorage.setItem(SERIAL_BAUD_KEY, String(b)); }}
-                        disabled={connected}
-                        className={`h-9 rounded-lg text-[10px] font-black transition-all ${
-                          baudRate === b
-                            ? "bg-[#E8637A]/20 border border-[#E8637A]/50 text-[#E8637A]"
-                            : "bg-white/5 border border-white/8 text-white/30 hover:border-white/20 disabled:opacity-30"
-                        }`}
-                      >
-                        {b >= 1000 ? `${b/1000}K` : b}
-                      </button>
-                    ))}
-                  </div>
-                  <p className="text-[10px] text-white/20 mt-1 font-bold">معظم الطابعات: 9600 أو 115200</p>
-                </div>
-              )}
-
-              {/* Connect / Disconnect button */}
-              {hasSerial && (
-                !connected ? (
-                  <button
-                    onClick={onConnect}
-                    className="w-full h-11 rounded-xl bg-[#E8637A]/15 border border-[#E8637A]/40 text-[#E8637A] font-black text-sm hover:bg-[#E8637A]/25 transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
-                    data-testid="button-connect-printer"
-                  >
-                    <Link2 className="h-4 w-4" />
-                    توصيل الطابعة الحرارية
-                  </button>
-                ) : (
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-2.5">
-                      <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-emerald-400 text-xs font-black">الطابعة متصلة</p>
-                        <p className="text-emerald-400/60 text-[10px] font-bold">سيتم الطباعة مباشرة بكود ESC/POS</p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={onDisconnect}
-                      className="w-full h-9 rounded-xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs hover:bg-red-900/20 hover:text-red-400 hover:border-red-500/30 transition-all flex items-center justify-center gap-2"
-                      data-testid="button-disconnect-printer"
-                    >
-                      <Link2Off className="h-3.5 w-3.5" />
-                      فصل الطابعة
-                    </button>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Paper width */}
-          <div>
-            <p className="text-xs font-black text-white/50 uppercase tracking-widest mb-2">عرض الورق</p>
-            <div className="grid grid-cols-2 gap-2">
-              {([58, 80] as const).map(mm => (
-                <button
-                  key={mm}
-                  onClick={() => { setPaperMm(mm); localStorage.setItem(PAPER_KEY, String(mm)); }}
-                  className={`h-12 rounded-xl font-black text-sm border-2 transition-all ${
-                    paperMm === mm
-                      ? "border-[#E8637A] bg-[#E8637A]/10 text-white"
-                      : "border-white/10 bg-white/5 text-white/40 hover:border-white/20"
-                  }`}
-                >
-                  {mm}mm
-                </button>
-              ))}
-            </div>
-            <p className="text-[10px] text-white/25 mt-1.5 font-bold">تأكد أن عرض الورق في الطابعة مطابق</p>
-          </div>
-
-          {/* Auto-print */}
-          <div className="flex items-center justify-between bg-white/5 rounded-2xl px-4 py-3.5">
-            <div>
-              <p className="font-black text-sm text-white">طباعة تلقائية</p>
-              <p className="text-[11px] text-white/40 font-bold">طباعة عند وصول طلب جديد</p>
-            </div>
-            <button
-              onClick={() => { const v = !autoPrint; setAutoPrint(v); localStorage.setItem(AUTO_PRINT_KEY, v ? "1" : "0"); }}
-              className={`w-12 h-6 rounded-full transition-all relative shrink-0 ${autoPrint ? "bg-[#E8637A]" : "bg-white/10"}`}
-            >
-              <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-all ${autoPrint ? "right-0.5" : "left-0.5"}`} />
-            </button>
-          </div>
-
-          {/* Sound */}
+        <div className="p-5 space-y-4">
+          {/* Sound toggle */}
           <div className="flex items-center justify-between bg-white/5 rounded-2xl px-4 py-3.5">
             <div>
               <p className="font-black text-sm text-white">صوت التنبيه</p>
@@ -450,21 +217,8 @@ function PrinterModal({
             </button>
           </div>
 
-          {/* Test print */}
-          <button
-            onClick={onTestPrint}
-            className="w-full h-11 rounded-xl border-2 border-dashed border-[#E8637A]/40 text-[#E8637A] font-bold text-sm hover:bg-[#E8637A]/10 transition-colors flex items-center justify-center gap-2"
-            data-testid="button-test-print"
-          >
-            <Printer className="h-4 w-4" />
-            {connected ? "طباعة تجريبية (حرارية)" : "طباعة تجريبية (نافذة)"}
-          </button>
-
-          {connected && (
-            <p className="text-center text-[10px] text-white/20 font-bold">
-              الطابعة الحرارية: ESC/POS · Baud {baudRate}
-            </p>
-          )}
+          {/* Full printer settings panel */}
+          <PrinterSettingsPanel />
         </div>
       </div>
     </div>
@@ -601,8 +355,6 @@ function OrderCard({ order, onStatus, onPrint }: {
 ══════════════════════════════════════════════════════════════════ */
 export default function PrepScreen() {
   const [authed,     setAuthed]     = useState(() => sessionStorage.getItem(STORAGE_KEY) === "1");
-  const [paperMm,    setPaperMm]    = useState<58|80>(() => (Number(localStorage.getItem(PAPER_KEY)) || 80) as 58|80);
-  const [autoPrint,  setAutoPrint]  = useState(() => localStorage.getItem(AUTO_PRINT_KEY) === "1");
   const [soundOn,    setSoundOn]    = useState(() => localStorage.getItem(SOUND_KEY) !== "0");
   const [printerOpen,setPrinterOpen]= useState(false);
   const [newAlert,   setNewAlert]   = useState(false);
@@ -613,61 +365,32 @@ export default function PrepScreen() {
   const printedRef   = useRef(new Set<string>());
   const [tick, setTick] = useState(0);
 
-  /* ── Thermal printer state ─────────────────────────── */
-  const serialPortRef   = useRef<any>(null);
-  const [printerConnected, setPrinterConnected] = useState(false);
-  const [baudRate, setBaudRate] = useState<number>(() => Number(localStorage.getItem(SERIAL_BAUD_KEY)) || 9600);
-
-  const connectThermalPrinter = useCallback(async () => {
-    const serial = (navigator as any).serial;
-    if (!serial) { alert("متصفحك لا يدعم الاتصال المباشر بالطابعة. استخدم Chrome أو Edge."); return; }
+  /* ── Thermal print (Canvas bitmap → ESC/POS) ─────── */
+  const handlePrint = useCallback(async (order: any) => {
     try {
-      const port = await serial.requestPort();
-      await port.open({ baudRate });
-      serialPortRef.current = port;
-      setPrinterConnected(true);
-    } catch (err: any) {
-      if (err?.name !== "NotFoundError") alert(`فشل الاتصال: ${err?.message || err}`);
-    }
-  }, [baudRate]);
-
-  const disconnectThermalPrinter = useCallback(async () => {
-    try {
-      const port = serialPortRef.current;
-      if (port) {
-        if (port.writable) { const w = port.writable.getWriter(); w.releaseLock(); }
-        await port.close();
+      const settings = loadPrinterSettings();
+      const pw = settings.paperWidth || '80mm';
+      const escData = await buildEscPosKitchenTicketBitmap({
+        orderNumber: order.orderRef || String(order._id || order.id || '').slice(-5),
+        cashierName: order.customerName || 'زبون',
+        orderType: order.shippingMethod === 'pickup' ? 'استلام من الفرع' : 'توصيل',
+        items: (order.items || []).map((it: any) => ({
+          name: it.title || it.name || '',
+          qty: Number(it.quantity) || 1,
+          addons: it.size ? [it.size] : undefined,
+        })),
+        notes: order.notes,
+        paperWidth: pw,
+      });
+      const result = await thermalPrint(escData, '', pw);
+      if (!result.success && result.mode === 'browser') {
+        printBrowserFallback(order);
       }
-    } catch {}
-    serialPortRef.current = null;
-    setPrinterConnected(false);
+    } catch (err) {
+      console.error('[Kitchen Print]', err);
+      printBrowserFallback(order);
+    }
   }, []);
-
-  const printThermalDirect = useCallback(async (order: any) => {
-    const port = serialPortRef.current;
-    if (!port || !port.writable) { printReceipt(order, paperMm); return; }
-    try {
-      const bytes = buildEscPos(order, paperMm);
-      const writer = port.writable.getWriter();
-      await writer.write(bytes);
-      writer.releaseLock();
-    } catch (err: any) {
-      console.error("ESC/POS print error:", err);
-      // fallback to browser print
-      printReceipt(order, paperMm);
-    }
-  }, [paperMm]);
-
-  const handlePrint = useCallback((order: any) => {
-    if (printerConnected && serialPortRef.current) {
-      printThermalDirect(order);
-    } else {
-      printReceipt(order, paperMm);
-    }
-  }, [printerConnected, printThermalDirect, paperMm]);
-
-  const TEST_ORDER = { orderRef: "TEST-01", createdAt: new Date().toISOString(), customerName: "اختبار الطابعة", items: [{ title: "حبوب قهوة إثيوبية", quantity: 1, size: "250g" }], notes: "طباعة تجريبية" };
-  const handleTestPrint = useCallback(() => handlePrint(TEST_ORDER), [handlePrint]);
 
   // Refresh elapsed timers every 30s
   useEffect(() => {
@@ -697,6 +420,7 @@ export default function PrepScreen() {
       setTimeout(() => setNewAlert(false), 4000);
       if (soundOn) { beep(880, 0.25); setTimeout(() => beep(1100, 0.2), 300); }
     }
+    const autoPrint = loadPrinterSettings().autoPrint;
     if (autoPrint) {
       newOrders.forEach((o: any) => {
         const id = o._id || o.id;
@@ -707,7 +431,7 @@ export default function PrepScreen() {
       });
     }
     prevNewCount.current = count;
-  }, [orders, soundOn, autoPrint, paperMm, handlePrint]);
+  }, [orders, soundOn, handlePrint]);
 
   const updateStatus = useMutation({
     mutationFn: async ({ id, status }: { id: string; status: string }) => {
@@ -767,14 +491,7 @@ export default function PrepScreen() {
       {printerOpen && (
         <PrinterModal
           onClose={() => setPrinterOpen(false)}
-          paperMm={paperMm} setPaperMm={setPaperMm}
-          autoPrint={autoPrint} setAutoPrint={setAutoPrint}
           soundOn={soundOn} setSoundOn={setSoundOn}
-          connected={printerConnected}
-          baudRate={baudRate} setBaudRate={setBaudRate}
-          onConnect={connectThermalPrinter}
-          onDisconnect={disconnectThermalPrinter}
-          onTestPrint={handleTestPrint}
         />
       )}
 
@@ -825,12 +542,12 @@ export default function PrepScreen() {
           </button>
           <button
             onClick={() => setPrinterOpen(true)}
-            className={`icon-btn relative ${printerConnected ? "!bg-emerald-500/15 !border-emerald-500/30" : ""}`}
-            title={printerConnected ? "الطابعة متصلة" : "إعدادات الطابعة"}
+            className="icon-btn relative"
+            title="إعدادات الطابعة"
           >
-            <Printer className={`h-3.5 w-3.5 ${printerConnected ? "text-emerald-400" : "text-white/40"}`} />
-            {printerConnected && (
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-emerald-400 rounded-full border border-[#0d0805]" />
+            <Printer className="h-3.5 w-3.5 text-white/40" />
+            {loadPrinterSettings().mode !== 'browser' && (
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#E8637A] rounded-full border border-[#0d0805]" />
             )}
           </button>
           <button onClick={toggleFullscreen} className="icon-btn hidden sm:flex" title="شاشة كاملة">

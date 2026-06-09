@@ -6871,6 +6871,130 @@ ${allUrls.map(u => `  <url>
     } catch (e: any) { console.warn("[Inbox] auto-sync loop:", e?.message); }
   }, 2 * 60_000);
 
+  // ── Network / Thermal Printer endpoints ─────────────────────────────────────
+
+  // Send raw ESC/POS bytes to a network printer via TCP
+  app.post("/api/print/network", requireAuth, async (req: AuthRequest, res) => {
+    const net = await import('net');
+    try {
+      const { ip, port = 9100, data, timeout = 8000 } = req.body;
+      if (!ip || !data) return res.status(400).json({ error: "IP وبيانات الطباعة مطلوبة" });
+
+      let printBuffer: Buffer;
+      if (typeof data === 'string') {
+        printBuffer = Buffer.from(data, 'base64');
+      } else if (Array.isArray(data)) {
+        printBuffer = Buffer.from(data);
+      } else {
+        return res.status(400).json({ error: "صيغة بيانات الطباعة غير صحيحة" });
+      }
+
+      await new Promise<void>((resolve, reject) => {
+        const socket = new net.Socket();
+        let resolved = false;
+        let writeStarted = false;
+        const dynamicTimeout = Math.max(Number(timeout) || 10000, Math.ceil(printBuffer.length / 10000) * 1000);
+        const onError = (err: Error) => { if (resolved) return; resolved = true; socket.destroy(); reject(err); };
+        const onDone = () => { if (resolved) return; resolved = true; resolve(); };
+        socket.setTimeout(dynamicTimeout);
+        socket.on('error', onError);
+        socket.on('timeout', () => { if (!writeStarted) onError(new Error(`انتهت مهلة الاتصال بـ ${ip}:${port}`)); else { socket.destroy(); onDone(); } });
+        socket.on('close', onDone);
+        socket.connect(Number(port), ip, async () => {
+          writeStarted = true;
+          const CHUNK_SIZE = 512, CHUNK_DELAY = 30;
+          try {
+            for (let offset = 0; offset < printBuffer.length; offset += CHUNK_SIZE) {
+              if (resolved) return;
+              const chunk = printBuffer.slice(offset, offset + CHUNK_SIZE);
+              await new Promise<void>((res, rej) => { socket.write(chunk, err => err ? rej(err) : res()); });
+              if (offset + CHUNK_SIZE < printBuffer.length) await new Promise(r => setTimeout(r, CHUNK_DELAY));
+            }
+            socket.end();
+          } catch (err: any) { onError(err); }
+        });
+      });
+
+      res.json({ success: true, message: `تمت الطباعة على ${ip}:${port}`, timestamp: new Date().toISOString() });
+    } catch (error: any) {
+      console.error('[Network Print] Error:', error.message);
+      res.status(500).json({ error: error.message || "فشل الاتصال بالطابعة الشبكية" });
+    }
+  });
+
+  // Test network printer connectivity (TCP ping)
+  app.post("/api/print/network-test", requireAuth, async (req: AuthRequest, res) => {
+    const net = await import('net');
+    try {
+      const { ip, port = 9100, timeout = 5000 } = req.body;
+      if (!ip) return res.status(400).json({ error: "IP مطلوب" });
+      await new Promise<void>((resolve, reject) => {
+        const socket = new net.Socket();
+        let resolved = false;
+        const cleanup = (err?: Error) => { if (resolved) return; resolved = true; socket.destroy(); err ? reject(err) : resolve(); };
+        socket.setTimeout(Number(timeout));
+        socket.on('error', cleanup);
+        socket.on('timeout', () => cleanup(new Error('timeout')));
+        socket.connect(Number(port), ip, () => cleanup());
+      });
+      res.json({ success: true, connected: true, ip, port, message: `الطابعة ${ip}:${port} متاحة ✓` });
+    } catch {
+      res.json({ success: false, connected: false, error: `لا يمكن الاتصال بـ ${req.body.ip}:${req.body.port || 9100}` });
+    }
+  });
+
+  // Auto-discover network printers on LAN (port scan)
+  app.post("/api/print/discover", requireAuth, async (req: AuthRequest, res) => {
+    const net = await import('net');
+    const os  = await import('os');
+    const port       = Number(req.body?.port) || 9100;
+    const timeoutMs  = Number(req.body?.timeout) || 300;
+    const batchSize  = 50;
+    const subnetHint: string | undefined = req.body?.subnet;
+    const subnets: string[] = [];
+    if (subnetHint && /^\d+\.\d+\.\d+\.$/.test(subnetHint.trim())) {
+      subnets.push(subnetHint.trim());
+    } else {
+      const ifaces = os.networkInterfaces();
+      for (const iface of Object.values(ifaces)) {
+        if (!iface) continue;
+        for (const addr of iface) {
+          if (addr.family !== 'IPv4' || addr.internal) continue;
+          const parts = addr.address.split('.');
+          if (parts.length === 4) subnets.push(parts.slice(0, 3).join('.') + '.');
+        }
+      }
+    }
+    if (subnets.length === 0) return res.json({ success: true, found: [], message: 'لم يُعثر على شبكة محلية' });
+    function probe(ip: string): Promise<string | null> {
+      return new Promise(resolve => {
+        const socket = new net.Socket();
+        let done = false;
+        const finish = (ok: boolean) => { if (done) return; done = true; socket.destroy(); resolve(ok ? ip : null); };
+        socket.setTimeout(timeoutMs);
+        socket.on('connect', () => finish(true));
+        socket.on('error',   () => finish(false));
+        socket.on('timeout', () => finish(false));
+        socket.connect(port, ip);
+      });
+    }
+    const found: Array<{ ip: string; port: number }> = [];
+    for (const subnet of subnets) {
+      for (let start = 1; start <= 254; start += batchSize) {
+        const batch: string[] = [];
+        for (let i = start; i < start + batchSize && i <= 254; i++) batch.push(subnet + i);
+        const results = await Promise.all(batch.map(probe));
+        for (const ip of results) { if (ip) found.push({ ip, port }); }
+      }
+    }
+    res.json({
+      success: true,
+      found,
+      scanned: subnets.map(s => `${s}1-254:${port}`),
+      message: found.length ? `✅ تم العثور على ${found.length} طابعة` : `لم يُعثر على طابعات على المنفذ ${port}`,
+    });
+  });
+
   // Boot the abandoned-cart background worker
   startAbandonedCartWorker();
   startPickupExpiryWorker();
