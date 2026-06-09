@@ -1,0 +1,173 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+[Migration] Store legal data updated
+Seeding فوجي كافيه admin user...
+Admin user created with phone 0552469643 and password 1234567890
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 15h (2026-06-07T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+11:44:17 AM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+11:44:23 AM [express] GET /api/user 401 in 1ms
+11:44:23 AM [express] GET /api/pixels 200 in 65ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+11:44:23 AM [express] GET /api/stats 200 in 65ms :: []
+11:44:23 AM [express] GET /api/reviews/featured 200 in 64ms :: []
+11:44:23 AM [express] GET /api/auth/google/init 200 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+11:44:23 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+11:44:23 AM [express] GET /api/store/settings 200 in 71ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T11:44:14.926Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+11:44:23 AM [express] GET /api/pages 200 in 63ms :: []
+11:44:23 AM [express] GET /api/categories 200 in 65ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+11:44:23 AM [express] GET /api/products 200 in 65ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+11:44:23 AM [express] GET /api/flash-deals 200 in 65ms :: []
+11:44:25 AM [express] GET /api/user 401 in 1ms
+11:44:25 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+11:44:25 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+11:44:25 AM [express] GET /api/stats 304 in 64ms :: []
+11:44:25 AM [express] GET /api/flash-deals 304 in 64ms :: []
+11:44:27 AM [express] GET /api/user 401 in 0ms
+11:44:27 AM [express] GET /api/user 401 in 0ms
+11:44:28 AM [express] GET /api/user 401 in 66ms
+11:44:28 AM [express] GET /api/auth/google/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+11:44:28 AM [express] GET /api/stats 304 in 128ms :: []
+11:44:28 AM [express] GET /api/flash-deals 304 in 127ms :: []
+11:44:28 AM [express] GET /api/auth/apple/init 304 in 66ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+11:44:29 AM [express] GET /api/user 401 in 65ms
+[Kimi] customer used ~1035 tokens (total today: 1,035)
+11:44:32 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 5276ms :: {"tagline_ar":"استمتع بطعم القهوة الفاخرة من فوجي كافيه، التي تحمل طابعًا أثيوبيًا مميزًا. القهوة هذه تتميز برائحة عطرة وطعم قوي و先日.","tagline_en":"Indulge in the luxurious taste of Fuji Cafe coffee, which carries a distinctive Ethiopian signature. This coffee is known for its aromatic scent and rich, fruity flavor.","highlights_ar":["أصل أثيوبي","رائحة عطرة","طعم قوي و先日"],"highlights_en":["Ethiopian Origin","Aromatic","Rich and Fruity Flavor"]}
+11:44:33 AM [express] GET /api/user 401 in 66ms
+11:44:34 AM [express] GET /api/flash-deals 304 in 129ms :: []
+[Kimi] customer used ~1035 tokens (total today: 2,070)
+11:44:34 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 5632ms :: {"tagline_ar":"حبوب قهوة فوجي — أثيوبيا، تتمتع بطعم عميق وفراش طبيعي ينقلك إلى أرض القهوة الأصلية. ت混合 الأصقاع الدهنية مع لذة التوت والبندق الدافئة.","tagline_en":"Fuji Coffee — Ethiopia, boasts a rich flavor and natural aroma that transports you to the land of coffee's origin. It blends creamy notes with the sweetness of blueberries and mild cinnamon.","highlights_ar":["أصل أثيوبي","طعم عميق","فراش طبيعي"],"highlights_en":["Ethiopian origin","Rich flavor","Natural aroma"]}
+[Kimi] customer used ~1593 tokens (total today: 3,663)
+11:44:38 AM [express] POST /api/ai/perfume-advisor 200 in 2950ms :: {"response":"أتمنى أن تستمتع بطعم القهوة ال Yamani الاصيلة! القهوة اليمنية تتمتع بطعم دقيق وعميق، مع عطر فريد من نوعه. لكي تحصل على تجربة قهوة يمنية مميزة، أقترح حبوب القهوة الإلكترونية من فوجي، حيث توفر نكهة فاكهية طازجة من الهضاب الإثيوبية مع لمسة شوكولاتة داكنة، مما يجعلها مناسبة لuntuk الشاي الساخن في الصباح أو لUTC الاسترخاء بعد النهار.","products":[{"id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","price":"95","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"}]}
+11:56:08 AM [express] GET /api/user 401 in 65ms
+11:56:08 AM [express] GET /api/stats 304 in 128ms :: []
+11:56:08 AM [express] GET /api/auth/google/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+11:56:08 AM [express] GET /api/auth/apple/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+11:56:09 AM [express] GET /api/flash-deals 304 in 141ms :: []
+11:56:09 AM [express] GET /api/reviews/featured 304 in 128ms :: []
+11:56:09 AM [express] GET /api/user 401 in 64ms
+11:56:09 AM [express] GET /api/pages 304 in 128ms :: []
+11:56:09 AM [express] GET /api/store/settings 200 in 134ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T11:44:14.926Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+11:56:09 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 64ms :: {"tagline_ar":"حبوب قهوة فوجي — أثيوبيا، تتمتع بطعم عميق وفراش طبيعي ينقلك إلى أرض القهوة الأصلية. ت混合 الأصقاع الدهنية مع لذة التوت والبندق الدافئة.","tagline_en":"Fuji Coffee — Ethiopia, boasts a rich flavor and natural aroma that transports you to the land of coffee's origin. It blends creamy notes with the sweetness of blueberries and mild cinnamon.","highlights_ar":["أصل أثيوبي","طعم عميق","فراش طبيعي"],"highlights_en":["Ethiopian origin","Rich flavor","Natural aroma"]}
+11:56:09 AM [express] GET /api/categories 304 in 128ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+11:56:09 AM [express] GET /api/products 304 in 128ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+1:18:37 PM [express] GET /api/pages 304 in 196ms :: []
+1:18:48 PM [express] GET /api/auth/google/init 200 in 65ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+1:18:50 PM [express] GET /api/pixels 200 in 129ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+1:18:53 PM [express] GET /api/categories 200 in 128ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+1:18:57 PM [express] GET /api/auth/apple/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+1:18:58 PM [express] GET /api/reviews/featured 200 in 129ms :: []
+1:40:07 PM [express] GET /api/auth/apple/init 304 in 151ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+1:40:07 PM [express] GET /api/products 200 in 198ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+1:40:07 PM [express] GET /api/store/settings 200 in 196ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T13:11:37.443Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+1:40:07 PM [express] GET /api/flash-deals 304 in 199ms :: []
+1:40:07 PM [express] GET /api/reviews/featured 304 in 128ms :: []
+1:40:07 PM [express] GET /api/stats 200 in 127ms :: []
+1:40:07 PM [express] GET /api/auth/google/init 304 in 63ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+1:40:07 PM [express] GET /api/user 401 in 64ms
+1:40:07 PM [express] GET /api/pages 304 in 128ms :: []
+1:40:07 PM [express] GET /api/pixels 304 in 128ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+1:40:08 PM [express] GET /api/categories 304 in 128ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+2:45:32 PM [express] GET /api/user 401 in 65ms
+2:45:32 PM [express] GET /api/auth/google/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+2:45:33 PM [express] GET /api/pixels 304 in 131ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+2:45:33 PM [express] GET /api/stats 304 in 131ms :: []
+2:45:33 PM [express] GET /api/reviews/featured 304 in 130ms :: []
+2:45:33 PM [express] GET /api/flash-deals 304 in 129ms :: []
+2:45:33 PM [express] GET /api/auth/apple/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+2:45:33 PM [express] GET /api/store/settings 200 in 128ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T14:09:01.176Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+2:45:33 PM [express] GET /api/pages 304 in 128ms :: []
+2:45:33 PM [express] GET /api/products 304 in 128ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+2:45:33 PM [express] GET /api/categories 304 in 128ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+2:45:45 PM [express] GET /api/user 401 in 65ms
+2:45:45 PM [express] GET /api/auth/google/init 304 in 63ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+2:45:45 PM [express] GET /api/stats 304 in 127ms :: []
+2:45:45 PM [express] GET /api/auth/apple/init 304 in 64ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+2:45:45 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 64ms :: {"tagline_ar":"حبوب قهوة فوجي — أثيوبيا، تتمتع بطعم عميق وفراش طبيعي ينقلك إلى أرض القهوة الأصلية. ت混合 الأصقاع الدهنية مع لذة التوت والبندق الدافئة.","tagline_en":"Fuji Coffee — Ethiopia, boasts a rich flavor and natural aroma that transports you to the land of coffee's origin. It blends creamy notes with the sweetness of blueberries and mild cinnamon.","highlights_ar":["أصل أثيوبي","طعم عميق","فراش طبيعي"],"highlights_en":["Ethiopian origin","Rich flavor","Natural aroma"]}
+2:45:45 PM [express] GET /api/flash-deals 304 in 127ms :: []
+2:45:46 PM [express] GET /api/user 401 in 64ms
+[Kimi] customer used ~1653 tokens (total today: 5,316)
+2:45:56 PM [express] POST /api/ai/perfume-advisor 200 in 4329ms :: {"response":"مرحبًا! كيف يمكنني أن أساعدك اليوم؟ هل تبحث عن نوع معين من القهوة أو لديك مناسبة معينة في ذهنك؟ ☕💫","products":[]}
+[Kimi] customer used ~1681 tokens (total today: 6,997)
+2:46:03 PM [express] POST /api/ai/perfume-advisor 200 in 2718ms :: {"response":"أتمنى أن أقدم لك القهوة البرازيلية، لكن可惜我不能找到任何巴西咖啡在我们的菜单上 可惜我不能找到任何巴西咖啡在我们的菜单上. لديك خيارات أخرى مثل القهوة الإثيوبية، والتي تتميز بنكتها الفاكهية الطازجة من الهضاب الإثيوبية مع لمسة شوكولاتة داكنة. هذا النوع من القهوة هو مثالي للصباح أو لاستقبال الضيوف. ما رأيك في؟","products":[{"id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","price":"95","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"}]}
+2:49:04 PM [express] GET /api/user 401 in 157ms
+2:49:04 PM [express] GET /api/flash-deals 304 in 195ms :: []
+2:49:12 PM [express] GET /api/user 401 in 64ms
+2:49:12 PM [express] GET /api/flash-deals 304 in 128ms :: []
+3:05:59 PM [express] GET /api/auth/google/init 304 in 154ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+3:05:59 PM [express] GET /api/auth/apple/init 304 in 168ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/apple/callback","enabled":false}
+3:05:59 PM [express] GET /api/user 401 in 169ms
+3:05:59 PM [express] GET /api/products 304 in 195ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+3:05:59 PM [express] GET /api/reviews/featured 304 in 197ms :: []
+3:05:59 PM [express] GET /api/pages 304 in 198ms :: []
+3:05:59 PM [express] GET /api/flash-deals 304 in 130ms :: []
+3:05:59 PM [express] GET /api/pixels 304 in 128ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+3:05:59 PM [express] GET /api/stats 304 in 130ms :: []
+3:05:59 PM [express] GET /api/categories 304 in 126ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+3:05:59 PM [express] GET /api/store/settings 200 in 127ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T14:56:31.041Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+3:06:14 PM [express] GET /api/user 401 in 71ms
+3:06:14 PM [express] GET /api/flash-deals 304 in 132ms :: []
+3:06:19 PM [express] GET /api/user 401 in 65ms
+3:06:19 PM [express] GET /api/flash-deals 304 in 130ms :: []
+3:07:58 PM [express] GET /api/user 401 in 132ms
+3:07:58 PM [express] GET /api/flash-deals 304 in 194ms :: []
+3:07:59 PM [express] GET /api/user 401 in 64ms
+3:07:59 PM [express] GET /api/flash-deals 304 in 128ms :: []
+3:08:02 PM [express] GET /api/user 401 in 65ms
+3:08:02 PM [express] GET /api/flash-deals 304 in 128ms :: []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m3:08:45 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[Kimi] customer used ~1593 tokens (total today: 8,590)
+3:09:18 PM [express] POST /api/ai/perfume-advisor 200 in 5314ms :: {"response":"أرحب بكم في عالم القهوة المتخصصة! لكي أوصي بقهوة برازيلية مناسبة، دعوني أذكر أننا في فوجي كافيه نوفر أنواعًا متنوعة من القهوة، مع أننا حالياً لا نملك قهوة برازيلية متوفرة في القائمة. ومع ذلك، يمكن أن نبحث عن خيارات أخرى تتناسب مع ذوقكم. إذا كنت تفضل القهوة البرازيلية، فمن المحتمل أن تكون مهتمًا بطعمها الغني والعميق، حيث أن القهوة البرازيلية تتسم بطعم حلو وجسم متوسط إلى غزير. للأسف، لا يمكنني تقديم قهوة برازيلية من القائمة الحالية. ومع ذلك، يمكننا أن نبحث عن خيارات مشابهة أو نوفر لك قهوة أخرى تتناسب مع ذوقك. إذا كنت تفضل القهوة الغنية بالطعم، فقد تستمتع بقهوة أثيوبية من فوجي كافيه، وهي حبوب أرابيكا إثيوبية محمصة فاتحة، تتميز بنوتات توت أحمر وياسمين وحموضة منعشة. يمكن أن ت知足 الرغبة في الطعم الغني والعميق، مع التنوع في النكهات.","products":[{"id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","price":"95","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"}]}
+3:09:20 PM [express] GET /api/user 401 in 0ms
+3:09:20 PM [express] GET /api/categories 200 in 0ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+3:09:20 PM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":50,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":29,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-03T08:31:53.502Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+3:09:20 PM [express] GET /api/auth/google/init 200 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+3:09:20 PM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+3:09:20 PM [express] GET /api/reviews/featured 200 in 64ms :: []
+3:09:20 PM [express] GET /api/pixels 200 in 72ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+3:09:20 PM [express] GET /api/stats 200 in 70ms :: []
+3:09:20 PM [express] GET /api/pages 200 in 65ms :: []
+3:09:20 PM [express] GET /api/store/settings 200 in 67ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-06T15:07:29.427Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+3:09:21 PM [express] GET /api/flash-deals 200 in 655ms :: []
+3:09:22 PM [express] GET /api/user 401 in 0ms
+3:09:22 PM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+3:09:22 PM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+3:09:23 PM [express] GET /api/stats 304 in 74ms :: []
+3:09:23 PM [express] GET /api/flash-deals 304 in 134ms :: []
+3:09:24 PM [express] GET /api/user 401 in 1ms
+3:09:24 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 1ms :: {"tagline_ar":"حبوب قهوة فوجي — أثيوبيا، تتمتع بطعم عميق وفراش طبيعي ينقلك إلى أرض القهوة الأصلية. ت混合 الأصقاع الدهنية مع لذة التوت والبندق الدافئة.","tagline_en":"Fuji Coffee — Ethiopia, boasts a rich flavor and natural aroma that transports you to the land of coffee's origin. It blends creamy notes with the sweetness of blueberries and mild cinnamon.","highlights_ar":["أصل أثيوبي","طعم عميق","فراش طبيعي"],"highlights_en":["Ethiopian origin","Rich flavor","Natural aroma"]}
+3:09:24 PM [express] GET /api/user 401 in 0ms
+[1G[0K⠙[1G[0K

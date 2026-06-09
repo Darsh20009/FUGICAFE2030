@@ -1,0 +1,28 @@
+[1G[0K⠙[1G[0K
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K⠙[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+[Migration] Store legal data updated
+Seeding فوجي كافيه admin user...
+Admin user created with phone 0552469643 and password 1234567890
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 9h (2026-06-08T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+5:35:19 PM [express] serving on port 5000
+5:37:07 PM [express] GET /api/flash-deals 200 in 341ms :: []
+5:37:07 PM [express] GET /api/categories 200 in 380ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:37:07 PM [express] GET /api/stats 200 in 445ms :: []
+5:37:07 PM [express] GET /api/user 401 in 495ms
+5:37:07 PM [express] GET /api/auth/google/init 200 in 489ms :: {"clientId":"","redirectURI":"https://a901a22c-04ab-43ee-8a2a-4dcab18fa76a-00-28mxcra185qp3.kirk.replit.dev/api/auth/google/callback","enabled":false}
+[Kimi] customer used ~1052 tokens (total today: 1,052)
+5:37:12 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 6060ms :: {"tagline_ar":"حبوب قهوة فوجي أثيوبيا، تجمع بين الفخامة التقليدية والبساطة الحديثة. تتمتع بطعم عميق ورائحة نكهة خفيفة تنقلك إلى أرض القهوة الأصلية.","tagline_en":"Fuji Coffee Ethiopia beans, a blend of traditional elegance and modern simplicity. It boasts a deep flavor and a light aroma that transports you to the land of coffee's origin.","highlights_ar":["أصل أثيوبيا","طعم عميق","رائحة نكهة خفيفة"],"highlights_en":["Ethiopian Origin","Deep Flavor","Light Aroma"]}
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[CartReminder] email failed: [Email] SMTP2GO_API_KEY env var is not set
+[CartTick] Sent 1 cart reminders
