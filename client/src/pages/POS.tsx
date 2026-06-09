@@ -113,87 +113,68 @@ export default function POS() {
     enabled: !!user?.branchId,
   });
 
-  const handlePrintReceipt = (orderId: string) => {
-    const printWindow = window.open('', '', 'height=600,width=400');
-    if (!printWindow) return;
-    
-    const itemsHtml = cart.map(item => 
-      `<div class="item"><span>${item.quantity}x ${item.name}</span><span>${(item.price * item.quantity).toFixed(2)} ر.س</span></div>`
-    ).join('');
-    
-    const taxAmount = total * 0.15;
-    const finalTotal = total + taxAmount;
-    
-    // ZATCA QR Code Data (Simplified for this version)
-    // In a real production app, this would be a Base64 TLV encoded string
-    const qrData = `Seller: ${branch?.name || "فوجي كافيه"}\nVAT: 312037024200003\nTime: ${new Date().toISOString()}\nTotal: ${finalTotal.toFixed(2)}\nTax: ${taxAmount.toFixed(2)}`;
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+  const handlePrintReceipt = async (orderId: string, snapCart: CartItem[], snapTotal: number, snapDiscount: number) => {
+    const finalTotal = snapTotal + snapTotal * 0.15;
+    const shortNum = snapTotal > 0
+      ? String(Math.round(snapTotal * 100)).slice(-6)
+      : orderId.slice(-6).toUpperCase();
 
-    const printContent = `<!DOCTYPE html>
-<html dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <title>فاتورة #${orderId.slice(-6).toUpperCase()}</title>
-  <style>
-    body { font-family: 'Cairo', sans-serif; text-align: right; padding: 10px; font-size: 12px; line-height: 1.2; color: #000; }
-    .header { text-align: center; margin-bottom: 10px; border-bottom: 1px dashed #000; padding-bottom: 5px; }
-    .header h2 { margin: 0; font-size: 14px; }
-    .header p { margin: 2px 0; font-size: 10px; }
-    .info { margin-bottom: 8px; font-size: 10px; }
-    .items { margin: 5px 0; border-bottom: 1px dashed #000; padding-bottom: 5px; }
-    .item { display: flex; justify-content: space-between; padding: 2px 0; }
-    .total-section { font-weight: bold; margin-top: 5px; border-bottom: 1px dashed #000; padding-bottom: 5px; }
-    .qr { text-align: center; margin-top: 10px; }
-    .footer { text-align: center; margin-top: 10px; font-size: 9px; }
-    @media print { body { width: 80mm; } }
-  </style>
-</head>
-<body>
-  <div class="header">
-    <h2>${branch?.name || "فوجي كافيه"}</h2>
-    <p>الرقم الضريبي: 312037024200003</p>
-    <p>فاتورة ضريبية مبسطة</p>
-  </div>
-  <div class="info">
-    <div>الرقم: <strong>#${orderId.slice(-6).toUpperCase()}</strong></div>
-    <div>التاريخ: ${new Date().toLocaleString('ar-SA')}</div>
-    <div>الكاشير: ${user?.name}</div>
-    <div>الفرع: ${branch?.name || "المركز الرئيسي"}</div>
-  </div>
-  <div class="items">
-    ${itemsHtml}
-  </div>
-  <div class="total-section">
-    <div class="item">
-      <span>المجموع الفرعي:</span>
-      <span>${total.toFixed(2)} ${RIYAL_IMG}</span>
-    </div>
-    <div class="item">
-      <span>ضريبة القيمة المضافة (15%):</span>
-      <span>${taxAmount.toFixed(2)} ${RIYAL_IMG}</span>
-    </div>
-    <div class="item" style="font-size: 14px; border-top: 1px solid #000; padding-top: 5px; margin-top: 5px;">
-      <span>الإجمالي النهائي:</span>
-      <span>${finalTotal.toFixed(2)} ${RIYAL_IMG}</span>
-    </div>
-  </div>
-  <div class="qr">
-    <img src="${qrUrl}" alt="QR" width="120" />
-    <div style="font-size: 8px; margin-top: 3px;">فاتورة ضريبية معتمدة</div>
-  </div>
-  <div class="footer">
-    شكراً لتسوقكم معنا<br/>
-    Visit us at fuji.cafe
-  </div>
-</body>
-</html>`;
-    
-    printWindow.document.write(printContent);
-    printWindow.document.close();
-    setTimeout(() => {
-      printWindow.print();
-      printWindow.close();
-    }, 500);
+    const payLabel =
+      paymentMethod === 'cash' ? 'نقدي' :
+      paymentMethod === 'card' ? 'شبكة' :
+      paymentMethod === 'wallet' ? 'محفظة' : 'نقدي';
+
+    const printData = {
+      orderNumber: shortNum,
+      customerName: customer?.name || 'عميل نقدي',
+      customerPhone: customerPhone || customer?.phone || '',
+      items: snapCart.map(item => ({
+        coffeeItem: {
+          nameAr: item.name,
+          nameEn: item.variantName || '',
+          price: item.price.toFixed(2),
+        },
+        quantity: item.quantity,
+      })),
+      subtotal: snapTotal.toFixed(2),
+      invoiceDiscount: snapDiscount > 0 ? snapDiscount : undefined,
+      total: finalTotal.toFixed(2),
+      paymentMethod: payLabel,
+      employeeName: user?.name || '',
+      date: new Date().toISOString(),
+      branchName: branch?.name || 'فوجي كافيه',
+      vatNumber: '312650651100003',
+      orderType: 'pos',
+    };
+
+    try {
+      const { printTaxInvoice, prewarmZatcaQr } = await import('@/lib/print-utils');
+      prewarmZatcaQr({ orderNumber: shortNum, total: finalTotal, date: new Date().toISOString() });
+      await printTaxInvoice(printData, { autoPrint: true });
+    } catch (e) {
+      console.error('[POS] print-utils failed, falling back:', e);
+      const printWindow = window.open('', '', 'height=600,width=400');
+      if (!printWindow) return;
+      const taxAmt = snapTotal * 0.15;
+      const itemsHtml = snapCart.map(item =>
+        `<div style="display:flex;justify-content:space-between;padding:2px 0;"><span>${item.quantity}x ${item.name}</span><span>${(item.price * item.quantity).toFixed(2)} ر.س</span></div>`
+      ).join('');
+      printWindow.document.write(`<!DOCTYPE html><html dir="rtl"><head><meta charset="utf-8">
+<style>body{font-family:Tahoma,Arial,sans-serif;direction:rtl;padding:10px;font-size:12px;}
+@media print{body{width:80mm;}}</style></head><body>
+<div style="text-align:center;border-bottom:1px dashed #000;padding-bottom:8px;margin-bottom:8px;">
+<h2 style="margin:0;">${branch?.name || 'فوجي كافيه'}</h2>
+<p style="margin:2px 0;font-size:10px;">الرقم الضريبي: 312650651100003</p></div>
+${itemsHtml}
+<div style="border-top:1px dashed #000;margin-top:8px;padding-top:8px;">
+<div style="display:flex;justify-content:space-between;"><span>المجموع:</span><span>${snapTotal.toFixed(2)} ر.س</span></div>
+<div style="display:flex;justify-content:space-between;"><span>الضريبة 15%:</span><span>${taxAmt.toFixed(2)} ر.س</span></div>
+<div style="display:flex;justify-content:space-between;font-weight:bold;"><span>الإجمالي:</span><span>${finalTotal.toFixed(2)} ر.س</span></div>
+</div><div style="text-align:center;margin-top:10px;font-size:9px;">شكراً لتسوقكم معنا</div>
+</body></html>`);
+      printWindow.document.close();
+      setTimeout(() => { printWindow.print(); printWindow.close(); }, 500);
+    }
   };
 
   // Filtered products
@@ -304,7 +285,7 @@ export default function POS() {
     },
     onSuccess: async (data) => {
       toast({ title: "تم إتمام الطلب", description: "تم إصدار الفاتورة بنجاح" });
-      handlePrintReceipt(data.id);
+      handlePrintReceipt(data.id, cart, total, totalDiscount);
       setCart([]);
       setPaymentMethod(null);
       setCustomerPhone("");
