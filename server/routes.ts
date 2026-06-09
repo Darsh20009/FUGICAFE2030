@@ -111,6 +111,14 @@ import {
   type ShipoxServiceType,
 } from "./shipox";
 
+// ─── Auth helpers ────────────────────────────────────────────────────────────
+import type { Request, Response, NextFunction } from "express";
+type AuthRequest = Request & { user?: any };
+function requireAuth(req: AuthRequest, res: Response, next: NextFunction) {
+  if (!req.isAuthenticated()) return res.sendStatus(401);
+  next();
+}
+
 // ─── Tiered rate limiters (in addition to global 500/15min) ─────────────────
 const cartLimiter = rateLimit({
   windowMs: 60_000, max: 60, // 60 cart syncs / minute / IP
