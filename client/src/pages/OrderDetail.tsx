@@ -61,6 +61,7 @@ function useAutoPrint(ready: boolean) {
 // ─── Pickup QR / Code Card ──────────────────────────────────────────────────
 function OnMyWayButton({ orderId }: { orderId: string }) {
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const [eta, setEta] = useState(15);
   const mut = useMutation({
     mutationFn: async () => {

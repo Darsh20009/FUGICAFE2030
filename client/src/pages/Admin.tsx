@@ -4559,7 +4559,7 @@ const AdminAuditLogs = () => {
 
 const AdminBranchInventory = () => {
   const { toast } = useToast();
-  const { products = [] } = useProducts();
+  const { data: products = [] } = useProducts();
   const { data: branches = [] } = useQuery<any[]>({ queryKey: ["/api/admin/branches"] });
 
   const [selectedBranchId, setSelectedBranchId] = useState<string>("");

@@ -1,0 +1,2 @@
+- [MongoDB legacy id_1 indexes](mongodb-legacy-indexes.md) — Legacy unique id_1 indexes on 40+ collections block all create operations; must be dropped once after migration from old system.
+- [POS print system](pos-print-system.md) — Thermal print engine is in print-utils.ts (Fuji Cafe branded), thermal-printer.ts is the hardware driver; PrinterSettings needs openCashDrawer alias for UI panel.

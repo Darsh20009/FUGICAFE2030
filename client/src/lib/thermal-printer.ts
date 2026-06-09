@@ -50,6 +50,8 @@ export interface PrinterSettings {
   autoKitchenCopy: boolean;
   /** فتح درج النقود تلقائياً بعد طباعة الفاتورة */
   cashDrawerEnabled: boolean;
+  /** alias used by the settings panel UI — same as cashDrawerEnabled */
+  openCashDrawer?: boolean;
   /** تأخير فتح الدرج بعد اكتمال الطباعة (ميلي ثانية) */
   cashDrawerDelay: number;
   /** عدد نسخ فاتورة العميل (1-5) */
@@ -2260,7 +2262,7 @@ export async function thermalPrint(escData: Uint8Array, fallbackHtml: string, fa
  */
 export async function openCashDrawer(): Promise<void> {
   const settings = loadPrinterSettings();
-  if (!settings.cashDrawerEnabled) return;
+  if (!(settings.cashDrawerEnabled || settings.openCashDrawer)) return;
 
   const cmd = new Uint8Array(CMD.CASH_DRAWER);
 
@@ -2296,7 +2298,7 @@ export async function autoPrintOrder(receiptEsc: Uint8Array, kitchenEsc: Uint8Ar
   }
 
   // Open cash drawer after receipt print (if enabled)
-  if (receiptResult.success && settings.cashDrawerEnabled) {
+  if (receiptResult.success && (settings.cashDrawerEnabled || settings.openCashDrawer)) {
     const delay = settings.cashDrawerDelay ?? 500;
     if (delay > 0) await new Promise(r => setTimeout(r, delay));
     await openCashDrawer();
