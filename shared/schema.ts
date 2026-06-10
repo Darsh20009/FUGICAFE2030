@@ -567,3 +567,36 @@ export type CancellationPolicy = InsertCancellationPolicy & { _id: string; id: s
 // API Types
 export type LoginRequest = { username: string; password: string };
 export type AuthResponse = User;
+
+// ── POS Types ────────────────────────────────────────────────────────────────
+export type CoffeeItem = {
+  id: string;
+  nameAr: string;
+  nameEn?: string;
+  price: number;
+  category?: string;
+  imageUrl?: string | null;
+  isAvailable?: boolean;
+  availableSizes?: Array<{ nameAr: string; price: number }>;
+  salesCount?: number;
+  badgeAr?: string | null;
+  badgeEn?: string | null;
+  isNewProduct?: number;
+  groupId?: string | null;
+};
+
+export type Table = {
+  id: string;
+  number: number;
+  capacity?: number;
+  status?: "available" | "occupied" | "reserved";
+  currentOrderId?: string | null;
+};
+
+export type Employee = {
+  id: string;
+  fullName: string;
+  role?: string;
+  phone?: string;
+  permissions?: string[];
+};

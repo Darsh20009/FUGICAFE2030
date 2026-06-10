@@ -7003,6 +7003,130 @@ ${allUrls.map(u => `  <url>
     });
   });
 
+  // ── POS: Coffee Items (mapped from products) ─────────────────────────────
+  app.get("/api/coffee-items", async (_req, res) => {
+    try {
+      const { ProductModel } = await import("./models");
+      const products = await ProductModel.find({ isActive: true }).lean();
+      const coffeeItems = products.map((p: any) => ({
+        id: String(p._id),
+        nameAr: p.nameAr || p.name || "",
+        nameEn: p.nameEn || "",
+        price: Number(p.price) || 0,
+        category: p.categoryId || p.categoryIds?.[0] || "",
+        imageUrl: p.images?.[0] || null,
+        isAvailable: p.isActive !== false && p.stock !== 0,
+        availableSizes: (p.variants || []).filter((v: any) => v.size && v.price).map((v: any) => ({
+          nameAr: v.size,
+          price: Number(v.price) || 0,
+        })),
+        salesCount: p.salesCount || 0,
+        badgeAr: p.badgeAr || null,
+        badgeEn: p.badgeEn || null,
+        isNewProduct: p.isNewProduct || 0,
+        groupId: p.groupId || null,
+      }));
+      res.json(coffeeItems);
+    } catch (err) {
+      res.status(500).json({ error: "Failed to load products" });
+    }
+  });
+
+  app.get("/api/coffee-items/with-addons", (_req, res) => {
+    res.json([]);
+  });
+
+  // ── POS: Menu Categories ──────────────────────────────────────────────────
+  app.get("/api/menu-categories", async (_req, res) => {
+    try {
+      const { CategoryModel } = await import("./models");
+      const cats = await CategoryModel.find({ isActive: true }).sort({ sortOrder: 1 }).lean();
+      res.json(cats.map((c: any) => ({
+        id: String(c._id),
+        nameAr: c.nameAr || "",
+        nameEn: c.nameEn || "",
+        department: c.department || "main",
+        icon: c.icon || null,
+      })));
+    } catch {
+      res.json([]);
+    }
+  });
+
+  // ── POS: Live Orders ──────────────────────────────────────────────────────
+  app.get("/api/orders/live", async (_req, res) => {
+    try {
+      const { OrderModel } = await import("./models");
+      const orders = await OrderModel.find({
+        status: { $in: ["pending", "payment_confirmed", "confirmed", "in_progress", "ready", "delivered", "received"] },
+        createdAt: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+      }).sort({ createdAt: -1 }).limit(100).lean();
+      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
+    } catch {
+      res.json([]);
+    }
+  });
+
+  // ── POS: Kitchen Orders ───────────────────────────────────────────────────
+  app.get("/api/orders/kitchen", async (_req, res) => {
+    try {
+      const { OrderModel } = await import("./models");
+      const orders = await OrderModel.find({
+        status: { $in: ["pending", "payment_confirmed", "in_progress"] },
+        createdAt: { $gte: new Date(Date.now() - 8 * 60 * 60 * 1000) },
+      }).sort({ createdAt: 1 }).limit(50).lean();
+      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
+    } catch {
+      res.json([]);
+    }
+  });
+
+  // ── POS: Business Config (from StoreSettings) ─────────────────────────────
+  app.get("/api/business-config", async (_req, res) => {
+    try {
+      const settings = await StoreSettingsModel.findOne().lean() as any;
+      res.json({
+        storeName: settings?.storeName || "فوجي كافيه",
+        vatNumber: settings?.vatNumber || "",
+        commercialRegistration: settings?.commercialRegistration || "",
+        address: settings?.address || "",
+        phone: settings?.phone || "",
+        taxRate: 0.15,
+      });
+    } catch {
+      res.json({ storeName: "فوجي كافيه", taxRate: 0.15 });
+    }
+  });
+
+  // ── POS: Payment Methods ──────────────────────────────────────────────────
+  app.get("/api/payment-methods", async (_req, res) => {
+    try {
+      const { PaymentMethodModel } = await import("./models").catch(() => ({ PaymentMethodModel: null }));
+      if (PaymentMethodModel) {
+        const methods = await (PaymentMethodModel as any).find({ isActive: true }).lean();
+        return res.json(methods || []);
+      }
+      res.json([]);
+    } catch {
+      res.json([]);
+    }
+  });
+
+  // ── POS: Curbside Orders ──────────────────────────────────────────────────
+  app.get("/api/orders/curbside", async (_req, res) => {
+    try {
+      const { OrderModel } = await import("./models");
+      const orders = await OrderModel.find({
+        $or: [{ orderType: "car_pickup" }, { orderType: "car-pickup" }],
+        status: { $in: ["pending", "payment_confirmed", "in_progress", "ready"] },
+        createdAt: { $gte: new Date(Date.now() - 4 * 60 * 60 * 1000) },
+      }).sort({ createdAt: -1 }).limit(30).lean();
+      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
+    } catch {
+      res.json([]);
+    }
+  });
+
   // Boot the abandoned-cart background worker
   startAbandonedCartWorker();
   startPickupExpiryWorker();
