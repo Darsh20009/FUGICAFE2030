@@ -1,0 +1,1013 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+[Migration] Store legal data updated
+Seeding فوجي كافيه admin user...
+Admin user created with phone 0552469643 and password 1234567890
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 21h (2026-06-11T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+5:45:48 AM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+5:45:54 AM [express] GET /api/user 401 in 3ms
+5:45:55 AM [express] GET /api/pixels 200 in 223ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+5:45:55 AM [express] GET /api/reviews/featured 200 in 223ms :: []
+5:45:55 AM [express] GET /api/auth/google/init 200 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+5:45:55 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+5:45:55 AM [express] GET /api/stats 200 in 231ms :: []
+5:45:55 AM [express] GET /api/pages 200 in 224ms :: []
+5:45:55 AM [express] GET /api/store/settings 200 in 243ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+5:45:55 AM [express] GET /api/categories 200 in 228ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:45:55 AM [express] GET /api/products 200 in 221ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:45:55 AM [express] GET /api/flash-deals 200 in 219ms :: []
+5:45:55 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+5:45:55 AM [express] GET /api/user 401 in 1ms
+5:45:55 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+5:45:55 AM [express] GET /api/stats 304 in 218ms :: []
+5:45:55 AM [express] GET /api/pixels 304 in 219ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+5:45:55 AM [express] GET /api/flash-deals 304 in 228ms :: []
+5:45:55 AM [express] GET /api/products 304 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:45:55 AM [express] GET /api/reviews/featured 304 in 228ms :: []
+5:45:55 AM [express] GET /api/pages 304 in 220ms :: []
+5:45:55 AM [express] GET /api/store/settings 200 in 232ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+5:45:56 AM [express] GET /api/categories 304 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:45:56 AM [express] GET /api/user 401 in 0ms
+5:45:56 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 226ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+5:45:57 AM [express] GET /api/user 401 in 3ms
+5:45:57 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+5:45:57 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+5:45:57 AM [express] GET /api/stats 304 in 219ms :: []
+5:45:57 AM [express] GET /api/flash-deals 304 in 218ms :: []
+5:45:58 AM [express] GET /api/user 401 in 1ms
+5:45:58 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 0ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+5:46:17 AM [express] GET /api/user 401 in 1ms
+5:46:17 AM [express] GET /api/user 401 in 1ms
+5:46:17 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+5:46:17 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:47:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Register.tsx, /src/App.tsx, /src/pages/Cart.tsx, /src/pages/ProductDetails.tsx, /src/pages/Login.tsx, /src/pages/Home.tsx, /src/components/AuthModal.tsx, /src/components/Layout.tsx, /src/components/ProductCard.tsx, /src/components/notification-bell.tsx, /src/components/ai/UnifiedChat.tsx, /src/pages/Products.tsx[22m
+5:47:48 AM [express] GET /api/user 401 in 3ms
+5:47:48 AM [express] GET /api/user 401 in 0ms
+5:47:48 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+5:47:48 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+5:56:46 AM [express] GET /api/user 401 in 1ms
+5:56:46 AM [express] GET /api/reviews/featured 200 in 222ms :: []
+5:56:46 AM [express] GET /api/stats 200 in 219ms :: []
+5:56:46 AM [express] GET /api/store/settings 200 in 221ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+5:56:46 AM [express] GET /api/pixels 200 in 228ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+5:56:47 AM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+5:56:47 AM [express] GET /api/pages 200 in 229ms :: []
+5:56:47 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+5:56:47 AM [express] GET /api/products 200 in 231ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:56:47 AM [express] GET /api/flash-deals 200 in 237ms :: []
+5:56:47 AM [express] GET /api/user 401 in 0ms
+5:56:47 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+5:56:47 AM [express] GET /api/user 401 in 0ms
+5:56:47 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+5:56:47 AM [express] GET /api/products 304 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+5:56:48 AM [express] GET /api/flash-deals 304 in 228ms :: []
+5:56:48 AM [express] GET /api/stats 304 in 228ms :: []
+5:56:48 AM [express] GET /api/store/settings 304 in 220ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+5:56:48 AM [express] GET /api/categories 304 in 219ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:56:48 AM [express] GET /api/pages 304 in 219ms :: []
+5:56:48 AM [express] GET /api/user 401 in 1ms
+5:56:48 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+5:56:48 AM [express] GET /api/categories 200 in 1626ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+5:56:48 AM [express] GET /api/user 401 in 1ms
+5:56:49 AM [express] GET /api/reviews/featured 304 in 1555ms :: []
+5:56:53 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+5:56:53 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+5:56:53 AM [express] GET /api/user 401 in 0ms
+5:56:53 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+5:56:53 AM [express] GET /api/flash-deals 304 in 219ms :: []
+5:56:53 AM [express] GET /api/stats 304 in 228ms :: []
+5:56:54 AM [express] GET /api/user 401 in 1ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:24 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:45 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:51 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:53 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:57:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:58:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:58:17 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m5:58:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x10)[39m
+5:58:22 AM [express] GET /api/user 401 in 0ms
+5:58:22 AM [express] GET /api/flash-deals 304 in 218ms :: []
+5:58:42 AM [express] GET /api/prep/orders 200 in 223ms :: {"orders":[]}
+5:58:57 AM [express] GET /api/prep/orders 304 in 220ms :: {"orders":[]}
+5:59:13 AM [express] GET /api/prep/orders 304 in 218ms :: {"orders":[]}
+5:59:28 AM [express] GET /api/prep/orders 304 in 224ms :: {"orders":[]}
+5:59:44 AM [express] GET /api/prep/orders 304 in 218ms :: {"orders":[]}
+5:59:59 AM [express] GET /api/prep/orders 304 in 219ms :: {"orders":[]}
+6:00:14 AM [express] GET /api/prep/orders 304 in 219ms :: {"orders":[]}
+6:00:29 AM [express] GET /api/user 401 in 0ms
+6:00:29 AM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:00:29 AM [express] GET /api/auth/apple/init 200 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:00:29 AM [express] GET /api/pixels 200 in 219ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:00:29 AM [express] GET /api/stats 200 in 228ms :: []
+6:00:29 AM [express] GET /api/flash-deals 200 in 224ms :: []
+6:00:29 AM [express] GET /api/products 200 in 0ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:00:29 AM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:00:29 AM [express] GET /api/reviews/featured 200 in 216ms :: []
+6:00:29 AM [express] GET /api/store/settings 200 in 219ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+6:00:30 AM [express] GET /api/pages 200 in 217ms :: []
+6:00:30 AM [express] GET /api/user 401 in 1ms
+6:00:30 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+6:00:30 AM [express] GET /api/prep/orders 304 in 221ms :: {"orders":[]}
+6:00:31 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:00:31 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:00:35 AM [express] GET /api/auth/check-role/532449303 200 in 220ms :: {"isStaff":false,"role":"customer"}
+6:00:41 AM [express] GET /api/auth/google/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:00:42 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:00:45 AM [express] POST /api/auth/login 200 in 883ms :: {"_id":"6a25ae3d71604f6b45a746ee","username":"532449303","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"JjjTest","email":"youssefd.business@gmail.com","phone":"532449303","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-07T17:45:33.925Z","updatedAt":"2026-06-07T17:45:33.925Z","__v":0,"id":"6a25ae3d71604f6b45a746ee","redirectTo":"/"}
+6:00:45 AM [express] GET /api/prep/orders 304 in 219ms :: {"orders":[]}
+6:00:46 AM [express] GET /api/cart 200 in 655ms :: {"items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","title":"حبوب قهوة فوجي — أثيوبيا","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80","price":95,"quantity":1,"_id":"6a25ae5371604f6b45a74719"}]}
+6:00:47 AM [express] GET /api/notifications 200 in 1906ms :: {"notifications":[{"_id":"6a25af9797b396448bc0bd7e","userId":"6a25ae3d71604f6b45a746ee","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-07T17:51:19.169Z","updatedAt":"2026-06-07T17:51:19.169Z","__v":0}],"unreadCount":1}
+6:00:48 AM [express] GET /api/user 200 in 2229ms :: {"_id":"6a25ae3d71604f6b45a746ee","username":"532449303","password":"ec5f58a3453a586250f0667b0c08439d6689cdf79530fbf618de9a3cace1e0382b0567f5db37170cc87f1f7d43794b85f6dddf0df73ba39ca5bb73c9e69fc062.0fc8f2a61da7977403974feddd9d386c","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"JjjTest","email":"youssefd.business@gmail.com","phone":"532449303","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-07T17:45:33.925Z","updatedAt":"2026-06-07T17:45:33.925Z","__v":0,"id":"6a25ae3d71604f6b45a746ee"}
+6:00:48 AM [express] GET /api/wishlist/ids 200 in 2476ms :: ["6a1c76d902dac5fbab6e9cdc"]
+6:00:53 AM [express] GET /api/user 401 in 1ms
+6:00:53 AM [express] GET /api/flash-deals 304 in 219ms :: []
+6:00:57 AM [express] GET /api/user 304 in 439ms :: {"_id":"6a25ae3d71604f6b45a746ee","username":"532449303","password":"ec5f58a3453a586250f0667b0c08439d6689cdf79530fbf618de9a3cace1e0382b0567f5db37170cc87f1f7d43794b85f6dddf0df73ba39ca5bb73c9e69fc062.0fc8f2a61da7977403974feddd9d386c","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"JjjTest","email":"youssefd.business@gmail.com","phone":"532449303","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-07T17:45:33.925Z","updatedAt":"2026-06-07T17:45:33.925Z","__v":0,"id":"6a25ae3d71604f6b45a746ee"}
+6:00:58 AM [express] GET /api/notifications 304 in 1077ms :: {"notifications":[{"_id":"6a25af9797b396448bc0bd7e","userId":"6a25ae3d71604f6b45a746ee","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-07T17:51:19.169Z","updatedAt":"2026-06-07T17:51:19.169Z","__v":0}],"unreadCount":1}
+6:00:58 AM [express] GET /api/categories 200 in 438ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:00:58 AM [express] GET /api/products 200 in 438ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:00:59 AM [express] GET /api/flash-deals 304 in 1995ms :: []
+6:00:59 AM [express] GET /api/wishlist/ids 304 in 2037ms :: ["6a1c76d902dac5fbab6e9cdc"]
+6:01:09 AM [express] GET /api/prep/orders 304 in 218ms :: {"orders":[]}
+6:01:17 AM [express] GET /api/user 304 in 443ms :: {"_id":"6a25ae3d71604f6b45a746ee","username":"532449303","password":"ec5f58a3453a586250f0667b0c08439d6689cdf79530fbf618de9a3cace1e0382b0567f5db37170cc87f1f7d43794b85f6dddf0df73ba39ca5bb73c9e69fc062.0fc8f2a61da7977403974feddd9d386c","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"JjjTest","email":"youssefd.business@gmail.com","phone":"532449303","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-07T17:45:33.925Z","updatedAt":"2026-06-07T17:45:33.925Z","__v":0,"id":"6a25ae3d71604f6b45a746ee"}
+6:01:18 AM [express] GET /api/auth/apple/init 304 in 433ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:01:18 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 433ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+6:01:18 AM [express] GET /api/auth/google/init 304 in 443ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:01:18 AM [express] GET /api/flash-deals 304 in 647ms :: []
+6:01:18 AM [express] GET /api/stats 304 in 651ms :: []
+6:01:18 AM [express] GET /api/user 304 in 432ms :: {"_id":"6a25ae3d71604f6b45a746ee","username":"532449303","password":"ec5f58a3453a586250f0667b0c08439d6689cdf79530fbf618de9a3cace1e0382b0567f5db37170cc87f1f7d43794b85f6dddf0df73ba39ca5bb73c9e69fc062.0fc8f2a61da7977403974feddd9d386c","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"JjjTest","email":"youssefd.business@gmail.com","phone":"532449303","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-07T17:45:33.925Z","updatedAt":"2026-06-07T17:45:33.925Z","__v":0,"id":"6a25ae3d71604f6b45a746ee"}
+6:01:19 AM [express] GET /api/wishlist/ids 304 in 657ms :: ["6a1c76d902dac5fbab6e9cdc"]
+6:01:19 AM [express] GET /api/notifications 304 in 869ms :: {"notifications":[{"_id":"6a25af9797b396448bc0bd7e","userId":"6a25ae3d71604f6b45a746ee","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-07T17:51:19.169Z","updatedAt":"2026-06-07T17:51:19.169Z","__v":0}],"unreadCount":1}
+6:01:32 AM [express] GET /api/user 401 in 1ms
+6:01:32 AM [express] GET /api/flash-deals 304 in 217ms :: []
+6:01:32 AM [express] GET /api/pixels 304 in 216ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:01:37 AM [express] GET /api/user 401 in 1ms
+6:01:37 AM [express] GET /api/stats 200 in 218ms :: []
+6:01:37 AM [express] GET /api/pixels 200 in 217ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:01:37 AM [express] GET /api/reviews/featured 200 in 217ms :: []
+6:01:37 AM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:01:37 AM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:01:37 AM [express] GET /api/auth/google/init 200 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:01:37 AM [express] GET /api/store/settings 200 in 218ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+6:01:37 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:01:37 AM [express] GET /api/user 401 in 0ms
+6:01:37 AM [express] GET /api/pages 200 in 217ms :: []
+6:01:37 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+6:01:37 AM [express] GET /api/flash-deals 200 in 217ms :: []
+6:01:40 AM [express] GET /api/user 401 in 1ms
+6:01:40 AM [express] GET /api/auth/apple/init 304 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:01:40 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:01:40 AM [express] GET /api/stats 304 in 217ms :: []
+6:01:40 AM [express] GET /api/flash-deals 304 in 217ms :: []
+6:01:40 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+6:01:40 AM [express] GET /api/user 401 in 1ms
+6:01:40 AM [express] GET /api/user 401 in 0ms
+6:01:42 AM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:01:42 AM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:01:44 AM [express] GET /api/user 401 in 1ms
+6:01:45 AM [express] GET /api/pixels 200 in 216ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+6:01:45 AM [express] GET /api/stats 200 in 217ms :: []
+6:01:45 AM [express] GET /api/reviews/featured 200 in 215ms :: []
+6:01:45 AM [express] GET /api/store/settings 200 in 216ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":true,"stc_pay":true,"apple_pay":true,"bank_transfer":true,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-10T05:45:40.364Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+6:01:45 AM [express] GET /api/auth/apple/init 200 in 1ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:01:45 AM [express] GET /api/auth/google/init 200 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:01:45 AM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:01:45 AM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:01:45 AM [express] GET /api/pages 200 in 218ms :: []
+6:01:45 AM [express] GET /api/user 401 in 0ms
+6:01:45 AM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 0ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+6:01:45 AM [express] GET /api/flash-deals 200 in 217ms :: []
+6:02:06 AM [express] GET /api/auth/check-role/552469643 200 in 215ms :: {"isStaff":true,"role":"admin"}
+6:02:12 AM [express] POST /api/auth/login 200 in 990ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2","redirectTo":"/admin"}
+6:02:14 AM [express] GET /api/cart 200 in 1176ms :: {"items":[]}
+6:02:19 AM [express] GET /api/user 200 in 428ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","password":"ae3f73fd6b783088e015abcaed034499d49a728d5b0c9eae1cf669371f9983f5b28bc0bd3c47b269c71a3b1c3e6e358ed26116dc8ad979a1807512da51e43c8e.5d82a9f6874f5994b3db84bb86393238","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2"}
+6:02:19 AM [express] GET /api/orders 200 in 870ms :: [{"_id":"6a1e816ddc345053ab3921e2","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e816ddc345053ab3921e3"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"746786","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tap","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:05.198Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c95e52ab0b5d0832c8c"}],"createdAt":"2026-06-02T07:08:29.280Z","updatedAt":"2026-06-02T07:56:05.198Z","__v":0,"id":"6a1e816ddc345053ab3921e2"},{"_id":"6a1e8171dc345053ab3921f0","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8171dc345053ab3921f1"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"211575","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tabby","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.667Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c7c"}],"createdAt":"2026-06-02T07:08:33.451Z","updatedAt":"2026-06-02T07:56:04.667Z","__v":0,"id":"6a1e8171dc345053ab3921f0"},{"_id":"6a1e8174dc345053ab3921fe","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8174dc345053ab3921ff"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"240052","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tamara","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.082Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c63"}],"createdAt":"2026-06-02T07:08:36.956Z","updatedAt":"2026-06-02T07:56:04.083Z","__v":0,"id":"6a1e8174dc345053ab3921fe"},{"_id":"6a1fe6790c1a3799ec02ff92","userId":"6a1fdb470c1a3799ec02fe33","type":"pos","branchId":"main","cashierId":"6a1fdb470c1a3799ec02fe33","status":"cancelled","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a1fe6790c1a3799ec02ff93"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"card","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-03T08:32:06.417Z","note":"","_id":"6a1fe6860c1a3799ec02ffb1"}],"createdAt":"2026-06-03T08:31:53.603Z","updatedAt":"2026-06-03T08:32:06.417Z","__v":0,"id":"6a1fe6790c1a3799ec02ff92","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28618291722418fb7fd035","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28618291722418fb7fd036"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:54:58.118Z","updatedAt":"2026-06-09T18:54:58.118Z","__v":0,"id":"6a28618291722418fb7fd035","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a2861e091722418fb7fd045","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a2861e091722418fb7fd046"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:56:32.297Z","updatedAt":"2026-06-09T18:56:32.297Z","__v":0,"id":"6a2861e091722418fb7fd045","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28620b91722418fb7fd065","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"218.50","subtotal":"190","vatAmount":"28.50","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":2,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28620b91722418fb7fd066"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:57:15.808Z","updatedAt":"2026-06-09T18:57:15.808Z","__v":0,"id":"6a28620b91722418fb7fd065","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28626d91722418fb7fd08f","userId":"6a285d5091722418fb7fcf8f","type":"pos","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28626d91722418fb7fd090"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:58:53.864Z","updatedAt":"2026-06-09T18:58:53.864Z","__v":0,"id":"6a28626d91722418fb7fd08f","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28663d91722418fb7fd1eb","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28663d91722418fb7fd1ec"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T19:15:09.149Z","updatedAt":"2026-06-09T19:15:09.149Z","__v":0,"id":"6a28663d91722418fb7fd1eb","customerName":"عميل زائر","customerPhone":"","customerEmail":""}]
+6:02:19 AM [express] GET /api/notifications 200 in 1074ms :: {"notifications":[],"unreadCount":0}
+6:02:21 AM [express] GET /api/admin/stats 200 in 2890ms :: {"totalSales":655.5,"netProfit":0,"dailySales":0,"monthlySales":655.5,"totalOrders":9,"totalProducts":1,"totalCustomers":2,"topProducts":[{"name":"حبوب قهوة فوجي — أثيوبيا","count":7,"revenue":665},{"name":"ماتشا لاتيه فوجي","count":3,"revenue":84}],"chartData":[{"month":"يناير","sales":0,"orders":0},{"month":"فبراير","sales":0,"orders":0},{"month":"مارس","sales":0,"orders":0},{"month":"أبريل","sales":0,"orders":0},{"month":"مايو","sales":0,"orders":0},{"month":"يونيو","sales":848.75,"orders":9}],"dailyRevenue30":[{"date":"١٢ مايو","revenue":0,"orders":0},{"date":"١٣ مايو","revenue":0,"orders":0},{"date":"١٤ مايو","revenue":0,"orders":0},{"date":"١٥ مايو","revenue":0,"orders":0},{"date":"١٦ مايو","revenue":0,"orders":0},{"date":"١٧ مايو","revenue":0,"orders":0},{"date":"١٨ مايو","revenue":0,"orders":0},{"date":"١٩ مايو","revenue":0,"orders":0},{"date":"٢٠ مايو","revenue":0,"orders":0},{"date":"٢١ مايو","revenue":0,"orders":0},{"date":"٢٢ مايو","revenue":0,"orders":0},{"date":"٢٣ مايو","revenue":0,"orders":0},{"date":"٢٤ مايو","revenue":0,"orders":0},{"date":"٢٥ مايو","revenue":0,"orders":0},{"date":"٢٦ مايو","revenue":0,"orders":0},{"date":"٢٧ مايو","revenue":0,"orders":0},{"date":"٢٨ مايو","revenue":0,"orders":0},{"date":"٢٩ مايو","revenue":0,"orders":0},{"date":"٣٠ مايو","revenue":0,"orders":0},{"date":"٣١ مايو","revenue":0,"orders":0},{"date":"١ يونيو","revenue":0,"orders":0},{"date":"٢ يونيو","revenue":84,"orders":3},{"date":"٣ يونيو","revenue":109.25,"orders":1},{"date":"٤ يونيو","revenue":0,"orders":0},{"date":"٥ يونيو","revenue":0,"orders":0},{"date":"٦ يونيو","revenue":0,"orders":0},{"date":"٧ يونيو","revenue":0,"orders":0},{"date":"٨ يونيو","revenue":0,"orders":0},{"date":"٩ يونيو","revenue":655.5,"orders":5},{"date":"١٠ يونيو","revenue":0,"orders":0}],"orderStatusCounts":{"cancelled":4,"completed":5},"paymentBreakdown":{"tap":28,"tabby":28,"tamara":28,"card":109.25,"cash":655.5},"newCustomers30":2,"revenueGrowth":"-100.0","recentOrders":[{"id":"6a28663d91722418fb7fd1eb","total":"109.25","status":"completed","createdAt":"2026-06-09T19:15:09.149Z","userId":"6a285d5091722418fb7fcf8f"},{"id":"6a28626d91722418fb7fd08f","total":"109.25","status":"completed","createdAt":"2026-06-09T18:58:53.864Z","userId":"6a285d5091722418fb7fcf8f"},{"id":"6a28620b91722418fb7fd065","total":"218.50","status":"completed","createdAt":"2026-06-09T18:57:15.808Z","userId":"6a285d5091722418fb7fcf8f"},{"id":"6a2861e091722418fb7fd045","total":"109.25","status":"completed","createdAt":"2026-06-09T18:56:32.297Z","userId":"6a285d5091722418fb7fcf8f"},{"id":"6a28618291722418fb7fd035","total":"109.25","status":"completed","createdAt":"2026-06-09T18:54:58.118Z","userId":"6a285d5091722418fb7fcf8f"}],"pendingReturns":0,"activeVendors":0,"pendingVendors":0,"allTime":{"totalRevenue":655.5,"netProfit":0},"today":{"totalRevenue":0},"thisWeek":{"totalRevenue":655.5,"netProfit":0,"orders":5},"thisMonth":{"totalRevenue":655.5,"netProfit":0,"orders":9},"dailyOrders":0,"weeklySales":655.5,"weeklyNetProfit":0,"monthlyNetProfit":0}
+6:02:22 AM [express] GET /api/admin/low-stock 200 in 662ms :: []
+6:02:23 AM [express] GET /api/notifications/vapid-public-key 200 in 434ms :: {"publicKey":"BMuRKYfA848bkr9LPDIi0BiXwbgcisqOp2NPzDDDsbc2aVpx1FtvUWxQj8YsP7stW5sdIRgh45NWvLNzu7gqRnE"}
+6:02:31 AM [express] GET /api/orders 304 in 873ms :: [{"_id":"6a1e816ddc345053ab3921e2","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e816ddc345053ab3921e3"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"746786","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tap","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:05.198Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c95e52ab0b5d0832c8c"}],"createdAt":"2026-06-02T07:08:29.280Z","updatedAt":"2026-06-02T07:56:05.198Z","__v":0,"id":"6a1e816ddc345053ab3921e2"},{"_id":"6a1e8171dc345053ab3921f0","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8171dc345053ab3921f1"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"211575","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tabby","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.667Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c7c"}],"createdAt":"2026-06-02T07:08:33.451Z","updatedAt":"2026-06-02T07:56:04.667Z","__v":0,"id":"6a1e8171dc345053ab3921f0"},{"_id":"6a1e8174dc345053ab3921fe","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8174dc345053ab3921ff"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"240052","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tamara","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.082Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c63"}],"createdAt":"2026-06-02T07:08:36.956Z","updatedAt":"2026-06-02T07:56:04.083Z","__v":0,"id":"6a1e8174dc345053ab3921fe"},{"_id":"6a1fe6790c1a3799ec02ff92","userId":"6a1fdb470c1a3799ec02fe33","type":"pos","branchId":"main","cashierId":"6a1fdb470c1a3799ec02fe33","status":"cancelled","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a1fe6790c1a3799ec02ff93"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"card","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-03T08:32:06.417Z","note":"","_id":"6a1fe6860c1a3799ec02ffb1"}],"createdAt":"2026-06-03T08:31:53.603Z","updatedAt":"2026-06-03T08:32:06.417Z","__v":0,"id":"6a1fe6790c1a3799ec02ff92","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28618291722418fb7fd035","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28618291722418fb7fd036"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:54:58.118Z","updatedAt":"2026-06-09T18:54:58.118Z","__v":0,"id":"6a28618291722418fb7fd035","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a2861e091722418fb7fd045","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a2861e091722418fb7fd046"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:56:32.297Z","updatedAt":"2026-06-09T18:56:32.297Z","__v":0,"id":"6a2861e091722418fb7fd045","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28620b91722418fb7fd065","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"218.50","subtotal":"190","vatAmount":"28.50","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":2,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28620b91722418fb7fd066"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:57:15.808Z","updatedAt":"2026-06-09T18:57:15.808Z","__v":0,"id":"6a28620b91722418fb7fd065","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28626d91722418fb7fd08f","userId":"6a285d5091722418fb7fcf8f","type":"pos","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28626d91722418fb7fd090"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:58:53.864Z","updatedAt":"2026-06-09T18:58:53.864Z","__v":0,"id":"6a28626d91722418fb7fd08f","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28663d91722418fb7fd1eb","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28663d91722418fb7fd1ec"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T19:15:09.149Z","updatedAt":"2026-06-09T19:15:09.149Z","__v":0,"id":"6a28663d91722418fb7fd1eb","customerName":"عميل زائر","customerPhone":"","customerEmail":""}]
+6:02:31 AM [express] POST /api/notifications/subscribe 200 in 681ms :: {"ok":true}
+[2m6:02:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33m@radix-ui/react-separator, @radix-ui/react-popover[32m[39m
+[2m6:02:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+6:03:02 AM [express] GET /api/auth/apple/init 304 in 428ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:03:02 AM [express] GET /api/user 200 in 428ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","password":"ae3f73fd6b783088e015abcaed034499d49a728d5b0c9eae1cf669371f9983f5b28bc0bd3c47b269c71a3b1c3e6e358ed26116dc8ad979a1807512da51e43c8e.5d82a9f6874f5994b3db84bb86393238","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2"}
+6:03:02 AM [express] GET /api/auth/google/init 304 in 435ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:03:02 AM [express] GET /api/flash-deals 304 in 650ms :: []
+6:03:02 AM [express] GET /api/products 304 in 646ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:03:02 AM [express] GET /api/user 304 in 432ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","password":"ae3f73fd6b783088e015abcaed034499d49a728d5b0c9eae1cf669371f9983f5b28bc0bd3c47b269c71a3b1c3e6e358ed26116dc8ad979a1807512da51e43c8e.5d82a9f6874f5994b3db84bb86393238","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2"}
+6:03:02 AM [express] GET /api/stats 304 in 647ms :: []
+6:03:03 AM [express] GET /api/notifications 200 in 857ms :: {"notifications":[],"unreadCount":0}
+6:03:03 AM [express] GET /api/notifications/vapid-public-key 200 in 435ms :: {"publicKey":"BMuRKYfA848bkr9LPDIi0BiXwbgcisqOp2NPzDDDsbc2aVpx1FtvUWxQj8YsP7stW5sdIRgh45NWvLNzu7gqRnE"}
+6:03:04 AM [express] GET /api/wishlist/ids 200 in 1034ms :: []
+6:03:04 AM [express] GET /api/orders 200 in 1628ms :: [{"_id":"6a1e816ddc345053ab3921e2","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e816ddc345053ab3921e3"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"746786","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tap","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:05.198Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c95e52ab0b5d0832c8c"}],"createdAt":"2026-06-02T07:08:29.280Z","updatedAt":"2026-06-02T07:56:05.198Z","__v":0,"id":"6a1e816ddc345053ab3921e2"},{"_id":"6a1e8171dc345053ab3921f0","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8171dc345053ab3921f1"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"211575","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tabby","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.667Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c7c"}],"createdAt":"2026-06-02T07:08:33.451Z","updatedAt":"2026-06-02T07:56:04.667Z","__v":0,"id":"6a1e8171dc345053ab3921f0"},{"_id":"6a1e8174dc345053ab3921fe","userId":"6a1e8150dc345053ab3921b3","type":"online","cashierId":"6a1e8150dc345053ab3921b3","status":"cancelled","total":"28.00","subtotal":"28.00","vatAmount":"3.65","shippingCost":"0.00","tapCommission":"0","netProfit":"18.00","discountAmount":"0.00","items":[{"productId":"6a1c76d902dac5fbab6e9cd3","variantSku":"MAT-H","quantity":1,"price":28,"cost":10,"title":"ماتشا لاتيه فوجي","_id":"6a1e8174dc345053ab3921ff"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"customerName":"djjd","customerPhone":"532441566","deliveryAddress":"استلام من فرع: فرع الملقا","cashbackAmount":"0.00","pickupBranch":"6a188c60f4afb08382461b05","pickupCode":"240052","pickupVerified":false,"customerOnWay":false,"paymentMethod":"tamara","paymentStatus":"pending","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-02T07:56:04.082Z","note":"[auto-expiry] gateway payment never confirmed within 30min","_id":"6a1e8c94e52ab0b5d0832c63"}],"createdAt":"2026-06-02T07:08:36.956Z","updatedAt":"2026-06-02T07:56:04.083Z","__v":0,"id":"6a1e8174dc345053ab3921fe"},{"_id":"6a1fe6790c1a3799ec02ff92","userId":"6a1fdb470c1a3799ec02fe33","type":"pos","branchId":"main","cashierId":"6a1fdb470c1a3799ec02fe33","status":"cancelled","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a1fe6790c1a3799ec02ff93"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"card","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[{"status":"cancelled","at":"2026-06-03T08:32:06.417Z","note":"","_id":"6a1fe6860c1a3799ec02ffb1"}],"createdAt":"2026-06-03T08:31:53.603Z","updatedAt":"2026-06-03T08:32:06.417Z","__v":0,"id":"6a1fe6790c1a3799ec02ff92","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28618291722418fb7fd035","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28618291722418fb7fd036"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:54:58.118Z","updatedAt":"2026-06-09T18:54:58.118Z","__v":0,"id":"6a28618291722418fb7fd035","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a2861e091722418fb7fd045","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a2861e091722418fb7fd046"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:56:32.297Z","updatedAt":"2026-06-09T18:56:32.297Z","__v":0,"id":"6a2861e091722418fb7fd045","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28620b91722418fb7fd065","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"218.50","subtotal":"190","vatAmount":"28.50","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-500","quantity":2,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28620b91722418fb7fd066"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:57:15.808Z","updatedAt":"2026-06-09T18:57:15.808Z","__v":0,"id":"6a28620b91722418fb7fd065","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28626d91722418fb7fd08f","userId":"6a285d5091722418fb7fcf8f","type":"pos","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي","_id":"6a28626d91722418fb7fd090"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T18:58:53.864Z","updatedAt":"2026-06-09T18:58:53.864Z","__v":0,"id":"6a28626d91722418fb7fd08f","customerName":"عميل زائر","customerPhone":"","customerEmail":""},{"_id":"6a28663d91722418fb7fd1eb","userId":"6a285d5091722418fb7fcf8f","type":"pos","branchId":"main","cashierId":"6a285d5091722418fb7fcf8f","status":"completed","total":"109.25","subtotal":"95","vatAmount":"14.25","shippingCost":"0","tapCommission":"0","netProfit":"0","discountAmount":"0","items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","quantity":1,"price":95,"cost":0,"title":"حبوب قهوة فوجي — أثيوبيا","_id":"6a28663d91722418fb7fd1ec"}],"shippingMethod":"pickup","latitude":null,"longitude":null,"pickupVerified":false,"customerOnWay":false,"paymentMethod":"cash","paymentStatus":"paid","paidNotificationsSent":false,"storageStationOrderId":null,"storageStationOrderNumber":null,"storageStationStatus":null,"storageStationSentAt":null,"storageStationError":null,"shipoxOrderId":null,"shipoxOrderNumber":null,"shipoxTrackingNumber":null,"shipoxStatus":null,"shipoxServiceType":null,"shipoxCreatedAt":null,"shipoxError":null,"returnRequest":{"status":"none"},"statusHistory":[],"createdAt":"2026-06-09T19:15:09.149Z","updatedAt":"2026-06-09T19:15:09.149Z","__v":0,"id":"6a28663d91722418fb7fd1eb","customerName":"عميل زائر","customerPhone":"","customerEmail":""}]
+6:03:05 AM [express] GET /api/categories 304 in 2720ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:03:05 AM [express] GET /api/reviews/featured 304 in 649ms :: []
+6:03:05 AM [express] GET /api/pages 304 in 658ms :: []
+6:03:05 AM [express] POST /api/notifications/subscribe 200 in 658ms :: {"ok":true}
+6:03:06 AM [express] GET /api/user 304 in 433ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","password":"ae3f73fd6b783088e015abcaed034499d49a728d5b0c9eae1cf669371f9983f5b28bc0bd3c47b269c71a3b1c3e6e358ed26116dc8ad979a1807512da51e43c8e.5d82a9f6874f5994b3db84bb86393238","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2"}
+6:03:16 AM [express] GET /api/user 304 in 433ms :: {"_id":"6a28fa0b83f07bc37e8059c2","username":"0552469643","password":"ae3f73fd6b783088e015abcaed034499d49a728d5b0c9eae1cf669371f9983f5b28bc0bd3c47b269c71a3b1c3e6e358ed26116dc8ad979a1807512da51e43c8e.5d82a9f6874f5994b3db84bb86393238","role":"admin","permissions":["orders.view","orders.edit","orders.refund","products.view","products.edit","customers.view","wallet.adjust","reports.view","staff.manage","pos.access","settings.manage"],"loginType":"both","isActive":true,"mustChangePassword":false,"name":"فوجي كافيه","email":"info@fuji.cafe","phone":"0552469643","walletBalance":"0","addresses":[],"loyaltyPoints":0,"loyaltyTier":"bronze","totalSpent":0,"passwordResetAttempts":0,"createdAt":"2026-06-10T05:45:47.546Z","updatedAt":"2026-06-10T05:45:47.546Z","__v":0,"id":"6a28fa0b83f07bc37e8059c2"}
+6:03:16 AM [express] GET /api/coffee-items/with-addons 200 in 434ms :: []
+6:03:16 AM [express] GET /api/orders/live 500 in 450ms :: {"message":"Cast to ObjectId failed for value \"live\" (type string) at path \"_id\" for model \"Order\""}
+6:03:16 AM [express] GET /api/menu-categories 200 in 662ms :: []
+6:03:17 AM [express] GET /api/coffee-items 200 in 671ms :: []
+6:03:17 AM [express] GET /api/notifications 304 in 888ms :: {"notifications":[],"unreadCount":0}
+6:03:17 AM [express] GET /api/orders/kitchen 500 in 434ms :: {"message":"Cast to ObjectId failed for value \"kitchen\" (type string) at path \"_id\" for model \"Order\""}
+6:03:17 AM [express] GET /api/payment-methods 200 in 446ms :: []
+6:03:17 AM [express] GET /api/business-config 200 in 665ms :: {"storeName":"فوجي كافيه","vatNumber":"312650651100003","commercialRegistration":"","address":"","phone":"","taxRate":0.15}
+6:03:32 AM [express] GET /api/user 401 in 1ms
+6:03:32 AM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+6:03:32 AM [express] GET /api/categories 200 in 0ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"}]
+6:03:32 AM [express] GET /api/flash-deals 200 in 219ms :: []
+6:03:39 AM [express] POST /api/cart/sync 200 in 452ms :: {"ok":true,"cartId":"6a28fe3be40096d7bed2d9d5"}
+6:03:43 AM [express] GET /api/auth/apple/init 200 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/apple/callback","enabled":false}
+6:03:43 AM [express] GET /api/auth/google/init 200 in 0ms :: {"clientId":"","redirectURI":"https://2c4bc7e7-2976-4fd5-bfc2-dc0d79bf2a53-00-253zn758u6wdn.sisko.replit.dev/api/auth/google/callback","enabled":false}
+6:03:51 AM [express] GET /api/auth/check-role/532441566 200 in 221ms :: {"isStaff":false,"role":"customer"}
+6:03:52 AM [express] POST /api/auth/login 200 in 883ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3","redirectTo":"/"}
+6:03:53 AM [express] GET /api/user 200 in 436ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+6:03:53 AM [express] GET /api/cart 200 in 657ms :: {"items":[{"productId":"6a1c76d902dac5fbab6e9cdc","variantSku":"BEAN-ETH-250","title":"حبوب قهوة فوجي — أثيوبيا","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80","price":95,"quantity":1,"_id":"6a20090c3b690aa10f0ce2db"}]}
+6:03:53 AM [express] GET /api/wishlist/ids 200 in 658ms :: []
+6:03:53 AM [express] GET /api/notifications 200 in 883ms :: {"notifications":[{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":4}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:30 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:33 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:35 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:40 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:45 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:04:50 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x10)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m6:05:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m [33m(x11)[39m
