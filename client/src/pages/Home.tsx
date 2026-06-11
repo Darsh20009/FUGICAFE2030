@@ -423,68 +423,6 @@ export default function Home() {
       ══════════════════════════════════════════════════════════════ */}
       <CoffeeJourneySection isRtl={isRtl} />
 
-      {/* ══════════════════════════════════════════════════════════════
-          BRAND ATMOSPHERE — dual photo creative section
-      ══════════════════════════════════════════════════════════════ */}
-      <section className="py-12 md:py-16 bg-[#1a0f0a] relative overflow-hidden">
-        {/* Background texture */}
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #E8637A 0%, transparent 50%), radial-gradient(circle at 80% 50%, #a08a52 0%, transparent 50%)" }} />
-        <div className="container px-4 relative z-10">
-          <div className={`grid md:grid-cols-2 gap-6 lg:gap-10 items-center`}>
-            {/* Left: interior shot */}
-            <div className="relative group" data-testid="img-brand-interior">
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#E8637A]/40 to-[#a08a52]/40 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/60">
-                <img
-                  src="/fuji-interior-opt.jpg"
-                  alt="فوجي كافيه — أجواء المكان"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#E8637A] block mb-1">Our Space</span>
-                  <p className="font-black text-white text-lg leading-tight">أجواء فريدة في كل زيارة</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: product/cupping shot + text */}
-            <div className="flex flex-col gap-5">
-              <div className="relative group" data-testid="img-brand-product">
-                <div className="absolute -inset-1 bg-gradient-to-br from-[#a08a52]/40 to-[#E8637A]/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/60">
-                  <img
-                    src="/fuji-product-photo.png"
-                    alt="فوجي كافيه — تجربة التذوق"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#a08a52] block mb-1">Specialty Coffee</span>
-                    <p className="font-black text-white text-lg leading-tight">تجربة التذوق الاحترافي</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`${isRtl ? "text-right" : "text-left"}`}>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#E8637A] mb-2">
-                  {isRtl ? "فوجي كافيه" : "Fuji Cafe"}
-                </p>
-                <h3 className="text-xl md:text-2xl font-black text-white leading-tight mb-3">
-                  {isRtl ? "شغف القهوة الفردية\nفي كل تفصيلة" : "Specialty Coffee\nIn Every Detail"}
-                </h3>
-                <p className="text-sm text-white/50 font-bold leading-relaxed">
-                  {isRtl
-                    ? "نؤمن بأن كل كوب قصة — من بلد المنشأ إلى الكوب بين يديك، نرافقك في كل خطوة من رحلة القهوة الفردية."
-                    : "We believe every cup tells a story — from origin to your hands, we guide you through specialty coffee's journey."
-                  }
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ══════════════════════════════════════════════════════════════
           NEWEST PRODUCTS — marquee strip
