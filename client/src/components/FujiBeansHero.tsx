@@ -196,8 +196,7 @@ export function FujiBeansHero() {
               textShadow: "0 2px 20px rgba(0,0,0,1)",
             }}
           >
-            كل القهوة كيف —{" "}
-            <span style={{ color: "#E8637A" }}>وفوجي هو أصل الكيف</span>
+            روح اليابان من قلب الرياض
           </p>
           <p
             style={{
@@ -208,8 +207,7 @@ export function FujiBeansHero() {
               fontStyle: "italic",
             }}
           >
-            All coffee is joy —{" "}
-            <span style={{ color: "rgba(232,99,122,0.70)" }}>Fuji is the origin of joy</span>
+            リヤドの中心部に日本の精神をお届けします。
           </p>
         </div>
       </div>
