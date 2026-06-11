@@ -803,7 +803,7 @@ export default function Home() {
         <div className="container px-4 relative z-10 text-center max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex justify-center mb-8">
-              <img src={logoImg} alt="Fuji Cafe" className="h-14 md:h-20 w-auto opacity-90 rounded-sm drop-shadow-2xl" />
+              <img src={logoImg} alt="Fuji Cafe" className="h-14 md:h-20 w-auto rounded-sm drop-shadow-2xl" style={{ filter: "invert(1) sepia(0.15) brightness(0.92) drop-shadow(0 4px 28px rgba(0,0,0,0.95))" }} />
             </div>
 
             {/* Carved text miniature in CTA */}
