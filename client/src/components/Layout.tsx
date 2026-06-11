@@ -308,18 +308,11 @@ export function Layout({ children }: { children: ReactNode }) {
 
                     {/* Contact row */}
                     <div className="flex gap-2 mb-5">
-                      <a href="tel:+966552469643" className="flex-1 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted hover:bg-muted/80 transition-colors active:scale-95">
+                      <a href="tel:+966552469643" className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted hover:bg-muted/80 transition-colors active:scale-95">
                         <Phone className="h-4 w-4 text-primary shrink-0" />
                         <div>
                           <p className="text-[9px] text-muted-foreground font-bold">{t('call')}</p>
                           <p className="text-[10px] font-black" dir="ltr">966 55 246 9643</p>
-                        </div>
-                      </a>
-                      <a href="mailto:info@fuji.cafe" className="flex-1 flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted hover:bg-muted/80 transition-colors active:scale-95">
-                        <Mail className="h-4 w-4 text-primary shrink-0" />
-                        <div>
-                          <p className="text-[9px] text-muted-foreground font-bold">{t('email')}</p>
-                          <p className="text-[10px] font-black truncate">info@fuji.cafe</p>
                         </div>
                       </a>
                     </div>
@@ -576,12 +569,12 @@ export function Layout({ children }: { children: ReactNode }) {
                 </a>
               </li>
               <li>
-                <a href="mailto:fugi2030@outlook.com" className="hover:text-[#E8637A] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
                   {language === 'ar' ? 'للشكاوى أو المقترحات' : 'Complaints & Suggestions'}
                 </a>
               </li>
               <li>
-                <a href="mailto:fugi2030@outlook.com" className="hover:text-[#E8637A] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
                   {language === 'ar' ? 'مبيعات الشركات والجملة' : 'Corporate & Wholesale Sales'}
                 </a>
               </li>
@@ -602,18 +595,6 @@ export function Layout({ children }: { children: ReactNode }) {
                 <div className="flex flex-col">
                   <span className="text-[10px] text-gray-700 font-medium">{t('callUs')}</span>
                   <span dir="ltr" className="font-bold text-gray-600">966 55 132 9821</span>
-                </div>
-              </a>
-              <a 
-                href="mailto:fugi2030@outlook.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="flex items-center gap-3 p-2 rounded-xl hover:bg-[#E8637A]/5 hover:text-[#E8637A] transition-all group"
-              >
-                <span className="bg-[#E8637A]/10 p-2.5 rounded-lg text-[#E8637A] group-hover:bg-[#E8637A] group-hover:text-white transition-colors"><Mail className="h-4 w-4" /></span>
-                <div className="flex flex-col">
-                  <span className="text-[10px] text-gray-700 font-medium">{t('email')}</span>
-                  <span dir="ltr" className="font-bold text-gray-600">fugi2030@outlook.com</span>
                 </div>
               </a>
               <div className="flex items-center gap-3 p-2">
