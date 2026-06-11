@@ -2135,6 +2135,89 @@ ${allUrls.map(u => `  <url>
     }
   });
 
+  // ── POS Order Creation (dedicated endpoint — bypasses e-commerce schema) ─────
+  app.post("/api/pos/orders", async (req: any, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+    try {
+      const employee = req.user;
+      const {
+        items = [], subtotal, tax, total, orderType, paymentMethod,
+        tableNumber, customerName, customerPhone, notes, splitPayment,
+        branchId, carInfo, carType, carColor, plateNumber,
+        discountAmount, pointsRedeemed, pointsValue,
+      } = req.body;
+
+      // Map POS payment method to schema enum
+      const PM_MAP: Record<string, string> = {
+        cash: "cash", card: "card", stc_pay: "stc_pay",
+        wallet: "wallet", split: "cash", mixed: "cash",
+        "paymob-card": "card", cod: "cod", bank_transfer: "bank_transfer",
+      };
+      const mappedPayment = PM_MAP[String(paymentMethod || "cash")] || "cash";
+
+      // Map orderType to shippingMethod
+      const shippingMethod = String(orderType || "takeaway") === "delivery" ? "delivery" : "pickup";
+
+      // Coerce amounts (POS sends numbers; MongoDB model stores as strings)
+      const totalNum    = parseFloat(String(total    || "0")) || 0;
+      const subtotalNum = parseFloat(String(subtotal || "0")) || (totalNum / 1.15);
+      const taxNum      = parseFloat(String(tax      || "0")) || (totalNum - subtotalNum);
+
+      const { OrderModel } = await import("./models");
+
+      const orderDoc = new (OrderModel as any)({
+        userId:       employee.id || String(employee._id),
+        type:         "pos",
+        branchId:     branchId || employee.branchId || "main",
+        cashierId:    employee.id,
+        status:       "new",
+        items: (items as any[]).map((item: any) => ({
+          productId:  item.coffeeItemId || item.productId || "pos-item",
+          variantSku: item.selectedSize || item.variantSku || "default",
+          quantity:   Number(item.quantity) || 1,
+          price:      parseFloat(String(item.price  || "0")) || 0,
+          cost:       parseFloat(String(item.cost   || "0")) || 0,
+          title:      item.nameAr || item.name || "منتج",
+        })),
+        total:          totalNum.toFixed(2),
+        subtotal:       subtotalNum.toFixed(2),
+        vatAmount:      taxNum.toFixed(2),
+        shippingCost:   "0",
+        tapCommission:  "0",
+        netProfit:      "0",
+        discountAmount: discountAmount ? String(parseFloat(String(discountAmount)).toFixed(2)) : "0",
+        shippingMethod,
+        paymentMethod:  mappedPayment,
+        paymentStatus:  "paid",
+        customerName:   customerName  || "",
+        customerPhone:  customerPhone || "",
+        notes:          notes         || undefined,
+        // POS-only extra data stored with strict:false so Mongoose accepts them
+        tableNumber:    tableNumber   || undefined,
+        orderType:      orderType     || "takeaway",
+        channel:        "pos",
+        splitPayment:   splitPayment  || undefined,
+        carInfo:        carInfo || (carType ? { carType, carColor, plateNumber } : undefined),
+      });
+
+      await orderDoc.save();
+
+      const saved = orderDoc.toJSON ? orderDoc.toJSON() : orderDoc;
+      const rawId = String(saved._id || saved.id || "");
+      const shortNum = rawId.slice(-6).toUpperCase();
+
+      res.status(201).json({
+        ...saved,
+        id:          rawId,
+        orderNumber: shortNum,
+        dailyNumber: shortNum,
+      });
+    } catch (err: any) {
+      console.error("[POS] order create error:", err?.message);
+      res.status(500).json({ message: err?.message || "خطأ في إنشاء الطلب" });
+    }
+  });
+
   // Cash Shifts
   app.get("/api/pos/shifts/active", async (req, res) => {
     if (!req.isAuthenticated()) return res.sendStatus(401);

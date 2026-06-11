@@ -1236,9 +1236,9 @@ export default function PosSystem() {
         notes: orderNote || undefined,
       };
 
-      const res = await apiRequest('POST', '/api/orders', orderData);
+      const res = await apiRequest('POST', '/api/pos/orders', orderData);
       const result = await res.json().catch(() => ({}));
-      if (!result || result.error || !result.orderNumber || !result.id) {
+      if (!result || result.error) {
         throw new Error(result?.error || tc('فشل إنشاء الطلب', 'Failed to create order'));
       }
 
@@ -1459,7 +1459,7 @@ export default function PosSystem() {
         return;
       }
 
-      const res = await apiRequest("POST", "/api/orders", orderData);
+      const res = await apiRequest("POST", "/api/pos/orders", orderData);
       const result = await res.json().catch(() => ({}));
 
       if (!result || result.error) {

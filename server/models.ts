@@ -207,6 +207,20 @@ const orderSchema = new Schema<Order>(
       type: { type: String, enum: ["return", "exchange"] },
       createdAt: Date,
     },
+    // ── POS-specific fields ───────────────────────────────────────────────────
+    tableNumber: { type: String, default: null },
+    orderType:   { type: String, default: null },  // dine_in | takeaway | car_pickup | delivery
+    channel:     { type: String, default: null },  // pos | online | web
+    splitPayment: {
+      cash:    { type: Number, default: null },
+      card:    { type: Number, default: null },
+      persons: { type: Array,  default: null },
+    },
+    carInfo: {
+      carType:     { type: String, default: null },
+      carColor:    { type: String, default: null },
+      plateNumber: { type: String, default: null },
+    },
   },
   { timestamps: true }
 );

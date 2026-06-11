@@ -176,9 +176,10 @@ export async function syncOfflineOrders(): Promise<{ synced: number; failed: num
   for (const order of pending) {
     await updateOrderStatus(order.localId, "syncing");
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch("/api/pos/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(order.orderData),
       });
       if (res.ok) {
