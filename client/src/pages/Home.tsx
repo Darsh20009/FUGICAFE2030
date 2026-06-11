@@ -816,6 +816,8 @@ export default function Home() {
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 filter: "brightness(1.5) contrast(1.1)",
+                lineHeight: "1.3",
+                paddingBottom: "0.15em",
               }}
             >
               فوجي
