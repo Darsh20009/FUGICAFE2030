@@ -29,7 +29,7 @@ export const ASSETS = {
   LOGO_LIGHT:   `${SITE.URL}/fuji-logo-transparent.png`,
   LOGO_DARK:    `${SITE.URL}/fuji-logo-transparent.png`,
   BRAND_LOGO:   `${SITE.URL}/fuji-logo-transparent.png`,
-  EMAIL_BANNER: `${SITE.URL}/fuji-interior.png`,
+  EMAIL_BANNER: `${SITE.URL}/fuji-interior-opt.jpg`,
   OG_COVER:     `${SITE.URL}/fuji-logo.png`,
 } as const;
 
