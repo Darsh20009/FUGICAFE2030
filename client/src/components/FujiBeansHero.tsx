@@ -156,7 +156,7 @@ export function FujiBeansHero() {
             alt="Fuji Cafe"
             className="h-16 md:h-24 w-auto"
             style={{
-              filter: "drop-shadow(0 4px 28px rgba(0,0,0,0.95)) brightness(1.1)",
+              filter: "invert(1) sepia(0.4) saturate(5) hue-rotate(25deg) brightness(1.3) drop-shadow(0 4px 28px rgba(0,0,0,0.95))",
             }}
           />
         </div>
