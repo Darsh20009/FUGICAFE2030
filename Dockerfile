@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --include=dev
+RUN npm config set registry https://registry.npmjs.org && npm ci --include=dev
 
 COPY . .
 
