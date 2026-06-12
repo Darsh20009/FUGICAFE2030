@@ -93,12 +93,29 @@ export default function PosSystem() {
     split: tc("نقدي + شبكة","Cash + Network"),
   };
   const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+  const { data: currentUser } = useQuery<any>({
+    queryKey: ["/api/user"],
+    staleTime: 5 * 60 * 1000,
+  });
+
   const employee = useMemo(() => {
     try {
       const data = localStorage.getItem("currentEmployee");
-      return data ? JSON.parse(data) as Employee : null;
-    } catch { return null; }
-  }, []);
+      if (data) return JSON.parse(data) as Employee;
+    } catch { /* ignore */ }
+    if (currentUser?.id) {
+      return {
+        id: currentUser.id,
+        fullName: currentUser.name || currentUser.username || "موظف",
+        role: currentUser.role || "staff",
+        phone: currentUser.phone,
+        permissions: currentUser.permissions || [],
+        branchId: currentUser.branchId,
+        tenantId: "main",
+      } as Employee & { branchId?: string; tenantId?: string };
+    }
+    return null;
+  }, [currentUser]);
   const { toast } = useToast();
   const { requestPermission: requestPushPermission } = useNotifications({
     userType: 'employee',
