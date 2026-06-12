@@ -1124,6 +1124,34 @@ ${allUrls.map(u => `  <url>
     }
   });
 
+  // ── POS: Live Orders ──────────────────────────────────────────────────────
+  app.get("/api/orders/live", async (_req, res) => {
+    try {
+      const { OrderModel } = await import("./models");
+      const orders = await OrderModel.find({
+        status: { $in: ["pending", "payment_confirmed", "confirmed", "in_progress", "ready", "delivered", "received"] },
+        createdAt: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+      }).sort({ createdAt: -1 }).limit(100).lean();
+      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
+    } catch {
+      res.json([]);
+    }
+  });
+
+  // ── POS: Kitchen Orders ───────────────────────────────────────────────────
+  app.get("/api/orders/kitchen", async (_req, res) => {
+    try {
+      const { OrderModel } = await import("./models");
+      const orders = await OrderModel.find({
+        status: { $in: ["pending", "payment_confirmed", "in_progress"] },
+        createdAt: { $gte: new Date(Date.now() - 8 * 60 * 60 * 1000) },
+      }).sort({ createdAt: 1 }).limit(50).lean();
+      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
+    } catch {
+      res.json([]);
+    }
+  });
+
   app.get("/api/orders/:id", async (req, res) => {
     if (!req.isAuthenticated()) return res.sendStatus(401);
     try {
@@ -7090,7 +7118,7 @@ ${allUrls.map(u => `  <url>
   app.get("/api/coffee-items", async (_req, res) => {
     try {
       const { ProductModel } = await import("./models");
-      const products = await ProductModel.find({ isActive: true }).lean();
+      const products = await ProductModel.find({ isActive: { $ne: false } }).lean();
       const coffeeItems = products.map((p: any) => ({
         id: String(p._id),
         nameAr: p.nameAr || p.name || "",
@@ -7123,7 +7151,7 @@ ${allUrls.map(u => `  <url>
   app.get("/api/menu-categories", async (_req, res) => {
     try {
       const { CategoryModel } = await import("./models");
-      const cats = await CategoryModel.find({ isActive: true }).sort({ sortOrder: 1 }).lean();
+      const cats = await CategoryModel.find({ isActive: { $ne: false } }).sort({ sortOrder: 1 }).lean();
       res.json(cats.map((c: any) => ({
         id: String(c._id),
         nameAr: c.nameAr || "",
@@ -7131,34 +7159,6 @@ ${allUrls.map(u => `  <url>
         department: c.department || "main",
         icon: c.icon || null,
       })));
-    } catch {
-      res.json([]);
-    }
-  });
-
-  // ── POS: Live Orders ──────────────────────────────────────────────────────
-  app.get("/api/orders/live", async (_req, res) => {
-    try {
-      const { OrderModel } = await import("./models");
-      const orders = await OrderModel.find({
-        status: { $in: ["pending", "payment_confirmed", "confirmed", "in_progress", "ready", "delivered", "received"] },
-        createdAt: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) },
-      }).sort({ createdAt: -1 }).limit(100).lean();
-      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
-    } catch {
-      res.json([]);
-    }
-  });
-
-  // ── POS: Kitchen Orders ───────────────────────────────────────────────────
-  app.get("/api/orders/kitchen", async (_req, res) => {
-    try {
-      const { OrderModel } = await import("./models");
-      const orders = await OrderModel.find({
-        status: { $in: ["pending", "payment_confirmed", "in_progress"] },
-        createdAt: { $gte: new Date(Date.now() - 8 * 60 * 60 * 1000) },
-      }).sort({ createdAt: 1 }).limit(50).lean();
-      res.json(orders.map((o: any) => ({ ...o, id: String(o._id) })));
     } catch {
       res.json([]);
     }
