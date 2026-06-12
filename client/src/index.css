@@ -232,7 +232,7 @@ html { scroll-behavior: smooth; }
   font-family: 'Alexandria', sans-serif;
   font-size: clamp(15px, 3vw, 24px);
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
   color: rgba(255,255,255,0.75);
   text-shadow: 0 2px 12px rgba(0,0,0,0.7);
 }
