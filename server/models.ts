@@ -554,6 +554,70 @@ const tableReservationSchema = new Schema({
   confirmedBy:   { type: String, default: "" },
 }, { timestamps: true });
 
+// ─── Employee Profile (Extended HR data) ──────────────────────────────────────
+const employeeProfileSchema = new Schema({
+  userId:              { type: String, required: true, unique: true },
+  nationalId:          { type: String, default: "" },
+  birthDate:           { type: Date },
+  hireDate:            { type: Date },
+  jobTitle:            { type: String, default: "" },
+  department:          { type: String, default: "" },
+  baseSalary:          { type: Number, default: 0 },
+  housingAllowance:    { type: Number, default: 0 },
+  transportAllowance:  { type: Number, default: 0 },
+  otherAllowances:     { type: Number, default: 0 },
+  bankIban:            { type: String, default: "" },
+  bankName:            { type: String, default: "" },
+  bankAccountHolder:   { type: String, default: "" },
+  emergencyName:       { type: String, default: "" },
+  emergencyPhone:      { type: String, default: "" },
+  emergencyRelation:   { type: String, default: "" },
+  address:             { type: String, default: "" },
+  bloodType:           { type: String, default: "" },
+  avatar:              { type: String, default: "" },
+  contractType:        { type: String, enum: ["full_time", "part_time", "contract", "intern"], default: "full_time" },
+  contractEnd:         { type: Date },
+  notes:               { type: String, default: "" },
+  salaryHistory:       [{
+    month:    { type: String },
+    year:     { type: Number },
+    base:     { type: Number, default: 0 },
+    bonuses:  { type: Number, default: 0 },
+    deductions: { type: Number, default: 0 },
+    total:    { type: Number, default: 0 },
+    paidAt:   { type: Date },
+    notes:    { type: String, default: "" },
+  }],
+}, { timestamps: true });
+
+// ─── Shift Templates ──────────────────────────────────────────────────────────
+const shiftTemplateSchema = new Schema({
+  nameAr:    { type: String, required: true },
+  nameEn:    { type: String, default: "" },
+  startTime: { type: String, required: true },
+  endTime:   { type: String, required: true },
+  hours:     { type: Number, default: 8 },
+  color:     { type: String, default: "#6B3F2A" },
+  isActive:  { type: Boolean, default: true },
+}, { timestamps: true });
+
+// ─── Employee Shifts ──────────────────────────────────────────────────────────
+const employeeShiftSchema = new Schema({
+  employeeId:       { type: String, required: true },
+  employeeName:     { type: String, default: "" },
+  shiftTemplateId:  { type: String, default: "" },
+  shiftName:        { type: String, default: "" },
+  shiftColor:       { type: String, default: "#6B3F2A" },
+  date:             { type: String, required: true },
+  branchId:         { type: String, default: "" },
+  status:           { type: String, enum: ["scheduled", "completed", "absent", "swapped", "off"], default: "scheduled" },
+  notes:            { type: String, default: "" },
+}, { timestamps: true });
+
+export const EmployeeProfileModel = mongoose.model("EmployeeProfile", employeeProfileSchema);
+export const ShiftTemplateModel = mongoose.model("ShiftTemplate", shiftTemplateSchema);
+export const EmployeeShiftModel = mongoose.model("EmployeeShift", employeeShiftSchema);
+
 export const AttendanceModel = mongoose.model("Attendance", attendanceSchema);
 export const LeaveRequestModel = mongoose.model("LeaveRequest", leaveRequestSchema);
 export const RawMaterialModel = mongoose.model("RawMaterial", rawMaterialSchema);

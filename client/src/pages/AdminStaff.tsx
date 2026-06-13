@@ -8,8 +8,9 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import {
   Loader2, UserPlus, Shield, Building, Trash2, Edit2, Search,
-  Users, CheckCircle2, XCircle, ShieldCheck, Phone, Mail,
+  Users, CheckCircle2, XCircle, ShieldCheck, Phone, Mail, ExternalLink,
 } from "lucide-react";
+import { Link } from "wouter";
 import { useForm } from "react-hook-form";
 import {
   Form, FormControl, FormField, FormItem, FormLabel, FormMessage,
@@ -507,16 +508,25 @@ export default function AdminStaff() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-2 pt-3 border-t border-gray-100 mt-3">
+                    <Link href={`/admin/staff/${u.id}`}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 font-bold border-[#6B3F2A]/30 text-[#6B3F2A] hover:bg-[#6B3F2A]/5 gap-1"
+                        data-testid={`button-profile-staff-${u.id}`}
+                      >
+                        <ExternalLink className="h-3 w-3" /> الملف الشخصي
+                      </Button>
+                    </Link>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => updateMutation.mutate({ id: u.id, data: { isActive: !u.isActive } })}
                       disabled={updateMutation.isPending}
-                      className="flex-1 font-bold"
+                      className="font-bold"
                       data-testid={`button-toggle-staff-${u.id}`}
                     >
-                      {u.isActive ? <XCircle className="h-3.5 w-3.5 ml-1" /> : <CheckCircle2 className="h-3.5 w-3.5 ml-1" />}
-                      {u.isActive ? "تعطيل" : "تفعيل"}
+                      {u.isActive ? <XCircle className="h-3.5 w-3.5" /> : <CheckCircle2 className="h-3.5 w-3.5" />}
                     </Button>
                     <Button
                       variant="outline"

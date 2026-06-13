@@ -66,6 +66,8 @@ const BranchDashboard = lazy(() => import("@/pages/BranchDashboard"));
 const BranchLogin = lazy(() => import("@/pages/BranchLogin"));
 const Invoice = lazy(() => import("@/pages/Invoice"));
 const KitchenScreen = lazy(() => import("@/pages/KitchenScreen"));
+const AdminEmployeeProfile = lazy(() => import("@/pages/AdminEmployeeProfile"));
+const AdminShifts = lazy(() => import("@/pages/AdminShifts"));
 const AdminAttendance = lazy(() => import("@/pages/AdminAttendance"));
 const EmployeeAttendancePage = lazy(() => import("@/pages/EmployeeAttendancePage"));
 const AdminLeaveRequests = lazy(() => import("@/pages/AdminLeaveRequests"));
@@ -250,6 +252,14 @@ function Router() {
       </Route>
       {/* Kitchen screen — standalone PIN-protected, no auth required */}
       <Route path="/0" component={KitchenScreen} />
+
+      {/* ─── Employee Profile & Shifts ───────────────────────────────── */}
+      <Route path="/admin/staff/:id">
+        <ProtectedRoute component={AdminEmployeeProfile} permission="staff.manage" />
+      </Route>
+      <Route path="/admin/shifts">
+        <ProtectedRoute component={AdminShifts} permission="staff.manage" />
+      </Route>
 
       {/* ─── Cafe Operations ─────────────────────────────────────────── */}
       <Route path="/admin/attendance">

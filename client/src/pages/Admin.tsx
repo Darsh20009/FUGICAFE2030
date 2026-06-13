@@ -5557,6 +5557,7 @@ const AdminSidebar = ({ activeTab, onTabChange, pendingOrders, mobileOpen = fals
   const cafeOperationsLinks = [
     { label: "التحليلات المتقدمة", icon: BarChart3, url: "/admin/analytics" },
     { label: "حجوزات الطاولات", icon: CalendarClock, url: "/admin/table-reservations" },
+    { label: "جدول الورديات", icon: Clock, url: "/admin/shifts" },
     { label: "الحضور والغياب", icon: Clock, url: "/admin/attendance" },
     { label: "طلبات الإجازة", icon: FileText, url: "/admin/leave-requests" },
     { label: "المواد الخام", icon: Package, url: "/admin/raw-materials" },

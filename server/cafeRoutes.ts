@@ -1,5 +1,5 @@
 import type { Express, Request, Response } from "express";
-import { AttendanceModel, LeaveRequestModel, RawMaterialModel, RecipeModel, SupplierModel, GiftCardModel, ExpenseModel, TableReservationModel, OrderModel, UserModel } from "./models";
+import { AttendanceModel, LeaveRequestModel, RawMaterialModel, RecipeModel, SupplierModel, GiftCardModel, ExpenseModel, TableReservationModel, OrderModel, UserModel, EmployeeProfileModel, ShiftTemplateModel, EmployeeShiftModel } from "./models";
 
 interface AuthRequest extends Request {
   user?: any;
@@ -567,6 +567,163 @@ export function registerCafeRoutes(app: Express) {
         hourly[h].revenue += parseFloat(o.total || "0");
       });
       res.json(hourly);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // EMPLOYEE PROFILES
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  // Get all employee profiles
+  app.get("/api/admin/employee-profiles", requireAdmin, async (_req, res) => {
+    try {
+      const profiles = await EmployeeProfileModel.find().sort({ createdAt: -1 }).lean();
+      res.json(profiles);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Get profile for a specific user
+  app.get("/api/admin/employee-profiles/:userId", requireAdmin, async (req, res) => {
+    try {
+      let profile = await EmployeeProfileModel.findOne({ userId: req.params.userId }).lean();
+      if (!profile) {
+        // Auto-create empty profile
+        profile = await EmployeeProfileModel.create({ userId: req.params.userId });
+      }
+      res.json(profile);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Create or update employee profile
+  app.put("/api/admin/employee-profiles/:userId", requireAdmin, async (req, res) => {
+    try {
+      const profile = await EmployeeProfileModel.findOneAndUpdate(
+        { userId: req.params.userId },
+        { $set: req.body },
+        { upsert: true, new: true }
+      );
+      res.json(profile);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Add salary payment record
+  app.post("/api/admin/employee-profiles/:userId/salary", requireAdmin, async (req, res) => {
+    try {
+      const profile = await EmployeeProfileModel.findOneAndUpdate(
+        { userId: req.params.userId },
+        { $push: { salaryHistory: { ...req.body, paidAt: new Date() } } },
+        { upsert: true, new: true }
+      );
+      res.json(profile);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Get employee stats (attendance count, leave days, total shifts)
+  app.get("/api/admin/employee-profiles/:userId/stats", requireAdmin, async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const now = new Date();
+      const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+      const monthStartStr = monthStart.toISOString().split("T")[0];
+
+      const [attendance, leaves, shifts] = await Promise.all([
+        AttendanceModel.find({ employeeId: userId, date: { $gte: monthStartStr } }).lean(),
+        LeaveRequestModel.find({ employeeId: userId, status: "approved" }).lean(),
+        EmployeeShiftModel.find({ employeeId: userId, date: { $gte: monthStartStr } }).lean(),
+      ]);
+
+      const present = (attendance as any[]).filter(a => a.status === "present" || a.status === "late").length;
+      const late = (attendance as any[]).filter(a => a.isLate).length;
+      const totalWorkMinutes = (attendance as any[]).reduce((s: number, a: any) => s + (a.workMinutes || 0), 0);
+      const totalLeaveDays = (leaves as any[]).reduce((s: number, l: any) => s + (l.numberOfDays || 0), 0);
+
+      res.json({
+        presentDays: present,
+        lateDays: late,
+        totalWorkHours: Math.round(totalWorkMinutes / 60),
+        totalLeaveDays,
+        scheduledShifts: (shifts as any[]).length,
+        attendanceRecords: attendance,
+        leaveRequests: leaves,
+        recentShifts: shifts,
+      });
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // SHIFT TEMPLATES
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  app.get("/api/admin/shift-templates", requireAdmin, async (_req, res) => {
+    try {
+      const templates = await ShiftTemplateModel.find({ isActive: true }).sort({ startTime: 1 }).lean();
+      res.json(templates);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.post("/api/admin/shift-templates", requireAdmin, async (req, res) => {
+    try {
+      const template = await ShiftTemplateModel.create(req.body);
+      res.status(201).json(template);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.patch("/api/admin/shift-templates/:id", requireAdmin, async (req, res) => {
+    try {
+      const t = await ShiftTemplateModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.json(t);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.delete("/api/admin/shift-templates/:id", requireAdmin, async (req, res) => {
+    try {
+      await ShiftTemplateModel.findByIdAndUpdate(req.params.id, { isActive: false });
+      res.json({ ok: true });
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // EMPLOYEE SHIFTS (schedule)
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  // Get shifts for a date range (weekly schedule)
+  app.get("/api/admin/employee-shifts", requireAdmin, async (req, res) => {
+    try {
+      const { from, to, employeeId } = req.query as Record<string, string>;
+      const filter: Record<string, any> = {};
+      if (from && to) filter.date = { $gte: from, $lte: to };
+      if (employeeId) filter.employeeId = employeeId;
+      const shifts = await EmployeeShiftModel.find(filter).sort({ date: 1 }).lean();
+      res.json(shifts);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Assign a shift
+  app.post("/api/admin/employee-shifts", requireAdmin, async (req, res) => {
+    try {
+      // Upsert: one shift per employee per date
+      const shift = await EmployeeShiftModel.findOneAndUpdate(
+        { employeeId: req.body.employeeId, date: req.body.date },
+        { $set: req.body },
+        { upsert: true, new: true }
+      );
+      res.status(201).json(shift);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Update shift status
+  app.patch("/api/admin/employee-shifts/:id", requireAdmin, async (req, res) => {
+    try {
+      const shift = await EmployeeShiftModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.json(shift);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Delete a shift assignment
+  app.delete("/api/admin/employee-shifts/:id", requireAdmin, async (req, res) => {
+    try {
+      await EmployeeShiftModel.findByIdAndDelete(req.params.id);
+      res.json({ ok: true });
     } catch (e: any) { res.status(500).json({ error: e.message }); }
   });
 }
