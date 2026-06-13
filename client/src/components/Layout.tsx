@@ -1,6 +1,6 @@
 const logoImg = "/fuji-logo.png";
 const logoDarkImg = "/fuji-logo.png";
-import { ReactNode, useEffect, useState, lazy, Suspense } from "react";
+import { ReactNode, useEffect, useState, lazy, Suspense, createContext, useContext } from "react";
 import { GlobalFloatingBeans } from "@/components/GlobalFloatingBeans";
 import { Link, useLocation } from "wouter";
 import { ShoppingBag, User, Menu, LogOut, Phone, Mail, Instagram, Download, Globe, Wallet, Home, Package, LayoutDashboard, ChevronRight, X, Shield, Tag, Heart, Store } from "lucide-react";
@@ -25,7 +25,10 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { RiyalSign } from "@/components/RiyalSign";
 
+const LayoutContext = createContext(false);
+
 export function Layout({ children }: { children: ReactNode }) {
+  const isNested = useContext(LayoutContext);
   const { user, logout } = useAuth();
   const cartItems = useCart((state) => state.items);
   const [location, setLocation] = useLocation();
@@ -93,15 +96,42 @@ export function Layout({ children }: { children: ReactNode }) {
     }
   };
 
-  const isDashboard = location.startsWith('/dashboard') || location.startsWith('/admin');
+  // If already inside a Layout, just render children (prevents double navbar)
+  if (isNested) {
+    return <>{children}</>;
+  }
+
+  // Fullscreen pages — no navbar/footer (POS, kitchen, kiosk, cash drawer)
+  const isFullscreen =
+    location === '/pos' ||
+    location === '/0' ||
+    location === '/kiosk' ||
+    location.startsWith('/cash-drawer') ||
+    location.startsWith('/cash-report');
+
+  if (isFullscreen) {
+    return (
+      <LayoutContext.Provider value={true}>
+        {children}
+      </LayoutContext.Provider>
+    );
+  }
+
+  // Admin pages — admin-styled container, no public navbar
+  const isDashboard = location.startsWith('/admin') || location.startsWith('/branch-dashboard');
 
   if (isDashboard) {
-    return <main className="min-h-screen bg-[#f8fafc]">{children}</main>;
+    return (
+      <LayoutContext.Provider value={true}>
+        <main className="min-h-screen bg-[#f8fafc]">{children}</main>
+      </LayoutContext.Provider>
+    );
   }
 
   const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
+    <LayoutContext.Provider value={true}>
     <div className="min-h-screen bg-background text-foreground flex flex-col" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Navbar */}
       <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md safe-top h-16 md:h-20">
@@ -762,5 +792,6 @@ export function Layout({ children }: { children: ReactNode }) {
         </div>
       </footer>
     </div>
+    </LayoutContext.Provider>
   );
 }

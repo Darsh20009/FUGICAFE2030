@@ -20,6 +20,7 @@ import { PWAPrompt } from "@/components/PWAPrompt";
 import { IOSInstallGuide } from "@/components/IOSInstallGuide";
 import { useBlockInspect } from "@/hooks/use-block-inspect";
 import { PixelTracker } from "@/components/PixelTracker";
+import { Layout } from "@/components/Layout";
 
 const ProfileInvoices = lazy(() => import("@/pages/ProfileInvoices"));
 const Admin = lazy(() => import("@/pages/Admin"));
@@ -340,7 +341,9 @@ function AppContent() {
     <div dir={language === 'ar' ? 'rtl' : 'ltr'} lang={language}>
       <ErrorBoundary>
         <PixelTracker />
-        <Router />
+        <Layout>
+          <Router />
+        </Layout>
         <PWAPrompt />
         <IOSInstallGuide />
       </ErrorBoundary>
