@@ -614,6 +614,48 @@ const employeeShiftSchema = new Schema({
   notes:            { type: String, default: "" },
 }, { timestamps: true });
 
+// ─── Restaurant Table (Floor Plan) ───────────────────────────────────────────
+const restaurantTableSchema = new Schema({
+  tableNumber: { type: String, required: true },
+  section:     { type: String, enum: ["indoor","outdoor","vip","terrace","bar","private"], default: "indoor" },
+  capacity:    { type: Number, default: 4 },
+  shape:       { type: String, enum: ["round","square","rectangle"], default: "square" },
+  posX:        { type: Number, default: 20 },
+  posY:        { type: Number, default: 20 },
+  status:      { type: String, enum: ["free","occupied","reserved","cleaning","unavailable"], default: "free" },
+  currentGuestCount: { type: Number, default: 0 },
+  occupiedSince:     { type: Date },
+  currentOrderId:    { type: String, default: "" },
+  reservationId:     { type: String, default: "" },
+  notes:       { type: String, default: "" },
+  isActive:    { type: Boolean, default: true },
+}, { timestamps: true });
+
+// ─── Waste Log ────────────────────────────────────────────────────────────────
+const wasteLogItemSchema = new Schema({
+  name:        { type: String, default: "" },
+  category:    { type: String, enum: ["produce","meat","dairy","beverages","dry_goods","bakery","other"], default: "other" },
+  quantity:    { type: Number, default: 0 },
+  unit:        { type: String, default: "kg" },
+  costPerUnit: { type: Number, default: 0 },
+  totalCost:   { type: Number, default: 0 },
+  reason:      { type: String, enum: ["expired","spillage","overcooking","contamination","overproduction","quality","other"], default: "other" },
+  notes:       { type: String, default: "" },
+}, { _id: false });
+
+const wasteLogSchema = new Schema({
+  date:       { type: String, required: true },
+  shift:      { type: String, enum: ["morning","evening","night","all"], default: "morning" },
+  branchId:   { type: String, default: "" },
+  items:      [wasteLogItemSchema],
+  totalCost:  { type: Number, default: 0 },
+  recordedBy: { type: String, default: "" },
+  notes:      { type: String, default: "" },
+}, { timestamps: true });
+
+export const RestaurantTableModel = mongoose.model("RestaurantTable", restaurantTableSchema);
+export const WasteLogModel = mongoose.model("WasteLog", wasteLogSchema);
+
 export const EmployeeProfileModel = mongoose.model("EmployeeProfile", employeeProfileSchema);
 export const ShiftTemplateModel = mongoose.model("ShiftTemplate", shiftTemplateSchema);
 export const EmployeeShiftModel = mongoose.model("EmployeeShift", employeeShiftSchema);

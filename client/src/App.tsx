@@ -68,6 +68,10 @@ const Invoice = lazy(() => import("@/pages/Invoice"));
 const KitchenScreen = lazy(() => import("@/pages/KitchenScreen"));
 const AdminEmployeeProfile = lazy(() => import("@/pages/AdminEmployeeProfile"));
 const AdminShifts = lazy(() => import("@/pages/AdminShifts"));
+const AdminTableMap = lazy(() => import("@/pages/AdminTableMap"));
+const AdminWasteLog = lazy(() => import("@/pages/AdminWasteLog"));
+const AdminMenuEngineering = lazy(() => import("@/pages/AdminMenuEngineering"));
+const AdminDailyReport = lazy(() => import("@/pages/AdminDailyReport"));
 const AdminAttendance = lazy(() => import("@/pages/AdminAttendance"));
 const EmployeeAttendancePage = lazy(() => import("@/pages/EmployeeAttendancePage"));
 const AdminLeaveRequests = lazy(() => import("@/pages/AdminLeaveRequests"));
@@ -252,6 +256,20 @@ function Router() {
       </Route>
       {/* Kitchen screen — standalone PIN-protected, no auth required */}
       <Route path="/0" component={KitchenScreen} />
+
+      {/* ─── Restaurant Management ────────────────────────────────────── */}
+      <Route path="/admin/table-map">
+        <ProtectedRoute component={AdminTableMap} permission="orders.manage" />
+      </Route>
+      <Route path="/admin/waste-log">
+        <ProtectedRoute component={AdminWasteLog} permission="settings.manage" />
+      </Route>
+      <Route path="/admin/menu-engineering">
+        <ProtectedRoute component={AdminMenuEngineering} permission="reports.view" />
+      </Route>
+      <Route path="/admin/daily-report">
+        <ProtectedRoute component={AdminDailyReport} permission="reports.view" />
+      </Route>
 
       {/* ─── Employee Profile & Shifts ───────────────────────────────── */}
       <Route path="/admin/staff/:id">

@@ -1,5 +1,5 @@
 import type { Express, Request, Response } from "express";
-import { AttendanceModel, LeaveRequestModel, RawMaterialModel, RecipeModel, SupplierModel, GiftCardModel, ExpenseModel, TableReservationModel, OrderModel, UserModel, EmployeeProfileModel, ShiftTemplateModel, EmployeeShiftModel } from "./models";
+import { AttendanceModel, LeaveRequestModel, RawMaterialModel, RecipeModel, SupplierModel, GiftCardModel, ExpenseModel, TableReservationModel, OrderModel, UserModel, EmployeeProfileModel, ShiftTemplateModel, EmployeeShiftModel, RestaurantTableModel, WasteLogModel, ProductModel } from "./models";
 
 interface AuthRequest extends Request {
   user?: any;
@@ -723,6 +723,92 @@ export function registerCafeRoutes(app: Express) {
   app.delete("/api/admin/employee-shifts/:id", requireAdmin, async (req, res) => {
     try {
       await EmployeeShiftModel.findByIdAndDelete(req.params.id);
+      res.json({ ok: true });
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // RESTAURANT TABLES (Floor Plan)
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  app.get("/api/admin/restaurant-tables", requireAdmin, async (_req, res) => {
+    try {
+      const tables = await RestaurantTableModel.find({ isActive: true }).sort({ section: 1, tableNumber: 1 }).lean();
+      res.json(tables);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.post("/api/admin/restaurant-tables", requireAdmin, async (req, res) => {
+    try {
+      // Place new tables at a random spot if no position provided
+      if (!req.body.posX) req.body.posX = 10 + Math.floor(Math.random() * 75);
+      if (!req.body.posY) req.body.posY = 10 + Math.floor(Math.random() * 75);
+      const table = await RestaurantTableModel.create(req.body);
+      res.status(201).json(table);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.patch("/api/admin/restaurant-tables/:id", requireAdmin, async (req, res) => {
+    try {
+      const table = await RestaurantTableModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.json(table);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // Quick status update (free/occupied/reserved/cleaning)
+  app.patch("/api/admin/restaurant-tables/:id/status", requireAdmin, async (req, res) => {
+    try {
+      const update: any = { status: req.body.status, notes: req.body.notes || "" };
+      if (req.body.status === "occupied") {
+        update.currentGuestCount = req.body.currentGuestCount || 0;
+        update.occupiedSince = new Date();
+      } else if (req.body.status === "free") {
+        update.currentGuestCount = 0;
+        update.occupiedSince = null;
+        update.currentOrderId = "";
+        update.reservationId = "";
+      }
+      const table = await RestaurantTableModel.findByIdAndUpdate(req.params.id, update, { new: true });
+      res.json(table);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.delete("/api/admin/restaurant-tables/:id", requireAdmin, async (req, res) => {
+    try {
+      await RestaurantTableModel.findByIdAndUpdate(req.params.id, { isActive: false });
+      res.json({ ok: true });
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // WASTE LOGS
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  app.get("/api/admin/waste-logs", requireAdmin, async (req, res) => {
+    try {
+      const { from, to } = req.query as Record<string, string>;
+      const filter: Record<string, any> = {};
+      if (from && to) filter.date = { $gte: from, $lte: to };
+      const logs = await WasteLogModel.find(filter).sort({ date: -1 }).lean();
+      res.json(logs);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.post("/api/admin/waste-logs", requireAdmin, async (req: AuthRequest, res) => {
+    try {
+      const totalCost = (req.body.items || []).reduce((s: number, i: any) => s + (i.totalCost || 0), 0);
+      const log = await WasteLogModel.create({
+        ...req.body,
+        totalCost,
+        recordedBy: req.user?.name || req.user?.phone || "",
+      });
+      res.status(201).json(log);
+    } catch (e: any) { res.status(500).json({ error: e.message }); }
+  });
+
+  app.delete("/api/admin/waste-logs/:id", requireAdmin, async (req, res) => {
+    try {
+      await WasteLogModel.findByIdAndDelete(req.params.id);
       res.json({ ok: true });
     } catch (e: any) { res.status(500).json({ error: e.message }); }
   });

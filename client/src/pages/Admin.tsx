@@ -5555,8 +5555,12 @@ const AdminSidebar = ({ activeTab, onTabChange, pendingOrders, mobileOpen = fals
   ];
 
   const cafeOperationsLinks = [
+    { label: "تقرير اليوم", icon: BarChart3, url: "/admin/daily-report" },
     { label: "التحليلات المتقدمة", icon: BarChart3, url: "/admin/analytics" },
+    { label: "خريطة الطاولات", icon: LayoutGrid, url: "/admin/table-map" },
     { label: "حجوزات الطاولات", icon: CalendarClock, url: "/admin/table-reservations" },
+    { label: "هندسة القائمة", icon: Sparkles, url: "/admin/menu-engineering" },
+    { label: "سجل الهدر", icon: Trash2, url: "/admin/waste-log" },
     { label: "جدول الورديات", icon: Clock, url: "/admin/shifts" },
     { label: "الحضور والغياب", icon: Clock, url: "/admin/attendance" },
     { label: "طلبات الإجازة", icon: FileText, url: "/admin/leave-requests" },
