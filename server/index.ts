@@ -1,5 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
+import { registerCafeRoutes } from "./cafeRoutes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { connectDB } from "./db";
@@ -178,6 +179,7 @@ process.on('uncaughtException', (err: any) => {
   }
 
   await registerRoutes(httpServer, app);
+  registerCafeRoutes(app);
 
   // ─── WebSocket Server ──────────────────────────────────────────────────────
   // Attach WS on /ws path so it doesn't interfere with Vite's HMR websocket

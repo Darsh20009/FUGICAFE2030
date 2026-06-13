@@ -429,6 +429,140 @@ const pushSubscriptionSchema = new Schema(
   { timestamps: true }
 );
 
+// ─── Attendance ────────────────────────────────────────────────────────────────
+const attendanceSchema = new Schema({
+  employeeId:        { type: String, required: true },
+  employeeName:      { type: String, default: "" },
+  branchId:          { type: String, default: "" },
+  date:              { type: String, required: true }, // YYYY-MM-DD
+  checkInTime:       { type: Date },
+  checkOutTime:      { type: Date },
+  checkInPhoto:      { type: String, default: "" },
+  checkOutPhoto:     { type: String, default: "" },
+  checkInLocation:   { lat: Number, lng: Number },
+  checkOutLocation:  { lat: Number, lng: Number },
+  status:            { type: String, enum: ["present", "absent", "late", "half_day"], default: "present" },
+  isLate:            { type: Boolean, default: false },
+  lateMinutes:       { type: Number, default: 0 },
+  workMinutes:       { type: Number, default: 0 },
+  notes:             { type: String, default: "" },
+}, { timestamps: true });
+
+// ─── Leave Requests ────────────────────────────────────────────────────────────
+const leaveRequestSchema = new Schema({
+  employeeId:       { type: String, required: true },
+  employeeName:     { type: String, default: "" },
+  type:             { type: String, enum: ["annual", "sick", "emergency", "other"], default: "annual" },
+  startDate:        { type: Date, required: true },
+  endDate:          { type: Date, required: true },
+  numberOfDays:     { type: Number, required: true },
+  reason:           { type: String, required: true },
+  status:           { type: String, enum: ["pending", "approved", "rejected"], default: "pending" },
+  rejectionReason:  { type: String, default: "" },
+  approvedBy:       { type: String, default: "" },
+  approvedAt:       { type: Date },
+}, { timestamps: true });
+
+// ─── Raw Materials (Ingredients) ───────────────────────────────────────────────
+const rawMaterialSchema = new Schema({
+  code:          { type: String, default: "" },
+  nameAr:        { type: String, required: true },
+  nameEn:        { type: String, default: "" },
+  category:      { type: String, enum: ["ingredient", "packaging", "equipment", "consumable", "other"], default: "ingredient" },
+  unit:          { type: String, default: "g" },
+  unitCost:      { type: Number, default: 0 },
+  currentStock:  { type: Number, default: 0 },
+  minStockLevel: { type: Number, default: 0 },
+  maxStockLevel: { type: Number, default: 0 },
+  supplierId:    { type: String, default: "" },
+  isActive:      { type: Boolean, default: true },
+}, { timestamps: true });
+
+// ─── Recipes ───────────────────────────────────────────────────────────────────
+const recipeSchema = new Schema({
+  productId:    { type: String, required: true, unique: true },
+  productName:  { type: String, default: "" },
+  ingredients:  [{
+    rawMaterialId:   String,
+    rawMaterialName: String,
+    quantity:        Number,
+    unit:            String,
+    unitCost:        Number,
+  }],
+  totalCost:    { type: Number, default: 0 },
+  notes:        { type: String, default: "" },
+}, { timestamps: true });
+
+// ─── Suppliers ─────────────────────────────────────────────────────────────────
+const supplierSchema = new Schema({
+  name:          { type: String, required: true },
+  nameEn:        { type: String, default: "" },
+  contactPerson: { type: String, default: "" },
+  phone:         { type: String, default: "" },
+  email:         { type: String, default: "" },
+  address:       { type: String, default: "" },
+  categories:    { type: [String], default: [] },
+  paymentTerms:  { type: String, default: "" },
+  rating:        { type: Number, default: 0 },
+  isActive:      { type: Boolean, default: true },
+  notes:         { type: String, default: "" },
+}, { timestamps: true });
+
+// ─── Gift Cards ────────────────────────────────────────────────────────────────
+const giftCardSchema = new Schema({
+  code:            { type: String, required: true, unique: true },
+  initialBalance:  { type: Number, required: true },
+  currentBalance:  { type: Number, required: true },
+  isActive:        { type: Boolean, default: true },
+  expiryDate:      { type: Date },
+  recipientName:   { type: String, default: "" },
+  recipientPhone:  { type: String, default: "" },
+  createdBy:       { type: String, default: "" },
+  transactions:    [{
+    amount:  Number,
+    type:    { type: String, enum: ["credit", "debit"] },
+    orderId: String,
+    at:      { type: Date, default: Date.now },
+    note:    String,
+  }],
+}, { timestamps: true });
+
+// ─── Expenses ──────────────────────────────────────────────────────────────────
+const expenseSchema = new Schema({
+  category:      { type: String, required: true },
+  description:   { type: String, required: true },
+  amount:        { type: Number, required: true },
+  date:          { type: Date, required: true },
+  branchId:      { type: String, default: "" },
+  paymentMethod: { type: String, default: "cash" },
+  receipt:       { type: String, default: "" },
+  recordedBy:    { type: String, default: "" },
+  notes:         { type: String, default: "" },
+}, { timestamps: true });
+
+// ─── Table Reservations ────────────────────────────────────────────────────────
+const tableReservationSchema = new Schema({
+  customerName:  { type: String, required: true },
+  customerPhone: { type: String, required: true },
+  date:          { type: Date, required: true },
+  time:          { type: String, required: true },
+  partySize:     { type: Number, required: true },
+  tableNumber:   { type: String, default: "" },
+  branchId:      { type: String, default: "" },
+  status:        { type: String, enum: ["pending", "confirmed", "cancelled", "completed", "no_show"], default: "pending" },
+  notes:         { type: String, default: "" },
+  confirmedBy:   { type: String, default: "" },
+}, { timestamps: true });
+
+export const AttendanceModel = mongoose.model("Attendance", attendanceSchema);
+export const LeaveRequestModel = mongoose.model("LeaveRequest", leaveRequestSchema);
+export const RawMaterialModel = mongoose.model("RawMaterial", rawMaterialSchema);
+export const RecipeModel = mongoose.model("Recipe", recipeSchema);
+export const SupplierModel = mongoose.model("Supplier", supplierSchema);
+export const GiftCardModel = mongoose.model("GiftCard", giftCardSchema);
+export const ExpenseModel = mongoose.model("Expense", expenseSchema);
+export const TableReservationModel = mongoose.model("TableReservation", tableReservationSchema);
+
 export const UserModel = mongoose.model<User>("User", userSchema);
 export const ProductModel = mongoose.model<Product>("Product", productSchema);
 export const OrderModel = mongoose.model<Order>("Order", orderSchema);

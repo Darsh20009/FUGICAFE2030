@@ -66,6 +66,18 @@ const BranchDashboard = lazy(() => import("@/pages/BranchDashboard"));
 const BranchLogin = lazy(() => import("@/pages/BranchLogin"));
 const Invoice = lazy(() => import("@/pages/Invoice"));
 const KitchenScreen = lazy(() => import("@/pages/KitchenScreen"));
+const AdminAttendance = lazy(() => import("@/pages/AdminAttendance"));
+const EmployeeAttendancePage = lazy(() => import("@/pages/EmployeeAttendancePage"));
+const AdminLeaveRequests = lazy(() => import("@/pages/AdminLeaveRequests"));
+const EmployeeLeaveRequest = lazy(() => import("@/pages/EmployeeLeaveRequest"));
+const AdminRawMaterials = lazy(() => import("@/pages/AdminRawMaterials"));
+const AdminRecipes = lazy(() => import("@/pages/AdminRecipes"));
+const AdminSuppliers = lazy(() => import("@/pages/AdminSuppliers"));
+const AdminGiftCards = lazy(() => import("@/pages/AdminGiftCards"));
+const AdminExpenses = lazy(() => import("@/pages/AdminExpenses"));
+const AdminAnalytics = lazy(() => import("@/pages/AdminAnalytics"));
+const AdminTableReservations = lazy(() => import("@/pages/AdminTableReservations"));
+const Kiosk = lazy(() => import("@/pages/Kiosk"));
 
 function LazyFallback() {
   return (
@@ -238,6 +250,42 @@ function Router() {
       </Route>
       {/* Kitchen screen — standalone PIN-protected, no auth required */}
       <Route path="/0" component={KitchenScreen} />
+
+      {/* ─── Cafe Operations ─────────────────────────────────────────── */}
+      <Route path="/admin/attendance">
+        <ProtectedRoute component={AdminAttendance} permission="staff.manage" />
+      </Route>
+      <Route path="/admin/leave-requests">
+        <ProtectedRoute component={AdminLeaveRequests} permission="staff.manage" />
+      </Route>
+      <Route path="/admin/raw-materials">
+        <ProtectedRoute component={AdminRawMaterials} permission="settings.manage" />
+      </Route>
+      <Route path="/admin/recipes">
+        <ProtectedRoute component={AdminRecipes} permission="settings.manage" />
+      </Route>
+      <Route path="/admin/suppliers">
+        <ProtectedRoute component={AdminSuppliers} permission="settings.manage" />
+      </Route>
+      <Route path="/admin/gift-cards">
+        <ProtectedRoute component={AdminGiftCards} permission="customers.view" />
+      </Route>
+      <Route path="/admin/expenses">
+        <ProtectedRoute component={AdminExpenses} permission="reports.view" />
+      </Route>
+      <Route path="/admin/analytics">
+        <ProtectedRoute component={AdminAnalytics} permission="reports.view" />
+      </Route>
+      <Route path="/admin/table-reservations">
+        <ProtectedRoute component={AdminTableReservations} permission="orders.manage" />
+      </Route>
+      <Route path="/employee/attendance">
+        <ProtectedRoute component={EmployeeAttendancePage} />
+      </Route>
+      <Route path="/employee/leave-request">
+        <ProtectedRoute component={EmployeeLeaveRequest} />
+      </Route>
+      <Route path="/kiosk" component={Kiosk} />
       <Route path="/admin/stores">
         <ProtectedRoute component={VendorsList} permission="staff.manage" />
       </Route>

@@ -5551,6 +5551,19 @@ const AdminSidebar = ({ activeTab, onTabChange, pendingOrders, mobileOpen = fals
     { label: "نقطة البيع", icon: Monitor, url: "/pos" },
     { label: "تقارير النقد", icon: DollarSign, url: "/cash-report" },
     { label: "المتجر", icon: Globe, url: "/" },
+    { label: "الكشك الذكي", icon: Monitor, url: "/kiosk" },
+  ];
+
+  const cafeOperationsLinks = [
+    { label: "التحليلات المتقدمة", icon: BarChart3, url: "/admin/analytics" },
+    { label: "حجوزات الطاولات", icon: CalendarClock, url: "/admin/table-reservations" },
+    { label: "الحضور والغياب", icon: Clock, url: "/admin/attendance" },
+    { label: "طلبات الإجازة", icon: FileText, url: "/admin/leave-requests" },
+    { label: "المواد الخام", icon: Package, url: "/admin/raw-materials" },
+    { label: "وصفات المنتجات", icon: Sparkles, url: "/admin/recipes" },
+    { label: "الموردون", icon: Store, url: "/admin/suppliers" },
+    { label: "بطاقات الهدايا", icon: Award, url: "/admin/gift-cards" },
+    { label: "المصروفات", icon: TrendingDown, url: "/admin/expenses" },
   ];
 
   // On mobile, every nav click should also close the drawer
@@ -5656,6 +5669,25 @@ const AdminSidebar = ({ activeTab, onTabChange, pendingOrders, mobileOpen = fals
               );
             })}
           </div>
+        ))}
+
+        {/* Cafe Operations links */}
+        {!collapsed && (
+          <div>
+            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest px-3 pt-3 pb-1.5">عمليات الكافيه</p>
+          </div>
+        )}
+        {cafeOperationsLinks.map((link) => (
+          <Link key={link.url} href={link.url}>
+            <div
+              title={collapsed ? link.label : undefined}
+              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 hover:text-[#6B3F2A] hover:bg-[#6B3F2A]/5 transition-all cursor-pointer group"
+            >
+              <link.icon className="w-4 h-4 shrink-0 group-hover:text-[#6B3F2A]" />
+              {!collapsed && <span className="text-xs font-bold">{link.label}</span>}
+              {!collapsed && <ChevronRight className="w-3 h-3 mr-auto opacity-30 group-hover:opacity-70" />}
+            </div>
+          </Link>
         ))}
 
         {/* External links */}

@@ -114,8 +114,11 @@ export default function Dashboard() {
     { id: "orders", icon: ShoppingBag, label: "الطلبات" },
     { id: "wallet", icon: Wallet, label: "المحفظة" },
     { id: "addresses", icon: MapPin, label: "العناوين" },
+    { id: "divider" },
+    { id: "attendance", icon: Clock, label: "حضوري", href: "/employee/attendance" },
+    { id: "leave", icon: Tag, label: "طلب إجازة", href: "/employee/leave-request" },
     ...(isAdmin ? [
-      { id: "divider" },
+      { id: "divider2" },
       { id: "admin-products", icon: Box, label: "المنتجات", href: "/admin" },
       { id: "admin-staff", icon: Users, label: "الموظفون", href: "/admin/staff" },
       { id: "admin-reports", icon: BarChart3, label: "التقارير", href: "/admin" },
@@ -221,6 +224,11 @@ export default function Dashboard() {
             <nav className="relative z-10 flex-1 px-3 py-2 space-y-1 overflow-y-auto">
               {navItems.map((item: any, i: number) => {
                 if (item.id === "divider") return (
+                  <div key={i} className="my-3 border-t border-white/5 pt-3">
+                    <p className="text-[9px] text-white/20 font-bold uppercase tracking-widest px-3 mb-2">خدمات الموظف</p>
+                  </div>
+                );
+                if (item.id === "divider2") return (
                   <div key={i} className="my-3 border-t border-white/5 pt-3">
                     <p className="text-[9px] text-white/20 font-bold uppercase tracking-widest px-3 mb-2">لوحة الإدارة</p>
                   </div>
