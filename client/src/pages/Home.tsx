@@ -824,10 +824,10 @@ export default function Home() {
             </div>
 
             <p className="text-[#E8637A] text-base md:text-xl font-bold mb-2" dir="rtl">
-              كل القهوة كيف — وفوجي هو أصل الكيف
+              روح اليابان من قلب الرياض
             </p>
             <p className="text-white/40 text-sm italic tracking-widest mb-10">
-              All coffee is joy — Fuji is the origin of joy
+              リヤドの中心部に日本の精神をお届けします。
             </p>
 
             {user ? (
