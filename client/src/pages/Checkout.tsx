@@ -42,7 +42,7 @@ export default function Checkout() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
 
-  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "tap" | "cash_on_delivery">("cash_on_delivery");
+  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "tap" | "cod">("cod");
 
   const isAppleDevice = useMemo(() => {
     if (typeof window === "undefined" || typeof navigator === "undefined") return false;
@@ -1007,16 +1007,16 @@ export default function Checkout() {
                 className="space-y-2.5"
               >
                 {/* ── Cash on Delivery (primary method) ── */}
-                <label htmlFor="pay-cod" data-testid="option-payment-cod" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "cash_on_delivery" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
-                  <RadioGroupItem value="cash_on_delivery" id="pay-cod" className="shrink-0" />
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "cash_on_delivery" ? "bg-primary/10" : "bg-gray-100"}`}>
-                    <Package className={`h-5 w-5 ${paymentMethod === "cash_on_delivery" ? "text-primary" : "text-gray-500"}`} />
+                <label htmlFor="pay-cod" data-testid="option-payment-cod" className={`flex items-center gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${paymentMethod === "cod" ? "border-primary bg-primary/5" : "border-gray-200 hover:border-gray-300"}`}>
+                  <RadioGroupItem value="cod" id="pay-cod" className="shrink-0" />
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === "cod" ? "bg-primary/10" : "bg-gray-100"}`}>
+                    <Package className={`h-5 w-5 ${paymentMethod === "cod" ? "text-primary" : "text-gray-500"}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-black text-sm">الدفع عند الاستلام</p>
                     <p className="text-[11px] text-gray-500 mt-0.5">ادفع نقداً عند استلام طلبك من الفرع</p>
                   </div>
-                  {paymentMethod === "cash_on_delivery" && (
+                  {paymentMethod === "cod" && (
                     <span className="shrink-0 text-[10px] font-black px-2 py-0.5 rounded-full bg-primary text-white">متاح</span>
                   )}
                 </label>
