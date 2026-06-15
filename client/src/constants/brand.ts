@@ -175,8 +175,8 @@ export const SHADOWS = {
 
 export const BRAND_VOICE = {
   taglines: {
-    primary: 'عطور تروي حكاية',
-    secondary: 'Elegance That Speaks For You',
+    primary: 'روح اليابان من قلب الرياض',
+    secondary: 'リヤドの中心部に日本の精神をお届けします。',
     tertiary: 'Premium Quality. Zero Compromise.',
   },
   
