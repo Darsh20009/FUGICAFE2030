@@ -224,7 +224,7 @@ function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
           <span className="text-[10px] font-bold uppercase tracking-[0.45em] text-[#E8637A]">
             {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-[#3D1F0E] mt-1" style={{ fontFamily: "'Alexandria', sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-black mt-1 text-[#c98787]" style={{ fontFamily: "'Alexandria', sans-serif" }}>
             {isRtl ? "من المزرعة إلى كوبك" : "Farm to Your Cup"}
           </h2>
         </div>
