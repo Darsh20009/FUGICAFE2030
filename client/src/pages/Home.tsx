@@ -201,7 +201,7 @@ function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
 
   return (
     <section
-      className="relative overflow-hidden py-14"
+      className="relative overflow-hidden py-14 bg-[#ffffff]"
       style={{ background: "#070301" }}
       onMouseEnter={() => { pausedRef.current = true; }}
       onMouseLeave={() => { pausedRef.current = false; }}
@@ -216,7 +216,6 @@ function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
           </div>
         ))}
       </div>
-
       {/* header */}
       <motion.div
         initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -231,7 +230,6 @@ function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
           </h2>
         </div>
       </motion.div>
-
       {/* accordion panels */}
       <div className="relative z-20 px-3 md:px-6">
         <div className="flex gap-2 md:gap-3 overflow-hidden rounded-2xl md:rounded-3xl" style={{ height: "clamp(300px, 58vw, 620px)" }}>
