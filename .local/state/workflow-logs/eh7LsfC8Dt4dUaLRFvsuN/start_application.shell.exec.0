@@ -1,0 +1,214 @@
+[1G[0K⠙[1G[0K
+> rest-express@1.0.0 dev
+> NODE_ENV=development node_modules/.bin/tsx server/index.ts
+
+[1G[0K⠙[1G[0K[Paymob] Using base URL: https://accept.paymob.com
+Connected to MongoDB successfully
+[Migration] Store legal data updated
+Seeding فوجي كافيه admin user...
+Admin user created with phone 0552469643 and password 1234567890
+[AbandonedCarts] worker started (idle≥300s, tick=60s)
+[PickupExpiry] worker started (expire>=7d, tick=60m)
+[PendingPaymentExpiry] worker started (expire>=30min, tick=5min)
+[AI Learn] Scheduler started — runs nightly at 03:00 UTC
+[AI Learn] Next run in 4h (2026-06-16T03:00:00.000Z)
+[WS] WebSocket server ready on /ws
+10:57:10 PM [express] serving on port 5000
+Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+10:57:24 PM [express] GET /api/user 304 in 496ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:57:24 PM [express] GET /api/auth/apple/init 304 in 496ms :: {"clientId":"","redirectURI":"https://039d9067-a598-42ad-a460-6b790061a457-00-gkkya0sen6he.sisko.repl.co/api/auth/apple/callback","enabled":false}
+10:57:25 PM [express] GET /api/stats 304 in 712ms :: []
+10:57:25 PM [express] GET /api/pixels 304 in 723ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+10:57:25 PM [express] GET /api/flash-deals 304 in 660ms :: []
+10:57:25 PM [express] GET /api/store/settings 200 in 656ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":false,"stc_pay":false,"apple_pay":true,"bank_transfer":false,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-15T22:57:02.254Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+10:57:25 PM [express] GET /api/reviews/featured 304 in 664ms :: []
+10:57:25 PM [express] GET /api/pages 304 in 663ms :: []
+10:57:25 PM [express] GET /api/categories 304 in 665ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"},{"_id":"6a2ec6b83a48d1a0b4ceb528","name":"Coffee Tools","nameAr":"ادوات القهوة ","slug":"coffee-tools","image":"","description":"","parentId":"6a1c76d802dac5fbab6e9cc3","sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a2ec6b83a48d1a0b4ceb528"}]
+10:57:26 PM [express] GET /api/auth/google/init 304 in 1806ms :: {"clientId":"","redirectURI":"https://039d9067-a598-42ad-a460-6b790061a457-00-gkkya0sen6he.sisko.repl.co/api/auth/google/callback","enabled":false}
+10:57:26 PM [express] GET /api/user 304 in 445ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:57:26 PM [express] GET /api/products 304 in 667ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+10:57:26 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 666ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+10:57:26 PM [express] GET /api/wishlist/ids 304 in 662ms :: []
+10:57:26 PM [express] GET /api/notifications 304 in 881ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+10:58:32 PM [express] GET /api/flash-deals 304 in 906ms :: []
+10:58:32 PM [express] GET /api/wishlist/ids 304 in 905ms :: []
+10:58:32 PM [express] GET /api/notifications 304 in 1102ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+10:58:33 PM [express] GET /api/user 304 in 2015ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:59:03 PM [express] GET /api/notifications 304 in 877ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m10:59:25 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m10:59:27 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/pages/Cart.tsx, /src/pages/Home.tsx, /src/pages/ProductDetails.tsx, /src/pages/Products.tsx, /src/components/PWAPrompt.tsx, /src/components/IOSInstallGuide.tsx, /src/components/Layout.tsx, /src/components/AuthModal.tsx, /src/components/CustomerTestimonials.tsx, /src/components/FujiBeansHero.tsx, /src/components/ProductInsightsCard.tsx, /src/components/ProductCard.tsx, /src/index.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m10:59:28 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/pages/Cart.tsx, /src/pages/Home.tsx, /src/pages/ProductDetails.tsx, /src/pages/Products.tsx, /src/components/PWAPrompt.tsx, /src/components/IOSInstallGuide.tsx, /src/components/Layout.tsx, /src/components/AuthModal.tsx, /src/components/CustomerTestimonials.tsx, /src/components/FujiBeansHero.tsx, /src/components/ProductInsightsCard.tsx, /src/components/ProductCard.tsx, /src/index.css[22m [33m(x2)[39m
+10:59:33 PM [express] GET /api/user 304 in 912ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:59:33 PM [express] GET /api/wishlist/ids 304 in 928ms :: []
+10:59:33 PM [express] GET /api/flash-deals 304 in 1095ms :: []
+10:59:34 PM [express] GET /api/notifications 304 in 2454ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+10:59:38 PM [express] GET /api/user 401 in 2ms
+10:59:38 PM [express] GET /api/categories 200 in 1ms :: [{"_id":"6a1c76d802dac5fbab6e9cc3","name":"Coffee Beans","nameAr":"حبوب القهوة","slug":"beans","image":"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=500&fit=crop&auto=format","parentId":null,"sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a1c76d802dac5fbab6e9cc3"},{"_id":"6a2ec6b83a48d1a0b4ceb528","name":"Coffee Tools","nameAr":"ادوات القهوة ","slug":"coffee-tools","image":"","description":"","parentId":"6a1c76d802dac5fbab6e9cc3","sortOrder":0,"asPage":false,"showInNav":false,"pageHero":"","pageContentAr":"","pageContentEn":"","__v":0,"id":"6a2ec6b83a48d1a0b4ceb528"}]
+10:59:38 PM [express] GET /api/products 200 in 1ms :: [{"_id":"6a1c76d902dac5fbab6e9cdc","name":"حبوب قهوة فوجي — أثيوبيا","nameEn":"","description":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","descriptionEn":"","price":"95","cost":"40","images":["https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"],"categoryId":"","categoryIds":["6a1c76d802dac5fbab6e9cc3"],"vendorId":null,"variants":[{"color":"250g","size":"250g","sku":"BEAN-ETH-250","stock":46,"price":0,"cost":40,"_id":"6a1c76d902dac5fbab6e9cdd"},{"color":"500g","size":"500g","sku":"BEAN-ETH-500","stock":27,"price":0,"cost":70,"_id":"6a1c76d902dac5fbab6e9cde"}],"isFeatured":true,"isOnSale":false,"salePrice":"","aiNotes":"","createdAt":"2026-05-31T17:58:49.146Z","updatedAt":"2026-06-09T19:15:08.682Z","__v":0,"id":"6a1c76d902dac5fbab6e9cdc"}]
+10:59:38 PM [express] GET /api/auth/google/init 200 in 1ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+10:59:38 PM [express] GET /api/auth/apple/init 200 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+10:59:38 PM [express] GET /api/pixels 200 in 223ms :: {"facebookPixelId":"","tiktokPixelId":"","snapchatPixelId":"","twitterPixelId":"","gtmId":""}
+10:59:38 PM [express] GET /api/stats 200 in 221ms :: []
+10:59:38 PM [express] GET /api/reviews/featured 200 in 219ms :: []
+10:59:38 PM [express] GET /api/pages 200 in 218ms :: []
+10:59:38 PM [express] GET /api/store/settings 200 in 228ms :: {"_id":"6a188c69f4afb08382461b19","key":"main","storeName":"فوجي كافيه","storeNameAr":"فوجي كافيه","storePhone":"","storeEmail":"fugi2030@outlook.com","storeAddress":"","vatNumber":"312650651100003","crNumber":"7042488606","bankName":"مصرف الراجحي","bankAccountHolder":"عطور آر اف","bankIBAN":"SA6280000501608016226411","bankAccountNumber":"501000010006086226411","bankLogo":"","paymentMethods":{"wallet":true,"tap":false,"stc_pay":false,"apple_pay":true,"bank_transfer":false,"tamara":true,"tabby":true},"freeShippingThreshold":0,"freeShippingEnabled":true,"freeShippingMessageAr":"شحن مجاني للطلبات أكثر من","freeShippingMessageEn":"Free shipping on orders over","saleSectionImage":"","bestSellersSectionImage":"","newArrivalsSectionImage":"","instagramUrl":"","twitterUrl":"","whatsappNumber":"","bankTransferInstructionsAr":"","bankTransferInstructionsEn":"","pickupEnabled":true,"pickupInstructionsAr":"","pickupInstructionsEn":"","vatRate":15,"maroofUrl":"","supportPhone":"","supportEmail":"fugi2030@outlook.com","supportHours":"","seoTitle":"","seoTitleEn":"","seoDescription":"","seoDescriptionEn":"","seoKeywords":"","ogImage":"","maintenanceMode":false,"maintenanceMessageAr":"نعمل على تحسينات سريعة، نعود قريباً","maintenanceMessageEn":"We're making quick improvements, back shortly","tabbyMinOrder":100,"tabbyMaxOrder":5000,"tamaraMinOrder":100,"tamaraMaxOrder":5000,"socialAccounts":[{"platform":"instagram","label":"","url":"https://www.instagram.com/fujicafe.sa","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":0,"_id":"6a2574c971604f6b45a7429f"},{"platform":"twitter","label":"","url":"https://x.com/fujicafesa?s=11","handle":"@Fujicafesa","color":"","isActive":true,"sortOrder":1,"_id":"6a2574c971604f6b45a742a0"},{"platform":"tiktok","label":"","url":"https://www.tiktok.com/@fujicafe.sa?_r=1&_t=ZS-970sxrX8TFC","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":2,"_id":"6a2574c971604f6b45a742a1"},{"platform":"snapchat","label":"","url":"https://snapchat.com/t/w43jW6YF","handle":"@Fujicafe.sa","color":"","isActive":true,"sortOrder":3,"_id":"6a2574c971604f6b45a742a2"}],"createdAt":"2026-05-28T18:41:45.693Z","updatedAt":"2026-06-15T22:57:02.254Z","__v":0,"senderEmail":"fugi2030@outlook.com","senderName":"فوجي كافيه","storeNameEn":"Fuji Cafe","crLink":"https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=HdI7BQp2aUmM4b9xJYrbnA==","nationalUnifiedNumber":"7042488606","id":"6a188c69f4afb08382461b19"}
+10:59:39 PM [express] GET /api/flash-deals 200 in 1567ms :: []
+10:59:40 PM [express] GET /api/user 401 in 1ms
+10:59:40 PM [express] GET /api/auth/google/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+10:59:40 PM [express] GET /api/auth/apple/init 304 in 0ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+10:59:40 PM [express] GET /api/stats 304 in 221ms :: []
+10:59:40 PM [express] GET /api/flash-deals 304 in 219ms :: []
+10:59:41 PM [express] GET /api/user 304 in 439ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:59:42 PM [express] GET /api/flash-deals 304 in 670ms :: []
+10:59:42 PM [express] GET /api/wishlist/ids 304 in 672ms :: []
+10:59:42 PM [express] GET /api/user 401 in 2ms
+10:59:42 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 200 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+10:59:42 PM [express] GET /api/notifications 304 in 887ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+10:59:51 PM [express] GET /api/user 304 in 454ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+10:59:51 PM [express] GET /api/flash-deals 304 in 666ms :: []
+10:59:51 PM [express] GET /api/wishlist/ids 304 in 659ms :: []
+10:59:51 PM [express] GET /api/notifications 304 in 876ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+11:00:14 PM [express] GET /api/user 304 in 439ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+11:00:14 PM [express] GET /api/wishlist/ids 304 in 654ms :: []
+11:00:18 PM [express] GET /api/user 304 in 441ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+11:00:18 PM [express] GET /api/wishlist/ids 304 in 655ms :: []
+11:00:18 PM [express] GET /api/flash-deals 304 in 664ms :: []
+11:00:22 PM [express] GET /api/notifications 304 in 886ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m11:00:27 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+11:00:34 PM [express] GET /api/user 401 in 1ms
+11:00:34 PM [express] GET /api/auth/google/init 304 in 2ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/google/callback","enabled":false}
+11:00:34 PM [express] GET /api/auth/apple/init 304 in 4ms :: {"clientId":"","redirectURI":"https://localhost:5000/api/auth/apple/callback","enabled":false}
+11:00:34 PM [express] GET /api/stats 304 in 224ms :: []
+11:00:34 PM [express] GET /api/flash-deals 304 in 219ms :: []
+11:00:35 PM [express] GET /api/user 401 in 2ms
+11:00:35 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 1ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+11:00:37 PM [express] GET /api/auth/google/init 304 in 438ms :: {"clientId":"","redirectURI":"https://039d9067-a598-42ad-a460-6b790061a457-00-gkkya0sen6he.sisko.repl.co/api/auth/google/callback","enabled":false}
+11:00:37 PM [express] GET /api/user 304 in 450ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+11:00:37 PM [express] GET /api/auth/apple/init 304 in 445ms :: {"clientId":"","redirectURI":"https://039d9067-a598-42ad-a460-6b790061a457-00-gkkya0sen6he.sisko.repl.co/api/auth/apple/callback","enabled":false}
+11:00:37 PM [express] GET /api/flash-deals 304 in 653ms :: []
+11:00:37 PM [express] GET /api/stats 304 in 662ms :: []
+11:00:37 PM [express] GET /api/products/6a1c76d902dac5fbab6e9cdc/highlights 304 in 443ms :: {"tagline_ar":"حبوب أرابيكا إثيوبية محمصة فاتحة، بنوتات توت أحمر وياسمين وحموضة منعشة","tagline_en":"حبوب قهوة فوجي — أثيوبيا — specialty coffee by Fuji Cafe","highlights_ar":["حبوب مختارة بعناية","تحميص متقن لأقصى نكهة","تجربة قهوة استثنائية"],"highlights_en":["Carefully selected beans","Expertly roasted for peak flavour","Exceptional coffee experience"]}
+11:00:38 PM [express] GET /api/wishlist/ids 304 in 656ms :: []
+11:00:38 PM [express] GET /api/user 304 in 447ms :: {"_id":"6a1e8150dc345053ab3921b3","username":"532441566","password":"fab388e9f8a4515d7eb7d2d74a856c237e852101e1068a019050ff3458165f666596b4e3d592c73e74e171f051ee365a105753869a4c5104274301513efc3ffb.d80b8483cc539a751f6f2fd783fa769b","role":"customer","permissions":[],"loginType":"dashboard","isActive":true,"mustChangePassword":false,"name":"djjd","email":"youssefdarwish20009@gmail.com","phone":"532441566","walletBalance":"0","addresses":[],"loyaltyPoints":6,"loyaltyTier":"bronze","totalSpent":84,"passwordResetAttempts":0,"createdAt":"2026-06-02T07:08:00.298Z","updatedAt":"2026-06-02T07:08:36.818Z","__v":0,"id":"6a1e8150dc345053ab3921b3"}
+11:00:38 PM [express] GET /api/notifications 304 in 869ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+11:01:10 PM [express] GET /api/notifications 304 in 1235ms :: {"notifications":[{"_id":"6a2d94e6b8c0b4763b6af457","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-13T17:35:34.168Z","updatedAt":"2026-06-13T17:35:34.168Z","__v":0},{"_id":"6a200a473b690aa10f0ce394","userId":"6a1e8150dc345053ab3921b3","type":"info","title":"🌸 سلتك تنتظرك","body":"1 منتجات في سلتك بقيمة 95.00 ر.س","link":"/cart","icon":"🛒","isRead":false,"createdAt":"2026-06-03T11:04:39.673Z","updatedAt":"2026-06-03T11:04:39.673Z","__v":0},{"_id":"6a1e8c95e52ab0b5d0832c92","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921E2 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:05.251Z","updatedAt":"2026-06-02T07:56:05.251Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c82","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921F0 لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.744Z","updatedAt":"2026-06-02T07:56:04.744Z","__v":0},{"_id":"6a1e8c94e52ab0b5d0832c6a","userId":"6a1e8150dc345053ab3921b3","type":"warning","title":"❌ تم إلغاء طلبك تلقائياً","body":"طلبك #3921FE لم يكتمل الدفع خلال 30 دقيقة، فتم إلغاؤه وإرجاع المنتجات للمخزون. يمكنك إعادة الطلب في أي وقت.","link":"/orders","icon":"⏰","isRead":false,"createdAt":"2026-06-02T07:56:04.146Z","updatedAt":"2026-06-02T07:56:04.146Z","__v":0}],"unreadCount":5}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m11:01:18 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m [33m(x2)[39m
+[AI Learn] Kimi not configured, skipping
+[AI Learn] Next run in 24h (2026-06-17T03:00:00.000Z)
