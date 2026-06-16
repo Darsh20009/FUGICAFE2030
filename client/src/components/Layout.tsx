@@ -594,17 +594,17 @@ export function Layout({ children }: { children: ReactNode }) {
                 </Link>
               </li>
               <li>
-                <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=966552469643" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
                   {language === 'ar' ? 'خدمة العملاء' : 'Customer Service'}
                 </a>
               </li>
               <li>
-                <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=966552469643" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
                   {language === 'ar' ? 'للشكاوى أو المقترحات' : 'Complaints & Suggestions'}
                 </a>
               </li>
               <li>
-                <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=966552469643" target="_blank" rel="noreferrer" className="hover:text-[#E8637A] transition-colors">
                   {language === 'ar' ? 'مبيعات الشركات والجملة' : 'Corporate & Wholesale Sales'}
                 </a>
               </li>
@@ -616,7 +616,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <h3 className="font-bold text-sm sm:text-base md:text-lg mb-3 sm:mb-4 md:mb-6 text-[#E8637A]">{language === 'ar' ? 'معلومات التواصل' : 'Get in Touch'}</h3>
             <div className="space-y-4 text-sm text-gray-800">
               <a 
-                href="tel:+966551329821" 
+                href="tel:+966552469643" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="flex items-center gap-3 p-2 rounded-xl hover:bg-[#E8637A]/5 hover:text-[#E8637A] transition-all group"
@@ -624,14 +624,14 @@ export function Layout({ children }: { children: ReactNode }) {
                 <span className="bg-[#E8637A]/10 p-2.5 rounded-lg text-[#E8637A] group-hover:bg-[#E8637A] group-hover:text-white transition-colors"><Phone className="h-4 w-4" /></span>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-gray-700 font-medium">{t('callUs')}</span>
-                  <span dir="ltr" className="font-bold text-gray-600">966 55 132 9821</span>
+                  <span dir="ltr" className="font-bold text-gray-600">966 55 246 9643</span>
                 </div>
               </a>
               <div className="flex items-center gap-3 p-2">
                 <span className="bg-[#E8637A]/10 p-2.5 rounded-lg text-[#E8637A]"><SiWhatsapp className="h-4 w-4" /></span>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-gray-700 font-medium">{t('whatsapp')}</span>
-                  <a href="https://api.whatsapp.com/send?phone=966551329821" target="_blank" rel="noreferrer" dir="ltr" className="font-bold text-gray-600 hover:text-[#E8637A] transition-colors">966 55 132 9821</a>
+                  <a href="https://api.whatsapp.com/send?phone=966552469643" target="_blank" rel="noreferrer" dir="ltr" className="font-bold text-gray-600 hover:text-[#E8637A] transition-colors">966 55 246 9643</a>
                 </div>
               </div>
             </div>
