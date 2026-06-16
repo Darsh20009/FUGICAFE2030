@@ -149,287 +149,220 @@ function BeansMockupStrip({ isRtl }: { isRtl: boolean }) {
 }
 
 /* ── Coffee Journey Section ─────────────────────────────────── */
-const JOURNEY_STEPS = [
+const JOURNEY_SLIDES = [
   {
-    step: "01",
-    arTitle: "زراعة القهوة",
-    enTitle: "GROWING COFFEE",
-    arDesc: "تُزرع حبوب القهوة الفاخرة في تربة خصبة على ارتفاعات شاهقة، حيث يمنحها الطقس البارد كثافة نكهة استثنائية.",
-    enDesc: "Premium coffee cherries grow in fertile soil at high altitudes — cool climate gives them exceptional flavour density.",
     img: farmHarvestImg,
-    objPos: "0% center",
+    stagesAr: ["زراعة القهوة", "حصاد القهوة"],
+    stagesEn: ["GROWING COFFEE", "COFFEE HARVEST"],
     accent: "#4A7C59",
+    descAr: "من بذرة صغيرة تُزرع في تربة خصبة، حتى ثمرة حمراء ناضجة تُقطف يدوياً بعناية — هنا تبدأ رحلة الكوب المثالي.",
+    descEn: "From a tiny seed planted in fertile soil to a ripe red cherry hand-picked with care — here begins the journey to your perfect cup.",
   },
   {
-    step: "02",
-    arTitle: "حصاد القهوة",
-    enTitle: "COFFEE HARVEST",
-    arDesc: "تُقطف الثمار الحمراء الناضجة يدوياً بعناية فائقة لضمان أعلى جودة في كل حبة.",
-    enDesc: "Ripe red cherries are hand-picked with care to ensure the highest quality in every single bean.",
-    img: farmHarvestImg,
-    objPos: "100% center",
-    accent: "#C8391A",
-  },
-  {
-    step: "03",
-    arTitle: "معالجة القهوة",
-    enTitle: "COFFEE PROCESSING",
-    arDesc: "تُعالج الثمار بطريقة الغسيل أو الطريقة الطبيعية لاستخلاص أفضل نكهاتها الفاكهية.",
-    enDesc: "Cherries are washed or naturally processed to extract their finest fruity flavours.",
     img: processDryImg,
-    objPos: "0% center",
-    accent: "#7B4F2E",
-  },
-  {
-    step: "04",
-    arTitle: "تجفيف القهوة",
-    enTitle: "COFFEE DRYING",
-    arDesc: "تُنشر الحبوب المعالجة تحت الشمس بعناية حتى تصل لمستوى الرطوبة المثالي.",
-    enDesc: "Processed beans are sun-dried with precision until they reach the perfect moisture level.",
-    img: processDryImg,
-    objPos: "100% center",
+    stagesAr: ["معالجة القهوة", "تجفيف القهوة"],
+    stagesEn: ["COFFEE PROCESSING", "COFFEE DRYING"],
     accent: "#C8842A",
+    descAr: "تُعالج الثمار بدقة واحترافية، ثم تُنشر تحت الشمس لتكتسب نكهتها العميقة وطابعها الفريد.",
+    descEn: "Cherries are processed with precision then sun-dried to develop their deep flavour and unique character.",
   },
   {
-    step: "05",
-    arTitle: "تحميص القهوة",
-    enTitle: "COFFEE ROASTING",
-    arDesc: "يُحمّص الخبراء الحبوب بدقة متناهية ليُطلقوا ألف نكهة مخفية — من الحموضة الخفيفة إلى الحلاوة الداكنة.",
-    enDesc: "Master roasters unlock a thousand hidden flavours — from bright acidity to noble dark sweetness.",
     img: roastImg,
-    objPos: "center center",
+    stagesAr: ["تحميص القهوة"],
+    stagesEn: ["COFFEE ROASTING"],
     accent: "#8B2A1A",
+    descAr: "في مرحلة التحميص تُولد الألف نكهة — يتحكم المحترفون في الحرارة بدقة لإطلاق أعمق أسرار الحبة.",
+    descEn: "In roasting, a thousand flavours are born — masters control heat precisely to unlock the bean's deepest secrets.",
   },
 ];
 
-const AUTO_INTERVAL = 4000;
+const JOURNEY_BEANS = [
+  { id: 0,  x: 5,   size: 48,  dur: 13, delay: 0,    opacity: 0.55, rotate: 0,    img: 0 },
+  { id: 1,  x: 15,  size: 32,  dur: 10, delay: 2.1,  opacity: 0.45, rotate: 60,   img: 2 },
+  { id: 2,  x: 26,  size: 62,  dur: 16, delay: 0.7,  opacity: 0.60, rotate: -25,  img: 4 },
+  { id: 3,  x: 38,  size: 38,  dur: 11, delay: 4.0,  opacity: 0.50, rotate: 110,  img: 1 },
+  { id: 4,  x: 50,  size: 54,  dur: 15, delay: 1.3,  opacity: 0.55, rotate: -70,  img: 5 },
+  { id: 5,  x: 62,  size: 28,  dur: 9,  delay: 5.5,  opacity: 0.40, rotate: 45,   img: 3 },
+  { id: 6,  x: 73,  size: 66,  dur: 17, delay: 2.8,  opacity: 0.60, rotate: -15,  img: 0 },
+  { id: 7,  x: 83,  size: 42,  dur: 12, delay: 0.4,  opacity: 0.48, rotate: 80,   img: 2 },
+  { id: 8,  x: 91,  size: 34,  dur: 10, delay: 3.6,  opacity: 0.45, rotate: -50,  img: 4 },
+];
+
+const JOURNEY_BEAN_IMGS = [
+  "/beans/bean1.png", "/beans/bean2.png", "/beans/bean3.png",
+  "/beans/bean4.png", "/beans/bean5.png", "/beans/bean6.png",
+];
+
+const JOURNEY_AUTO = 5000;
 
 function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const isPausedRef = useRef(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pausedRef = useRef(false);
+  const startRef = useRef(Date.now());
 
-  const startAuto = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (progressRef.current) clearInterval(progressRef.current);
+  const advance = useCallback((to?: number) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (tickRef.current) clearInterval(tickRef.current);
     setProgress(0);
-    const startTime = Date.now();
-    progressRef.current = setInterval(() => {
-      if (isPausedRef.current) return;
-      const elapsed = Date.now() - startTime;
-      setProgress(Math.min((elapsed / AUTO_INTERVAL) * 100, 100));
-    }, 30);
-    intervalRef.current = setTimeout(() => {
-      if (!isPausedRef.current) {
-        setActive(a => (a + 1) % JOURNEY_STEPS.length);
-      }
-    }, AUTO_INTERVAL);
+    startRef.current = Date.now();
+
+    tickRef.current = setInterval(() => {
+      if (pausedRef.current) { startRef.current += 50; return; }
+      setProgress(Math.min(((Date.now() - startRef.current) / JOURNEY_AUTO) * 100, 100));
+    }, 40);
+
+    timeoutRef.current = setTimeout(() => {
+      if (!pausedRef.current) setActive(a => (a + 1) % JOURNEY_SLIDES.length);
+    }, JOURNEY_AUTO);
+
+    if (to !== undefined) setActive(to);
   }, []);
 
   useEffect(() => {
-    startAuto();
+    advance();
     return () => {
-      if (intervalRef.current) clearTimeout(intervalRef.current as any);
-      if (progressRef.current) clearInterval(progressRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (tickRef.current) clearInterval(tickRef.current);
     };
-  }, [active, startAuto]);
+  }, [active, advance]);
 
-  const goTo = (i: number) => {
-    if (intervalRef.current) clearTimeout(intervalRef.current as any);
-    if (progressRef.current) clearInterval(progressRef.current);
-    setActive(i);
-  };
-
-  const current = JOURNEY_STEPS[active];
+  const slide = JOURNEY_SLIDES[active];
 
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: "#0F0704" }}
-      onMouseEnter={() => { isPausedRef.current = true; }}
-      onMouseLeave={() => { isPausedRef.current = false; }}
+      style={{ background: "#080402" }}
+      onMouseEnter={() => { pausedRef.current = true; }}
+      onMouseLeave={() => { pausedRef.current = false; startRef.current = Date.now() - (progress / 100) * JOURNEY_AUTO; }}
     >
-      {/* Section header */}
-      <div className="container px-4 pt-14 pb-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={isRtl ? "text-right" : "text-left"}
-        >
+      {/* ── Floating beans animation ─────────────────── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10" aria-hidden="true">
+        {JOURNEY_BEANS.map(b => (
+          <div
+            key={b.id}
+            className="fuji-bean absolute"
+            style={{ left: `${b.x}%`, bottom: "-60px", width: b.size, height: b.size, opacity: b.opacity, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` }}
+          >
+            <img
+              src={JOURNEY_BEAN_IMGS[b.img]}
+              alt=""
+              draggable={false}
+              style={{ width: "100%", height: "100%", objectFit: "contain", transform: `rotate(${b.rotate}deg)`, filter: "drop-shadow(0 3px 10px rgba(0,0,0,0.7))" }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* ── Section header ─────────────────────────── */}
+      <div className="container px-4 pt-14 pb-6 relative z-20">
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className={isRtl ? "text-right" : "text-left"}>
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-2 block">
             {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
             {isRtl ? "من المزرعة إلى كوبك" : "Farm to Your Cup"}
           </h2>
+          <p className="text-white/40 text-sm mt-2 max-w-lg" dir={isRtl ? "rtl" : "ltr"}>
+            {isRtl ? slide.descAr : slide.descEn}
+          </p>
         </motion.div>
       </div>
 
-      {/* Main slideshow */}
-      <div className="relative w-full" style={{ height: "clamp(380px, 62vw, 680px)" }}>
+      {/* ── Main image ─────────────────────────────── */}
+      <div className="relative w-full z-20" style={{ height: "clamp(320px, 55vw, 640px)" }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.65, ease: "easeInOut" }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            {/* Image with crop */}
-            <div className="absolute inset-0 overflow-hidden">
-              <motion.img
-                src={current.img}
-                alt={isRtl ? current.arTitle : current.enTitle}
-                initial={{ scale: 1.06 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 5, ease: "easeOut" }}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: current.objPos }}
-              />
-            </div>
+            {/* Ken Burns zoom */}
+            <motion.img
+              src={slide.img}
+              alt=""
+              initial={{ scale: 1.05 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 6, ease: "easeOut" }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            {/* gradients */}
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(8,4,2,0.55) 0%, transparent 30%, transparent 55%, rgba(8,4,2,0.85) 100%)" }} />
+            <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 100%, ${slide.accent}33 0%, transparent 65%)` }} />
 
-            {/* Gradient overlays */}
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,4,2,0.92) 0%, rgba(10,4,2,0.35) 45%, transparent 100%)" }} />
-            <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 60% 50% at 50% 100%, ${current.accent}44 0%, transparent 70%)` }} />
-
-            {/* Floating Japanese kanji watermark */}
-            <div
-              className="absolute top-6 right-8 text-white select-none pointer-events-none"
-              style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(60px, 10vw, 110px)", opacity: 0.08, lineHeight: 1 }}
-            >
-              藤
-            </div>
-
-            {/* Content overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end pb-16 px-6 md:px-12">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className={isRtl ? "text-right" : "text-left"}
-              >
-                {/* Step badge */}
-                <span
-                  className="inline-block text-[10px] font-black uppercase tracking-[0.4em] px-3 py-1 rounded-full mb-3"
-                  style={{ background: `${current.accent}55`, color: "#fff", border: `1px solid ${current.accent}88` }}
+            {/* Stage labels bottom */}
+            <div className={`absolute bottom-8 left-0 right-0 px-6 md:px-12 flex gap-4 ${isRtl ? "flex-row-reverse justify-start" : "justify-start"}`}>
+              {slide.stagesAr.map((ar, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.15 + i * 0.12 }}
+                  className="flex flex-col"
+                  style={{ textAlign: isRtl ? "right" : "left" }}
                 >
-                  {isRtl ? `المرحلة ${current.step}` : `Stage ${current.step}`}
-                </span>
-
-                {/* Arabic title */}
-                <h3
-                  className="text-white font-black mb-1 leading-tight"
-                  style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(28px, 5vw, 52px)", textShadow: "0 4px 24px rgba(0,0,0,0.8)" }}
-                  dir="rtl"
-                >
-                  {current.arTitle}
-                </h3>
-
-                {/* English / Japanese subtitle */}
-                <p
-                  className="text-white/50 font-bold uppercase tracking-[0.25em] mb-3"
-                  style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(11px, 1.5vw, 14px)" }}
-                >
-                  {current.enTitle}
-                </p>
-
-                {/* Description */}
-                <p
-                  className="text-white/70 text-sm md:text-base leading-relaxed max-w-xl"
-                  dir={isRtl ? "rtl" : "ltr"}
-                >
-                  {isRtl ? current.arDesc : current.enDesc}
-                </p>
-              </motion.div>
+                  <span
+                    className="font-black leading-tight"
+                    style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(18px, 3.2vw, 38px)", color: "#fff", textShadow: "0 3px 20px rgba(0,0,0,0.9)" }}
+                    dir="rtl"
+                  >
+                    {ar}
+                  </span>
+                  <span
+                    className="font-bold uppercase tracking-[0.22em] mt-0.5"
+                    style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(9px, 1.2vw, 12px)", color: "rgba(255,255,255,0.45)" }}
+                  >
+                    {slide.stagesEn[i]}
+                  </span>
+                  {i < slide.stagesAr.length - 1 && (
+                    <div className="w-px self-end h-8 mt-2" style={{ background: `${slide.accent}88` }} />
+                  )}
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Prev / Next arrows */}
-        <button
-          onClick={() => goTo((active - 1 + JOURNEY_STEPS.length) % JOURNEY_STEPS.length)}
-          className="absolute top-1/2 left-4 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white hover:bg-[#E8637A]/70 transition-all"
-          aria-label="Previous"
-        >
+        {/* Arrows */}
+        <button onClick={() => advance((active - 1 + JOURNEY_SLIDES.length) % JOURNEY_SLIDES.length)}
+          className="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/12 flex items-center justify-center text-white hover:bg-[#E8637A]/80 transition-all">
           <ChevronLeft className="w-5 h-5" />
         </button>
-        <button
-          onClick={() => goTo((active + 1) % JOURNEY_STEPS.length)}
-          className="absolute top-1/2 right-4 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white hover:bg-[#E8637A]/70 transition-all"
-          aria-label="Next"
-        >
+        <button onClick={() => advance((active + 1) % JOURNEY_SLIDES.length)}
+          className="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/12 flex items-center justify-center text-white hover:bg-[#E8637A]/80 transition-all">
           <ChevronRight className="w-5 h-5" />
         </button>
-
-        {/* Bottom navigation */}
-        <div className="absolute bottom-5 left-0 right-0 z-20 flex flex-col items-center gap-3 px-4">
-          {/* Progress bar */}
-          <div className="w-full max-w-xs h-[2px] bg-white/15 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full rounded-full"
-              style={{ width: `${progress}%`, background: current.accent }}
-              transition={{ duration: 0 }}
-            />
-          </div>
-
-          {/* Stage dots */}
-          <div className="flex items-center gap-2">
-            {JOURNEY_STEPS.map((step, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                aria-label={isRtl ? step.arTitle : step.enTitle}
-                className="group flex flex-col items-center gap-1"
-              >
-                <span
-                  className="text-[9px] font-bold uppercase tracking-widest transition-all duration-300"
-                  style={{ color: i === active ? "#fff" : "rgba(255,255,255,0.3)" }}
-                >
-                  {step.step}
-                </span>
-                <span
-                  className="block rounded-full transition-all duration-300"
-                  style={{
-                    width: i === active ? 28 : 6,
-                    height: 4,
-                    background: i === active ? current.accent : "rgba(255,255,255,0.25)",
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
 
-      {/* Stage thumbnails strip */}
-      <div className="container px-4 pb-12 pt-6 relative z-10">
-        <div className="grid grid-cols-5 gap-2 md:gap-3">
-          {JOURNEY_STEPS.map((step, i) => (
+      {/* ── Bottom strip: thumbnails + progress ────── */}
+      <div className="relative z-20 px-4 md:px-8 pt-5 pb-10">
+        <div className="flex gap-3 md:gap-4">
+          {JOURNEY_SLIDES.map((s, i) => (
             <button
               key={i}
-              onClick={() => goTo(i)}
-              className={`relative rounded-xl overflow-hidden transition-all duration-300 ${i === active ? "ring-2 ring-[#E8637A] scale-105" : "opacity-55 hover:opacity-80"}`}
-              style={{ aspectRatio: "3/4" }}
+              onClick={() => advance(i)}
+              className={`relative flex-1 rounded-2xl overflow-hidden transition-all duration-400 ${i === active ? "ring-2 ring-white/40 scale-[1.03]" : "opacity-50 hover:opacity-75"}`}
+              style={{ aspectRatio: "16/9" }}
             >
-              <img
-                src={step.img}
-                alt={isRtl ? step.arTitle : step.enTitle}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: step.objPos }}
-              />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 px-1">
-                <span className="text-white text-[8px] md:text-[10px] font-black text-center leading-tight" dir="rtl">
-                  {step.arTitle}
+              <img src={s.img} alt="" className="w-full h-full object-cover object-center" />
+              <div className="absolute inset-0 bg-black/50" />
+              {/* Progress fill */}
+              {i === active && (
+                <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white/20">
+                  <div className="h-full transition-none rounded-full" style={{ width: `${progress}%`, background: s.accent }} />
+                </div>
+              )}
+              {/* Label */}
+              <div className="absolute inset-0 flex flex-col justify-end p-2 md:p-3">
+                <span className="text-white text-[9px] md:text-[11px] font-black leading-tight" dir="rtl">
+                  {s.stagesAr.join(" · ")}
                 </span>
               </div>
-              {i === active && (
-                <div className="absolute inset-x-0 bottom-0 h-0.5" style={{ background: step.accent }} />
-              )}
             </button>
           ))}
         </div>
