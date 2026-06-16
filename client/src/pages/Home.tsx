@@ -188,124 +188,95 @@ const JOURNEY_BEAN_CFG = [
 const JOURNEY_BEAN_IMGS = ["/beans/bean1.png","/beans/bean2.png","/beans/bean3.png","/beans/bean4.png","/beans/bean5.png","/beans/bean6.png"];
 
 function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
-  const [active, setActive] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pausedRef = useRef(false);
-
-  useEffect(() => {
-    timerRef.current = setInterval(() => {
-      if (!pausedRef.current) setActive(a => (a + 1) % JOURNEY_PANELS.length);
-    }, 4500);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
-
   return (
-    <section
-      className="relative overflow-hidden py-14 bg-[#fbf6f0]"
-      onMouseEnter={() => { pausedRef.current = true; }}
-      onMouseLeave={() => { pausedRef.current = false; }}
-    >
-      {/* floating beans */}
+    <section className="relative bg-white overflow-hidden">
+      {/* ── blend from #FAF6F0 (section above) ── */}
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#FAF6F0] to-transparent pointer-events-none z-0" />
+      {/* ── blend into white (section below) ── */}
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none z-0" />
+
+      {/* floating beans — very subtle on white */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-10" aria-hidden="true">
         {JOURNEY_BEAN_CFG.map(b => (
           <div key={b.id} className="fuji-bean absolute"
-            style={{ left: `${b.x}%`, bottom: "-50px", width: b.size, height: b.size, opacity: b.opacity, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` }}>
+            style={{ left: `${b.x}%`, bottom: "-50px", width: b.size, height: b.size, opacity: b.opacity * 0.22, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` }}>
             <img src={JOURNEY_BEAN_IMGS[b.img]} alt="" draggable={false}
-              style={{ width: "100%", height: "100%", objectFit: "contain", transform: `rotate(${b.rotate}deg)`, filter: "drop-shadow(0 3px 10px rgba(0,0,0,0.6))" }} />
+              style={{ width: "100%", height: "100%", objectFit: "contain", transform: `rotate(${b.rotate}deg)`, filter: "drop-shadow(0 2px 6px rgba(107,63,42,0.25))" }} />
           </div>
         ))}
       </div>
-      {/* header */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        className="container px-4 mb-8 relative z-20"
-      >
-        <div className={isRtl ? "text-right" : "text-left"}>
-          <span className="text-[10px] font-bold uppercase tracking-[0.45em] text-[#E8637A]">
+
+      <div className="container px-4 py-16 relative z-20">
+        {/* ── Header centered ── */}
+        <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-[0.45em] text-[#E8637A] block mb-2">
             {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-black mt-1 text-[#c98787]" style={{ fontFamily: "'Alexandria', sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-black text-[#6B3F2A]" style={{ fontFamily: "'Alexandria', sans-serif" }}>
             {isRtl ? "من المزرعة إلى كوبك" : "Farm to Your Cup"}
           </h2>
-        </div>
-      </motion.div>
-      {/* accordion panels */}
-      <div className="relative z-20 px-3 md:px-6">
-        <div className="flex gap-2 md:gap-3 overflow-hidden rounded-2xl md:rounded-3xl" style={{ height: "clamp(300px, 58vw, 620px)" }}>
-          {JOURNEY_PANELS.map((panel, i) => {
-            const isActive = i === active;
-            return (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className="relative overflow-hidden flex-shrink-0 transition-all duration-700 ease-in-out rounded-xl md:rounded-2xl focus:outline-none"
-                style={{ flex: isActive ? 5 : 1, cursor: "pointer" }}
-                aria-label={panel.titleAr}
-              >
-                {/* image */}
+          {/* decorative connector */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="h-px w-12 bg-[#E8637A]/30" />
+            <img src="/beans/bean1.png" alt="" aria-hidden="true" className="w-5 h-5 opacity-40" style={{ objectFit: "contain" }} />
+            <div className="h-px w-12 bg-[#E8637A]/30" />
+          </div>
+        </motion.div>
+
+        {/* ── 3 cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {JOURNEY_PANELS.map((panel, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12 }}
+              className="group rounded-3xl overflow-hidden bg-white border border-[#EDE6DC] shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              {/* image — full, no crop, contained */}
+              <div className="relative overflow-hidden" style={{ background: "#FAF6F0", aspectRatio: "16/9" }}>
                 <img
                   src={panel.img}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover object-center transition-all duration-700"
-                  style={{ transform: isActive ? "scale(1.02)" : "scale(1.08)", filter: isActive ? "brightness(0.75)" : "brightness(0.4)" }}
+                  alt={panel.titleAr}
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectFit: "contain", padding: "8px" }}
                 />
-
-                {/* accent line at bottom */}
+                {/* step number badge */}
                 <div
-                  className="absolute inset-x-0 bottom-0 transition-all duration-700"
-                  style={{ height: isActive ? 3 : 2, background: panel.accent, opacity: isActive ? 1 : 0.5 }}
-                />
-
-                {/* collapsed: vertical number + title */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-500"
-                  style={{ opacity: isActive ? 0 : 1 }}
+                  className="absolute top-3 left-3 w-9 h-9 rounded-full flex items-center justify-center shadow-sm"
+                  style={{ background: panel.accent }}
                 >
-                  <div className="flex flex-col items-center gap-2" style={{ transform: "rotate(180deg)", writingMode: "vertical-rl" }}>
-                    <span className="text-white/30 font-black" style={{ fontSize: "clamp(9px, 1.2vw, 11px)", letterSpacing: "0.3em" }}>
-                      {panel.num}
-                    </span>
-                    <span className="text-white/70 font-black" style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(11px, 1.4vw, 14px)" }} dir="rtl">
-                      {panel.titleAr}
-                    </span>
-                  </div>
+                  <span className="text-white font-black text-[11px] tracking-wider">{panel.num}</span>
                 </div>
+              </div>
 
-                {/* expanded: title + desc */}
-                <div
-                  className="absolute inset-0 flex flex-col justify-end p-5 md:p-8 transition-opacity duration-500"
-                  style={{ opacity: isActive ? 1 : 0, background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%)" }}
-                >
-                  <span
-                    className="font-black uppercase tracking-[0.3em] mb-2 block"
-                    style={{ fontSize: "clamp(9px, 1vw, 11px)", color: panel.accent }}
-                  >
-                    {panel.titleEn}
-                  </span>
-                  <h3
-                    className="text-white font-black leading-tight mb-2"
-                    style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(22px, 3.5vw, 42px)", textShadow: "0 2px 16px rgba(0,0,0,0.9)" }}
-                    dir="rtl"
-                  >
-                    {panel.titleAr}
-                  </h3>
-                  <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-sm" dir="rtl">
-                    {panel.descAr}
-                  </p>
-                </div>
+              {/* text */}
+              <div className={`p-5 ${isRtl ? "text-right" : "text-left"}`}>
+                {/* accent bar */}
+                <div className="h-[3px] w-10 rounded-full mb-3" style={{ background: panel.accent, marginRight: isRtl ? 0 : "auto", marginLeft: isRtl ? "auto" : 0 }} />
+                <h3 className="font-black text-xl text-[#3D1F0E] mb-2 leading-tight" style={{ fontFamily: "'Alexandria', sans-serif" }} dir="rtl">
+                  {panel.titleAr}
+                </h3>
+                <p className="text-[#6B3F2A]/60 text-sm leading-relaxed" dir="rtl">
+                  {panel.descAr}
+                </p>
+                <span className="mt-3 block text-[9px] font-bold uppercase tracking-[0.35em]" style={{ color: panel.accent }}>
+                  {panel.titleEn}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-                {/* number badge top-left */}
-                <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                  <span
-                    className="font-black transition-all duration-500"
-                    style={{ fontSize: isActive ? "clamp(38px, 5vw, 64px)" : "clamp(14px, 2vw, 20px)", color: isActive ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.25)", lineHeight: 1, display: "block" }}
-                  >
-                    {panel.num}
-                  </span>
-                </div>
-              </button>
-            );
-          })}
+        {/* ── connecting dots between cards — desktop only ── */}
+        <div className="hidden md:flex justify-center items-center gap-2 mt-8">
+          {JOURNEY_PANELS.map((p, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full" style={{ background: p.accent }} />
+              {i < JOURNEY_PANELS.length - 1 && <div className="w-16 h-px" style={{ background: `linear-gradient(to right, ${p.accent}88, ${JOURNEY_PANELS[i+1].accent}88)` }} />}
+            </div>
+          ))}
         </div>
       </div>
     </section>
