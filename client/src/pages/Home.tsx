@@ -15,6 +15,9 @@ import { useAuth } from "@/hooks/use-auth";
 import { useAuthProviders } from "@/hooks/use-auth-providers";
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { FujiBeansHero } from "@/components/FujiBeansHero";
+import farmHarvestImg from "@assets/فوجي_بوستر_زراعع_و_حصاد_1781613394487.png";
+import processDryImg from "@assets/معالة_القهوه_فوجي_1781613389013.png";
+import roastImg from "@assets/تحميص_اللقوهو_فوجي_1781613398909.png";
 const logoImg = "/fuji-logo-transparent.png";
 import { useQuery } from "@tanstack/react-query";
 import { useCart } from "@/hooks/use-cart";
@@ -145,177 +148,290 @@ function BeansMockupStrip({ isRtl }: { isRtl: boolean }) {
   );
 }
 
-/* ── Coffee Journey Section — creative immersive explanation ─── */
+/* ── Coffee Journey Section ─────────────────────────────────── */
 const JOURNEY_STEPS = [
   {
     step: "01",
-    arTitle: "الزراعة والحصاد",
-    enTitle: "Farm & Harvest",
-    arDesc: "تُزرع حبوب القهوة الفاخرة على ارتفاعات شاهقة في إثيوبيا والبرازيل وكولومبيا، حيث يمنحها الطقس البارد والمطر الوفير كثافة نكهة استثنائية.",
-    enDesc: "Premium coffee cherries grow at high altitudes in Ethiopia, Brazil & Colombia — cool climate and rich rain give them exceptional flavour density.",
-    icon: "🌱",
-    img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=70",
+    arTitle: "زراعة القهوة",
+    enTitle: "GROWING COFFEE",
+    arDesc: "تُزرع حبوب القهوة الفاخرة في تربة خصبة على ارتفاعات شاهقة، حيث يمنحها الطقس البارد كثافة نكهة استثنائية.",
+    enDesc: "Premium coffee cherries grow in fertile soil at high altitudes — cool climate gives them exceptional flavour density.",
+    img: farmHarvestImg,
+    objPos: "0% center",
     accent: "#4A7C59",
   },
   {
     step: "02",
-    arTitle: "المعالجة والتجفيف",
-    enTitle: "Process & Dry",
-    arDesc: "تُعالج الثمار إما بطريقة الغسيل (الرطبة) للحصول على نكهة نظيفة حيّة، أو بالطريقة الطبيعية (الجافة) لنكهات مركّزة فاكهية غنية.",
-    enDesc: "Cherries are washed for clean brightness or naturally dried for rich, fruity depth — the process is where character is born.",
-    icon: "☀️",
-    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=70",
-    accent: "#C8842A",
+    arTitle: "حصاد القهوة",
+    enTitle: "COFFEE HARVEST",
+    arDesc: "تُقطف الثمار الحمراء الناضجة يدوياً بعناية فائقة لضمان أعلى جودة في كل حبة.",
+    enDesc: "Ripe red cherries are hand-picked with care to ensure the highest quality in every single bean.",
+    img: farmHarvestImg,
+    objPos: "100% center",
+    accent: "#C8391A",
   },
   {
     step: "03",
-    arTitle: "التحميص الدقيق",
-    enTitle: "Precision Roast",
-    arDesc: "يُحمّص الخبراء الحبوب بدقة متناهية ليُطلقوا ألف نكهة مخفية داخلها — من الحموضة الخفيفة إلى الحلاوة الداكنة والمرارة الفاخرة.",
-    enDesc: "Master roasters unlock a thousand hidden flavours — from bright acidity to dark sweetness and noble bitterness — through precise heat control.",
-    icon: "🔥",
-    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=70",
-    accent: "#8B2A1A",
+    arTitle: "معالجة القهوة",
+    enTitle: "COFFEE PROCESSING",
+    arDesc: "تُعالج الثمار بطريقة الغسيل أو الطريقة الطبيعية لاستخلاص أفضل نكهاتها الفاكهية.",
+    enDesc: "Cherries are washed or naturally processed to extract their finest fruity flavours.",
+    img: processDryImg,
+    objPos: "0% center",
+    accent: "#7B4F2E",
   },
   {
     step: "04",
-    arTitle: "كوبك المثالي",
-    enTitle: "Your Perfect Cup",
-    arDesc: "في النهاية، كل هذه الرحلة المذهلة تصل إليك في كوب واحد — دافئ، عطر، ومُعدّ بحبّ. هذا هو وعد فوجي كافيه.",
-    enDesc: "All this remarkable journey arrives in your hands — warm, fragrant, crafted with love. That is the Fuji Cafe promise.",
-    icon: "☕",
-    img: "/fuji-interior-opt.jpg",
-    accent: "#E8637A",
+    arTitle: "تجفيف القهوة",
+    enTitle: "COFFEE DRYING",
+    arDesc: "تُنشر الحبوب المعالجة تحت الشمس بعناية حتى تصل لمستوى الرطوبة المثالي.",
+    enDesc: "Processed beans are sun-dried with precision until they reach the perfect moisture level.",
+    img: processDryImg,
+    objPos: "100% center",
+    accent: "#C8842A",
+  },
+  {
+    step: "05",
+    arTitle: "تحميص القهوة",
+    enTitle: "COFFEE ROASTING",
+    arDesc: "يُحمّص الخبراء الحبوب بدقة متناهية ليُطلقوا ألف نكهة مخفية — من الحموضة الخفيفة إلى الحلاوة الداكنة.",
+    enDesc: "Master roasters unlock a thousand hidden flavours — from bright acidity to noble dark sweetness.",
+    img: roastImg,
+    objPos: "center center",
+    accent: "#8B2A1A",
   },
 ];
 
+const AUTO_INTERVAL = 4000;
+
 function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isPausedRef = useRef(false);
+
+  const startAuto = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (progressRef.current) clearInterval(progressRef.current);
+    setProgress(0);
+    const startTime = Date.now();
+    progressRef.current = setInterval(() => {
+      if (isPausedRef.current) return;
+      const elapsed = Date.now() - startTime;
+      setProgress(Math.min((elapsed / AUTO_INTERVAL) * 100, 100));
+    }, 30);
+    intervalRef.current = setTimeout(() => {
+      if (!isPausedRef.current) {
+        setActive(a => (a + 1) % JOURNEY_STEPS.length);
+      }
+    }, AUTO_INTERVAL);
+  }, []);
+
+  useEffect(() => {
+    startAuto();
+    return () => {
+      if (intervalRef.current) clearTimeout(intervalRef.current as any);
+      if (progressRef.current) clearInterval(progressRef.current);
+    };
+  }, [active, startAuto]);
+
+  const goTo = (i: number) => {
+    if (intervalRef.current) clearTimeout(intervalRef.current as any);
+    if (progressRef.current) clearInterval(progressRef.current);
+    setActive(i);
+  };
+
   const current = JOURNEY_STEPS[active];
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #1A0D06 0%, #2D1A0A 40%, #1E0E05 100%)" }}>
-      {/* Bean texture overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-10"
-        style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=40)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          mixBlendMode: "overlay",
-        }}
-      />
-      {/* Radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse 80% 60% at 50% 50%, ${current.accent}22 0%, transparent 70%)`, transition: "background 0.7s ease" }}
-      />
-      {/* Decorative bean side images */}
-      <img src="/beans/bean4.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none opacity-10"
-        style={{ width: 220, bottom: -40, left: -60, transform: "rotate(20deg)", filter: "blur(2px)" }} />
-      <img src="/beans/bean2.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none opacity-10"
-        style={{ width: 180, top: -30, right: -50, transform: "rotate(-25deg)", filter: "blur(2px)" }} />
-
-      <div className="container px-4 relative z-10">
-        {/* Header */}
+    <section
+      className="relative overflow-hidden"
+      style={{ background: "#0F0704" }}
+      onMouseEnter={() => { isPausedRef.current = true; }}
+      onMouseLeave={() => { isPausedRef.current = false; }}
+    >
+      {/* Section header */}
+      <div className="container px-4 pt-14 pb-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`mb-12 ${isRtl ? "text-right" : "text-left"}`}
+          className={isRtl ? "text-right" : "text-left"}
         >
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-3 block">
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-2 block">
             {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-            {isRtl ? "من المزرعة إلى كوبك" : "From Farm to Your Cup"}
+            {isRtl ? "من المزرعة إلى كوبك" : "Farm to Your Cup"}
           </h2>
-          <p className="text-white/50 text-sm md:text-base mt-3 max-w-xl">
-            {isRtl
-              ? "أربع محطات تحوّل حبة صغيرة إلى تجربة لا تُنسى — اكتشف سحر القهوة المتخصصة."
-              : "Four stations transform a tiny seed into an unforgettable experience — discover the magic of specialty coffee."}
-          </p>
         </motion.div>
+      </div>
 
-        <div className={`grid md:grid-cols-2 gap-8 lg:gap-16 items-center ${isRtl ? "md:grid-flow-col-dense" : ""}`}>
-          {/* Left: image */}
+      {/* Main slideshow */}
+      <div className="relative w-full" style={{ height: "clamp(380px, 62vw, 680px)" }}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            initial={{ opacity: 0, scale: 0.96, x: isRtl ? 30 : -30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl"
-            style={{ aspectRatio: "4/3" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.65, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
-            <img src={current.img} alt={isRtl ? current.arTitle : current.enTitle}
-              className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${current.accent}88 0%, transparent 60%)` }} />
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="text-5xl mb-2">{current.icon}</div>
-              <span className="text-white/40 text-xs font-bold uppercase tracking-widest">
-                {isRtl ? `خطوة ${current.step}` : `Step ${current.step}`}
-              </span>
+            {/* Image with crop */}
+            <div className="absolute inset-0 overflow-hidden">
+              <motion.img
+                src={current.img}
+                alt={isRtl ? current.arTitle : current.enTitle}
+                initial={{ scale: 1.06 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 5, ease: "easeOut" }}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: current.objPos }}
+              />
+            </div>
+
+            {/* Gradient overlays */}
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,4,2,0.92) 0%, rgba(10,4,2,0.35) 45%, transparent 100%)" }} />
+            <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 60% 50% at 50% 100%, ${current.accent}44 0%, transparent 70%)` }} />
+
+            {/* Floating Japanese kanji watermark */}
+            <div
+              className="absolute top-6 right-8 text-white select-none pointer-events-none"
+              style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(60px, 10vw, 110px)", opacity: 0.08, lineHeight: 1 }}
+            >
+              藤
+            </div>
+
+            {/* Content overlay */}
+            <div className="absolute inset-0 flex flex-col justify-end pb-16 px-6 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className={isRtl ? "text-right" : "text-left"}
+              >
+                {/* Step badge */}
+                <span
+                  className="inline-block text-[10px] font-black uppercase tracking-[0.4em] px-3 py-1 rounded-full mb-3"
+                  style={{ background: `${current.accent}55`, color: "#fff", border: `1px solid ${current.accent}88` }}
+                >
+                  {isRtl ? `المرحلة ${current.step}` : `Stage ${current.step}`}
+                </span>
+
+                {/* Arabic title */}
+                <h3
+                  className="text-white font-black mb-1 leading-tight"
+                  style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(28px, 5vw, 52px)", textShadow: "0 4px 24px rgba(0,0,0,0.8)" }}
+                  dir="rtl"
+                >
+                  {current.arTitle}
+                </h3>
+
+                {/* English / Japanese subtitle */}
+                <p
+                  className="text-white/50 font-bold uppercase tracking-[0.25em] mb-3"
+                  style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(11px, 1.5vw, 14px)" }}
+                >
+                  {current.enTitle}
+                </p>
+
+                {/* Description */}
+                <p
+                  className="text-white/70 text-sm md:text-base leading-relaxed max-w-xl"
+                  dir={isRtl ? "rtl" : "ltr"}
+                >
+                  {isRtl ? current.arDesc : current.enDesc}
+                </p>
+              </motion.div>
             </div>
           </motion.div>
+        </AnimatePresence>
 
-          {/* Right: steps list */}
-          <div className="space-y-2">
+        {/* Prev / Next arrows */}
+        <button
+          onClick={() => goTo((active - 1 + JOURNEY_STEPS.length) % JOURNEY_STEPS.length)}
+          className="absolute top-1/2 left-4 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white hover:bg-[#E8637A]/70 transition-all"
+          aria-label="Previous"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => goTo((active + 1) % JOURNEY_STEPS.length)}
+          className="absolute top-1/2 right-4 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 flex items-center justify-center text-white hover:bg-[#E8637A]/70 transition-all"
+          aria-label="Next"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        {/* Bottom navigation */}
+        <div className="absolute bottom-5 left-0 right-0 z-20 flex flex-col items-center gap-3 px-4">
+          {/* Progress bar */}
+          <div className="w-full max-w-xs h-[2px] bg-white/15 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full rounded-full"
+              style={{ width: `${progress}%`, background: current.accent }}
+              transition={{ duration: 0 }}
+            />
+          </div>
+
+          {/* Stage dots */}
+          <div className="flex items-center gap-2">
             {JOURNEY_STEPS.map((step, i) => (
               <button
-                key={step.step}
-                onClick={() => setActive(i)}
-                className={`w-full rounded-2xl p-5 transition-all duration-400 text-${isRtl ? "right" : "left"} border ${
-                  active === i
-                    ? "border-[#E8637A]/50 bg-white/10 shadow-lg"
-                    : "border-white/8 bg-white/4 hover:bg-white/7"
-                }`}
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={isRtl ? step.arTitle : step.enTitle}
+                className="group flex flex-col items-center gap-1"
               >
-                <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 transition-all duration-400"
-                    style={{ background: active === i ? step.accent : "rgba(255,255,255,0.08)" }}
-                  >
-                    {step.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className={`flex items-center gap-2 mb-1 ${isRtl ? "flex-row-reverse" : ""}`}>
-                      <span className="text-[10px] font-bold tracking-widest" style={{ color: active === i ? step.accent : "rgba(255,255,255,0.3)" }}>
-                        {step.step}
-                      </span>
-                      <h3 className={`font-black text-sm md:text-base ${active === i ? "text-white" : "text-white/60"} transition-colors`}>
-                        {isRtl ? step.arTitle : step.enTitle}
-                      </h3>
-                    </div>
-                    <AnimatePresence>
-                      {active === i && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="text-white/55 text-xs md:text-sm leading-relaxed overflow-hidden"
-                        >
-                          {isRtl ? step.arDesc : step.enDesc}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
+                <span
+                  className="text-[9px] font-bold uppercase tracking-widest transition-all duration-300"
+                  style={{ color: i === active ? "#fff" : "rgba(255,255,255,0.3)" }}
+                >
+                  {step.step}
+                </span>
+                <span
+                  className="block rounded-full transition-all duration-300"
+                  style={{
+                    width: i === active ? 28 : 6,
+                    height: 4,
+                    background: i === active ? current.accent : "rgba(255,255,255,0.25)",
+                  }}
+                />
               </button>
             ))}
-
-            {/* CTA */}
-            <div className={`mt-6 flex ${isRtl ? "flex-row-reverse" : ""}`}>
-              <Link href="/products">
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <button className="px-6 py-3 rounded-full font-black text-sm text-white transition-all"
-                    style={{ background: `linear-gradient(135deg, #E8637A, #C8842A)`, boxShadow: "0 8px 24px rgba(232,99,122,0.35)" }}>
-                    {isRtl ? "تسوّق الآن" : "Shop Now"}
-                    <span className={`inline-block ${isRtl ? "mr-2 rotate-180" : "ml-2"}`}>→</span>
-                  </button>
-                </motion.div>
-              </Link>
-            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Stage thumbnails strip */}
+      <div className="container px-4 pb-12 pt-6 relative z-10">
+        <div className="grid grid-cols-5 gap-2 md:gap-3">
+          {JOURNEY_STEPS.map((step, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`relative rounded-xl overflow-hidden transition-all duration-300 ${i === active ? "ring-2 ring-[#E8637A] scale-105" : "opacity-55 hover:opacity-80"}`}
+              style={{ aspectRatio: "3/4" }}
+            >
+              <img
+                src={step.img}
+                alt={isRtl ? step.arTitle : step.enTitle}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: step.objPos }}
+              />
+              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 px-1">
+                <span className="text-white text-[8px] md:text-[10px] font-black text-center leading-tight" dir="rtl">
+                  {step.arTitle}
+                </span>
+              </div>
+              {i === active && (
+                <div className="absolute inset-x-0 bottom-0 h-0.5" style={{ background: step.accent }} />
+              )}
+            </button>
+          ))}
         </div>
       </div>
     </section>
