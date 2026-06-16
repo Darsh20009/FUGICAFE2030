@@ -103,6 +103,13 @@ export function ProductCard({ product }: ProductCardProps) {
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onError={(e) => {
+                const t = e.target as HTMLImageElement;
+                if (!t.dataset.fallback) {
+                  t.dataset.fallback = "1";
+                  t.src = "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=600";
+                }
+              }}
             />
 
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -410,7 +410,7 @@ export default function ProductDetails() {
                 <AnimatePresence mode="wait" custom={slideDirection}>
                   <motion.img 
                     key={currentImageIndex}
-                    src={allImages[currentImageIndex] || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80"} 
+                    src={allImages[currentImageIndex] || "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"} 
                     alt={product.name}
                     custom={slideDirection}
                     initial={{ x: slideDirection > 0 ? 400 : -400, opacity: 0, scale: 0.85, rotate: slideDirection > 0 ? 5 : -5 }}
@@ -419,6 +419,7 @@ export default function ProductDetails() {
                     transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
                     className="max-w-full max-h-full object-contain  transition-transform duration-1000"
                     data-testid={`img-product-${currentImageIndex}`}
+                    onError={(e) => { const t = e.target as HTMLImageElement; if (!t.dataset.fallback) { t.dataset.fallback = "1"; t.src = "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80"; } }}
                   />
                 </AnimatePresence>
 

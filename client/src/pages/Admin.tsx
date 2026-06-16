@@ -1657,7 +1657,12 @@ const CategoriesTable = memo(() => {
     <div className={`rounded-2xl border overflow-hidden bg-white shadow-sm hover:shadow-md transition-all group ${isSubCat ? "border-indigo-100 ring-1 ring-indigo-100" : "border-slate-200"}`}>
       <div className={`relative bg-slate-100 overflow-hidden ${isSubCat ? "aspect-square" : "aspect-[4/3]"}`}>
         {cat.image ? (
-          <img src={cat.image} alt={cat.name} className="w-full h-full object-cover  transition-transform duration-300" />
+          <img
+            src={cat.image}
+            alt={cat.name}
+            className="w-full h-full object-cover transition-transform duration-300"
+            onError={(e) => { const t = e.target as HTMLImageElement; t.style.display = "none"; }}
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <Tag className={`text-slate-300 ${isSubCat ? "w-5 h-5" : "w-8 h-8"}`} />
