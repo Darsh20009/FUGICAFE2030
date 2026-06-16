@@ -149,222 +149,166 @@ function BeansMockupStrip({ isRtl }: { isRtl: boolean }) {
 }
 
 /* ── Coffee Journey Section ─────────────────────────────────── */
-const JOURNEY_SLIDES = [
+const JOURNEY_PANELS = [
   {
+    num: "01",
     img: farmHarvestImg,
-    stagesAr: ["زراعة القهوة", "حصاد القهوة"],
-    stagesEn: ["GROWING COFFEE", "COFFEE HARVEST"],
+    titleAr: "الزراعة والحصاد",
+    titleEn: "GROW & HARVEST",
+    descAr: "من البذرة إلى الثمرة الحمراء — رحلة تبدأ في التربة الخصبة وتنتهي بيد المزارع.",
     accent: "#4A7C59",
-    descAr: "من بذرة صغيرة تُزرع في تربة خصبة، حتى ثمرة حمراء ناضجة تُقطف يدوياً بعناية — هنا تبدأ رحلة الكوب المثالي.",
-    descEn: "From a tiny seed planted in fertile soil to a ripe red cherry hand-picked with care — here begins the journey to your perfect cup.",
   },
   {
+    num: "02",
     img: processDryImg,
-    stagesAr: ["معالجة القهوة", "تجفيف القهوة"],
-    stagesEn: ["COFFEE PROCESSING", "COFFEE DRYING"],
+    titleAr: "المعالجة والتجفيف",
+    titleEn: "PROCESS & DRY",
+    descAr: "الثمرة تُعالج وتُنشر تحت الشمس حتى تكتسب نكهتها العميقة وشخصيتها الفريدة.",
     accent: "#C8842A",
-    descAr: "تُعالج الثمار بدقة واحترافية، ثم تُنشر تحت الشمس لتكتسب نكهتها العميقة وطابعها الفريد.",
-    descEn: "Cherries are processed with precision then sun-dried to develop their deep flavour and unique character.",
   },
   {
+    num: "03",
     img: roastImg,
-    stagesAr: ["تحميص القهوة"],
-    stagesEn: ["COFFEE ROASTING"],
+    titleAr: "التحميص",
+    titleEn: "ROAST",
+    descAr: "في الحرارة تُولد الألف نكهة — يتحكم المحترف بكل ثانية ليخرج أفضل ما في الحبة.",
     accent: "#8B2A1A",
-    descAr: "في مرحلة التحميص تُولد الألف نكهة — يتحكم المحترفون في الحرارة بدقة لإطلاق أعمق أسرار الحبة.",
-    descEn: "In roasting, a thousand flavours are born — masters control heat precisely to unlock the bean's deepest secrets.",
   },
 ];
 
-const JOURNEY_BEANS = [
-  { id: 0,  x: 5,   size: 48,  dur: 13, delay: 0,    opacity: 0.55, rotate: 0,    img: 0 },
-  { id: 1,  x: 15,  size: 32,  dur: 10, delay: 2.1,  opacity: 0.45, rotate: 60,   img: 2 },
-  { id: 2,  x: 26,  size: 62,  dur: 16, delay: 0.7,  opacity: 0.60, rotate: -25,  img: 4 },
-  { id: 3,  x: 38,  size: 38,  dur: 11, delay: 4.0,  opacity: 0.50, rotate: 110,  img: 1 },
-  { id: 4,  x: 50,  size: 54,  dur: 15, delay: 1.3,  opacity: 0.55, rotate: -70,  img: 5 },
-  { id: 5,  x: 62,  size: 28,  dur: 9,  delay: 5.5,  opacity: 0.40, rotate: 45,   img: 3 },
-  { id: 6,  x: 73,  size: 66,  dur: 17, delay: 2.8,  opacity: 0.60, rotate: -15,  img: 0 },
-  { id: 7,  x: 83,  size: 42,  dur: 12, delay: 0.4,  opacity: 0.48, rotate: 80,   img: 2 },
-  { id: 8,  x: 91,  size: 34,  dur: 10, delay: 3.6,  opacity: 0.45, rotate: -50,  img: 4 },
+const JOURNEY_BEAN_CFG = [
+  { id: 0, x: 4,   size: 44, dur: 13, delay: 0,   opacity: 0.50, rotate: 0,   img: 0 },
+  { id: 1, x: 18,  size: 28, dur: 10, delay: 2.2, opacity: 0.40, rotate: 55,  img: 2 },
+  { id: 2, x: 33,  size: 58, dur: 16, delay: 0.8, opacity: 0.55, rotate: -20, img: 4 },
+  { id: 3, x: 50,  size: 36, dur: 11, delay: 4.1, opacity: 0.45, rotate: 100, img: 1 },
+  { id: 4, x: 65,  size: 50, dur: 15, delay: 1.5, opacity: 0.50, rotate: -65, img: 5 },
+  { id: 5, x: 79,  size: 26, dur: 9,  delay: 5.8, opacity: 0.35, rotate: 40,  img: 3 },
+  { id: 6, x: 90,  size: 62, dur: 17, delay: 2.9, opacity: 0.55, rotate: -10, img: 0 },
 ];
-
-const JOURNEY_BEAN_IMGS = [
-  "/beans/bean1.png", "/beans/bean2.png", "/beans/bean3.png",
-  "/beans/bean4.png", "/beans/bean5.png", "/beans/bean6.png",
-];
-
-const JOURNEY_AUTO = 5000;
+const JOURNEY_BEAN_IMGS = ["/beans/bean1.png","/beans/bean2.png","/beans/bean3.png","/beans/bean4.png","/beans/bean5.png","/beans/bean6.png"];
 
 function CoffeeJourneySection({ isRtl }: { isRtl: boolean }) {
   const [active, setActive] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pausedRef = useRef(false);
-  const startRef = useRef(Date.now());
-
-  const advance = useCallback((to?: number) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    if (tickRef.current) clearInterval(tickRef.current);
-    setProgress(0);
-    startRef.current = Date.now();
-
-    tickRef.current = setInterval(() => {
-      if (pausedRef.current) { startRef.current += 50; return; }
-      setProgress(Math.min(((Date.now() - startRef.current) / JOURNEY_AUTO) * 100, 100));
-    }, 40);
-
-    timeoutRef.current = setTimeout(() => {
-      if (!pausedRef.current) setActive(a => (a + 1) % JOURNEY_SLIDES.length);
-    }, JOURNEY_AUTO);
-
-    if (to !== undefined) setActive(to);
-  }, []);
 
   useEffect(() => {
-    advance();
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      if (tickRef.current) clearInterval(tickRef.current);
-    };
-  }, [active, advance]);
-
-  const slide = JOURNEY_SLIDES[active];
+    timerRef.current = setInterval(() => {
+      if (!pausedRef.current) setActive(a => (a + 1) % JOURNEY_PANELS.length);
+    }, 4500);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
 
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ background: "#080402" }}
+      className="relative overflow-hidden py-14"
+      style={{ background: "#070301" }}
       onMouseEnter={() => { pausedRef.current = true; }}
-      onMouseLeave={() => { pausedRef.current = false; startRef.current = Date.now() - (progress / 100) * JOURNEY_AUTO; }}
+      onMouseLeave={() => { pausedRef.current = false; }}
     >
-      {/* ── Floating beans animation ─────────────────── */}
+      {/* floating beans */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-10" aria-hidden="true">
-        {JOURNEY_BEANS.map(b => (
-          <div
-            key={b.id}
-            className="fuji-bean absolute"
-            style={{ left: `${b.x}%`, bottom: "-60px", width: b.size, height: b.size, opacity: b.opacity, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` }}
-          >
-            <img
-              src={JOURNEY_BEAN_IMGS[b.img]}
-              alt=""
-              draggable={false}
-              style={{ width: "100%", height: "100%", objectFit: "contain", transform: `rotate(${b.rotate}deg)`, filter: "drop-shadow(0 3px 10px rgba(0,0,0,0.7))" }}
-            />
+        {JOURNEY_BEAN_CFG.map(b => (
+          <div key={b.id} className="fuji-bean absolute"
+            style={{ left: `${b.x}%`, bottom: "-50px", width: b.size, height: b.size, opacity: b.opacity, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` }}>
+            <img src={JOURNEY_BEAN_IMGS[b.img]} alt="" draggable={false}
+              style={{ width: "100%", height: "100%", objectFit: "contain", transform: `rotate(${b.rotate}deg)`, filter: "drop-shadow(0 3px 10px rgba(0,0,0,0.6))" }} />
           </div>
         ))}
       </div>
 
-      {/* ── Section header ─────────────────────────── */}
-      <div className="container px-4 pt-14 pb-6 relative z-20">
-        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className={isRtl ? "text-right" : "text-left"}>
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#E8637A] mb-2 block">
+      {/* header */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        className="container px-4 mb-8 relative z-20"
+      >
+        <div className={isRtl ? "text-right" : "text-left"}>
+          <span className="text-[10px] font-bold uppercase tracking-[0.45em] text-[#E8637A]">
             {isRtl ? "رحلة الحبّة" : "The Bean Journey"}
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-white mt-1" style={{ fontFamily: "'Alexandria', sans-serif" }}>
             {isRtl ? "من المزرعة إلى كوبك" : "Farm to Your Cup"}
           </h2>
-          <p className="text-white/40 text-sm mt-2 max-w-lg" dir={isRtl ? "rtl" : "ltr"}>
-            {isRtl ? slide.descAr : slide.descEn}
-          </p>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
 
-      {/* ── Main image ─────────────────────────────── */}
-      <div className="relative w-full z-20" style={{ height: "clamp(320px, 55vw, 640px)" }}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0"
-          >
-            {/* Ken Burns zoom */}
-            <motion.img
-              src={slide.img}
-              alt=""
-              initial={{ scale: 1.05 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 6, ease: "easeOut" }}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-            {/* gradients */}
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(8,4,2,0.55) 0%, transparent 30%, transparent 55%, rgba(8,4,2,0.85) 100%)" }} />
-            <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 70% 50% at 50% 100%, ${slide.accent}33 0%, transparent 65%)` }} />
+      {/* accordion panels */}
+      <div className="relative z-20 px-3 md:px-6">
+        <div className="flex gap-2 md:gap-3 overflow-hidden rounded-2xl md:rounded-3xl" style={{ height: "clamp(300px, 58vw, 620px)" }}>
+          {JOURNEY_PANELS.map((panel, i) => {
+            const isActive = i === active;
+            return (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className="relative overflow-hidden flex-shrink-0 transition-all duration-700 ease-in-out rounded-xl md:rounded-2xl focus:outline-none"
+                style={{ flex: isActive ? 5 : 1, cursor: "pointer" }}
+                aria-label={panel.titleAr}
+              >
+                {/* image */}
+                <img
+                  src={panel.img}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-all duration-700"
+                  style={{ transform: isActive ? "scale(1.02)" : "scale(1.08)", filter: isActive ? "brightness(0.75)" : "brightness(0.4)" }}
+                />
 
-            {/* Stage labels bottom */}
-            <div className={`absolute bottom-8 left-0 right-0 px-6 md:px-12 flex gap-4 ${isRtl ? "flex-row-reverse justify-start" : "justify-start"}`}>
-              {slide.stagesAr.map((ar, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.15 + i * 0.12 }}
-                  className="flex flex-col"
-                  style={{ textAlign: isRtl ? "right" : "left" }}
+                {/* accent line at bottom */}
+                <div
+                  className="absolute inset-x-0 bottom-0 transition-all duration-700"
+                  style={{ height: isActive ? 3 : 2, background: panel.accent, opacity: isActive ? 1 : 0.5 }}
+                />
+
+                {/* collapsed: vertical number + title */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-500"
+                  style={{ opacity: isActive ? 0 : 1 }}
+                >
+                  <div className="flex flex-col items-center gap-2" style={{ transform: "rotate(180deg)", writingMode: "vertical-rl" }}>
+                    <span className="text-white/30 font-black" style={{ fontSize: "clamp(9px, 1.2vw, 11px)", letterSpacing: "0.3em" }}>
+                      {panel.num}
+                    </span>
+                    <span className="text-white/70 font-black" style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(11px, 1.4vw, 14px)" }} dir="rtl">
+                      {panel.titleAr}
+                    </span>
+                  </div>
+                </div>
+
+                {/* expanded: title + desc */}
+                <div
+                  className="absolute inset-0 flex flex-col justify-end p-5 md:p-8 transition-opacity duration-500"
+                  style={{ opacity: isActive ? 1 : 0, background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%)" }}
                 >
                   <span
-                    className="font-black leading-tight"
-                    style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(18px, 3.2vw, 38px)", color: "#fff", textShadow: "0 3px 20px rgba(0,0,0,0.9)" }}
+                    className="font-black uppercase tracking-[0.3em] mb-2 block"
+                    style={{ fontSize: "clamp(9px, 1vw, 11px)", color: panel.accent }}
+                  >
+                    {panel.titleEn}
+                  </span>
+                  <h3
+                    className="text-white font-black leading-tight mb-2"
+                    style={{ fontFamily: "'Alexandria', sans-serif", fontSize: "clamp(22px, 3.5vw, 42px)", textShadow: "0 2px 16px rgba(0,0,0,0.9)" }}
                     dir="rtl"
                   >
-                    {ar}
-                  </span>
-                  <span
-                    className="font-bold uppercase tracking-[0.22em] mt-0.5"
-                    style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "clamp(9px, 1.2vw, 12px)", color: "rgba(255,255,255,0.45)" }}
-                  >
-                    {slide.stagesEn[i]}
-                  </span>
-                  {i < slide.stagesAr.length - 1 && (
-                    <div className="w-px self-end h-8 mt-2" style={{ background: `${slide.accent}88` }} />
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Arrows */}
-        <button onClick={() => advance((active - 1 + JOURNEY_SLIDES.length) % JOURNEY_SLIDES.length)}
-          className="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/12 flex items-center justify-center text-white hover:bg-[#E8637A]/80 transition-all">
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button onClick={() => advance((active + 1) % JOURNEY_SLIDES.length)}
-          className="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/12 flex items-center justify-center text-white hover:bg-[#E8637A]/80 transition-all">
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-
-      {/* ── Bottom strip: thumbnails + progress ────── */}
-      <div className="relative z-20 px-4 md:px-8 pt-5 pb-10">
-        <div className="flex gap-3 md:gap-4">
-          {JOURNEY_SLIDES.map((s, i) => (
-            <button
-              key={i}
-              onClick={() => advance(i)}
-              className={`relative flex-1 rounded-2xl overflow-hidden transition-all duration-400 ${i === active ? "ring-2 ring-white/40 scale-[1.03]" : "opacity-50 hover:opacity-75"}`}
-              style={{ aspectRatio: "16/9" }}
-            >
-              <img src={s.img} alt="" className="w-full h-full object-cover object-center" />
-              <div className="absolute inset-0 bg-black/50" />
-              {/* Progress fill */}
-              {i === active && (
-                <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white/20">
-                  <div className="h-full transition-none rounded-full" style={{ width: `${progress}%`, background: s.accent }} />
+                    {panel.titleAr}
+                  </h3>
+                  <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-sm" dir="rtl">
+                    {panel.descAr}
+                  </p>
                 </div>
-              )}
-              {/* Label */}
-              <div className="absolute inset-0 flex flex-col justify-end p-2 md:p-3">
-                <span className="text-white text-[9px] md:text-[11px] font-black leading-tight" dir="rtl">
-                  {s.stagesAr.join(" · ")}
-                </span>
-              </div>
-            </button>
-          ))}
+
+                {/* number badge top-left */}
+                <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                  <span
+                    className="font-black transition-all duration-500"
+                    style={{ fontSize: isActive ? "clamp(38px, 5vw, 64px)" : "clamp(14px, 2vw, 20px)", color: isActive ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.25)", lineHeight: 1, display: "block" }}
+                  >
+                    {panel.num}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
