@@ -135,7 +135,7 @@ export default function AdminBundles() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-display font-bold text-[#0F0F0F]">عروض الباقات</h1>
-          <p className="text-gray-600 mt-1">أنشئ عروض حزم مثل "3 عطور بـ 149" أو "6 بـ 299" — تُطبَّق تلقائياً على السلة.</p>
+          <p className="text-gray-600 mt-1">أنشئ عروض حزم مثل "3 قهاوي بـ 149" أو "6 بـ 299" — تُطبَّق تلقائياً على السلة.</p>
         </div>
         <Button onClick={startNew} className="bg-[#E8637A] hover:bg-[#6b0729] text-white" data-testid="button-new-bundle">
           <Plus className="ml-2 h-4 w-4" /> باقة جديدة
@@ -227,18 +227,18 @@ export default function AdminBundles() {
                 <div>
                   <Label>العنوان (عربي) *</Label>
                   <Input value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })}
-                         placeholder="مثال: عرض 3 عطور بـ 149" data-testid="input-bundle-title" />
+                         placeholder="مثال: عرض 3 قهاوي بـ 149" data-testid="input-bundle-title" />
                 </div>
                 <div>
                   <Label>العنوان (إنجليزي)</Label>
                   <Input value={editing.titleEn || ""} onChange={(e) => setEditing({ ...editing, titleEn: e.target.value })}
-                         placeholder="3 perfumes for 149" />
+                         placeholder="3 coffees for 149" />
                 </div>
               </div>
               <div>
                 <Label>الوصف</Label>
                 <Textarea value={editing.description || ""} onChange={(e) => setEditing({ ...editing, description: e.target.value })}
-                          placeholder="اختر 3 عطور من تشكيلتنا الفاخرة بسعر مميز" rows={2} />
+                          placeholder="اختر 3 قهاوي من تشكيلتنا بسعر مميز" rows={2} />
               </div>
 
               <div className="border rounded-lg p-3 bg-[#F5F2ED]">

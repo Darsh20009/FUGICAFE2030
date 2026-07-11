@@ -216,7 +216,7 @@ export async function pushOrderToStorageStation(order: any): Promise<StorageStat
   const street = [addr.street, addr.district].filter(Boolean).join("، ") || order.deliveryAddress || "";
 
   // Split customer name
-  const fullName = (order.customerName || "عميل رفيف").trim();
+  const fullName = (order.customerName || "عميل فوجي").trim();
   const nameParts = fullName.split(" ");
   const firstName = nameParts[0] || fullName;
   const lastName = nameParts.slice(1).join(" ") || "-";
@@ -225,7 +225,7 @@ export async function pushOrderToStorageStation(order: any): Promise<StorageStat
 
   // Build line items using SKU
   const lineItems = (order.items || []).map((item: any) => ({
-    name: item.title || "منتج عطري",
+    name: item.title || "منتج",
     quantity: item.quantity || 1,
     price: String(item.price || "0"),
     total: String(((item.price || 0) * (item.quantity || 1)).toFixed(2)),

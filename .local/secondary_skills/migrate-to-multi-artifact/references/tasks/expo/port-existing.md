@@ -48,7 +48,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
 - Before frontend work: "Moving your app files over to the new structure..."
 - Before sanity check: "Running a quick check to make sure everything is in the right place..."
 - Before build: "Building everything to make sure it works..."
-- Before `mark_task_complete`: "Running some checks to make sure your app is safe and sound after the migration. This may take a minute."
+- Before `markTaskComplete`: "Running some checks to make sure your app is safe and sound after the migration. This may take a minute."
 - If validation fails: "Found a small issue — fixing it now..."
 
 ## Steps
@@ -159,7 +159,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
    Do not add `2>/dev/null` — if a `cp` fails, you need to see it. After copying, verify:
 
    ```sh
-   bash .local/secondary_skills/migrate-to-multi-artifact/references/expo_verify_copy.sh <app-name> <prefix>
+   bash .local/secondary_skills/migrate-to-multi-artifact/references/expo-verify-copy.sh <app-name> <prefix>
    ```
 
    Fix any missing directories before proceeding.
@@ -193,7 +193,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
       After copying, verify:
 
       ```sh
-      bash .local/secondary_skills/migrate-to-multi-artifact/references/expo_verify_copy.sh <app-name> <prefix>
+      bash .local/secondary_skills/migrate-to-multi-artifact/references/expo-verify-copy.sh <app-name> <prefix>
       ```
 
    b. For each screen in the old Navigator tree, create the corresponding expo-router file:
@@ -207,7 +207,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
    c. Verify `@/` alias paths after copying:
 
       ```sh
-      bash .local/secondary_skills/migrate-to-multi-artifact/references/expo_verify_imports.sh <app-name>
+      bash .local/secondary_skills/migrate-to-multi-artifact/references/expo-verify-imports.sh <app-name>
       ```
 
       Fix every broken import before proceeding.
@@ -231,7 +231,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
 5. **Run sanity check** — do NOT move to step 6 until the output prints ALL CHECKS PASSED:
 
    ```sh
-   bash .local/secondary_skills/migrate-to-multi-artifact/references/expo_sanity_check.sh <app-name> <prefix>
+   bash .local/secondary_skills/migrate-to-multi-artifact/references/expo-sanity-check.sh <app-name> <prefix>
    ```
 
    If any FAIL line appears, fix and re-run until ALL CHECKS PASSED.
@@ -246,7 +246,7 @@ Tell the user what's happening at each major phase. Keep it short and non-techni
    - [ ] App renders correctly after workflow restart?
    - [ ] Sanity check prints ALL CHECKS PASSED?
 
-8. **Use the `mark_task_complete` tool** (a tool call, not a code execution callback) — the user will verify visual parity before the next task starts.
+8. **Call `markTaskComplete({...})` as the final callback in CodeExecution** — the user will verify visual parity before the next task starts.
 
 ## Expo-specific pitfalls
 

@@ -11,7 +11,7 @@ const TABBY_API_BASE = "https://api.tabby.ai";
 
 const PUBLIC_KEY = process.env.TABBY_PUBLIC_KEY || "";
 const SECRET_KEY = process.env.TABBY_SECRET_KEY || "";
-const MERCHANT_CODE = process.env.TABBY_MERCHANT_CODE || "RFperfume";
+const MERCHANT_CODE = process.env.TABBY_MERCHANT_CODE || "fuji-cafe";
 
 export function isTabbyConfigured(): boolean {
   return !!(PUBLIC_KEY && SECRET_KEY);
@@ -88,7 +88,7 @@ export async function createTabbyCheckout(input: TabbyCheckoutInput): Promise<Ta
           unit_price: fmt(it.price),
           discount_amount: "0.00",
           reference_id: it.sku || input.orderId,
-          category: "perfume",
+          category: "food_and_beverage",
         })),
       },
       shipping_address: {

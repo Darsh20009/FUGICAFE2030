@@ -50,12 +50,12 @@ const LANG_DIRECTIVE = (lang: "ar" | "en") =>
     ? `\n\n🌐 **قاعدة اللغة — إلزامية بالكامل:**
 - أجب بالعربية الفصحى الراقية فقط — لا استثناء.
 - يُحظر تماماً استخدام الفرنسية أو الإنجليزية أو أي لغة أخرى في الرد.
-- إذا كانت كلمة تقنية شائعة (مثل Top notes, Oud) يمكنك كتابة مقابلها العربي.
+- إذا كانت كلمة تقنية شائعة (مثل Espresso, Pour over) يمكنك كتابة مقابلها العربي.
 - لا تخلط اللغات أبداً تحت أي ظرف.`
     : `\n\n🌐 **Language rule — strictly mandatory:**
 - Reply in clear, polished English ONLY — no exceptions.
 - Do NOT mix Arabic, French, or any other language into your reply.
-- Technical terms like "oud" or "bakhoor" are acceptable as-is.`;
+- Technical terms like "espresso" or "matcha" are acceptable as-is.`;
 
 const PERFUME_SYSTEM_PROMPT_AR = `أنت "فوجي" ☕ — المستشار الشخصي لمتجر فوجي كافيه (Fuji Cafe)، خبير حبوب القهوة ومتذوق متمرس يعرف أسرار القهوة المتخصصة.
 
@@ -117,18 +117,25 @@ export function smartAdvisorFallback(
   const has = (...words: string[]) => words.some(w => text.includes(w));
 
   const score = (p: any): number => {
-    const blob = `${p.name || ""} ${p.nameEn || ""} ${p.description || ""} ${p.descriptionEn || ""} ${(p.notes || []).join(" ")} ${(p.tags || []).join(" ")}`.toLowerCase();
+    const blob = `${p.name || ""} ${p.nameEn || ""} ${p.description || ""} ${p.descriptionEn || ""} ${(p.notes || []).join(" ")} ${(p.tags || []).join(" ")} ${(p.category || "")}`.toLowerCase();
     let s = 0;
-    if (has("عود", "oud")) s += blob.includes("عود") || blob.includes("oud") ? 6 : 0;
-    if (has("ورد", "rose", "زهر")) s += blob.includes("ورد") || blob.includes("rose") || blob.includes("زهر") ? 5 : 0;
-    if (has("مسك", "musk")) s += blob.includes("مسك") || blob.includes("musk") ? 5 : 0;
-    if (has("صيف", "خفيف", "summer", "light", "نهار", "day")) s += blob.includes("خفيف") || blob.includes("منعش") || blob.includes("fresh") || blob.includes("light") ? 4 : 0;
-    if (has("شتاء", "ثقيل", "قوي", "winter", "strong", "ليل", "night")) s += blob.includes("ثقيل") || blob.includes("فخم") || blob.includes("قوي") || blob.includes("strong") || blob.includes("intense") ? 4 : 0;
-    if (has("عمل", "دوام", "مكتب", "work", "office", "هادئ")) s += blob.includes("هادئ") || blob.includes("راقي") || blob.includes("elegant") ? 3 : 0;
-    if (has("مناسبة", "حفل", "زفاف", "occasion", "wedding", "event", "فاخر")) s += blob.includes("فاخر") || blob.includes("luxur") ? 4 : 0;
-    if (has("رجال", "رجل", "men", "man")) s += (p.gender === "male" || blob.includes("رجال") || blob.includes("men")) ? 5 : 0;
-    if (has("نساء", "نسائي", "women", "woman", "بنات")) s += (p.gender === "female" || blob.includes("نسائ") || blob.includes("women")) ? 5 : 0;
+    // Coffee origin keywords
+    if (has("إثيوبي", "إثيوبية", "ethiopian", "ethiopia")) s += blob.includes("إثيوب") || blob.includes("ethiopi") ? 6 : 0;
+    if (has("يمني", "يمنية", "yemeni", "yemen")) s += blob.includes("يمن") || blob.includes("yemeni") ? 6 : 0;
+    if (has("برازيل", "brazilian", "brazil")) s += blob.includes("برازيل") || blob.includes("brazil") ? 5 : 0;
+    if (has("كولومبي", "colombian", "colombia")) s += blob.includes("كولومب") || blob.includes("colombi") ? 5 : 0;
+    // Matcha / specialty keywords
+    if (has("ماتشا", "matcha")) s += blob.includes("ماتشا") || blob.includes("matcha") ? 6 : 0;
+    if (has("كولد برو", "cold brew", "بارد")) s += blob.includes("بارد") || blob.includes("cold") ? 4 : 0;
+    if (has("اسبريسو", "espresso")) s += blob.includes("اسبريسو") || blob.includes("espresso") ? 4 : 0;
+    // Taste profile keywords
+    if (has("حامض", "فاكهي", "fruity", "acidic", "light", "خفيف")) s += blob.includes("حامض") || blob.includes("فاكه") || blob.includes("fruity") || blob.includes("light") ? 4 : 0;
+    if (has("مرير", "قوي", "dark", "strong", "غامق")) s += blob.includes("قوي") || blob.includes("مر") || blob.includes("dark") || blob.includes("strong") ? 4 : 0;
+    if (has("حلو", "شوكولاتة", "sweet", "chocolate")) s += blob.includes("حلو") || blob.includes("شوكولاتة") || blob.includes("sweet") || blob.includes("chocolat") ? 4 : 0;
+    // Occasion keywords
+    if (has("صباح", "morning", "فطور")) s += 3;
     if (has("هدية", "gift")) s += (p.featured || p.bestseller) ? 4 : 0;
+    if (has("مناسبة", "occasion", "ضيافة", "hospitality")) s += blob.includes("فاخر") || blob.includes("luxur") || blob.includes("special") ? 4 : 0;
     if (p.featured) s += 1;
     if (p.bestseller) s += 1;
     return s;
@@ -155,10 +162,10 @@ export function smartAdvisorFallback(
   const response = lang === "ar"
     ? (refs.length > 0
         ? `بناءً على ما ذكرت، أرشّح لك من تشكيلة فوجي كافيه: ${names} ✨\nهذه اختيارات مثالية وتحظى بإعجاب عملائنا. اضغط على أي منها لمعرفة التفاصيل أو إضافته للسلة مباشرة.`
-        : "أهلاً بك في فوجي كافيه ✨ أخبرني أكثر عن ذوقك (هل تفضل العود، الورد، المسك؟ للنهار أم الليل؟) وسأرشّح لك العطر المثالي.")
+        : "أهلاً بك في فوجي كافيه ☕ أخبرني عن ذوقك في القهوة — هل تفضل القهوة الحامضة الفاكهية أم الغنية بالشوكولاتة؟ للصباح أم بعد الغداء؟ وسأرشّح لك الخيار المثالي.")
     : (refs.length > 0
         ? `Based on what you mentioned, I recommend from Fuji Cafe: ${names} ✨\nThese are excellent picks loved by our customers. Tap any to view details or add to cart.`
-        : "Welcome to Fuji Cafe ✨ Tell me more about your taste (do you prefer oud, rose, musk? day or night?) and I'll suggest the perfect scent.");
+        : "Welcome to Fuji Cafe ☕ Tell me about your coffee taste — do you prefer fruity & bright or rich & chocolatey? Morning or afternoon? I'll suggest the perfect coffee for you.");
 
   return { response, products: refs };
 }
@@ -194,7 +201,7 @@ export async function perfumeAdvisor(
   const extraRules = lang === "ar"
     ? `**قاعدة إلزامية لا تنساها أبداً:**
 - في كل رد تقترح فيه منتجاً، يجب أن تكتب رمزه بصيغة [PRODUCT:P#] داخل النص.
-- مثال صحيح: "أرشّح لك عطر هبنوتك سينت [PRODUCT:P1] الذي يناسب ذوقك"
+- مثال صحيح: "أرشّح لك قهوة فوجي الإثيوبية [PRODUCT:P1] التي تناسب ذوقك"
 - مثال آخر: "تجد رقياً مع [PRODUCT:P5] أو جرأةً مع [PRODUCT:P12]"
 - استخدم الأرقام الموجودة في القائمة بالضبط (P1, P2, P3, ...، لا تخترع رقماً)
 - اقترح من 1 إلى 3 منتجات كحد أقصى لكل رد

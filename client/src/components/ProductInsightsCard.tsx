@@ -47,7 +47,7 @@ export function ProductInsightsCard({ productId }: { productId: string }) {
             <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.3em] text-[#E8637A] mb-1">
               <Sparkles className="w-3 h-3" /> {isAr ? "تحليل ذكي" : "AI Insight"}
             </span>
-            <h3 className="text-lg font-black">{isAr ? "ملف العطر" : "Scent Profile"}</h3>
+            <h3 className="text-lg font-black">{isAr ? "ملف المنتج" : "Product Profile"}</h3>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ export function ProductInsightsCard({ productId }: { productId: string }) {
 
         {data.scentNotes?.length > 0 && (
           <div className="mb-5">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-[#E8637A] mb-2">{isAr ? "النوتات العطرية" : "Scent Notes"}</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#E8637A] mb-2">{isAr ? "النكهات والمذاق" : "Tasting Notes"}</p>
             <div className="flex flex-wrap gap-2">
               {data.scentNotes.map((n, i) => (
                 <span key={i} className="px-3 py-1.5 rounded-full bg-[#E8637A]/15 border border-[#E8637A]/30 text-[11px] font-bold text-[#E8637A]">{n}</span>

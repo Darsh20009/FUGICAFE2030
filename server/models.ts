@@ -976,7 +976,7 @@ const productInsightsSchema = new Schema(
     productId: { type: String, required: true, unique: true },
     summaryAr: { type: String, default: "" },
     summaryEn: { type: String, default: "" },
-    scentNotes: { type: [String], default: [] }, // top scent profile from reviews
+    scentNotes: { type: [String], default: [] }, // tasting notes extracted from reviews (reused field name for compatibility)
     longevity: { type: String, default: "" },
     sillage: { type: String, default: "" },
     occasions: { type: [String], default: [] },

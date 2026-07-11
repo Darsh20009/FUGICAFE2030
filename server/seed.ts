@@ -37,7 +37,8 @@ export async function seed() {
       "products.view", "products.edit",
       "customers.view", "wallet.adjust",
       "reports.view", "staff.manage",
-      "pos.access", "settings.manage"
+      "pos.access", "settings.manage",
+      "bundles.manage", "inbox.manage"
     ],
     loginType: "both",
     isActive: true,

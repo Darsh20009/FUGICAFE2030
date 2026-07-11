@@ -83,8 +83,8 @@ export async function createTamaraCheckout(input: TamaraCheckoutInput): Promise<
     locale,
     items: items.map((it, idx) => ({
       reference_id: it.sku || `i${idx + 1}`,
-      type: "perfume",
-      name: (it.title || "Perfume").slice(0, 100),
+      type: "food_and_beverage",
+      name: (it.title || "Coffee").slice(0, 100),
       sku: it.sku || `sku-${idx + 1}`,
       quantity: Math.max(1, Math.floor(Number(it.quantity) || 1)),
       total_amount: { amount: fmt((Number(it.price) || 0) * (Number(it.quantity) || 1)), currency: "SAR" },

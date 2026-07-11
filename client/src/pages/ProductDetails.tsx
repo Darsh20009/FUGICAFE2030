@@ -655,7 +655,7 @@ export default function ProductDetails() {
               </div>
               )}
 
-              {/* Perfume advisor / outfit suggestions removed — Fuji Cafe is an oud & perfume store, not clothing. */}
+              {/* Coffee pairings / outfit suggestions section — removed for now */}
 
               {/* Quantity */}
               <div>

@@ -267,14 +267,14 @@ const CreativeDashboardBanner = memo(({ totalOrders, totalRevenue }: { totalOrde
         </div>
 
         <a
-          href="https://qirox.com"
+          href="https://qiroxstudio.online"
           target="_blank"
           rel="noopener"
           className="group flex items-center gap-2 bg-gradient-to-r from-[#E8637A]/10 to-transparent px-3 py-1.5 rounded-full border border-[#E8637A]/20 hover:border-[#E8637A]/40 transition-all"
         >
           <span className="text-[10px] font-bold text-white/50 tracking-widest uppercase">Powered by</span>
-          <img src="/qirox-logo-new.png" alt="Qirox" className="h-4 object-contain opacity-90 group-hover:opacity-100 transition-opacity" onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/qirox-logo.png"; }} />
-          <span className="text-[10px] font-black text-[#E8637A]">Qirox</span>
+          <img src="/qirox-studio-logo.png" alt="Qirox Studio" className="h-4 w-4 object-contain opacity-90 group-hover:opacity-100 transition-opacity rounded-sm" />
+          <span className="text-[10px] font-black text-[#E8637A]">Qirox Studio</span>
         </a>
       </div>
     </motion.div>
@@ -951,7 +951,7 @@ const EditProductDialog = memo(({ product, categories, open, onOpenChange }: any
                   <Label className="text-[10px] font-bold uppercase tracking-widest text-black/40">الوصف التفصيلي (عربي)</Label>
                   <DescriptionGenerator
                     productName={form.watch("name") || ""}
-                    productCategory={categories?.find((c: any) => c.id === selectedCategoryIds[0])?.name || "عطور"}
+                    productCategory={categories?.find((c: any) => c.id === selectedCategoryIds[0])?.name || "قهوة"}
                     price={Number(form.watch("price")) || 0}
                     onApply={(desc) => form.setValue("description", desc)}
                   />
@@ -965,8 +965,8 @@ const EditProductDialog = memo(({ product, categories, open, onOpenChange }: any
 
               <div className="space-y-2 pt-2">
                 <Label className="text-[10px] font-black uppercase tracking-widest text-[#E8637A] flex items-center gap-1">🧠 علّم الذكاء الاصطناعي عن هذا المنتج</Label>
-                <p className="text-[9px] text-black/40">أضف معلومات خاصة يستخدمها المستشار الذكي عند التوصية بهذا المنتج — مثل: قصة العطر، الجمهور المستهدف، المزاج، المناسبات، النوتات السرية...</p>
-                <Textarea {...form.register("aiNotes" as any)} className="rounded-none min-h-[100px] text-right border-[#E8637A]/40 focus:border-[#E8637A]" placeholder="مثال: عطر يناسب رجل واثق في العقد الثالث، يُعطي شعور بالفخامة الهادئة، يستمر 12 ساعة على البشرة الجافة، يُشبه عطر فلاني الشهير لكن بلمسة خليجية..." data-testid="textarea-product-ai-notes" />
+                <p className="text-[9px] text-black/40">أضف معلومات خاصة يستخدمها المستشار الذكي عند التوصية بهذا المنتج — مثل: قصة القهوة، أصلها، النكهات، المناسبات، الجمهور المستهدف...</p>
+                <Textarea {...form.register("aiNotes" as any)} className="rounded-none min-h-[100px] text-right border-[#E8637A]/40 focus:border-[#E8637A]" placeholder="مثال: قهوة إثيوبية من هضاب يرغاشيف، نكهة فاكهية حمضية مع لمسة زهرية، مناسبة لعشاق القهوة الخفيفة في الصباح..." data-testid="textarea-product-ai-notes" />
               </div>
 
            <div className="space-y-4 pt-4 border-t border-black/5 text-right">
@@ -1366,7 +1366,7 @@ const ProductsTable = memo(() => {
                   <Label className="text-[10px] font-bold uppercase tracking-widest text-black/40">الوصف التفصيلي (عربي)</Label>
                   <DescriptionGenerator
                     productName={form.watch("name") || ""}
-                    productCategory={categories?.find((c: any) => c.id === selectedCategoryIds[0])?.name || "عطور"}
+                    productCategory={categories?.find((c: any) => c.id === selectedCategoryIds[0])?.name || "قهوة"}
                     price={Number(form.watch("price")) || 0}
                     onApply={(desc) => form.setValue("description", desc)}
                   />
@@ -1380,8 +1380,8 @@ const ProductsTable = memo(() => {
 
               <div className="space-y-2 pt-2">
                 <Label className="text-[10px] font-black uppercase tracking-widest text-[#E8637A] flex items-center gap-1">🧠 علّم الذكاء الاصطناعي عن هذا المنتج</Label>
-                <p className="text-[9px] text-black/40">أضف معلومات خاصة يستخدمها المستشار الذكي عند التوصية بهذا المنتج — مثل: قصة العطر، الجمهور المستهدف، المزاج، المناسبات، النوتات السرية...</p>
-                <Textarea {...form.register("aiNotes" as any)} className="rounded-none min-h-[100px] text-right border-[#E8637A]/40 focus:border-[#E8637A]" placeholder="مثال: عطر يناسب رجل واثق في العقد الثالث، يُعطي شعور بالفخامة الهادئة، يستمر 12 ساعة على البشرة الجافة، يُشبه عطر فلاني الشهير لكن بلمسة خليجية..." data-testid="textarea-product-ai-notes-add" />
+                <p className="text-[9px] text-black/40">أضف معلومات خاصة يستخدمها المستشار الذكي عند التوصية بهذا المنتج — مثل: قصة القهوة، أصلها، النكهات، المناسبات، الجمهور المستهدف...</p>
+                <Textarea {...form.register("aiNotes" as any)} className="rounded-none min-h-[100px] text-right border-[#E8637A]/40 focus:border-[#E8637A]" placeholder="مثال: قهوة إثيوبية من هضاب يرغاشيف، نكهة فاكهية حمضية مع لمسة زهرية، مناسبة لعشاق القهوة الخفيفة في الصباح..." data-testid="textarea-product-ai-notes-add" />
               </div>
 
               <div className="space-y-4 pt-4 border-t border-black/5 text-right">
@@ -5143,12 +5143,12 @@ const StoreSettingsPanel = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label className="text-xs font-black uppercase">عنوان الصفحة (عربي)</Label>
-              <Input value={seoTitle} onChange={e => setSeoTitle(e.target.value)} className="font-bold" maxLength={70} placeholder="فوجي كافيه — عطور فاخرة" data-testid="input-seo-title" />
+              <Input value={seoTitle} onChange={e => setSeoTitle(e.target.value)} className="font-bold" maxLength={70} placeholder="فوجي كافيه — قهوة متخصصة وماتشا" data-testid="input-seo-title" />
               <p className="text-[10px] text-muted-foreground">{seoTitle.length}/70</p>
             </div>
             <div className="space-y-2">
               <Label className="text-xs font-black uppercase">Page Title (English)</Label>
-              <Input value={seoTitleEn} onChange={e => setSeoTitleEn(e.target.value)} className="font-bold" dir="ltr" maxLength={70} placeholder="Fuji Cafe — Luxury Fragrances" data-testid="input-seo-title-en" />
+              <Input value={seoTitleEn} onChange={e => setSeoTitleEn(e.target.value)} className="font-bold" dir="ltr" maxLength={70} placeholder="Fuji Cafe — Specialty Coffee &amp; Matcha" data-testid="input-seo-title-en" />
               <p className="text-[10px] text-muted-foreground">{seoTitleEn.length}/70</p>
             </div>
           </div>
@@ -5164,7 +5164,7 @@ const StoreSettingsPanel = () => {
           </div>
           <div className="space-y-2">
             <Label className="text-xs font-black uppercase">الكلمات المفتاحية (افصلها بفاصلة)</Label>
-            <Input value={seoKeywords} onChange={e => setSeoKeywords(e.target.value)} className="font-bold" placeholder="عطور، عود، بخور، عطور رجالية" data-testid="input-seo-keywords" />
+            <Input value={seoKeywords} onChange={e => setSeoKeywords(e.target.value)} className="font-bold" placeholder="قهوة، ماتشا، قهوة إثيوبية، قهوة متخصصة، كولد برو" data-testid="input-seo-keywords" />
           </div>
           <div className="space-y-2">
             <Label className="text-xs font-black uppercase">صورة المشاركة (Open Graph)</Label>

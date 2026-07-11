@@ -94,31 +94,77 @@ function LazyFallback() {
   );
 }
 
-class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error?: Error }> {
+// Detect errors caused by lazy-chunk download failures (network flakiness).
+// These are transient — auto-reload once to retry fetching the chunk.
+function isChunkLoadError(error?: Error): boolean {
+  if (!error) return false;
+  const msg = error.message || "";
+  return (
+    msg.includes("Loading chunk") ||
+    msg.includes("Failed to fetch dynamically imported module") ||
+    msg.includes("Importing a module script failed") ||
+    msg.includes("dynamically imported module") ||
+    msg.includes("ChunkLoadError") ||
+    (error.name === "ChunkLoadError")
+  );
+}
+
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean; error?: Error; autoReloading: boolean }
+> {
   constructor(props: { children: ReactNode }) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, autoReloading: false };
   }
   static getDerivedStateFromError(error: Error) {
     return { hasError: true, error };
   }
   componentDidCatch(error: Error, info: any) {
     console.error("[ErrorBoundary] Caught error:", error.message, "\nStack:", error.stack, "\nInfo:", info?.componentStack);
+
+    // Auto-recover from chunk-load failures caused by network issues.
+    // We only attempt one auto-reload (tracked via sessionStorage) to
+    // avoid an infinite reload loop if the chunk is genuinely missing.
+    if (isChunkLoadError(error)) {
+      const RELOAD_KEY = "eb_chunk_reload";
+      const already = sessionStorage.getItem(RELOAD_KEY);
+      if (!already) {
+        sessionStorage.setItem(RELOAD_KEY, "1");
+        this.setState({ autoReloading: true });
+        window.location.reload();
+        return;
+      }
+      // If we already tried once, clear the flag so future navigations can
+      // retry again, but show the error UI this time.
+      sessionStorage.removeItem(RELOAD_KEY);
+    } else {
+      // Clear the chunk-reload guard whenever a non-chunk error is caught so
+      // it doesn't block future auto-recovery attempts.
+      sessionStorage.removeItem("eb_chunk_reload");
+    }
   }
   render() {
+    if (this.state.autoReloading) return null; // blank while reloading
+
     if (this.state.hasError) {
       const isDev = import.meta.env.DEV;
+      const isChunk = isChunkLoadError(this.state.error);
       return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 p-8 text-center" dir="rtl">
           <h2 className="text-xl font-bold mb-3 text-slate-800">حدث خطأ غير متوقع</h2>
-          <p className="text-slate-500 text-sm mb-6">يرجى إعادة تحميل الصفحة</p>
+          <p className="text-slate-500 text-sm mb-6">
+            {isChunk
+              ? "فشل تحميل بعض ملفات الصفحة — تحقق من اتصالك بالإنترنت ثم أعد التحميل"
+              : "يرجى إعادة تحميل الصفحة"}
+          </p>
           {isDev && this.state.error && (
             <pre className="text-left text-xs text-red-600 bg-red-50 border border-red-200 rounded p-4 mb-4 max-w-2xl overflow-auto text-wrap">
               {this.state.error.message}{"\n"}{this.state.error.stack}
             </pre>
           )}
           <button
-            onClick={() => { this.setState({ hasError: false }); window.location.reload(); }}
+            onClick={() => { this.setState({ hasError: false, autoReloading: false }); window.location.reload(); }}
             className="px-6 py-2 bg-black text-white text-sm font-bold rounded-none hover:bg-slate-800 transition-colors"
           >
             إعادة التحميل

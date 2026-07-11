@@ -3,19 +3,19 @@ import { Button } from "@/components/ui/button";
 import { Loader2, Sparkles, Tag, Calendar, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface OutfitSuggestionsProps {
+interface CoffeePairingsProps {
   productName: string;
   productCategory: string;
   gender?: string;
 }
 
-export function OutfitSuggestions({ productName, productCategory, gender }: OutfitSuggestionsProps) {
+export function OutfitSuggestions({ productName, productCategory, gender }: CoffeePairingsProps) {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [open, setOpen] = useState(false);
   const [occasion, setOccasion] = useState("");
 
-  const occasions = ["كاجوال", "عمل", "سهرة", "رياضة", "عرس"];
+  const occasions = ["صباح", "عمل", "ضيافة", "بعد الغداء", "هدية"];
 
   const getSuggestions = async () => {
     setLoading(true);
@@ -59,7 +59,7 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
         className="w-full h-9 font-black uppercase tracking-widest text-[10px] gap-2 border-dashed border-black/20 hover:border-primary hover:text-primary"
       >
         {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Sparkles className="h-3.5 w-3.5" />}
-        اقتراحات تنسيق بالذكاء الاصطناعي
+        اقتراحات التقديم بالذكاء الاصطناعي ☕
       </Button>
 
       <AnimatePresence>
@@ -73,7 +73,7 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
             <div className="border border-primary/20 bg-primary/3 p-4 space-y-4" dir="rtl">
               <div className="flex items-center justify-between">
                 <p className="text-[9px] font-black uppercase tracking-widest text-primary flex items-center gap-1">
-                  <Sparkles className="h-2.5 w-2.5" /> اقتراحات التنسيق AI
+                  <Sparkles className="h-2.5 w-2.5" /> اقتراحات القهوة AI ☕
                 </p>
                 <button onClick={() => setOpen(false)}>
                   <X className="h-3.5 w-3.5 text-black/30" />
@@ -83,7 +83,7 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
               {loading && (
                 <div className="text-center py-6">
                   <Loader2 className="h-6 w-6 animate-spin text-primary mx-auto mb-2" />
-                  <p className="text-[10px] font-black text-black/30">AI يُعدّ اقتراحات التنسيق...</p>
+                  <p className="text-[10px] font-black text-black/30">AI يُعدّ اقتراحات التقديم...</p>
                 </div>
               )}
 
@@ -94,7 +94,7 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
                     <div>
                       <div className="flex items-center gap-1.5 mb-2">
                         <Calendar className="h-3 w-3 text-primary" />
-                        <p className="text-[9px] font-black uppercase text-black/40">مناسبات مقترحة</p>
+                        <p className="text-[9px] font-black uppercase text-black/40">مناسب لـ</p>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {result.occasions.map((o: string, i: number) => (
@@ -106,12 +106,12 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
                     </div>
                   )}
 
-                  {/* Combinations */}
+                  {/* Pairings */}
                   {result.combinations?.length > 0 && (
                     <div>
                       <div className="flex items-center gap-1.5 mb-2">
                         <Tag className="h-3 w-3 text-primary" />
-                        <p className="text-[9px] font-black uppercase text-black/40">قطع تنسيق مقترحة</p>
+                        <p className="text-[9px] font-black uppercase text-black/40">يناسبه أكلاً ومشروباً</p>
                       </div>
                       <div className="space-y-2">
                         {result.combinations.map((c: any, i: number) => (
@@ -129,10 +129,10 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
                     </div>
                   )}
 
-                  {/* Style Tip */}
+                  {/* Brewing tip */}
                   {result.style_tip && (
                     <div className="bg-white border-r-4 border-primary p-3">
-                      <p className="text-[9px] font-black uppercase text-primary mb-1">💡 نصيحة الأسلوب</p>
+                      <p className="text-[9px] font-black uppercase text-primary mb-1">💡 نصيحة التحضير</p>
                       <p className="text-xs font-bold text-black/70">{result.style_tip}</p>
                     </div>
                   )}
@@ -140,7 +140,7 @@ export function OutfitSuggestions({ productName, productCategory, gender }: Outf
                   {/* Avoid */}
                   {result.avoid && (
                     <div className="bg-red-50 border border-red-200 p-3">
-                      <p className="text-[9px] font-black uppercase text-red-600 mb-1">⚠️ تجنبي</p>
+                      <p className="text-[9px] font-black uppercase text-red-600 mb-1">⚠️ تجنب</p>
                       <p className="text-xs font-bold text-red-700">{result.avoid}</p>
                     </div>
                   )}

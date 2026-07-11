@@ -63,17 +63,24 @@ export function setupAuth(app: Express) {
       secure: useCrossSiteCookie, // required when sameSite=None
       path: "/",
     },
-    store: mongoUri
-      ? MongoStore.create({
-          mongoUrl: mongoUri,
-          dbName: "fujicafe",
-          collectionName: "sessions",
-          ttl: 30 * 24 * 60 * 60, // 30 days
-          autoRemove: "native",
-          touchAfter: 60, // throttle write-on-read so rolling sessions don't hammer Mongo
-          stringify: false,
-        })
-      : undefined,
+    store: (() => {
+      if (!mongoUri) return undefined;
+      const store = MongoStore.create({
+        mongoUrl: mongoUri,
+        dbName: "fujicafe",
+        collectionName: "sessions",
+        ttl: 30 * 24 * 60 * 60, // 30 days
+        autoRemove: "native",
+        touchAfter: 60, // throttle write-on-read so rolling sessions don't hammer Mongo
+        stringify: false,
+      });
+      // Prevent unhandled 'error' events from crashing the process when
+      // MongoDB Atlas has a momentary network hiccup during session save.
+      store.on("error", (err: any) => {
+        console.error("[SessionStore] MongoDB session store error (non-fatal):", err?.message || err);
+      });
+      return store;
+    })(),
   };
 
   // Always trust the proxy on Replit / production so secure cookies actually flow

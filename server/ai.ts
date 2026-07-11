@@ -40,45 +40,33 @@ export async function getSizeRecommendation(params: {
   const lang = pickLang(params.lang, productName, productCategory);
 
   const prompt = lang === "ar"
-    ? `أنت مستشار أزياء خبير. العميل يريد شراء "${productName}" (فئة: ${productCategory}).
-المقاسات المتوفرة: ${availableSizes.join(", ")}
-مقاسات العميل:
-${m.height ? `- الطول: ${m.height} سم` : ""}
-${m.weight ? `- الوزن: ${m.weight} كغ` : ""}
-${m.chest ? `- محيط الصدر: ${m.chest} سم` : ""}
-${m.waist ? `- محيط الخصر: ${m.waist} سم` : ""}
-${m.hip ? `- محيط الورك: ${m.hip} سم` : ""}
-${m.shoulder ? `- عرض الكتف: ${m.shoulder} سم` : ""}
+    ? `أنت مستشار قهوة متخصصة خبير في فوجي كافيه. العميل يريد شراء "${productName}" (فئة: ${productCategory}).
+الخيارات المتوفرة: ${availableSizes.join(", ")}
+${m.weight ? `- الوزن التقريبي للعميل: ${m.weight} كغ` : ""}
 ${gender ? `- الجنس: ${gender === "male" ? "رجل" : "امرأة"}` : ""}
 
-أجب بصيغة JSON فقط بالعربية:
+أجب بصيغة JSON فقط بالعربية — وصفك يكون عن حجم الكوب أو كمية القهوة المناسبة:
 {
-  "recommendedSize": "المقاس الموصى به من القائمة المتوفرة",
+  "recommendedSize": "الخيار الموصى به من القائمة المتوفرة",
   "confidence": "high|medium|low",
-  "reasoning": "سبب قصير وواضح للتوصية بالعربية",
-  "fit": "slim|regular|loose",
-  "tips": ["نصيحة مختصرة", "نصيحة أخرى"],
-  "alternativeSize": "مقاس بديل إن كان العميل يفضل الراحة أو الضيق"
+  "reasoning": "سبب قصير وواضح للتوصية بالعربية يتعلق بالقهوة",
+  "fit": "small|regular|large",
+  "tips": ["نصيحة تحضير مختصرة", "نصيحة أخرى"],
+  "alternativeSize": "خيار بديل إن كان العميل يفضل حجماً مختلفاً"
 }`
-    : `You are an expert fashion advisor. The customer wants to buy "${productName}" (category: ${productCategory}).
-Available sizes: ${availableSizes.join(", ")}
-Customer measurements:
-${m.height ? `- Height: ${m.height} cm` : ""}
-${m.weight ? `- Weight: ${m.weight} kg` : ""}
-${m.chest ? `- Chest: ${m.chest} cm` : ""}
-${m.waist ? `- Waist: ${m.waist} cm` : ""}
-${m.hip ? `- Hip: ${m.hip} cm` : ""}
-${m.shoulder ? `- Shoulder: ${m.shoulder} cm` : ""}
+    : `You are an expert specialty coffee advisor at Fuji Cafe. The customer wants to buy "${productName}" (category: ${productCategory}).
+Available options: ${availableSizes.join(", ")}
+${m.weight ? `- Customer approx weight: ${m.weight} kg` : ""}
 ${gender ? `- Gender: ${gender === "male" ? "male" : "female"}` : ""}
 
-Reply in JSON only, in English:
+Reply in JSON only, in English — your advice is about the right cup size or coffee quantity:
 {
-  "recommendedSize": "the recommended size from the available list",
+  "recommendedSize": "the recommended option from the available list",
   "confidence": "high|medium|low",
-  "reasoning": "short clear reason in English",
-  "fit": "slim|regular|loose",
-  "tips": ["short tip", "another tip"],
-  "alternativeSize": "alternative size if the customer prefers comfort or tightness"
+  "reasoning": "short clear reason in English related to coffee",
+  "fit": "small|regular|large",
+  "tips": ["short brewing tip", "another tip"],
+  "alternativeSize": "alternative if the customer prefers a different size"
 }`;
 
   return kimiJSON(prompt, 400);
@@ -213,7 +201,7 @@ Reply in JSON only, in English — no Chinese or Japanese characters:
   return kimiJSON(prompt, 400);
 }
 
-/** Generate AI insights from product reviews — scent profile, longevity, occasions, summary. */
+/** Generate AI insights from product reviews — tasting notes, strength, occasions, summary. */
 export async function generateProductInsights(params: {
   productName: string;
   productCategory?: string;
@@ -230,7 +218,7 @@ export async function generateProductInsights(params: {
   sentiment: number;
 }> {
   const reviewsText = params.reviews.slice(0, 30).map((r, i) => `${i + 1}. (${r.rating}★) ${r.comment}`).join("\n");
-  const prompt = `أنت خبير عطور محترف. حلّل تقييمات العملاء لهذا العطر واستخرج الملف العطري بدقّة.
+  const prompt = `أنت خبير قهوة متخصصة (Specialty Coffee) محترف لمتجر فوجي كافيه. حلّل تقييمات العملاء لهذا المنتج واستخرج الملف الحسي بدقة.
 
 المنتج: ${params.productName}${params.productCategory ? ` — الفئة: ${params.productCategory}` : ""}
 
@@ -239,13 +227,13 @@ ${reviewsText}
 
 أعد JSON فقط بالشكل التالي (بدون أي نص خارج الـ JSON):
 {
-  "summaryAr": "ملخص في جملتين بالعربية يصف الانطباع العام",
+  "summaryAr": "ملخص في جملتين بالعربية يصف الانطباع العام للمنتج",
   "summaryEn": "two-sentence English summary of overall impression",
-  "scentNotes": ["نوتات عطرية مستخرجة من التقييمات (3-6 كلمات)"],
-  "longevity": "وصف ثبات العطر (مثال: ٦-٨ ساعات / متوسط / قوي)",
-  "sillage": "وصف بصمة العطر (هادئ / متوسط / قوي / يلفت الأنظار)",
-  "occasions": ["مناسبات يُنصح بها (3-5 كلمات)"],
-  "pros": ["أبرز 3 ميزات"],
+  "scentNotes": ["نكهات ومذاقات مستخرجة من التقييمات (مثل: شوكولاتة، فاكهة استوائية، حمضي) — 3-6 عناصر"],
+  "longevity": "وصف قوة المنتج ومدة تأثيره (مثال: قوي / متوسط / خفيف / مناسب لتحضير بارد)",
+  "sillage": "وصف جسم القهوة (ثقيل / متوسط / خفيف — Body)",
+  "occasions": ["مناسبات يُنصح به فيها مثل: الصباح، الضيافة، الهدايا — 3-5 عناصر"],
+  "pros": ["أبرز 3 ميزات مذكورة في التقييمات"],
   "cons": ["أبرز 2 ملاحظات سلبية أو 'لا توجد ملاحظات سلبية بارزة'"],
   "sentiment": 0.85
 }
@@ -268,7 +256,7 @@ export async function generateInventoryInsights(params: {
     `${i + 1}. ${p.name} | المخزون: ${p.stock} | مبيعات ٣٠ يوم: ${p.sold30d} | إيراد: ${p.revenue30d} ر.س | السعر: ${p.price}`
   ).join("\n");
 
-  const prompt = `أنت محلل مخزون ومبيعات محترف لمتجر عطور سعودي. حلّل البيانات وأعطِ توصيات عملية بالعربية.
+  const prompt = `أنت محلل مخزون ومبيعات محترف لمتجر قهوة متخصصة (فوجي كافيه). حلّل البيانات وأعطِ توصيات عملية بالعربية.
 
 إجمالي الإيرادات (٣٠ يوم): ${params.totalRevenue} ر.س
 عدد المنتجات: ${params.products.length}

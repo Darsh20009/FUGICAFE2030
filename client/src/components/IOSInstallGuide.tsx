@@ -102,7 +102,7 @@ export function IOSInstallGuide() {
                     <div className="text-center">
                       <div className="text-[9px] font-black text-stone-900">فوجي كافيه</div>
                       <div className="text-[6px] text-amber-600 tracking-widest mt-0.5">
-                        LUXURY FRAGRANCES
+                        SPECIALTY COFFEE
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-1.5">

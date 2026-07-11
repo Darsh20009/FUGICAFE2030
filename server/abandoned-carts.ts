@@ -51,7 +51,7 @@ function buildReminderHtml(opts: {
     <h2 style="color:#2d1a14;margin:0 0 12px;font-size:22px">سلتك تنتظرك 🌸</h2>
     <p style="color:#1a1a1a;line-height:1.8;margin:0 0 16px">
       مرحباً ${opts.customerName || "صديقنا الكريم"}،<br/>
-      لاحظنا أنك تركت بعض العطور الفاخرة في سلتك. هي بانتظارك!
+      لاحظنا أنك تركت بعض المنتجات في سلتك. هي بانتظارك في فوجي كافيه!
     </p>
     ${couponBlock}
     <table style="width:100%;border-collapse:collapse;margin:16px 0;background:#fafafa;border-radius:8px;overflow:hidden">
@@ -65,7 +65,7 @@ function buildReminderHtml(opts: {
       <a href="/cart" style="background:linear-gradient(135deg,#2d1a14,#3d261e);color:#fff;text-decoration:none;padding:14px 36px;border-radius:8px;display:inline-block;font-weight:700;letter-spacing:.05em">إكمال الطلب الآن →</a>
     </div>
     <p style="color:#888;font-size:11px;text-align:center;margin-top:20px">
-      كميات محدودة من العطور الفاخرة • التوصيل لجميع مناطق المملكة
+      قهوة متخصصة وماتشا أصيلة • التوصيل لجميع مناطق المملكة
     </p>
   `;
 }

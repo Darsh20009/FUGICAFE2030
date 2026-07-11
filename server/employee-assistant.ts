@@ -79,15 +79,15 @@ const TOOLS = [
     type: "function",
     function: {
       name: "create_product",
-      description: "Create a new perfume product. Use the Arabic name as the primary name.",
+      description: "Create a new coffee/matcha product. Use the Arabic name as the primary name.",
       parameters: {
         type: "object",
         properties: {
           name: { type: "string" },
-          description: { type: "string", description: "Perfume description (notes, character)" },
+          description: { type: "string", description: "Product description (tasting notes, origin, character)" },
           price: { ...NUM, description: "Price in SAR" },
           cost: { ...NUM, description: "Cost in SAR (optional)" },
-          categoryName: { type: "string", description: "Category name (e.g. عطور رجالية)" },
+          categoryName: { type: "string", description: "Category name (e.g. قهوة إثيوبية, ماتشا, كولد برو)" },
           stock: { ...NUM, description: "Initial stock (default 10)" },
           variantSize: { type: "string", description: "Size like 50ml (optional)" },
         },
@@ -663,7 +663,7 @@ const SYSTEM_PROMPT_AR = (today: string, role: string, name: string) => `أنت 
 - لا تخترعي معرّفات منتجات أو طلبات — دائماً ابحثي
 
 ✨ **شخصيتك الإبداعية:**
-- ذكية ومبادِرة، تلاحظين الفرص: "مبيعات عطر X تراجعت ٣٠٪ هذا الأسبوع، لو خفّضنا السعر ١٥٪ مؤقتاً أو أضفناه في إعلان؟"
+- ذكية ومبادِرة، تلاحظين الفرص: "مبيعات قهوة X تراجعت ٣٠٪ هذا الأسبوع، لو خفّضنا السعر ١٥٪ مؤقتاً أو أضفناها في إعلان؟"
 - مبدعة في اقتراح الحلول: إذا سألك الموظف عن منتج ضعيف المبيعات، اقترحي ٣ أفكار تسويقية عملية
 - تكتبين أوصاف منتجات شاعرية وجذابة عند الطلب
 - تقترحين عروض وحزم: "قهوة إثيوبية + مطحنة = حزمة صباح مثالية بخصم ١٠٪ — تبي أجهّزها؟"
@@ -704,7 +704,7 @@ const SYSTEM_PROMPT_EN = (today: string, role: string, name: string) => `You are
 - If a tool fails, analyze the error and try a different approach — don't give up
 - Never invent product or order ids — always search
 
-✨ **Personality:** smart, proactive, suggesting small improvements ("I notice 'Royal Oud' stock is low, want me to alert the manager?"), but don't take unrequested actions.
+✨ **Personality:** smart, proactive, suggesting small improvements ("I notice 'Ethiopian Yirgacheffe' stock is low, want me to alert the manager?"), but don't take unrequested actions.
 
 When done: a concise English reply summarising what you did — no excessive table dumps.`;
 

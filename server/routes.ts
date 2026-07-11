@@ -1857,7 +1857,7 @@ ${allUrls.map(u => `  <url>
         case "order_confirmation":
           result = await sendOrderConfirmationEmail({
             to, customerName, orderId: ref, orderRef: ref,
-            items: [{ title: "عطر العود الملكي", quantity: 1, price: 450, size: "50ml" }],
+            items: [{ title: "قهوة إثيوبية فوجي", quantity: 1, price: 85, size: "250g" }],
             subtotal: 450, vatAmount: 67.5, shippingCost: 25, total: amount || 542.5,
             paymentMethod: "tap", deliveryAddress: "الرياض، المملكة العربية السعودية",
           });
@@ -3438,7 +3438,7 @@ ${allUrls.map(u => `  <url>
         const { generateProductInsights } = await import("./ai");
         const insights = await generateProductInsights({
           productName: (product as any).name,
-          productCategory: "perfume",
+          productCategory: (product as any).category || "coffee",
           reviews: reviewsWithComments.map((r: any) => ({ rating: r.rating, comment: r.comment })),
         });
         const saved = await storage.upsertProductInsights(productId, {

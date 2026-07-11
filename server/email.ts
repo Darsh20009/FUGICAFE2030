@@ -624,7 +624,7 @@ export async function sendWelcomeEmail(params: {
   const enMirror = englishMirror(`
     <h2 style="margin:0 0 6px;font-size:20px;font-weight:900;color:#000000;">👋 Welcome ${params.customerName}!</h2>
     <p style="margin:0 0 12px;font-size:13px;color:rgba(0,0,0,0.55);font-weight:600;">You've joined the Fuji Cafe family</p>
-    <p style="margin:0 0 12px;font-size:13px;color:rgba(0,0,0,0.7);line-height:1.7;">We're delighted to have you. Your account is ready and you can now shop hundreds of luxury fragrances safely and easily.</p>
+    <p style="margin:0 0 12px;font-size:13px;color:rgba(0,0,0,0.7);line-height:1.7;">We're delighted to have you. Your account is ready and you can now explore our specialty coffee and matcha collection safely and easily.</p>
     <ul style="margin:0;padding:0 0 0 20px;font-size:12px;color:rgba(0,0,0,0.7);line-height:1.8;">
       <li>✅ <b>Secure account</b> — your data is protected with the highest encryption standards</li>
       <li>🚚 <b>Fast shipping</b> — delivery within 2–4 business days</li>

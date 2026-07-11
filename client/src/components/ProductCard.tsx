@@ -18,7 +18,7 @@ const CATEGORY_BADGE_MAP: Record<string, { labelAr: string; labelEn: string; cls
   unisex:      { labelAr: "للجنسين",  labelEn: "Unisex",  cls: "bg-[#4a3060] text-white" },
   spray:       { labelAr: "بخاخ",     labelEn: "Spray",   cls: "bg-[#1a6b4a] text-white" },
   accessories: { labelAr: "إكسسوار",  labelEn: "Accessory", cls: "bg-[#7a5c1e] text-white" },
-  oud:         { labelAr: "عود",      labelEn: "Oud",     cls: "bg-[#5c3a1e] text-white" },
+  oud:         { labelAr: "يمني",     labelEn: "Yemeni",  cls: "bg-[#5c3a1e] text-white" },
 };
 
 interface ProductCardProps {

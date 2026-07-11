@@ -1,7 +1,7 @@
 /**
  * AI Self-Learning System for Fuji Cafe
  *
- * Tracks customer interactions with the perfume advisor:
+ * Tracks customer interactions with the coffee advisor:
  *   - Which products were shown vs actually purchased/added-to-cart
  *   - Which keywords/intents lead to successful conversions
  *   - Which advisor responses got positive engagement
@@ -264,7 +264,7 @@ async function learnForProduct(productId: string) {
 // ─── Prompt builder ──────────────────────────────────────────────────────────
 
 function buildLearnPrompt(product: any, stats: { topKeywords: string[]; sampleMessages: string[]; shown: number; clicked: number; ordered: number }) {
-  return `أنت خبير تسويق عطور فاخرة. مهمتك تحسين وصف هذا العطر بناءً على ما يبحث عنه العملاء فعلاً.
+  return `أنت خبير تسويق قهوة متخصصة لمتجر فوجي كافيه. مهمتك تحسين وصف هذا المنتج بناءً على ما يبحث عنه العملاء فعلاً.
 
 **المنتج:** ${product.name}
 **الوصف الحالي:** ${product.description || "لا يوجد"}
@@ -277,9 +277,9 @@ function buildLearnPrompt(product: any, stats: { topKeywords: string[]; sampleMe
 ${stats.sampleMessages.slice(0, 5).map((m, i) => `  ${i + 1}. "${m}"`).join("\n")}
 
 **المطلوب:**
-اكتب وصفاً محسّناً للعطر يستهدف هذه الطلبات تحديداً. الوصف يجب أن:
-- يبرز مميزات تهم هذا الجمهور
-- يذكر المناسبات والأوقات المثالية
+اكتب وصفاً محسّناً للمنتج يستهدف هذه الطلبات تحديداً. الوصف يجب أن:
+- يبرز النكهة والأصل والمناسبات المثالية
+- يذكر طريقة التحضير الموصى بها إن كان مناسباً
 - يكون شاعرياً وجذاباً (2-3 جمل)
 
 أجب بـ JSON فقط:
@@ -305,12 +305,12 @@ function extractJSON(text: string): any {
 }
 
 const INTENT_PATTERNS: Record<string, string[]> = {
-  recommend:  ["أنصحني", "اقترح", "recommend", "suggest", "ما أحسن", "أي عطر"],
+  recommend:  ["أنصحني", "اقترح", "recommend", "suggest", "ما أحسن", "أي قهوة"],
   compare:    ["فرق", "مقارنة", "compare", "vs", "أحسن من", "ولا"],
   price:      ["سعر", "price", "كم", "غالي", "رخيص", "تكلفة"],
   occasion:   ["مناسبة", "زفاف", "عمل", "سهرة", "occasion", "event", "wedding"],
   gender:     ["رجال", "نساء", "men", "women", "للرجل", "للمرأة"],
-  notes:      ["رائحة", "عود", "مسك", "ورد", "oud", "musk", "rose", "note"],
+  notes:      ["نكهة", "حامض", "شوكولاتة", "فاكهي", "إثيوبي", "برازيلي", "ماتشا", "tasting", "note", "flavor"],
 };
 
 function detectIntent(msg: string): string {
@@ -328,7 +328,7 @@ const ARABIC_KEYWORDS = [
   "صيف", "شتاء", "ليل", "نهار", "طويل", "ثبات",
 ];
 const ENGLISH_KEYWORDS = [
-  "oud", "musk", "rose", "amber", "incense", "saffron", "sandalwood", "jasmine",
+  "espresso", "latte", "matcha", "cold brew", "pour over", "single origin", "blend",
   "luxury", "light", "strong", "heavy", "fresh", "sweet", "warm", "cool",
   "men", "women", "unisex", "daily", "evening", "office", "wedding", "gift",
   "summer", "winter", "night", "day", "longevity", "lasting",

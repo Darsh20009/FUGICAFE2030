@@ -244,7 +244,7 @@ export default function OrderSuccess() {
                     <p className="text-[11px] text-muted-foreground font-medium leading-relaxed">
                       {isPickup
                         ? "فريق الفرع يجهّز طلبك. ستصلك رسالة فور الجاهزية للاستلام."
-                        : "فريقنا يجهّز عطورك بعناية. ستصلك رسالة عند الشحن."}
+                        : "فريقنا يجهّز طلبك بعناية. ستصلك رسالة عند الشحن."}
                     </p>
                   </div>
                 </div>

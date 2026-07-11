@@ -783,8 +783,9 @@ export function Layout({ children }: { children: ReactNode }) {
                 target="_blank"
                 rel="noreferrer"
                 data-testid="link-qirox-studio"
-                className="font-black text-[#E8637A] hover:text-[#E8637A] transition-colors underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-1 font-black text-[#E8637A] hover:text-[#E8637A] transition-colors underline-offset-4 hover:underline"
               >
+                <img src="/qirox-studio-logo.png" alt="Qirox Studio" className="h-3.5 w-3.5 object-contain rounded-sm inline-block" />
                 Qirox Studio
               </a>
             </p>
